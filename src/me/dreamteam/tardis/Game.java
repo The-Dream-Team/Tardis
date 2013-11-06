@@ -61,11 +61,10 @@ public class Game extends Canvas {
 		// going to do that our self in accelerated mode
 		setIgnoreRepaint(true);
 		
-		// finally make the window visible 
-		container.pack();
+		//Don't move this variable as it will add extra padding if moved below pack
 		container.setResizable(false);
-		container.setLocation(-1,-1);
 		
+		container.pack();
 		
 		// Make sure the window shows up smack bang in the centre
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -77,6 +76,7 @@ public class Game extends Canvas {
 		container.setLocation(x, y);
 		
 		// Then set the container as visible
+		container.setBackground(Color.black);
 		container.setVisible(true);
 		
 		// create the buffering strategy for graphics
@@ -131,7 +131,7 @@ public class Game extends Canvas {
 			// Colour in background
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 			g.setColor(Color.black);
-			g.fillRect(0,0,500,650);
+			g.fillRect(0,0,800,650);
 			
 			// Draw
 			g.dispose();
