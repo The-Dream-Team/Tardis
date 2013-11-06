@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.lwjgl.Sys;
@@ -88,6 +89,8 @@ public class Game extends Canvas {
 		// do we'd like to exit the game
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
+				JOptionPane.showMessageDialog(null, "Closing " + gameName + version);
+				// Debug to ensure that game exits correctly
 				System.exit(0);
 			}
 		});
