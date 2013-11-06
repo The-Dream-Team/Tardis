@@ -3,6 +3,7 @@ package me.dreamteam.tardis;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -77,6 +78,10 @@ public class Game extends Canvas {
 		
 		// Then set the container as visible
 		container.setVisible(true);
+		
+		// create the buffering strategy for graphics
+		createBufferStrategy(2);
+		strategy = getBufferStrategy();
 
 		
 		// add a listener to respond to the user closing the window. If they
@@ -122,6 +127,16 @@ public class Game extends Canvas {
 			long delta = System.currentTimeMillis() - lastLoopTime;
 			lastLoopTime = System.currentTimeMillis();
 			lastFPS = getTime();
+			
+			// Colour in background
+			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+			g.setColor(Color.black);
+			g.fillRect(0,0,500,650);
+			
+			// Draw
+			g.dispose();
+			strategy.show();
+			
 			
 		}
 	}
