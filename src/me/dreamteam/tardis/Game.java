@@ -9,6 +9,8 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.lwjgl.Sys;
+
 /**
 Main Class
  */
@@ -30,10 +32,14 @@ public class Game extends Canvas {
 	private String version = "0.1";
 	// Version set up so that we can see where we are at
 	
+	int fps;
+	long lastFPS;
+	// To grab the FPS, for debugging purposes
+	
 	
 	public Game() {
 		// create a frame to contain our game
-		JFrame container = new JFrame(gameName + "- " + build + version);
+		JFrame container = new JFrame(gameName + "- " + build + version + " | FPS: " + lastFPS);
 		
 		// get hold the content of the frame and set up the resolution of the game
 		JPanel panel = (JPanel) container.getContentPane();
@@ -67,8 +73,27 @@ public class Game extends Canvas {
 	 * Garbage collection and looping
 	 */
 	private void startGame() {
-	
+		lastFPS = getTime();
 	}
+	
+	/**
+	 * Calculate the FPS and set it in the title bar
+	 */
+	public void updateFPS() {
+	    if (getTime() - lastFPS > 1000) {
+	        fps = 0; //reset the FPS counter
+	        lastFPS += 1000; //add one second
+	    }
+	    fps++;
+	}
+	
+	public long getTime() {
+		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
+		}
+	
+	/**
+	 * GAME LOOP and Main below
+	 */
 	
 	
 	public void gameLoop() {
