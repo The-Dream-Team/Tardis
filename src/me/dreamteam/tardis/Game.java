@@ -1,7 +1,9 @@
 package me.dreamteam.tardis;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
@@ -61,8 +63,20 @@ public class Game extends Canvas {
 		// finally make the window visible 
 		container.pack();
 		container.setResizable(false);
+		container.setLocation(-1,-1);
+		
+		
+		// Make sure the window shows up smack bang in the centre
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		
+		int w = container.getSize().width;
+		int h = container.getSize().height;
+		int x = (dim.width-w)/2;
+		int y = (dim.height-h)/2;
+		container.setLocation(x, y);
+		
+		// Then set the container as visible
 		container.setVisible(true);
-		container.setLocation (-1,-1);
 
 		
 		// add a listener to respond to the user closing the window. If they
