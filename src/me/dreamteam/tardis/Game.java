@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import org.lwjgl.Sys;
 
+
 /**
 Main Class
  */
@@ -37,6 +38,8 @@ public class Game extends Canvas {
 	// To grab the FPS, for debugging purposes
 	
 	
+	
+	
 	public Game() {
 		// create a frame to contain our game
 		JFrame container = new JFrame(gameName + "- " + build + version + " | FPS: " + lastFPS);
@@ -59,6 +62,8 @@ public class Game extends Canvas {
 		container.pack();
 		container.setResizable(false);
 		container.setVisible(true);
+		container.setLocation (-1,-1);
+
 		
 		// add a listener to respond to the user closing the window. If they
 		// do we'd like to exit the game
@@ -73,6 +78,7 @@ public class Game extends Canvas {
 	 * Garbage collection and looping
 	 */
 	private void startGame() {
+		
 	}
 	
 	/**
@@ -105,6 +111,8 @@ public class Game extends Canvas {
 			
 		}
 	}
+	
+	
 	
 	/**
 	 * Game Start
