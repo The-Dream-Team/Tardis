@@ -146,14 +146,15 @@ public class Game extends Canvas {
 	
 	
 	
-	/**
-	 * Game Start
-	 */
-	public static void main(String argv[]) {
-		Game g =new Game();
+		/**
+		 * Game Start
+		 */
+		public static void main(String argv[]) {
+			Game g =new Game();
+	
+			// Start the main game loop
+			g.gameLoop();
+		}
 
-		// Start the main game loop
-		g.gameLoop();
-	}
 	
 }
