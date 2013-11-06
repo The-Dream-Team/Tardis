@@ -73,7 +73,6 @@ public class Game extends Canvas {
 	 * Garbage collection and looping
 	 */
 	private void startGame() {
-		lastFPS = getTime();
 	}
 	
 	/**
@@ -102,6 +101,7 @@ public class Game extends Canvas {
 		while (isRunning) {
 			long delta = System.currentTimeMillis() - lastLoopTime;
 			lastLoopTime = System.currentTimeMillis();
+			lastFPS = getTime();
 			
 		}
 	}
