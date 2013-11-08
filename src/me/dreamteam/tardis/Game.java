@@ -38,7 +38,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.1.4";
+	private String version = "0.1.5";
 	// Version set up so that we can see where we are at
 	
 	private Entity ship;
@@ -106,7 +106,7 @@ public class Game extends Canvas {
 	
 	private void initEntities() {
 		// create the player ship and place it roughly in the center of the screen
-		ship = new ShipEntity(this,"sprites/ship.gif",370,550);
+		ship = new ShipEntity(this,"sprites/ship.png",246,288);
 		entities.add(ship);
 	}
 	
