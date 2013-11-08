@@ -104,6 +104,10 @@ public class Game extends Canvas {
 	}
 	
 	
+	/**
+	 * initialise entities 
+	 */
+	
 	private void initEntities() {
 		// create the player ship and place it roughly in the center of the screen
 		ship = new ShipEntity(this,"sprites/ship.png",246,288);
@@ -153,6 +157,7 @@ public class Game extends Canvas {
 			// Draw
 			g.dispose();
 			strategy.show();
+		
 			
 			
 		}
