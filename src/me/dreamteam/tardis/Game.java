@@ -8,12 +8,16 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.lwjgl.Sys;
+
+import me.dreamteam.tardis.Entity;
+import me.dreamteam.tardis.ShipEntity;
 
 
 /**
@@ -37,6 +41,10 @@ public class Game extends Canvas {
 	private String version = "0.1.4";
 	// Version set up so that we can see where we are at
 	
+	private Entity ship;
+	private ArrayList entities = new ArrayList();
+	//game player
+	
 	int fps;
 	long lastFPS;
 	// To grab the FPS, for debugging purposes
@@ -51,7 +59,6 @@ public class Game extends Canvas {
 		// get hold the content of the frame and set up the resolution of the game
 		JPanel panel = (JPanel) container.getContentPane();
 		panel.setPreferredSize(new Dimension(500,650));
-		// Katie feel free to change this to the dimensions as given in the photoshop document
 		panel.setLayout(null);
 		
 		// setup our canvas size and put it into the content of the frame
@@ -94,6 +101,13 @@ public class Game extends Canvas {
 				System.exit(0);
 			}
 		});
+	}
+	
+	
+	private void initEntities() {
+		// create the player ship and place it roughly in the center of the screen
+		ship = new ShipEntity(this,"sprites/ship.gif",370,550);
+		entities.add(ship);
 	}
 	
 	/**
