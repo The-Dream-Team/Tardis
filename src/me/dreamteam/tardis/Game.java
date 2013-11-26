@@ -208,7 +208,7 @@ public class Game extends Canvas {
 			  
 			  
 			  
-				// Draw the entities and other items
+				// Clear Graphics
 				g.dispose();
 				strategy.show();			  
 			  
