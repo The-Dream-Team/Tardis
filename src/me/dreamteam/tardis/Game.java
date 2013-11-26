@@ -47,7 +47,7 @@ public class Game extends Canvas {
 	
 	int fps;
 	long lastFPS;
-	// To grab the FPS, for debugging purposes
+	// To grab the FPS, for debugging purposes. 60 FPS is the best FPS!
 	
 	
 	
