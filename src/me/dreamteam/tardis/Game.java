@@ -90,6 +90,8 @@ public class Game extends Canvas {
 		// create the buffering strategy for graphics
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
+		
+		initEntities();
 
 		
 		// add a listener to respond to the user closing the window. If they
