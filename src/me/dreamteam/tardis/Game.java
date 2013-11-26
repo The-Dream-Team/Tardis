@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
@@ -38,8 +40,13 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.1.7";
+	private String version = "0.1.7b";
 	// Version set up so that we can see where we are at
+	
+    private boolean leftPressed = false;
+    private boolean rightPressed = false;
+    
+    private double moveSpeed = 300;
 	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
@@ -91,6 +98,7 @@ public class Game extends Canvas {
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
 		
+		
 		initEntities();
 
 		
@@ -103,6 +111,9 @@ public class Game extends Canvas {
 				System.exit(0);
 			}
 		});
+		
+		// Init keys
+        addKeyListener(new KeyInputHandler());
 	}
 	
 	
@@ -123,6 +134,11 @@ public class Game extends Canvas {
 	private void startGame() {
         entities.clear();
         initEntities();
+        
+        
+        // reset key presses
+        leftPressed = false;
+        rightPressed = false;
 	}
 	
 	/**
@@ -156,10 +172,17 @@ public class Game extends Canvas {
 			// Colour in background
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 			g.setColor(Color.black);
-			g.fillRect(0,0,800,650);
+			g.fillRect(0,0,500,650);
 			
 			
-			// Adds the ship into game. Needs resizing
+			// Adds the ship into game.
+			
+			for (int i=0;i<entities.size();i++) {
+                Entity entity = (Entity) entities.get(i);
+                
+                entity.move(delta);
+			}
+			
 			  for (int i=0;i<entities.size();i++) {
                   Entity entity = (Entity) entities.get(i);
                   
@@ -167,18 +190,63 @@ public class Game extends Canvas {
           }
 			  
 			  
-			
-			// Draw the entities and other items
-			g.dispose();
-			strategy.show();
-			
-			
-		
-			
-			
+				// Draw the entities and other items
+				g.dispose();
+				strategy.show();			  
+			  
+			  
+              if ((leftPressed) && (!rightPressed)) {
+                  ship.setHorizontalMovement(-moveSpeed);
+              } else if ((rightPressed) && (!leftPressed)) {
+                  ship.setHorizontalMovement(moveSpeed);
+              }	
+              
+              try { Thread.sleep(10); } catch (Exception e) {}
 		}
 	}
 	
+	
+    private class KeyInputHandler extends KeyAdapter {
+
+        private int pressCount = 1;
+
+        public void keyPressed(KeyEvent e) {
+                // if we're waiting for an "any key" typed then we don't 
+                // want to do anything with just a "press"
+                
+                
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                        leftPressed = true;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                        rightPressed = true;
+                }
+        } 
+        
+
+        public void keyReleased(KeyEvent e) {
+                // if we're waiting for an "any key" typed then we don't 
+                // want to do anything with just a "released"
+               
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                        leftPressed = false;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                        rightPressed = false;
+                }
+        }
+        
+        
+        public void keyTyped(KeyEvent e) {
+        	startGame();
+        	pressCount = 1;
+        	pressCount++;
+        }
+        
+    }
+	
+    
+    
 	
 	
 		/**

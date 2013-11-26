@@ -38,7 +38,7 @@ public class ShipEntity extends Entity {
 		// if we're moving right and have reached the right hand side
 		// of the screen, don't move
 		// !! This will be vital for our game which means we can force the ship to stay within the frame.
-		if ((dx > 0) && (x > 750)) {
+		if ((dx > 0) && (x > 440)) {
 			return;
 		}
 		
