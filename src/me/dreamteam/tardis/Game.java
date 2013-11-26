@@ -51,6 +51,7 @@ public class Game extends Canvas {
 	
     private boolean leftPressed = false;
     private boolean rightPressed = false;
+    private boolean spacebarPressed = false;
 	
 	private boolean logicRequiredThisLoop = false;
 	
@@ -146,6 +147,7 @@ public class Game extends Canvas {
         // reset key presses
         leftPressed = false;
         rightPressed = false;
+        spacebarPressed = false;
 	}
 	
 	/**
@@ -211,15 +213,16 @@ public class Game extends Canvas {
 				// Clear Graphics
 				g.dispose();
 				strategy.show();			  
-			  
-			  
+	          
+			  // Staggers ship movement - cleans up PR #18
+		      ship.setHorizontalMovement(0);
+		      
+		      // Ship movement
               if ((leftPressed) && (!rightPressed)) {
                   ship.setHorizontalMovement(-moveSpeed);
               } else if ((rightPressed) && (!leftPressed)) {
                   ship.setHorizontalMovement(moveSpeed);
-              }	else if ((!rightPressed) && (!leftPressed)) {
-                  ship.setHorizontalMovement(0);
-              }	
+              }
               
               try { Thread.sleep(10); } catch (Exception e) {}
 		}
@@ -238,6 +241,9 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                         rightPressed = true;
                 }
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    	spacebarPressed = true;
+                }
         } 
         
 
@@ -248,6 +254,9 @@ public class Game extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                         rightPressed = false;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                	spacebarPressed = false;
                 }
         }
         
