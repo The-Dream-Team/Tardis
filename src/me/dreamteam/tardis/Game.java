@@ -124,6 +124,11 @@ public class Game extends Canvas {
         logicRequiredThisLoop = true;
      }
 	
+    public void quitGame() {
+		JOptionPane.showMessageDialog(null, "Closing " + gameName + version);
+		// Debug to ensure that game exits correctly
+		System.exit(0);
+    }
 	
 	
 	/**
@@ -244,6 +249,10 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                     	spacebarPressed = true;
                 }
+                if (e.getKeyChar() == 27) {
+                	quitGame();
+                	// Quit game using the escape key
+            }
         } 
         
 
