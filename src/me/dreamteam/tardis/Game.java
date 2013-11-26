@@ -158,9 +158,19 @@ public class Game extends Canvas {
 			g.setColor(Color.black);
 			g.fillRect(0,0,800,650);
 			
+			
+			// Adds the ship into game. Needs resizing
+			  for (int i=0;i<entities.size();i++) {
+                  Entity entity = (Entity) entities.get(i);
+                  
+                  entity.draw(g);
+          }
+			
 			// Draw
 			g.dispose();
 			strategy.show();
+			
+			
 		
 			
 			
