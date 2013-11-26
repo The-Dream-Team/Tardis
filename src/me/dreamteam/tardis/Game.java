@@ -43,14 +43,16 @@ public class Game extends Canvas {
 	private String version = "0.1.7b";
 	// Version set up so that we can see where we are at
 	
-    private boolean leftPressed = false;
-    private boolean rightPressed = false;
-    
-    private double moveSpeed = 300;
-	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
 	//game player
+	
+    private double moveSpeed = 300;
+	
+    private boolean leftPressed = false;
+    private boolean rightPressed = false;
+	
+	private boolean logicRequiredThisLoop = false;
 	
 	int fps;
 	long lastFPS;
@@ -94,13 +96,6 @@ public class Game extends Canvas {
 		container.setBackground(Color.black);
 		container.setVisible(true);
 		
-		// create the buffering strategy for graphics
-		createBufferStrategy(2);
-		strategy = getBufferStrategy();
-		
-		
-		initEntities();
-
 		
 		// add a listener to respond to the user closing the window. If they
 		// do we'd like to exit the game
@@ -114,7 +109,20 @@ public class Game extends Canvas {
 		
 		// Init keys
         addKeyListener(new KeyInputHandler());
+        
+		// create the buffering strategy for graphics
+		createBufferStrategy(2);
+		strategy = getBufferStrategy();
+        
+        requestFocus();
+		initEntities();
+
 	}
+	
+    public void updateLogic() {
+        logicRequiredThisLoop = true;
+     }
+	
 	
 	
 	/**
@@ -183,6 +191,16 @@ public class Game extends Canvas {
                 entity.move(delta);
 			}
 			
+
+            if (logicRequiredThisLoop) {
+                    for (int i=0;i<entities.size();i++) {
+                            Entity entity = (Entity) entities.get(i);
+                            entity.doLogic();
+                    }
+                    
+                    logicRequiredThisLoop = false;
+            }
+			
 			  for (int i=0;i<entities.size();i++) {
                   Entity entity = (Entity) entities.get(i);
                   
@@ -235,7 +253,7 @@ public class Game extends Canvas {
         
         public void keyTyped(KeyEvent e) {
         	startGame();
-        	pressCount = 1;
+        	pressCount = 0;
         	pressCount++;
         }
         
