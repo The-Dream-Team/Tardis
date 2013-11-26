@@ -117,8 +117,11 @@ public class Game extends Canvas {
 	/**
 	 * Garbage collection and looping
 	 */
+	
+	//clear the entities
 	private void startGame() {
-		
+		entities.clear();
+		initEntities();
 	}
 	
 	/**
