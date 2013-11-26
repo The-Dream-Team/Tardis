@@ -190,6 +190,7 @@ public class Game extends Canvas {
           }
 			  
 			  
+			  
 				// Draw the entities and other items
 				g.dispose();
 				strategy.show();			  
@@ -210,10 +211,7 @@ public class Game extends Canvas {
 
         private int pressCount = 1;
 
-        public void keyPressed(KeyEvent e) {
-                // if we're waiting for an "any key" typed then we don't 
-                // want to do anything with just a "press"
-                
+        public void keyPressed(KeyEvent e) {                
                 
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                         leftPressed = true;
@@ -225,8 +223,6 @@ public class Game extends Canvas {
         
 
         public void keyReleased(KeyEvent e) {
-                // if we're waiting for an "any key" typed then we don't 
-                // want to do anything with just a "released"
                
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                         leftPressed = false;
