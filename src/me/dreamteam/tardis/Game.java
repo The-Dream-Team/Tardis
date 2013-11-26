@@ -132,7 +132,6 @@ public class Game extends Canvas {
 	private void initEntities() {
 		// create the player ship and place it roughly in the center of the screen
 		ship = new ShipEntity(this,"sprites/ship.png",220,568);
-		System.out.println("Loading ship..."); //debug
 		entities.add(ship);
 	}
 	
