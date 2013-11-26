@@ -218,6 +218,8 @@ public class Game extends Canvas {
                   ship.setHorizontalMovement(-moveSpeed);
               } else if ((rightPressed) && (!leftPressed)) {
                   ship.setHorizontalMovement(moveSpeed);
+              }	else if ((!rightPressed) && (!leftPressed)) {
+                  ship.setHorizontalMovement(0);
               }	
               
               try { Thread.sleep(10); } catch (Exception e) {}
