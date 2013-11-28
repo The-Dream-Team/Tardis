@@ -270,12 +270,6 @@ public class Game extends Canvas {
         }
         
         
-        public void keyTyped(KeyEvent e) {
-        	startGame();
-        	pressCount = 0;
-        	pressCount++;
-        }
-        
     }
 	
     
