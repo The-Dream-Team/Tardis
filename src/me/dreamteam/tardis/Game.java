@@ -236,7 +236,7 @@ public class Game extends Canvas {
 	
     private class KeyInputHandler extends KeyAdapter {
 
-        private int pressCount = 1;
+        
 
         public void keyPressed(KeyEvent e) {                
                 
