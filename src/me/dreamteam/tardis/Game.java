@@ -55,8 +55,12 @@ public class Game extends Canvas {
 	private boolean logicRequiredThisLoop = false;
 	
 	
-	private String gameTimer = "";
-	private String gameScore = "";
+	private String timeDisplay = "";
+	private String scoreDisplay = "";
+	int gameTime;
+	int gameScore; 
+	
+	
 	
 	int fps;
 	long lastFPS;
@@ -206,13 +210,13 @@ public class Game extends Canvas {
 			
 			g.setColor(Color.white);
 			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
-            g.drawString(gameTimer,(55-g.getFontMetrics().stringWidth(gameTimer))/2,18);
+            g.drawString(timeDisplay,(55-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(55-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
         	
 			g.setColor(Color.white);
 			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
-            g.drawString(gameScore,(755-g.getFontMetrics().stringWidth(gameScore))/2,18);
+            g.drawString(scoreDisplay,(755-g.getFontMetrics().stringWidth(scoreDisplay))/2,18);
             g.drawString("Score:",(755-g.getFontMetrics().stringWidth("Score:"))/2,18);
             
 			
