@@ -53,6 +53,9 @@ public class Game extends Canvas {
 	
 	private boolean logicRequiredThisLoop = false;
 	
+	
+	private String gameTimer = "";
+	
 	int fps;
 	long lastFPS;
 	// To grab the FPS, for debugging purposes. 60 FPS is the best FPS!
