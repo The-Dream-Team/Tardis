@@ -64,7 +64,6 @@ public class Game extends Canvas {
 	
 	long lastTime;
 	// To grab the FPS, for debugging purposes. 60 FPS is the best FPS!
-	//Timer newtimer = new Timer();
 	
 	
 	
@@ -90,7 +89,7 @@ public class Game extends Canvas {
 		
 		container.pack();
 		
-		// Make sure the window shows up smack bang in the centre
+		// Window setup
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		
 		int w = container.getSize().width;
@@ -98,8 +97,6 @@ public class Game extends Canvas {
 		int x = (dim.width-w)/2;
 		int y = (dim.height-h)/2;
 		container.setLocation(x, y);
-		
-		// Then set the container as visible
 		container.setBackground(Color.black);
 		container.setVisible(true);
 		
