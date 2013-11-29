@@ -214,7 +214,7 @@ public class Game extends Canvas {
             
             String convtime = gameTime+"";
             g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.PLAIN, fontSize));
+			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
             g.drawString(timeDisplay,(155-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convtime,(155-g.getFontMetrics().stringWidth(convtime))/2,18);
         	
