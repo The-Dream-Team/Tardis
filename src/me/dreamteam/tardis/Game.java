@@ -218,8 +218,6 @@ public class Game extends Canvas {
 			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
             g.drawString(scoreDisplay,(755-g.getFontMetrics().stringWidth(scoreDisplay))/2,18);
             g.drawString("Score:",(755-g.getFontMetrics().stringWidth("Score:"))/2,18);
-            
-			
 			
 			// Adds the ship into game.
 			
