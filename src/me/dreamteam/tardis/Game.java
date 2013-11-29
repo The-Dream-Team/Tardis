@@ -41,7 +41,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.1.9";
+	private String version = "0.2";
 	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
@@ -50,7 +50,6 @@ public class Game extends Canvas {
 	
     private boolean leftPressed = false;
     private boolean rightPressed = false;
-    private boolean spacebarPressed = false;
 	
 	private boolean logicRequiredThisLoop = false;
 	
@@ -286,9 +285,7 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                         rightPressed = true;
                 }
-                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    	spacebarPressed = true;
-                }
+
                 if (e.getKeyChar() == 27) {
                 	quitGame();
                 	// Quit game using the escape key
