@@ -21,6 +21,7 @@ import org.lwjgl.Sys;
 
 import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
+import me.dreamteam.tardis.EnemyEntity;
 
 
 /**
@@ -150,9 +151,14 @@ public class Game extends Canvas {
 	
 		Entity Enemy = new EnemyEntity(this,"sprites/alien1.png",150,50);
 		entities.add(Enemy);
+		Entity Enemy2 = new EnemyEntity(this,"sprites/alien1.png",250,50);
+		entities.add(Enemy2);
 
 		
 	}
+	
+	
+	
 	
 	/** 
 	 * Garbage collection and looping
@@ -228,7 +234,7 @@ public class Game extends Canvas {
             
             
             
-            if (timeMil > 100){
+            if (timeMil > 99){
             	gameTime = timeMil/100;
             }
             String convtime = String.valueOf(gameTime);
@@ -254,12 +260,11 @@ public class Game extends Canvas {
             g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 			
-			// Adds the ship into game.
 			
-			for (int i=0;i<entities.size();i++) {
-                Entity entity = (Entity) entities.get(i);
-                
-                entity.move(delta);
+            for (int i=0;i<entities.size();i++) {
+				Entity entity = (Entity) entities.get(i);
+				
+				entity.move(delta);
 			}
 			
 
@@ -284,7 +289,7 @@ public class Game extends Canvas {
 				g.dispose();
 				strategy.show();			  
 	          
-		      ship.setHorizontalMovement(0);
+				ship.setHorizontalMovement(0);
 		      
 		      // Ship movement
               if ((leftPressed) && (!rightPressed)) {
@@ -292,6 +297,8 @@ public class Game extends Canvas {
               } else if ((rightPressed) && (!leftPressed)) {
                   ship.setHorizontalMovement(moveSpeed);
               }
+              
+              
               
               try { Thread.sleep(10); } catch (Exception e) {}
 		}
