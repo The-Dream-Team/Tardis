@@ -53,6 +53,7 @@ public class Game extends Canvas {
 	
 	private boolean logicRequiredThisLoop = false;
 	
+	long lastFrame;
 	
 	private String timeDisplay = "";
 	private String livesDisplay = "";
@@ -69,7 +70,7 @@ public class Game extends Canvas {
 	
 	public Game() {
 		// create a frame to contain our game
-		JFrame container = new JFrame(gameName + "- " + build + version + " | FPS: " + lastFPS);
+		JFrame container = new JFrame(gameName + "- " + build + version);
 		
 		// get hold the content of the frame and set up the resolution of the game
 		JPanel panel = (JPanel) container.getContentPane();
@@ -171,6 +172,7 @@ public class Game extends Canvas {
     	
 	}
 	
+	
 	/**
 	 * Calculate the FPS and set it in the title bar
 	 */
@@ -190,6 +192,13 @@ public class Game extends Canvas {
 	 * GAME LOOP and Main below
 	 */
 	
+	public int getDelta() {
+	    long time = getTime();
+	    int delta = (int) (time - lastFrame);
+	    lastFrame = time;
+	 
+	    return delta;
+	}
 	
 	public void gameLoop() {
 		long lastLoopTime = System.currentTimeMillis();
@@ -198,6 +207,8 @@ public class Game extends Canvas {
 			long delta = System.currentTimeMillis() - lastLoopTime;
 			lastLoopTime = System.currentTimeMillis();
 			lastFPS = getTime();
+			updateFPS();
+
 			
 			// Colour in background		
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
@@ -208,7 +219,7 @@ public class Game extends Canvas {
 			
 			g.setColor(Color.red);
 			g.setFont(new Font("Century Gothic", Font.PLAIN, fontSize));
-            g.drawString("-- WORK IN PROGRESS --",(500-g.getFontMetrics().stringWidth("-- WORK IN PROGRESS --"))/2,25);
+            g.drawString("WORK IN PROGRESS",(500-g.getFontMetrics().stringWidth("WORK IN PROGRESS"))/2,25);
 			
 			
 			// Timer
@@ -217,11 +228,11 @@ public class Game extends Canvas {
             g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
-            String convtime = String.valueOf(gameTime);
+            String convtime = String.valueOf(fps);
             g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
-            g.drawString(timeDisplay,(155-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
-            g.drawString(convtime,(155-g.getFontMetrics().stringWidth(convtime))/2,18);
+            g.drawString(timeDisplay,(175-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
         	
             
             //Lives
