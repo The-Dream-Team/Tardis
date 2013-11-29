@@ -40,7 +40,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.1.8";
+	private String version = "0.1.9";
 	// Version set up so that we can see where we are at
 	
 	private Entity ship;
