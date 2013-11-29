@@ -20,7 +20,6 @@ import javax.swing.JPanel;
 import org.lwjgl.Sys;
 
 import me.dreamteam.tardis.Entity;
-import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
 
 
