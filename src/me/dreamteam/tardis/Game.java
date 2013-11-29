@@ -167,10 +167,7 @@ public class Game extends Canvas {
         // reset key presses
         leftPressed = false;
         rightPressed = false;
-        spacebarPressed = false;
-        
-        
-
+  
     	
 	}
 	
@@ -301,9 +298,7 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                         rightPressed = false;
                 }
-                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                	spacebarPressed = false;
-                }
+                
         }
         
         
