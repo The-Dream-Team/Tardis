@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import org.lwjgl.Sys;
 
 import me.dreamteam.tardis.Entity;
+import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
 
 
@@ -57,14 +58,14 @@ public class Game extends Canvas {
 	
 	private String timeDisplay = "";
 	private String scoreDisplay = "";
-	int gameTime;
+	public int gameTime =0;
 	int gameScore; 
 	
 	
 	int fps;
 	long lastFPS;
 	// To grab the FPS, for debugging purposes. 60 FPS is the best FPS!
-	
+	Timer newtimer = new Timer();
 	
 	
 	
@@ -169,6 +170,10 @@ public class Game extends Canvas {
         leftPressed = false;
         rightPressed = false;
         spacebarPressed = false;
+        
+        
+
+    	
 	}
 	
 	/**
@@ -212,7 +217,14 @@ public class Game extends Canvas {
             g.drawString(timeDisplay,(55-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(55-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
+            String convtime = gameTime+"";
+            g.setColor(Color.white);
+			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
+            g.drawString(timeDisplay,(155-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+            g.drawString(convtime,(155-g.getFontMetrics().stringWidth(convtime))/2,18);
         	
+            
+            //Score
 			g.setColor(Color.white);
 			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
             g.drawString(scoreDisplay,(755-g.getFontMetrics().stringWidth(scoreDisplay))/2,18);
