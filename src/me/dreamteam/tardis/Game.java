@@ -57,9 +57,9 @@ public class Game extends Canvas {
 	
 	
 	private String timeDisplay = "";
-	private String scoreDisplay = "";
+	private String livesDisplay = "";
 	public int gameTime =0;
-	int gameScore; 
+	int gameLives; 
 	
 	
 	int fps;
@@ -227,7 +227,7 @@ public class Game extends Canvas {
             //Score
 			g.setColor(Color.white);
 			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
-            g.drawString(scoreDisplay,(755-g.getFontMetrics().stringWidth(scoreDisplay))/2,18);
+            g.drawString(livesDisplay,(755-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
             g.drawString("Score:",(755-g.getFontMetrics().stringWidth("Score:"))/2,18);
 			
 			// Adds the ship into game.
