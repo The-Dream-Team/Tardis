@@ -44,7 +44,6 @@ public class Game extends Canvas {
 	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
-	//game player
 	
     private double moveSpeed = 250;
 	
