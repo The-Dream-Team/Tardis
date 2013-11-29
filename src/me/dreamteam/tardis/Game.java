@@ -137,6 +137,13 @@ public class Game extends Canvas {
 		// create the player ship and place it roughly in the center of the screen
 		ship = new ShipEntity(this,"sprites/ship.png",220,568);
 		entities.add(ship);
+		
+	
+	
+		Entity Enemy = new EnemyEntity(this,"sprites/ship.png",150,50);
+		entities.add(Enemy);
+
+		
 	}
 	
 	/** 
