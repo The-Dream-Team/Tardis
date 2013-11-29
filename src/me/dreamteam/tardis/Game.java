@@ -41,7 +41,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.2";
+	private String version = "0.2b";
 	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
@@ -56,8 +56,8 @@ public class Game extends Canvas {
 	
 	private String timeDisplay = "";
 	private String livesDisplay = "";
-	public int gameTime =0;
-	int gameLives; 
+	public int gameTime = 0;
+	public int gameLives = 3; 
 	
 	
 	int fps;
@@ -204,26 +204,37 @@ public class Game extends Canvas {
 			g.setColor(Color.black);
 			g.fillRect(0,0,500,650);
 			
-			// Timer
 			int fontSize = 18;
 			
+			g.setColor(Color.red);
+			g.setFont(new Font("Century Gothic", Font.PLAIN, fontSize));
+            g.drawString("-- WORK IN PROGRESS --",(500-g.getFontMetrics().stringWidth("-- WORK IN PROGRESS --"))/2,25);
+			
+			
+			// Timer
 			g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
             g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
-            String convtime = gameTime+"";
+            String convtime = String.valueOf(gameTime);
             g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.PLAIN, fontSize));
+			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
             g.drawString(timeDisplay,(155-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convtime,(155-g.getFontMetrics().stringWidth(convtime))/2,18);
         	
             
-            //Score
+            //Lives
 			g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
-            g.drawString(livesDisplay,(755-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
-            g.drawString("Lives:",(755-g.getFontMetrics().stringWidth("Lives:"))/2,18);
+            g.drawString(livesDisplay,(875-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
+            g.drawString("Lives:",(875-g.getFontMetrics().stringWidth("Lives:"))/2,18);
+            
+            String convlives = String.valueOf(gameLives);
+            g.setColor(Color.white);
+			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
+            g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 			
 			// Adds the ship into game.
 			
@@ -255,7 +266,6 @@ public class Game extends Canvas {
 				g.dispose();
 				strategy.show();			  
 	          
-			  // Staggers ship movement - cleans up PR #18
 		      ship.setHorizontalMovement(0);
 		      
 		      // Ship movement
@@ -285,7 +295,6 @@ public class Game extends Canvas {
 
                 if (e.getKeyChar() == 27) {
                 	quitGame();
-                	// Quit game using the escape key
             }
         } 
         
