@@ -140,7 +140,7 @@ public class Game extends Canvas {
 		
 	
 	
-		Entity Enemy = new EnemyEntity(this,"sprites/ship.png",150,50);
+		Entity Enemy = new EnemyEntity(this,"sprites/alien1.png",150,50);
 		entities.add(Enemy);
 
 		
