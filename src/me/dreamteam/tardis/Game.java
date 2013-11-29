@@ -41,7 +41,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.2";
+	private String version = "0.2b";
 	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
@@ -56,7 +56,7 @@ public class Game extends Canvas {
 	
 	private String timeDisplay = "";
 	private String livesDisplay = "";
-	public int gameTime =0;
+	public int gameTime = 0;
 	int gameLives; 
 	
 	
@@ -212,7 +212,7 @@ public class Game extends Canvas {
             g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
-            String convtime = gameTime+"";
+            String convtime = String.valueOf(gameTime);
             g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
             g.drawString(timeDisplay,(155-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
