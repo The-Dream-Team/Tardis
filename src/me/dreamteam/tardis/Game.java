@@ -199,7 +199,7 @@ public class Game extends Canvas {
 			lastLoopTime = System.currentTimeMillis();
 			lastFPS = getTime();
 			
-			// Colour in background
+			// Colour in background		
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0,0,500,650);
@@ -208,20 +208,20 @@ public class Game extends Canvas {
 			int fontSize = 18;
 			
 			g.setColor(Color.white);
-			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
-            g.drawString(timeDisplay,(55-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
-            g.drawString("Time:",(55-g.getFontMetrics().stringWidth("Time:"))/2,18);
+			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
+            g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+            g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
             String convtime = gameTime+"";
             g.setColor(Color.white);
-			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
+			g.setFont(new Font("Lucida Console", Font.PLAIN, fontSize));
             g.drawString(timeDisplay,(155-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convtime,(155-g.getFontMetrics().stringWidth(convtime))/2,18);
         	
             
             //Score
 			g.setColor(Color.white);
-			g.setFont(new Font("Terminal", Font.PLAIN, fontSize));
+			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
             g.drawString(livesDisplay,(755-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
             g.drawString("Lives:",(755-g.getFontMetrics().stringWidth("Lives:"))/2,18);
 			
