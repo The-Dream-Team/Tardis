@@ -38,7 +38,6 @@ public class Game extends Canvas {
 	// This provides hardware acceleration
 	
 	private boolean isRunning = true;
-	// Is the game running or not?
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
@@ -64,15 +63,12 @@ public class Game extends Canvas {
 	
 	
 	long lastTime;
-	// To grab the FPS, for debugging purposes. 60 FPS is the best FPS!
 	
 	
 	
 	public Game() {
-		// create a frame to contain our game
 		JFrame container = new JFrame(gameName + "- " + build + version);
 		
-		// get hold the content of the frame and set up the resolution of the game
 		JPanel panel = (JPanel) container.getContentPane();
 		panel.setPreferredSize(new Dimension(500,650));
 		panel.setLayout(null);
@@ -80,9 +76,7 @@ public class Game extends Canvas {
 		// setup our canvas size and put it into the content of the frame
 		setBounds(0,0,500,650);
 		panel.add(this);
-		
-		// Tell AWT not to bother repainting our canvas since we're
-		// going to do that our self in accelerated mode
+
 		setIgnoreRepaint(true);
 		
 		//Don't move this variable as it will add extra padding if moved below pack
@@ -102,8 +96,7 @@ public class Game extends Canvas {
 		container.setVisible(true);
 		
 		
-		// add a listener to respond to the user closing the window. If they
-		// do we'd like to exit the game
+		//How to respond to user exiting the window
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				JOptionPane.showMessageDialog(null, "Closing " + gameName + version);
@@ -139,22 +132,17 @@ public class Game extends Canvas {
 	
 	
 	/**
-	 * initialise entities 
+	 * initialise entities/ Create the Sprites
 	 */
 	
 	private void initEntities() {
-		// create the player ship and place it roughly in the center of the screen
 		ship = new ShipEntity(this,"sprites/ship.png",220,568);
 		entities.add(ship);
 		
-	
-	
 		Entity Enemy = new EnemyEntity(this,"sprites/alien1.png",150,50);
 		entities.add(Enemy);
 		Entity Enemy2 = new EnemyEntity(this,"sprites/alien1.png",250,50);
 		entities.add(Enemy2);
-
-		
 	}
 	
 	
@@ -177,7 +165,7 @@ public class Game extends Canvas {
 	
 	
 	/**
-	 * Calculate the FPS and set it in the title bar
+	 * Update the game time
 	 */
 	public void updateTime() {
 	    if (getTime() - lastTime > 1000) {
@@ -191,11 +179,6 @@ public class Game extends Canvas {
 		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
 		}
 	
-	/**
-	 * GAME LOOP and Main below
-	 */
-	
-	
 	public int getDelta() {
 	    long time = getTime();
 	    int delta = (int) (time - lastFrame);
@@ -203,6 +186,10 @@ public class Game extends Canvas {
 	 
 	    return delta;
 	}
+	
+	/**
+	 * GAME LOOP and Main below
+	 */
 	
 	public void gameLoop() {
 		long lastLoopTime = System.currentTimeMillis();
