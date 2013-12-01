@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -65,12 +66,15 @@ public class Game extends Canvas {
 	
 	long lastTime;
 	
+	URL iconURL = getClass().getResource("/sprites/ship.png");
+	
 	public Game() {
 		JFrame container = new JFrame(gameName + "- " + build + version);
 		
 		JPanel panel = (JPanel) container.getContentPane();
 		panel.setPreferredSize(new Dimension(500,650));
 		panel.setLayout(null);
+		
 		
 		// setup our canvas size and put it into the content of the frame
 		setBounds(0,0,500,650);
@@ -103,6 +107,9 @@ public class Game extends Canvas {
 				System.exit(0);
 			}
 		});
+		
+		ImageIcon icon = new ImageIcon(iconURL);
+		container.setIconImage(icon.getImage());
 		
 		// Init keys
         addKeyListener(new KeyInputHandler());
