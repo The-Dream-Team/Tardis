@@ -129,7 +129,7 @@ public class Game extends Canvas {
 						JOptionPane.QUESTION_MESSAGE,
 						icon,
 						options,
-						options[1]);
+						options[0]);
 		
 		if (startG == 1) {
 			quitGame();
