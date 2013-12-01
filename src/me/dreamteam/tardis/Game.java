@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -64,8 +65,6 @@ public class Game extends Canvas {
 	
 	long lastTime;
 	
-	
-	
 	public Game() {
 		JFrame container = new JFrame(gameName + "- " + build + version);
 		
@@ -114,8 +113,6 @@ public class Game extends Canvas {
         
         requestFocus();
 		initEntities();
-		
-		
 
 	}
 	
@@ -145,9 +142,6 @@ public class Game extends Canvas {
 		entities.add(Enemy2);
 	}
 	
-	
-	
-	
 	/** 
 	 * Garbage collection and looping
 	 */
@@ -159,14 +153,13 @@ public class Game extends Canvas {
         // reset key presses
         leftPressed = false;
         rightPressed = false;
-  
     	
 	}
-	
 	
 	/**
 	 * Update the game time
 	 */
+	
 	public void updateTime() {
 	    if (getTime() - lastTime > 1000) {
 	        timeMil = 0; //reset the FPS counter
@@ -207,10 +200,11 @@ public class Game extends Canvas {
 			g.fillRect(0,0,500,650);
 			
 			int fontSize = 18;
+			int rfontSize = 12;
 			
 			g.setColor(Color.red);
-			g.setFont(new Font("Century Gothic", Font.PLAIN, fontSize));
-            g.drawString("WORK IN PROGRESS",(500-g.getFontMetrics().stringWidth("WORK IN PROGRESS"))/2,25);
+			g.setFont(new Font("Century Gothic", Font.PLAIN, rfontSize));
+            g.drawString("-- WORK IN PROGRESS --",(500-g.getFontMetrics().stringWidth("-- WORK IN PROGRESS --"))/2,12);
 			
 			
 			// Timer
@@ -218,7 +212,6 @@ public class Game extends Canvas {
 			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
             g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
-            
             
             
             if (timeMil > 99){
@@ -229,12 +222,7 @@ public class Game extends Canvas {
 			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
             g.drawString(timeDisplay,(175-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
-        	
-            
-            
-            
-            
-            
+ 
             //Lives
 			g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
