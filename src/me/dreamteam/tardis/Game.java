@@ -122,19 +122,27 @@ public class Game extends Canvas {
         requestFocus();
 		initEntities();
 		
-		Object[] options = {"Play Game", "Quit Game"};
-		int startG = JOptionPane.showOptionDialog(null,
-				"Welcome to " + gameName + version, "Title Screen",
-						JOptionPane.YES_NO_CANCEL_OPTION,
-						JOptionPane.QUESTION_MESSAGE,
-						icon,
-						options,
-						options[0]);
-		
-		if (startG == 1) {
-			quitGame();
-			}
+		titleScreen();
 
+	}
+		
+	public void titleScreen() {
+		
+    ImageIcon icon = new ImageIcon(iconURL);	
+		
+	Object[] options = {"Play Game", "Quit Game"};
+	int startG = JOptionPane.showOptionDialog(null,
+			"Welcome to " + gameName + version, "Title Screen",
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					icon,
+					options,
+					options[0]);
+	
+	if (startG == 1) {
+	 quitGame();
+	}
+	
 	}
 	
 	
