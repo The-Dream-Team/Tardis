@@ -69,6 +69,7 @@ public class Game extends Canvas {
 	URL iconURL = getClass().getResource("/sprites/ship.png");
 	
 	public Game() {
+		
 		JFrame container = new JFrame(gameName + "- " + build + version);
 		
 		JPanel panel = (JPanel) container.getContentPane();
@@ -120,8 +121,22 @@ public class Game extends Canvas {
         
         requestFocus();
 		initEntities();
+		
+		Object[] options = {"Play Game", "Quit Game"};
+		int startG = JOptionPane.showOptionDialog(null,
+				"Welcome to " + gameName + version, "Title Screen",
+						JOptionPane.YES_NO_CANCEL_OPTION,
+						JOptionPane.QUESTION_MESSAGE,
+						icon,
+						options,
+						options[1]);
+		
+		if (startG == 1) {
+			quitGame();
+			}
 
 	}
+	
 	
     public void updateLogic() {
         logicRequiredThisLoop = true;
