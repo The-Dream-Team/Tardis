@@ -102,7 +102,7 @@ public class Game extends Canvas {
 		//How to respond to user exiting the window
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				JOptionPane.showMessageDialog(null, "Closing " + gameName + version);
+				quitGame();
 				// Debug to ensure that game exits correctly
 				System.exit(0);
 			}
@@ -129,7 +129,8 @@ public class Game extends Canvas {
     
 	
     public void quitGame() {
-		JOptionPane.showMessageDialog(null, "Closing " + gameName + version);
+    	ImageIcon icon = new ImageIcon(iconURL);
+		JOptionPane.showMessageDialog(null, "Closing " + gameName + version,"Debug",JOptionPane.INFORMATION_MESSAGE,icon);
 		// Debug to ensure that game exits correctly
 		System.exit(0);
     }
