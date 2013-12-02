@@ -104,8 +104,8 @@ public class Game extends Canvas {
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				quitGame();
-				// Debug to ensure that game exits correctly
 				System.exit(0);
+				// Debug to ensure that game exits correctly
 			}
 		});
 		
@@ -129,7 +129,7 @@ public class Game extends Canvas {
 	public void titleScreen() {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		
-		Object[] options = {"Play Game", "Quit Game"};
+		Object[] options = {"Play", "Quit Game"};
 		int startG = JOptionPane.showOptionDialog(null,
 		"Welcome to " + gameName + version, "Tardis",
 		JOptionPane.YES_NO_CANCEL_OPTION,
@@ -141,6 +141,11 @@ public class Game extends Canvas {
 		if (startG == 1) {
 			System.exit(0);
 		}
+		
+		if (startG == 0) {
+			startGame();
+		}
+		
 	}
 	
 	
@@ -182,6 +187,13 @@ public class Game extends Canvas {
         // reset key presses
         leftPressed = false;
         rightPressed = false;
+        
+        //reset time
+        gameTime = 0;
+        timeMil = 0;
+        
+        //reset lives
+        gameLives = 3;
     	
 	}
 	
@@ -323,7 +335,7 @@ public class Game extends Canvas {
                 }
 
                 if (e.getKeyChar() == 27) {
-                	quitGame();
+                	titleScreen();
             }
         } 
         
