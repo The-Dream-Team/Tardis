@@ -16,8 +16,11 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import org.lwjgl.Sys;
 
@@ -131,9 +134,21 @@ public class Game extends Canvas {
 	public void characterSelect() {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}        
+		
 		Object[] coptions = {"Ship 1", "Ship 2", "Ship 3"};
 		int characterS = JOptionPane.showOptionDialog(null,
-		"Choose a character", gameName + "Character Selection",
+		"Choose a character", gameName + "Character Selection", 
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
@@ -159,6 +174,18 @@ public class Game extends Canvas {
 	
 	public void titleScreen() {
 		ImageIcon icon = new ImageIcon(iconURL);	
+		
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		} 
 		
 		Object[] options = {"Play", "Quit Game"};
 		int startG = JOptionPane.showOptionDialog(null,
