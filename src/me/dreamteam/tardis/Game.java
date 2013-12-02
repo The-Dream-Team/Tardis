@@ -67,6 +67,8 @@ public class Game extends Canvas {
 	public int gameTime = 0;
 	public int gameLives = 3; 
 	
+	ImageIcon blankIcon = new ImageIcon();
+	
 	
 	long lastTime;
 	
@@ -152,11 +154,11 @@ public class Game extends Canvas {
 			e.printStackTrace();
 		}        
 		
-		Object[] coptions = {"<html><img src=\""+ship1+"\"></img></html>", "<html><img src=\""+ship2+"\"></img></html>", "<html><img src=\""+ship3+"\"></img></html>"};
+		Object[] coptions = {"<html><img src=\""+ship1+"\"></img><br><center>PEN-15</center></html>", "<html><img src=\""+ship2+"\"></img><br><center>FALCON</center></html>", "<html><img src=\""+ship3+"\"></img><br><center>MOTH</center></html>"};
 		int characterS = JOptionPane.showOptionDialog(null,
-		"Choose your spaceship to begin:", "Get ready!", JOptionPane.YES_NO_CANCEL_OPTION,
-		JOptionPane.QUESTION_MESSAGE,
-		null,
+		"<html><b>&raquo; Choose your spaceship to begin:</b></html>", "Get ready!", JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.INFORMATION_MESSAGE,
+		blankIcon,
 		coptions,
 		coptions[0]);
 		
