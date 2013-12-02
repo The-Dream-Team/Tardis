@@ -46,6 +46,7 @@ public class Game extends Canvas {
 	private String version = "0.2.2";
 	
 	private Entity ship;
+	private int shipS = 0;
 	private ArrayList entities = new ArrayList();
 	
     private double moveSpeed = 180;
@@ -126,6 +127,36 @@ public class Game extends Canvas {
 
 	}
 		
+	
+	public void characterSelect() {
+		ImageIcon icon = new ImageIcon(iconURL);	
+		
+		Object[] coptions = {"Ship 1", "Ship 2", "Ship 3"};
+		int characterS = JOptionPane.showOptionDialog(null,
+		"Choose a character", gameName + "Character Selection",
+		JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.QUESTION_MESSAGE,
+		icon,
+		coptions,
+		coptions[0]);
+		
+		if (characterS == 2) {
+			shipS = 2;
+			startGame();
+		}
+	
+		if (characterS == 1) {
+			shipS = 1;
+			startGame();
+		}
+		
+		if (characterS == 0) {
+			shipS = 0;
+			startGame();
+		}
+	}
+	
+	
 	public void titleScreen() {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		
@@ -143,7 +174,7 @@ public class Game extends Canvas {
 		}
 		
 		if (startG == 0) {
-			startGame();
+			characterSelect();
 		}
 		
 	}
@@ -167,8 +198,21 @@ public class Game extends Canvas {
 	 */
 	
 	private void initEntities() {
+		
+		if (shipS == 0) {
 		ship = new ShipEntity(this,"sprites/ship.png",220,568);
 		entities.add(ship);
+		}
+		
+		if (shipS == 1) {
+		ship = new ShipEntity(this,"sprites/ship2.png",220,568);
+		entities.add(ship);
+		}
+		
+		if (shipS == 2) {
+		ship = new ShipEntity(this,"sprites/ship3.png",220,568);
+		entities.add(ship);
+		}
 		
 		Entity Enemy = new EnemyEntity(this,"sprites/alien1.png",150,50);
 		entities.add(Enemy);
