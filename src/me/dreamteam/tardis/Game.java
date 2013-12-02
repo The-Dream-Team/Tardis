@@ -71,6 +71,9 @@ public class Game extends Canvas {
 	long lastTime;
 	
 	URL iconURL = getClass().getResource("/sprites/ship.png");
+	URL ship1URL = getClass().getResource("/sprites/ship.png");
+	URL ship2URL = getClass().getResource("/sprites/ship2.png");
+	URL ship3URL = getClass().getResource("/sprites/ship3.png");
 	
 	public Game() {
 		
@@ -132,7 +135,10 @@ public class Game extends Canvas {
 		
 	
 	public void characterSelect() {
-		ImageIcon icon = new ImageIcon(iconURL);	
+		ImageIcon icon = new ImageIcon(iconURL);
+		ImageIcon ship1 = new ImageIcon(ship1URL);
+		ImageIcon ship2 = new ImageIcon(ship2URL);
+		ImageIcon ship3 = new ImageIcon(ship3URL);
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -146,12 +152,11 @@ public class Game extends Canvas {
 			e.printStackTrace();
 		}        
 		
-		Object[] coptions = {"Ship 1", "Ship 2", "Ship 3"};
+		Object[] coptions = {"<html><img src=\""+ship1URL+"\"></img></html>", "<html><img src=\""+ship2URL+"\"></img></html>", "<html><img src=\""+ship3URL+"\"></img></html>"};
 		int characterS = JOptionPane.showOptionDialog(null,
-		"Choose a character", gameName + "Character Selection", 
-		JOptionPane.YES_NO_CANCEL_OPTION,
+		"Choose a character", "Character", JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
-		icon,
+		null,
 		coptions,
 		coptions[0]);
 		
