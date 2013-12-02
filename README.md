@@ -6,7 +6,9 @@ Work in progress
 
 Use Windows PowerShell and run the following commands
 * git fetch upstream
-* git merge master/upstream
+* git merge upstream/master
+
+Remember to take it in turns else there will be conflicts
 
 ## !! Notifications !! 
 
