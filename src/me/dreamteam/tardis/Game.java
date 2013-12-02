@@ -46,7 +46,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.2.2";
+	private String version = "0.3";
 	
 	private Entity ship;
 	private int shipS = 0;
@@ -154,11 +154,15 @@ public class Game extends Canvas {
 		
 		Object[] coptions = {"<html><img src=\""+ship1URL+"\"></img></html>", "<html><img src=\""+ship2URL+"\"></img></html>", "<html><img src=\""+ship3URL+"\"></img></html>"};
 		int characterS = JOptionPane.showOptionDialog(null,
-		"Choose a character", "Character", JOptionPane.YES_NO_CANCEL_OPTION,
+		"Choose your spaceship to begin:", "Get ready!", JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		null,
 		coptions,
 		coptions[0]);
+		
+		if (characterS != 2 && characterS != 1 && characterS != 0) {
+			titleScreen();
+		}
 		
 		if (characterS == 2) {
 			shipS = 2;
@@ -200,6 +204,10 @@ public class Game extends Canvas {
 		icon,
 		options,
 		options[0]);
+		
+		if (startG != 0 && startG != 1) {
+			quitGame();
+		}
 	
 		if (startG == 1) {
 			System.exit(0);
