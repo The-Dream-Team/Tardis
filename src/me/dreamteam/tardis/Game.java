@@ -43,7 +43,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.2.1";
+	private String version = "0.2.2";
 	
 	private Entity ship;
 	private ArrayList entities = new ArrayList();
@@ -127,22 +127,20 @@ public class Game extends Canvas {
 	}
 		
 	public void titleScreen() {
+		ImageIcon icon = new ImageIcon(iconURL);	
 		
-    ImageIcon icon = new ImageIcon(iconURL);	
-		
-	Object[] options = {"Play Game", "Quit Game"};
-	int startG = JOptionPane.showOptionDialog(null,
-			"Welcome to " + gameName + version, "Title Screen",
-					JOptionPane.YES_NO_CANCEL_OPTION,
-					JOptionPane.QUESTION_MESSAGE,
-					icon,
-					options,
-					options[0]);
+		Object[] options = {"Play Game", "Quit Game"};
+		int startG = JOptionPane.showOptionDialog(null,
+		"Welcome to " + gameName + version, "Tardis",
+		JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.QUESTION_MESSAGE,
+		icon,
+		options,
+		options[0]);
 	
-	if (startG == 1) {
-	 quitGame();
-	}
-	
+		if (startG == 1) {
+			System.exit(0);
+		}
 	}
 	
 	
