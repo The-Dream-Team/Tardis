@@ -402,7 +402,18 @@ public class Game extends Canvas {
                   ship.setHorizontalMovement(moveSpeed);
               }
               
-              
+             //testing for collision  
+            for (int p=0;p<entities.size();p++) {
+                      for (int s=p+1;s<entities.size();s++) {
+                              Entity me = (Entity) entities.get(p);
+                              Entity him = (Entity) entities.get(s);
+                              
+                              if (me.collidesWith(him)) {
+                                      me.collidedWith(him);
+                                      him.collidedWith(me);
+                              }
+                      }
+              }
               
               try { Thread.sleep(10); } catch (Exception e) {}
 		}

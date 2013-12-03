@@ -24,6 +24,12 @@ public class ShipEntity extends Entity {
 	
 	public void collidedWith(Entity other) {
 	
-	// To be done at a later date
-		}
-	}
+            // if its an alien, notify the game that the player
+            // is dead
+            if (other instanceof EnemyEntity) {
+                System.out.println("Enemy Hit");   
+                   
+            }
+    }
+		
+}
