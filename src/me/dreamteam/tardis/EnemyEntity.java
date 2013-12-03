@@ -3,7 +3,7 @@ package me.dreamteam.tardis;
 public class EnemyEntity extends Entity {
 	
 	// The speed at which the alien moves 
-    private double moveSpeed = 75;
+    private double moveSpeed = 100;
 	
 	private Game game;
 	
