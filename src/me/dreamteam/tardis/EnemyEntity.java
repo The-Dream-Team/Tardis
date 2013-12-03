@@ -23,11 +23,12 @@ public class EnemyEntity extends Entity {
 
 		if ((dy > 0) && (y > 750)) {
 			game.updateLogic();
+		
 		}
 		
 		super.move(delta);
 	}
-	
+	 	
 
 	
 	public void collidedWith(Entity other) {
