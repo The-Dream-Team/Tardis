@@ -2,7 +2,7 @@ package me.dreamteam.tardis;
 
 public class EnemyEntity extends Entity {
 	
-	// The speed at which the alient moves horizontally 
+	// The speed at which the alien moves 
     private double moveSpeed = 75;
 	
 	private Game game;
@@ -11,6 +11,7 @@ public class EnemyEntity extends Entity {
 		super(ref,x,y);
 		
 		this.game = game;
+		// sets the alien to move downwards at the selected speed
 		dy = moveSpeed;
 	}
 
@@ -30,6 +31,6 @@ public class EnemyEntity extends Entity {
 
 	
 	public void collidedWith(Entity other) {
-		
+	//collision is handled in other file 	
 	}
 }
