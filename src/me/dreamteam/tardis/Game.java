@@ -52,7 +52,10 @@ public class Game extends Canvas {
 	private int shipS = 0;
 	private ArrayList entities = new ArrayList();
 	
-    private double moveSpeed = 180;
+	private ArrayList enemies = new ArrayList();
+ 
+	
+	private double moveSpeed = 180;
 	
     private boolean leftPressed = false;
     private boolean rightPressed = false;
@@ -402,7 +405,7 @@ public class Game extends Canvas {
                   ship.setHorizontalMovement(moveSpeed);
               }
               
-             //testing for collision  
+      //testing for collision of player and enemy  
             for (int p=0;p<entities.size();p++) {
                       for (int s=p+1;s<entities.size();s++) {
                               Entity me = (Entity) entities.get(p);
