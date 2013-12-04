@@ -52,7 +52,10 @@ public class Game extends Canvas {
 	private int shipS = 0;
 	private ArrayList entities = new ArrayList();
 	
-    private double moveSpeed = 180;
+	private ArrayList enemies = new ArrayList();
+ 
+	
+	private double moveSpeed = 180;
 	
     private boolean leftPressed = false;
     private boolean rightPressed = false;
@@ -256,12 +259,30 @@ public class Game extends Canvas {
 		entities.add(ship);
 		}
 		
-		Entity Enemy = new EnemyEntity(this,"sprites/alien1.png",150,-100);
+		Entity Enemy = new EnemyEntity(this,"sprites/enemies/01.png",150,-150);
 		entities.add(Enemy);
-		Entity Enemy2 = new EnemyEntity(this,"sprites/ufo.png",250,-100);
+		Entity Enemy2 = new EnemyEntity(this,"sprites/enemies/02.png",250,-100);
 		entities.add(Enemy2);
-		Entity Enemy3 = new EnemyEntity(this,"sprites/oe1.png",350,-100);
+		Entity Enemy3 = new EnemyEntity(this,"sprites/enemies/03.png",350,-240);
 		entities.add(Enemy3);
+		Entity Enemy4 = new EnemyEntity(this,"sprites/enemies/01.png",50,-350);
+		entities.add(Enemy4);
+		Entity Enemy5 = new EnemyEntity(this,"sprites/enemies/02.png",420,-400);
+		entities.add(Enemy5);
+		Entity Enemy6 = new EnemyEntity(this,"sprites/enemies/03.png",250,-540);
+		entities.add(Enemy6);
+		Entity Enemy7 = new EnemyEntity(this,"sprites/enemies/01.png",150,-650);
+		entities.add(Enemy7);
+		Entity Enemy8 = new EnemyEntity(this,"sprites/enemies/02.png",250,-700);
+		entities.add(Enemy8);
+		Entity Enemy9 = new EnemyEntity(this,"sprites/enemies/03.png",350,-840);
+		entities.add(Enemy9);
+		Entity Enemy10 = new EnemyEntity(this,"sprites/enemies/01.png",50,-950);
+		entities.add(Enemy10);
+		Entity Enemy11 = new EnemyEntity(this,"sprites/enemies/02.png",420,-1000);
+		entities.add(Enemy11);
+		Entity Enemy12 = new EnemyEntity(this,"sprites/enemies/03.png",250,-1040);
+		entities.add(Enemy12);
 	}
 	
 	/** 
@@ -402,7 +423,7 @@ public class Game extends Canvas {
                   ship.setHorizontalMovement(moveSpeed);
               }
               
-             //testing for collision  
+      //testing for collision of player and enemy  
             for (int p=0;p<entities.size();p++) {
                       for (int s=p+1;s<entities.size();s++) {
                               Entity me = (Entity) entities.get(p);
