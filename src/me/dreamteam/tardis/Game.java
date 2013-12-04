@@ -265,6 +265,24 @@ public class Game extends Canvas {
 		entities.add(Enemy2);
 		Entity Enemy3 = new EnemyEntity(this,"sprites/enemies/03.png",350,-240);
 		entities.add(Enemy3);
+		Entity Enemy4 = new EnemyEntity(this,"sprites/enemies/01.png",50,-350);
+		entities.add(Enemy4);
+		Entity Enemy5 = new EnemyEntity(this,"sprites/enemies/02.png",420,-400);
+		entities.add(Enemy5);
+		Entity Enemy6 = new EnemyEntity(this,"sprites/enemies/03.png",250,-540);
+		entities.add(Enemy6);
+		Entity Enemy7 = new EnemyEntity(this,"sprites/enemies/01.png",150,-650);
+		entities.add(Enemy7);
+		Entity Enemy8 = new EnemyEntity(this,"sprites/enemies/02.png",250,-700);
+		entities.add(Enemy8);
+		Entity Enemy9 = new EnemyEntity(this,"sprites/enemies/03.png",350,-840);
+		entities.add(Enemy9);
+		Entity Enemy10 = new EnemyEntity(this,"sprites/enemies/01.png",50,-950);
+		entities.add(Enemy10);
+		Entity Enemy11 = new EnemyEntity(this,"sprites/enemies/02.png",420,-1000);
+		entities.add(Enemy11);
+		Entity Enemy12 = new EnemyEntity(this,"sprites/enemies/03.png",250,-1040);
+		entities.add(Enemy12);
 	}
 	
 	/** 
