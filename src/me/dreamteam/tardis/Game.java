@@ -35,11 +35,6 @@ Main Class
  */
 
 public class Game extends Canvas {
-	
-	/**
-	 * Begin the game parameters that will allow us to define certain elements.
-	 */
-	
 	private BufferStrategy strategy;
 	// This provides hardware acceleration
 	
@@ -47,7 +42,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.4.0";
+	private String version = "0.4.1";
 	
 	private Entity ship;
 	private int shipS = 0;
@@ -57,10 +52,8 @@ public class Game extends Canvas {
  
 	
 	private double moveSpeed = 180;
-	
     private boolean leftPressed = false;
     private boolean rightPressed = false;
-	
 	private boolean logicRequiredThisLoop = false;
 	
 	long lastFrame;
@@ -70,7 +63,6 @@ public class Game extends Canvas {
 	int timeMil;
 	public int gameTime = 0;
 	public int gameLives = 3; 
-	//setup for ent mvement
 	int SpriteLoc;
 	int SpriteLoc2;
 	int SpriteLoc3;
@@ -95,8 +87,7 @@ public class Game extends Canvas {
 		panel.setPreferredSize(new Dimension(500,650));
 		panel.setLayout(null);
 		
-		
-		// setup our canvas size and put it into the content of the frame
+		// Canvas size setup
 		setBounds(0,0,500,650);
 		panel.add(this);
 
@@ -104,12 +95,10 @@ public class Game extends Canvas {
 		
 		//Don't move this variable as it will add extra padding if moved below pack
 		container.setResizable(false);
-		
 		container.pack();
 		
 		// Window setup
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		
 		int w = container.getSize().width;
 		int h = container.getSize().height;
 		int x = (dim.width-w)/2;
@@ -119,12 +108,10 @@ public class Game extends Canvas {
 		container.setVisible(true);
 		
 		
-		//How to respond to user exiting the window
+		//What to do when user choose to close
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				quitGame();
-				System.exit(0);
-				// Debug to ensure that game exits correctly
 			}
 		});
 		
