@@ -294,6 +294,19 @@ public class Game extends Canvas {
 						if (CurSprite>5)
 							CurSprite=1;
 					}
+				}else if(gameTime>= twait && level >2){
+					for(int i = 0; i<2; i++){
+						if(i==0){
+							FinalLoc = SpriteLoc;
+						}else{
+							FinalLoc = SpriteLoc2;
+						}
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (twait+(100*0.45)-30));
+						entities.add(Enemies);
+						CurSprite += 1;
+						if (CurSprite>5)
+							CurSprite=1;
+					}
 				}
 			}
 		}
