@@ -266,11 +266,11 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		SpriteLoc = rSpriteLoc.nextInt(400);
+		SpriteLoc = rSpriteLoc.nextInt(450);
 		for(int i = 0; i<9; i++){
 			if(twait != gameTime){
 				twait = gameTime;
-				Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc,-10);
+				Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc,-50);
 				entities.add(Enemies);
 				CurSprite += 1;
 			}
@@ -292,7 +292,6 @@ public class Game extends Canvas {
         rightPressed = false;
         
         //reset time
-        gameTime = 0;
         timeMil = 0;
         
         //reset lives
