@@ -26,7 +26,7 @@ import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
 import me.dreamteam.tardis.EnemyEntity;
 import me.dreamteam.tardis.Utils;
-import me.dreamteam.tardis.ButtonHTML;
+import me.dreamteam.tardis.UtilsHTML;
 
 
 /**
@@ -130,16 +130,15 @@ public class Game extends Canvas {
 		
 	
 	public void characterSelect() {
-		ImageIcon icon = new ImageIcon(iconURL);
 		ImageIcon ship1 = new ImageIcon(ship1URL);
 		ImageIcon ship2 = new ImageIcon(ship2URL);
 		ImageIcon ship3 = new ImageIcon(ship3URL);
 		
 		Utils.systemLF();    
 		
-		Object[] coptions = {ButtonHTML.bpStart + ship1 + ButtonHTML.bpMiddle + Utils.ship1Name + ButtonHTML.bpEnd, ButtonHTML.bpStart + ship2 + ButtonHTML.bpMiddle + Utils.ship2Name + ButtonHTML.bpEnd, ButtonHTML.bpStart + ship3 + ButtonHTML.bpMiddle + Utils.ship3Name + ButtonHTML.bpEnd};
+		Object[] coptions = {UtilsHTML.bpcsStart + ship1 + UtilsHTML.bpcsMiddle + Utils.ship1Name + UtilsHTML.bpcsEnd, UtilsHTML.bpcsStart + ship2 + UtilsHTML.bpcsMiddle + Utils.ship2Name + UtilsHTML.bpcsEnd, UtilsHTML.bpcsStart + ship3 + UtilsHTML.bpcsMiddle + Utils.ship3Name + UtilsHTML.bpcsEnd};
 		int characterS = JOptionPane.showOptionDialog(null,
-		"<html><b>&raquo; Choose your spaceship to begin:</b></html>", "Get ready!", JOptionPane.YES_NO_CANCEL_OPTION,
+		UtilsHTML.csDialog, Utils.csDialogTitle, JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.INFORMATION_MESSAGE,
 		blankIcon,
 		coptions,

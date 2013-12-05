@@ -40,11 +40,17 @@ public class Utils {
 	static String txtLives = "Lives:";
 	
 	/*
-	 * JFrame Options
+	 * JFrame Options and Text
 	 */
 	
+	
+	// Title Screen
 	static String bPlay = "Play Game";
 	static String bQuit = "Quit Game";
+	
+	// Character Selection
+	static String txtCS = "Choose your spaceship to begin";
+	static String csDialogTitle = "Get ready!";
 	
 	/*
 	 * Utility Methods
