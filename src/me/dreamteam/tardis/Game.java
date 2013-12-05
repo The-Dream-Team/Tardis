@@ -17,7 +17,6 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -226,8 +225,6 @@ public class Game extends Canvas {
     
 	
     public void quitGame() {
-    	ImageIcon icon = new ImageIcon(iconURL);
-		JOptionPane.showMessageDialog(null, "Closing " + gameName + version,"Debug",JOptionPane.INFORMATION_MESSAGE,icon);
 		// Debug to ensure that game exits correctly
 		System.exit(0);
     }
@@ -494,9 +491,6 @@ public class Game extends Canvas {
         
         
     }
-	
-    
-    
 	
 	
 		/**
