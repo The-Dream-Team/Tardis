@@ -30,8 +30,8 @@ public class Utils {
 	static int timeFS = 18; // Font size for Time display
 	static int timeIFS = 18; // Font size for timer
 	
-	static int livesFS = 18; // Font size for Time display
-	static int livesIFS = 18; // Font size for timer
+	static int livesFS = 18; // Font size for Lives display
+	static int livesIFS = 18; // Font size for number of lives
 	
 	static int levelFS = 16; // Font size for Level display
 	static int levelIFS = 16; //Font size for number of levels
