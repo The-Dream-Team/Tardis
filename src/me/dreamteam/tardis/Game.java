@@ -258,6 +258,13 @@ public class Game extends Canvas {
 		moveSpeed = 180+(twait*0.7);
 		SpriteLoc = rSpriteLoc.nextInt(200);
 		SpriteLoc2 = 200+rSpriteLoc.nextInt(250);
+		if(SpriteLoc2 < SpriteLoc+50){
+			if(SpriteLoc2 > SpriteLoc-50){
+				SpriteLoc2 = SpriteLoc-50;
+				if (SpriteLoc2 > 450)
+					SpriteLoc2 = SpriteLoc-50;
+			}
+		}
 		if(twait != gameTime){
 			int FinalLoc;
 			if(gameTime >= twait+2 && advanceLevel == false){
@@ -271,7 +278,7 @@ public class Game extends Canvas {
 					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50);
 					entities.add(Enemies);
 					CurSprite += 1;
-					if (CurSprite>3)
+					if (CurSprite>5)
 						CurSprite=1;
 				}
 			}else if (gameTime >= twait && advanceLevel == true){
@@ -282,10 +289,10 @@ public class Game extends Canvas {
 					}else{
 						FinalLoc = SpriteLoc2;
 					}
-					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, twait+(100*0.45));
+					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (twait+(100*0.45)-20));
 					entities.add(Enemies);
 					CurSprite += 1;
-					if (CurSprite>3)
+					if (CurSprite>5)
 						CurSprite=1;
 				}
 			}
