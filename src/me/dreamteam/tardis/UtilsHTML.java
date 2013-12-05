@@ -14,11 +14,16 @@ public class UtilsHTML {
 	
 	static String centerHTML = "<center>";
 	static String ecenterHTML = "</center>";
+	
+	static String imageHTML = "<img src=\"";
+	static String eimageHTML = "\"></img>";
+	
+	static String breakHTML = "<br>";
 
 	// Character Selection Buttons
-	static String bpcsStart = "<html><img src=\"";
-	static String bpcsMiddle = "\"></img><br><center>";
-	static String bpcsEnd = "</center></html>";
+	static String bpcsStart = startHTML + imageHTML;
+	static String bpcsMiddle = eimageHTML + breakHTML + centerHTML;
+	static String bpcsEnd = ecenterHTML + endHTML;
 	
 	// Chracter Selection Dialog
 	static String csDialog = startHTML + boldHTML + "&raquo; " + Utils.txtCS + eboldHTML + endHTML;
