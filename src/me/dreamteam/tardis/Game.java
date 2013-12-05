@@ -270,10 +270,13 @@ public class Game extends Canvas {
 		for(int i = 0; i<9; i++){
 			if(twait != gameTime){
 				twait = gameTime;
-				Entity Enemies = new EnemyEntity(this,"sprites/enemies/01.png",SpriteLoc,-10);
+				Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc,-10);
 				entities.add(Enemies);
+				CurSprite += 1;
 			}
 		}
+		if (CurSprite>3)
+			CurSprite=1;
 	}
 	
 	/** 
