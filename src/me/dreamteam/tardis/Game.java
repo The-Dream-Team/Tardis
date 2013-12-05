@@ -271,21 +271,20 @@ public class Game extends Canvas {
 		//play around with x loc to find best result.
 		SpriteLoc = rSpriteLoc.nextInt(200);
 		SpriteLoc2 = 200+rSpriteLoc.nextInt(450);
-		for(int i = 0; i<2; i++){
-			if(twait != gameTime){
-				twait = gameTime;
-				
-				Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc,-50);
+		if(twait != gameTime){
+			twait = gameTime;
+			int FinalLoc;
+			for(int i = 0; i<2; i++){
+				if(i==0){
+					FinalLoc = SpriteLoc;
+				}else{
+					FinalLoc = SpriteLoc2;
+				}
+				Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50);
 				entities.add(Enemies);
 				CurSprite += 1;
 				if (CurSprite>3)
 					CurSprite=1;
-				Entity Enemies2 = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc2,-50);
-				entities.add(Enemies2);
-				CurSprite += 1;
-				if (CurSprite>3)
-					CurSprite=1;
-				
 			}
 		}
 		moveSpeed = 180+(twait*0.7);
