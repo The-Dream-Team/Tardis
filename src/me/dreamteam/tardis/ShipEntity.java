@@ -27,7 +27,7 @@ public class ShipEntity extends Entity {
             // if its an alien, notify the game that the player
             // is dead
             if (other instanceof EnemyEntity) {
-                System.out.println("Enemy Hit");   
+                System.out.println("Enemy Hit " + other);   
                    
             }
     }
