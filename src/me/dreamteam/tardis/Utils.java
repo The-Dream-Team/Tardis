@@ -38,6 +38,7 @@ public class Utils {
 	
 	static String txtTime = "Time:";
 	static String txtLives = "Lives:";
+	static String txtLevel = "Level ";
 	
 	/*
 	 * JFrame Options and Text
