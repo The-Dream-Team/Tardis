@@ -387,9 +387,9 @@ public class Game extends Canvas {
 			if(gameTime >90){
 				advanceLevel = true;
 				if(gameTime > 200){
-					level = 2;
-				}else{
 					level = 3;
+				}else{
+					level = 2;
 				}
 				}
 			
