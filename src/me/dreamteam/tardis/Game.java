@@ -19,8 +19,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import org.lwjgl.Sys;
 
@@ -28,6 +26,7 @@ import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
 import me.dreamteam.tardis.EnemyEntity;
 import me.dreamteam.tardis.Utils;
+import me.dreamteam.tardis.ButtonHTML;
 
 
 /**
@@ -136,19 +135,9 @@ public class Game extends Canvas {
 		ImageIcon ship2 = new ImageIcon(ship2URL);
 		ImageIcon ship3 = new ImageIcon(ship3URL);
 		
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}        
+		Utils.systemLF();    
 		
-		Object[] coptions = {"<html><img src=\""+ship1+"\"></img><br><center>P3N-15</center></html>", "<html><img src=\""+ship2+"\"></img><br><center>FALCON</center></html>", "<html><img src=\""+ship3+"\"></img><br><center>MOTH</center></html>"};
+		Object[] coptions = {ButtonHTML.bpStart + ship1 + ButtonHTML.bpMiddle + Utils.ship1Name + ButtonHTML.bpEnd, ButtonHTML.bpStart + ship2 + ButtonHTML.bpMiddle + Utils.ship2Name + ButtonHTML.bpEnd, ButtonHTML.bpStart + ship3 + ButtonHTML.bpMiddle + Utils.ship3Name + ButtonHTML.bpEnd};
 		int characterS = JOptionPane.showOptionDialog(null,
 		"<html><b>&raquo; Choose your spaceship to begin:</b></html>", "Get ready!", JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.INFORMATION_MESSAGE,
@@ -180,19 +169,9 @@ public class Game extends Canvas {
 	public void titleScreen() {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		} 
+		Utils.systemLF();
 		
-		Object[] options = {"Play", "Quit Game"};
+		Object[] options = {Utils.bPlay, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
 		"Welcome to " + Utils.gameName + Utils.version, "Tardis",
 		JOptionPane.YES_NO_CANCEL_OPTION,
@@ -409,7 +388,7 @@ public class Game extends Canvas {
 			g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
             g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
-            g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
+            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
             
             
             if (timeMil > 99){
@@ -425,7 +404,7 @@ public class Game extends Canvas {
 			g.setColor(Color.white);
 			g.setFont(new Font("Lucida Console", Font.BOLD, Utils.livesFS));
             g.drawString(livesDisplay,(875-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
-            g.drawString("Lives:",(875-g.getFontMetrics().stringWidth("Lives:"))/2,18);
+            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
             
             String convlives = String.valueOf(gameLives);
             g.setColor(Color.white);

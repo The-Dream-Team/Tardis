@@ -1,5 +1,8 @@
 package me.dreamteam.tardis;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 public class Utils {
 	
 	/* 
@@ -11,7 +14,15 @@ public class Utils {
 	static String version = "0.4.1";
 	
 	/*
-	 * Text Options
+	 * Ship Names
+	 */
+	
+	static String ship1Name = "P3N-15";
+	static String ship2Name = "FALCON";
+	static String ship3Name = "MOTH";
+	
+	/*
+	 * gText Options
 	 */
 	
 	static int fontSize = 18;  // Global Font Size
@@ -25,6 +36,15 @@ public class Utils {
 	static int levelFS = 16; // Font size for Level display
 	static int levelIFS = 16; //Font size for number of levels
 	
+	static String txtTime = "Time:";
+	static String txtLives = "Lives:";
+	
+	/*
+	 * JFrame Options
+	 */
+	
+	static String bPlay = "Play Game";
+	static String bQuit = "Quit Game";
 	
 	/*
 	 * Utility Methods
@@ -35,7 +55,21 @@ public class Utils {
 		System.exit(0);
     }
     
-	
+    
+    // System look and feel
+    public static void systemLF() {
+	try {
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	} catch (InstantiationException e) {
+		e.printStackTrace();
+	} catch (IllegalAccessException e) {
+		e.printStackTrace();
+	} catch (UnsupportedLookAndFeelException e) {
+		e.printStackTrace();
+	} 
+  }
 }
 
 
