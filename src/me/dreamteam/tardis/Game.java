@@ -255,9 +255,9 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		//play around with x loc to find best result.
+		moveSpeed = 180+(twait*0.7);
 		SpriteLoc = rSpriteLoc.nextInt(200);
-		SpriteLoc2 = 200+rSpriteLoc.nextInt(450);
+		SpriteLoc2 = 200+rSpriteLoc.nextInt(250);
 		if(twait != gameTime){
 			int FinalLoc;
 			if(gameTime >= twait+2 && advanceLevel == false){
@@ -290,7 +290,6 @@ public class Game extends Canvas {
 				}
 			}
 		}
-		moveSpeed = 180+(twait*0.7);
 	}
 	
 	/** 
