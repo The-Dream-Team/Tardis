@@ -72,6 +72,8 @@ public class Game extends Canvas {
 	public int gameLives = 3; 
 	//setup for ent mvement
 	int SpriteLoc;
+	int SpriteLoc2;
+	int SpriteLoc3;
 	int twait = 0;
 	int CurSprite = 1;
 	ImageIcon blankIcon = new ImageIcon();
@@ -266,17 +268,26 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		SpriteLoc = rSpriteLoc.nextInt(450);
-		for(int i = 0; i<9; i++){
+		//play around with x loc to find best result.
+		SpriteLoc = rSpriteLoc.nextInt(200);
+		SpriteLoc2 = 200+rSpriteLoc.nextInt(450);
+		for(int i = 0; i<2; i++){
 			if(twait != gameTime){
 				twait = gameTime;
+				
 				Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc,-50);
 				entities.add(Enemies);
 				CurSprite += 1;
+				if (CurSprite>3)
+					CurSprite=1;
+				Entity Enemies2 = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",SpriteLoc2,-50);
+				entities.add(Enemies2);
+				CurSprite += 1;
+				if (CurSprite>3)
+					CurSprite=1;
+				
 			}
 		}
-		if (CurSprite>3)
-			CurSprite=1;
 		moveSpeed = 180+(twait*0.7);
 	}
 	
