@@ -174,7 +174,7 @@ public class Game extends Canvas {
 		
 		Object[] options = {Utils.bPlay, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
-		"Welcome to " + Utils.gameName + Utils.version, "Tardis",
+		Utils.txtCS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
@@ -382,8 +382,8 @@ public class Game extends Canvas {
 			 */
 			
 			g.setColor(Color.red);
-			g.setFont(new Font("Century Gothic", Font.PLAIN, Utils.levelFS));
-            g.drawString(Utils.txtLevel + level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + level))/2,12);
+			g.setFont(new Font("Century Gothic", Font.BOLD, Utils.levelFS));
+            g.drawString(Utils.txtLevel + level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + level))/2,18);
 			
 			// Timer
 			g.setColor(Color.white);
