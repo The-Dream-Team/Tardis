@@ -27,6 +27,7 @@ import org.lwjgl.Sys;
 import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
 import me.dreamteam.tardis.EnemyEntity;
+import me.dreamteam.tardis.Utils;
 
 
 /**
@@ -38,10 +39,6 @@ public class Game extends Canvas {
 	// This provides hardware acceleration
 	
 	private boolean isRunning = true;
-	
-	private String gameName = "Codename TARDIS ";
-	private String build = "Alpha ";
-	private String version = "0.4.1";
 	
 	private Entity ship;
 	private int shipS = 0;
@@ -81,7 +78,7 @@ public class Game extends Canvas {
 	
 	public Game() {
 		
-		JFrame container = new JFrame(gameName + "- " + build + version);
+		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 		
 		JPanel panel = (JPanel) container.getContentPane();
 		panel.setPreferredSize(new Dimension(500,650));
@@ -111,7 +108,7 @@ public class Game extends Canvas {
 		//What to do when user choose to close
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				quitGame();
+				Utils.quitGame();
 			}
 		});
 		
@@ -197,7 +194,7 @@ public class Game extends Canvas {
 		
 		Object[] options = {"Play", "Quit Game"};
 		int startG = JOptionPane.showOptionDialog(null,
-		"Welcome to " + gameName + version, "Tardis",
+		"Welcome to " + Utils.gameName + Utils.version, "Tardis",
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
@@ -205,7 +202,7 @@ public class Game extends Canvas {
 		options[0]);
 		
 		if (startG != 0 && startG != 1) {
-			quitGame();
+			Utils.quitGame();
 		}
 	
 		if (startG == 1) {
@@ -222,12 +219,6 @@ public class Game extends Canvas {
     public void updateLogic() {
         logicRequiredThisLoop = true;
      }
-    
-	
-    public void quitGame() {
-		// Debug to ensure that game exits correctly
-		System.exit(0);
-    }
 	
 	
 	/**
