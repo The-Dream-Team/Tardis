@@ -152,7 +152,7 @@ public class Game extends Canvas {
 			e.printStackTrace();
 		}        
 		
-		Object[] coptions = {"<html><img src=\""+ship1+"\"></img><br><center>PEN-15</center></html>", "<html><img src=\""+ship2+"\"></img><br><center>FALCON</center></html>", "<html><img src=\""+ship3+"\"></img><br><center>MOTH</center></html>"};
+		Object[] coptions = {"<html><img src=\""+ship1+"\"></img><br><center>P3N-15</center></html>", "<html><img src=\""+ship2+"\"></img><br><center>FALCON</center></html>", "<html><img src=\""+ship3+"\"></img><br><center>MOTH</center></html>"};
 		int characterS = JOptionPane.showOptionDialog(null,
 		"<html><b>&raquo; Choose your spaceship to begin:</b></html>", "Get ready!", JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.INFORMATION_MESSAGE,
