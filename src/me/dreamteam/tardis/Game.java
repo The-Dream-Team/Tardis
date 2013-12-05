@@ -266,7 +266,7 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		SpriteLoc = rSpriteLoc.nextInt(400);
+		SpriteLoc = rSpriteLoc.nextInt(450);
 		for(int i = 0; i<9; i++){
 			if(twait != gameTime){
 				twait = gameTime;
