@@ -77,7 +77,7 @@ public class Game extends Canvas {
 	URL ship2URL = getClass().getResource("/sprites/ship2.png");
 	URL ship3URL = getClass().getResource("/sprites/ship3.png");
 	
-	private String level = "Level 1";
+	private int level = 1;
 	
 	public Game() {
 		
@@ -280,7 +280,7 @@ public class Game extends Canvas {
 						CurSprite=1;
 				}
 			}else if (gameTime >= twait && advanceLevel == true){
-				level = "Level 2";
+				level = 2;
 				twait = gameTime;
 				for(int i = 0; i<2; i++){
 					if(i==0){
@@ -395,8 +395,7 @@ public class Game extends Canvas {
 			
 			g.setColor(Color.red);
 			g.setFont(new Font("Century Gothic", Font.PLAIN, rfontSize));
-            g.drawString(level,(500-g.getFontMetrics().stringWidth(level))/2,12);
-			
+            g.drawString("Level "+level,(500-g.getFontMetrics().stringWidth("Level "+level))/2,12);
 			
 			// Timer
 			g.setColor(Color.white);
