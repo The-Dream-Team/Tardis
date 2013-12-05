@@ -73,7 +73,7 @@ public class Game extends Canvas {
 	int twait = 0;
 	int CurSprite = 1;
 	ImageIcon blankIcon = new ImageIcon();
-	
+
 	
 	long lastTime;
 	
@@ -263,8 +263,11 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		Entity Enemy = new EnemyEntity(this,"sprites/enemies/01.png",150,-150);
-		entities.add(Enemy);
+		if(twait != gameTime){
+			twait = gameTime;
+			Entity Enemies = new EnemyEntity(this,"sprites/enemies/01.png",SpriteLoc,-10);
+			entities.add(Enemies);
+		}
 		
 	}
 	
@@ -398,7 +401,7 @@ public class Game extends Canvas {
 				// Clear Graphics
 				g.dispose();
 				strategy.show();			  
-	          
+				updateEnt();
 				ship.setHorizontalMovement(0);
 		      
 		      // Ship movement
