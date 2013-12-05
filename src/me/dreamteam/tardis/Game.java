@@ -312,9 +312,9 @@ public class Game extends Canvas {
         
         //reset time
         timeMil = 0;
-        
         //reset lives
         gameLives = 3;
+        level = 1;
     	
 	}
 	
