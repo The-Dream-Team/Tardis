@@ -277,6 +277,7 @@ public class Game extends Canvas {
 		}
 		if (CurSprite>3)
 			CurSprite=1;
+		moveSpeed = 180+(twait*0.7);
 	}
 	
 	/** 
