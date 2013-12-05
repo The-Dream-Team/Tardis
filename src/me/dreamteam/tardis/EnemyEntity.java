@@ -7,6 +7,15 @@ public class EnemyEntity extends Entity {
 	
 	private Game game;
 	
+	public EnemyEntity(Game game,String ref,int x,int y, double s) {
+		super(ref,x,y);
+		
+		this.game = game;
+		// sets the Enemy to move downwards at the selected speed
+		moveSpeed = s;
+		dy = moveSpeed;
+	}
+	
 	public EnemyEntity(Game game,String ref,int x,int y) {
 		super(ref,x,y);
 		
