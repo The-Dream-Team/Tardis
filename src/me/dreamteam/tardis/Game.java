@@ -46,7 +46,7 @@ public class Game extends Canvas {
 	
 	private String gameName = "Codename TARDIS ";
 	private String build = "Alpha ";
-	private String version = "0.3.1";
+	private String version = "0.3.2";
 	
 	private Entity ship;
 	private int shipS = 0;
@@ -259,6 +259,7 @@ public class Game extends Canvas {
 		entities.add(ship);
 		}
 		
+
 		Entity Enemy = new EnemyEntity(this,"sprites/enemies/01.png",150,-150);
 		entities.add(Enemy);
 		Entity Enemy2 = new EnemyEntity(this,"sprites/enemies/02.png",250,-100);
@@ -289,7 +290,7 @@ public class Game extends Canvas {
 		entities.add(Enemy14);
 		Entity Enemy15 = new EnemyEntity(this,"sprites/enemies/03.png",250,-1340);
 		entities.add(Enemy15);
-		
+	*/	
 	}
 	
 	/** 
