@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -69,11 +70,12 @@ public class Game extends Canvas {
 	int timeMil;
 	public int gameTime = 0;
 	public int gameLives = 3; 
+	//setup for ent mvement
 	int SpriteLoc;
 	int twait = 0;
 	int CurSprite = 1;
 	ImageIcon blankIcon = new ImageIcon();
-
+	Random rSpriteLoc = new Random();
 	
 	long lastTime;
 	
@@ -81,6 +83,7 @@ public class Game extends Canvas {
 	URL ship1URL = getClass().getResource("/sprites/ship.png");
 	URL ship2URL = getClass().getResource("/sprites/ship2.png");
 	URL ship3URL = getClass().getResource("/sprites/ship3.png");
+	
 	
 	public Game() {
 		
@@ -263,12 +266,14 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		if(twait != gameTime){
-			twait = gameTime;
-			Entity Enemies = new EnemyEntity(this,"sprites/enemies/01.png",SpriteLoc,-10);
-			entities.add(Enemies);
+		SpriteLoc = rSpriteLoc.nextInt(400);
+		for(int i = 0; i<9; i++){
+			if(twait != gameTime){
+				twait = gameTime;
+				Entity Enemies = new EnemyEntity(this,"sprites/enemies/01.png",SpriteLoc,-10);
+				entities.add(Enemies);
+			}
 		}
-		
 	}
 	
 	/** 
