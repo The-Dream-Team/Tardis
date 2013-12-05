@@ -174,7 +174,7 @@ public class Game extends Canvas {
 		
 		Object[] options = {Utils.bPlay, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
-		"Welcome to " + Utils.gameName + Utils.version, "Tardis",
+		Utils.txtCS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,

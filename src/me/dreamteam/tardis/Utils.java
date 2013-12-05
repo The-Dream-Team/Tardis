@@ -30,8 +30,8 @@ public class Utils {
 	static int timeFS = 18; // Font size for Time display
 	static int timeIFS = 18; // Font size for timer
 	
-	static int livesFS = 18; // Font size for Time display
-	static int livesIFS = 18; // Font size for timer
+	static int livesFS = 18; // Font size for Lives display
+	static int livesIFS = 18; // Font size for number of lives
 	
 	static int levelFS = 16; // Font size for Level display
 	static int levelIFS = 16; //Font size for number of levels
@@ -48,6 +48,8 @@ public class Utils {
 	// Title Screen
 	static String bPlay = "Play Game";
 	static String bQuit = "Quit Game";
+	static String txtTS = "Welcome to " + gameName + version;
+	static String tsDialogTitle = gameName;
 	
 	// Character Selection
 	static String txtCS = "Choose your spaceship to begin";
