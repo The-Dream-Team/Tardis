@@ -69,7 +69,9 @@ public class Game extends Canvas {
 	int timeMil;
 	public int gameTime = 0;
 	public int gameLives = 3; 
-	
+	int SpriteLoc;
+	int twait = 0;
+	int CurSprite = 1;
 	ImageIcon blankIcon = new ImageIcon();
 	
 	
@@ -258,39 +260,12 @@ public class Game extends Canvas {
 		ship = new ShipEntity(this,"sprites/ship3.png",220,568);
 		entities.add(ship);
 		}
-		
-
+	}
+	
+	private void updateEnt(){
 		Entity Enemy = new EnemyEntity(this,"sprites/enemies/01.png",150,-150);
 		entities.add(Enemy);
-		Entity Enemy2 = new EnemyEntity(this,"sprites/enemies/02.png",250,-100);
-		entities.add(Enemy2);
-		Entity Enemy3 = new EnemyEntity(this,"sprites/enemies/03.png",350,-240);
-		entities.add(Enemy3);
-		Entity Enemy4 = new EnemyEntity(this,"sprites/enemies/01.png",50,-350);
-		entities.add(Enemy4);
-		Entity Enemy5 = new EnemyEntity(this,"sprites/enemies/02.png",420,-400);
-		entities.add(Enemy5);
-		Entity Enemy6 = new EnemyEntity(this,"sprites/enemies/03.png",250,-540);
-		entities.add(Enemy6);
-		Entity Enemy7 = new EnemyEntity(this,"sprites/enemies/01.png",150,-650);
-		entities.add(Enemy7);
-		Entity Enemy8 = new EnemyEntity(this,"sprites/enemies/02.png",250,-700);
-		entities.add(Enemy8);
-		Entity Enemy9 = new EnemyEntity(this,"sprites/enemies/03.png",350,-840);
-		entities.add(Enemy9);
-		Entity Enemy10 = new EnemyEntity(this,"sprites/enemies/01.png",50,-950);
-		entities.add(Enemy10);
-		Entity Enemy11 = new EnemyEntity(this,"sprites/enemies/02.png",420,-1000);
-		entities.add(Enemy11);
-		Entity Enemy12 = new EnemyEntity(this,"sprites/enemies/03.png",250,-1040);
-		entities.add(Enemy12);
-		Entity Enemy13 = new EnemyEntity(this,"sprites/enemies/01.png",50,-1090);
-		entities.add(Enemy13);
-		Entity Enemy14 = new EnemyEntity(this,"sprites/enemies/02.png",420,-1200);
-		entities.add(Enemy14);
-		Entity Enemy15 = new EnemyEntity(this,"sprites/enemies/03.png",250,-1340);
-		entities.add(Enemy15);
-	*/	
+		
 	}
 	
 	/** 
@@ -393,6 +368,8 @@ public class Game extends Canvas {
             g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 			
+
+
 			
             for (int i=0;i<entities.size();i++) {
 				Entity entity = (Entity) entities.get(i);
@@ -417,7 +394,7 @@ public class Game extends Canvas {
           }
 			  
 			  
-			  
+			  	
 				// Clear Graphics
 				g.dispose();
 				strategy.show();			  
