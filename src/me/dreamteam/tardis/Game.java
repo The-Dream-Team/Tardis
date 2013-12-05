@@ -78,6 +78,7 @@ public class Game extends Canvas {
 	URL ship2URL = getClass().getResource("/sprites/ship2.png");
 	URL ship3URL = getClass().getResource("/sprites/ship3.png");
 	
+	private String level = "Level 1";
 	
 	public Game() {
 		
@@ -282,6 +283,7 @@ public class Game extends Canvas {
 						CurSprite=1;
 				}
 			}else if (gameTime >= twait && advanceLevel == true){
+				level = "Level 2";
 				twait = gameTime;
 				for(int i = 0; i<2; i++){
 					if(i==0){
@@ -361,13 +363,42 @@ public class Game extends Canvas {
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0,0,500,650);
+										
+            for (int i=0;i<entities.size();i++) {
+				Entity entity = (Entity) entities.get(i);
+				
+				entity.move(delta);
+			}
+			
+
+            if (logicRequiredThisLoop) {
+                    for (int i=0;i<entities.size();i++) {
+                            Entity entity = (Entity) entities.get(i);
+                            entity.doLogic();
+                    }
+                    
+                    logicRequiredThisLoop = false;
+            }
+			
+			for (int i=0;i<entities.size();i++) {
+                  Entity entity = (Entity) entities.get(i);
+                  
+                  entity.draw(g);
+			}
+			
+			if(gameTime >90)
+				advanceLevel = true;
+			
+			/* 
+			 * Game Text
+			 */
 			
 			int fontSize = 18;
-			int rfontSize = 12;
+			int rfontSize = 14;
 			
 			g.setColor(Color.red);
 			g.setFont(new Font("Century Gothic", Font.PLAIN, rfontSize));
-            g.drawString("-- WORK IN PROGRESS --",(500-g.getFontMetrics().stringWidth("-- WORK IN PROGRESS --"))/2,12);
+            g.drawString(level,(500-g.getFontMetrics().stringWidth(level))/2,12);
 			
 			
 			// Timer
@@ -397,34 +428,6 @@ public class Game extends Canvas {
 			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
             g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
-			
-
-            
-			
-            for (int i=0;i<entities.size();i++) {
-				Entity entity = (Entity) entities.get(i);
-				
-				entity.move(delta);
-			}
-			
-
-            if (logicRequiredThisLoop) {
-                    for (int i=0;i<entities.size();i++) {
-                            Entity entity = (Entity) entities.get(i);
-                            entity.doLogic();
-                    }
-                    
-                    logicRequiredThisLoop = false;
-            }
-			
-			for (int i=0;i<entities.size();i++) {
-                  Entity entity = (Entity) entities.get(i);
-                  
-                  entity.draw(g);
-			}
-			
-			if(gameTime >90)
-				advanceLevel = true;
 			  
 			  
 			  	
