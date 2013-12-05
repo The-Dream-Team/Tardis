@@ -288,7 +288,7 @@ public class Game extends Canvas {
 						}else{
 							FinalLoc = SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (twait+(100*0.45)-20));
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (twait+(100*0.45)-30));
 						entities.add(Enemies);
 						CurSprite += 1;
 						if (CurSprite>5)
@@ -386,7 +386,11 @@ public class Game extends Canvas {
 			
 			if(gameTime >90){
 				advanceLevel = true;
-				level = 2;
+				if(gameTime > 200){
+					level = 2;
+				}else{
+					level = 3;
+				}
 				}
 			
 			/* 
