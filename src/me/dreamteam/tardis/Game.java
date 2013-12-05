@@ -55,7 +55,7 @@ public class Game extends Canvas {
     private boolean leftPressed = false;
     private boolean rightPressed = false;
 	private boolean logicRequiredThisLoop = false;
-	
+	private boolean advanceLevel = false;
 	long lastFrame;
 	
 	private String timeDisplay = "";
@@ -259,9 +259,9 @@ public class Game extends Canvas {
 		SpriteLoc = rSpriteLoc.nextInt(200);
 		SpriteLoc2 = 200+rSpriteLoc.nextInt(450);
 		if(twait != gameTime){
-			if(gameTime >= twait+2){
+			int FinalLoc;
+			if(gameTime >= twait+2 && advanceLevel == false){
 				twait = gameTime;
-				int FinalLoc;
 				for(int i = 0; i<2; i++){
 					if(i==0){
 						FinalLoc = SpriteLoc;
@@ -269,6 +269,20 @@ public class Game extends Canvas {
 						FinalLoc = SpriteLoc2;
 					}
 					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50);
+					entities.add(Enemies);
+					CurSprite += 1;
+					if (CurSprite>3)
+						CurSprite=1;
+				}
+			}else if (gameTime >= twait && advanceLevel == true){
+				twait = gameTime;
+				for(int i = 0; i<2; i++){
+					if(i==0){
+						FinalLoc = SpriteLoc;
+					}else{
+						FinalLoc = SpriteLoc2;
+					}
+					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, twait+(100*0.45));
 					entities.add(Enemies);
 					CurSprite += 1;
 					if (CurSprite>3)
@@ -379,7 +393,7 @@ public class Game extends Canvas {
             g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 			
 
-
+            
 			
             for (int i=0;i<entities.size();i++) {
 				Entity entity = (Entity) entities.get(i);
@@ -397,11 +411,14 @@ public class Game extends Canvas {
                     logicRequiredThisLoop = false;
             }
 			
-			  for (int i=0;i<entities.size();i++) {
+			for (int i=0;i<entities.size();i++) {
                   Entity entity = (Entity) entities.get(i);
                   
                   entity.draw(g);
-          }
+			}
+			
+			if(gameTime >90)
+				advanceLevel = true;
 			  
 			  
 			  	
