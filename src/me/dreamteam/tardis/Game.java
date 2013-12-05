@@ -401,16 +401,13 @@ public class Game extends Canvas {
 			 * Game Text
 			 */
 			
-			int fontSize = 18;
-			int rfontSize = 14;
-			
 			g.setColor(Color.red);
-			g.setFont(new Font("Century Gothic", Font.PLAIN, rfontSize));
+			g.setFont(new Font("Century Gothic", Font.PLAIN, Utils.levelFS));
             g.drawString("Level "+level,(500-g.getFontMetrics().stringWidth("Level "+level))/2,12);
 			
 			// Timer
 			g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
+			g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
             g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString("Time:",(70-g.getFontMetrics().stringWidth("Time:"))/2,18);
             
@@ -420,19 +417,19 @@ public class Game extends Canvas {
             }
             String convtime = String.valueOf(gameTime);
             g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
+			g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
             g.drawString(timeDisplay,(175-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
  
             //Lives
 			g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.BOLD, fontSize));
+			g.setFont(new Font("Lucida Console", Font.BOLD, Utils.livesFS));
             g.drawString(livesDisplay,(875-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
             g.drawString("Lives:",(875-g.getFontMetrics().stringWidth("Lives:"))/2,18);
             
             String convlives = String.valueOf(gameLives);
             g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.ITALIC, fontSize));
+			g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
             g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
             g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 			  
@@ -470,9 +467,6 @@ public class Game extends Canvas {
 	
 	
     private class KeyInputHandler extends KeyAdapter {
-
-        
-
         public void keyPressed(KeyEvent e) {                
                 
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -489,7 +483,7 @@ public class Game extends Canvas {
         
 
         public void keyReleased(KeyEvent e) {
-               
+           
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                         leftPressed = false;
                 }
@@ -498,8 +492,6 @@ public class Game extends Canvas {
                 }
                 
         }
-        
-        
     }
 	
 	
