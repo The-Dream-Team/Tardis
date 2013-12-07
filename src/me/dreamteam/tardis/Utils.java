@@ -48,6 +48,7 @@ public class Utils {
 	// Title Screen
 	static String bPlay = "Play Game";
 	static String bQuit = "Quit Game";
+	static String bRestart = "Restart Game";
 	static String txtTS = "Welcome to " + gameName + version;
 	static String tsDialogTitle = gameName;
 	

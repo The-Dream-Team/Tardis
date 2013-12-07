@@ -188,6 +188,34 @@ public class Game extends Canvas {
 		
 	}
 	
+	public void restartGame() {
+		ImageIcon icon = new ImageIcon(iconURL);	
+		
+		Utils.systemLF();
+		
+		Object[] options = {Utils.bRestart, Utils.bQuit};
+		int startG = JOptionPane.showOptionDialog(null,
+		Utils.txtCS, Utils.tsDialogTitle,
+		JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.QUESTION_MESSAGE,
+		icon,
+		options,
+		options[0]);
+		
+		if (startG != 0 && startG != 1) {
+			Utils.quitGame();
+		}
+	
+		if (startG == 1) {
+			System.exit(0);
+		}
+		
+		if (startG == 0) {
+			characterSelect();
+		}
+		
+	}
+	
 	
     public void updateLogic() {
         logicRequiredThisLoop = true;
@@ -450,7 +478,7 @@ public class Game extends Canvas {
                 }
 
                 if (e.getKeyChar() == 27) {
-                	titleScreen();
+                	restartGame();
             }
         } 
         
