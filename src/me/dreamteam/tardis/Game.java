@@ -120,98 +120,7 @@ public class Game extends Canvas {
 		initEntities();
 		titleScreen();
 	}
-		
 
-	public void characterSelect() {
-		ImageIcon ship1 = new ImageIcon(ship1URL);
-		ImageIcon ship2 = new ImageIcon(ship2URL);
-		ImageIcon ship3 = new ImageIcon(ship3URL);
-		
-		Utils.systemLF();    
-		
-		Object[] coptions = {UtilsHTML.bpcsStart + ship1 + UtilsHTML.bpcsMiddle + Utils.ship1Name + UtilsHTML.bpcsEnd,
-							 UtilsHTML.bpcsStart + ship2 + UtilsHTML.bpcsMiddle + Utils.ship2Name + UtilsHTML.bpcsEnd,
-							 UtilsHTML.bpcsStart + ship3 + UtilsHTML.bpcsMiddle + Utils.ship3Name + UtilsHTML.bpcsEnd};
-		int characterS = JOptionPane.showOptionDialog(null,
-		UtilsHTML.csDialog, Utils.csDialogTitle, JOptionPane.YES_NO_CANCEL_OPTION,
-		JOptionPane.INFORMATION_MESSAGE,
-		blankIcon,
-		coptions,
-		coptions[0]);
-		
-		if (characterS != 2 && characterS != 1 && characterS != 0) {
-			titleScreen();
-		}
-		
-		if (characterS == 2) {
-			shipS = 2;
-			startGame();
-		}
-	
-		if (characterS == 1) {
-			shipS = 1;
-			startGame();
-		}
-		
-		if (characterS == 0) {
-			shipS = 0;
-			startGame();
-		}
-	}
-	
-	
-	public void titleScreen() {
-		ImageIcon icon = new ImageIcon(iconURL);	
-		
-		Utils.systemLF();
-		
-		Object[] options = {Utils.bPlay, Utils.bQuit};
-		int startG = JOptionPane.showOptionDialog(null,
-		Utils.txtCS, Utils.tsDialogTitle,
-		JOptionPane.YES_NO_CANCEL_OPTION,
-		JOptionPane.QUESTION_MESSAGE,
-		icon,
-		options,
-		options[0]);
-		
-		if (startG != 0 && startG != 1) {
-			Utils.quitGame();
-		}
-	
-		if (startG == 1) {
-			System.exit(0);
-		}
-		
-		if (startG == 0) {
-			characterSelect();
-		}
-		
-	}
-	
-	public void restartGame() {
-		ImageIcon icon = new ImageIcon(iconURL);	
-		
-		Utils.systemLF();
-		
-		Object[] options = {Utils.bRestart, Utils.bQuit};
-		int startG = JOptionPane.showOptionDialog(null,
-		Utils.txtCS, Utils.tsDialogTitle,
-		JOptionPane.YES_NO_CANCEL_OPTION,
-		JOptionPane.QUESTION_MESSAGE,
-		icon,
-		options,
-		options[0]);
-	
-		if (startG == 1) {
-			System.exit(0);
-		}
-		
-		if (startG == 0) {
-			characterSelect();
-		}
-		
-	}
-	
 	
     public void updateLogic() {
         logicRequiredThisLoop = true;
@@ -345,9 +254,96 @@ public class Game extends Canvas {
 	    return delta;
 	}
 	
-	/**
-	 * GAME LOOP and Main below
-	 */
+	public void characterSelect() {
+		ImageIcon ship1 = new ImageIcon(ship1URL);
+		ImageIcon ship2 = new ImageIcon(ship2URL);
+		ImageIcon ship3 = new ImageIcon(ship3URL);
+		
+		Utils.systemLF();    
+		
+		Object[] coptions = {UtilsHTML.bpcsStart + ship1 + UtilsHTML.bpcsMiddle + Utils.ship1Name + UtilsHTML.bpcsEnd,
+							 UtilsHTML.bpcsStart + ship2 + UtilsHTML.bpcsMiddle + Utils.ship2Name + UtilsHTML.bpcsEnd,
+							 UtilsHTML.bpcsStart + ship3 + UtilsHTML.bpcsMiddle + Utils.ship3Name + UtilsHTML.bpcsEnd};
+		int characterS = JOptionPane.showOptionDialog(null,
+		UtilsHTML.csDialog, Utils.csDialogTitle, JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.INFORMATION_MESSAGE,
+		blankIcon,
+		coptions,
+		coptions[0]);
+		
+		if (characterS != 2 && characterS != 1 && characterS != 0) {
+			titleScreen();
+		}
+		
+		if (characterS == 2) {
+			shipS = 2;
+			startGame();
+		}
+	
+		if (characterS == 1) {
+			shipS = 1;
+			startGame();
+		}
+		
+		if (characterS == 0) {
+			shipS = 0;
+			startGame();
+		}
+	}
+	
+	
+	public void titleScreen() {
+		ImageIcon icon = new ImageIcon(iconURL);	
+		
+		Utils.systemLF();
+		
+		Object[] options = {Utils.bPlay, Utils.bQuit};
+		int startG = JOptionPane.showOptionDialog(null,
+		Utils.txtCS, Utils.tsDialogTitle,
+		JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.QUESTION_MESSAGE,
+		icon,
+		options,
+		options[0]);
+		
+		if (startG != 0 && startG != 1) {
+			Utils.quitGame();
+		}
+	
+		if (startG == 1) {
+			System.exit(0);
+		}
+		
+		if (startG == 0) {
+			characterSelect();
+		}
+		
+	}
+	
+	public void restartGame() {
+		ImageIcon icon = new ImageIcon(iconURL);	
+		
+		Utils.systemLF();
+		
+		Object[] options = {Utils.bRestart, Utils.bQuit};
+		int startG = JOptionPane.showOptionDialog(null,
+		Utils.txtCS, Utils.tsDialogTitle,
+		JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.QUESTION_MESSAGE,
+		icon,
+		options,
+		options[0]);
+	
+		if (startG == 1) {
+			System.exit(0);
+		}
+		
+		if (startG == 0) {
+			characterSelect();
+		}
+		
+	}
+	
 	
 	public void gameLoop() {
 		long lastLoopTime = System.currentTimeMillis();
