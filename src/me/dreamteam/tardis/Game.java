@@ -211,9 +211,7 @@ public class Game extends Canvas {
 		}
 	}
 	
-	/** 
-	 * Garbage collection and looping
-	 */
+
 	private void startGame() {
 
         entities.clear();
@@ -230,30 +228,6 @@ public class Game extends Canvas {
         gameLives = 3;
         level = 1;
         gameStart = true;
-	}
-	
-	/**
-	 * Update the game time
-	 */
-	
-	public void updateTime() {
-	    if (getTime() - lastTime > 1000) {
-	        timeMil = 0; //reset the FPS counter
-	        lastTime += 1000; //add one second
-	    }
-	    timeMil++;
-	}
-	
-	public long getTime() {
-		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
-		}
-	
-	public int getDelta() {
-	    long time = getTime();
-	    int delta = (int) (time - lastFrame);
-	    lastFrame = time;
-	 
-	    return delta;
 	}
 	
 	public void characterSelect() {
@@ -292,8 +266,7 @@ public class Game extends Canvas {
 			startGame();
 		}
 	}
-	
-	
+		
 	public void titleScreen() {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		Utils.systemLF();
@@ -334,6 +307,9 @@ public class Game extends Canvas {
 		options,
 		options[0]);
 	
+		if (startG != 0 && startG != 1) {
+			gameStart = true;
+		}
 		
 		if (startG == 1) {
 			System.exit(0);
@@ -355,7 +331,6 @@ public class Game extends Canvas {
 				lastLoopTime = System.currentTimeMillis();
 				lastTime = getTime();
 				updateTime();
-	
 				
 				// Colour in background		
 				Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
@@ -464,6 +439,31 @@ public class Game extends Canvas {
 		}
 	}
 	
+
+	/**
+	 * Update the game time
+	 */
+	
+	public void updateTime() {
+	    if (getTime() - lastTime > 1000) {
+	        timeMil = 0; //reset the FPS counter
+	        lastTime += 1000; //add one second
+	    }
+	    timeMil++;
+	}
+	
+	public long getTime() {
+		return (Sys.getTime() * 1000) / Sys.getTimerResolution();
+		}
+	
+	public int getDelta() {
+	    long time = getTime();
+	    int delta = (int) (time - lastFrame);
+	    lastFrame = time;
+	 
+	    return delta;
+	}
+	
 	
     private class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {                
@@ -494,9 +494,6 @@ public class Game extends Canvas {
     }
 	
 	
-		/**
-		 * Game Start
-		 */
 		public static void main(String argv[]) {
 			Game g =new Game();
 	
