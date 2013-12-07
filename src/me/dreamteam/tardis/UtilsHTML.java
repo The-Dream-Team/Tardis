@@ -25,7 +25,7 @@ public class UtilsHTML {
 	static String bpcsMiddle = eimageHTML + breakHTML + centerHTML;
 	static String bpcsEnd = ecenterHTML + endHTML;
 	
-	// Chracter Selection Dialog
+	// Character Selection Dialog
 	static String csDialog = startHTML + boldHTML + "&raquo; " + Utils.txtCS + eboldHTML + endHTML;
 	
 }
