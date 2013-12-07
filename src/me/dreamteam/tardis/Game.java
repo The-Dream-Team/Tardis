@@ -38,6 +38,7 @@ public class Game extends Canvas {
 	// This provides hardware acceleration
 	
 	private boolean isRunning = true;
+	private boolean gameStart = false;
 	
 	private Entity ship;
 	private int shipS = 0;
@@ -128,7 +129,7 @@ public class Game extends Canvas {
 	
 	
 	/**
-	 * initialise entities/ Create the Sprites
+	 * Create our ship
 	 */
 	
 	private void initEntities() {
@@ -214,6 +215,7 @@ public class Game extends Canvas {
 	 * Garbage collection and looping
 	 */
 	private void startGame() {
+
         entities.clear();
         initEntities();
         
@@ -227,7 +229,7 @@ public class Game extends Canvas {
         //reset lives
         gameLives = 3;
         level = 1;
-    	
+        gameStart = true;
 	}
 	
 	/**
@@ -270,7 +272,7 @@ public class Game extends Canvas {
 		blankIcon,
 		coptions,
 		coptions[0]);
-		
+
 		if (characterS != 2 && characterS != 1 && characterS != 0) {
 			titleScreen();
 		}
@@ -294,7 +296,6 @@ public class Game extends Canvas {
 	
 	public void titleScreen() {
 		ImageIcon icon = new ImageIcon(iconURL);	
-		
 		Utils.systemLF();
 		
 		Object[] options = {Utils.bPlay, Utils.bQuit};
@@ -322,9 +323,8 @@ public class Game extends Canvas {
 	
 	public void restartGame() {
 		ImageIcon icon = new ImageIcon(iconURL);	
-		
 		Utils.systemLF();
-		
+		gameStart = false;
 		Object[] options = {Utils.bRestart, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
 		Utils.txtCS, Utils.tsDialogTitle,
@@ -349,113 +349,117 @@ public class Game extends Canvas {
 		long lastLoopTime = System.currentTimeMillis();
 		
 		while (isRunning) {
-			long delta = System.currentTimeMillis() - lastLoopTime;
-			lastLoopTime = System.currentTimeMillis();
-			lastTime = getTime();
-			updateTime();
-
-			
-			// Colour in background		
-			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
-			g.setColor(Color.black);
-			g.fillRect(0,0,500,650);
-										
-            for (int i=0;i<entities.size();i++) {
-				Entity entity = (Entity) entities.get(i);
+			if(gameStart == true){
+				long delta = System.currentTimeMillis() - lastLoopTime;
+				lastLoopTime = System.currentTimeMillis();
+				lastTime = getTime();
+				updateTime();
+	
 				
-				entity.move(delta);
-			}
-			
-
-            if (logicRequiredThisLoop) {
-                    for (int i=0;i<entities.size();i++) {
-                            Entity entity = (Entity) entities.get(i);
-                            entity.doLogic();
-                    }
-                    
-                    logicRequiredThisLoop = false;
-            }
-			
-			for (int i=0;i<entities.size();i++) {
-                  Entity entity = (Entity) entities.get(i);
-                  
-                  entity.draw(g);
-			}
-			
-			if(gameTime >90){
-				advanceLevel = true;
-				if(gameTime > 200){
-					level = 3;
-				}else{
-					level = 2;
+				// Colour in background		
+				Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+				g.setColor(Color.black);
+				g.fillRect(0,0,500,650);
+											
+	            for (int i=0;i<entities.size();i++) {
+					Entity entity = (Entity) entities.get(i);
+					
+					entity.move(delta);
 				}
-			}
-			
-			/* 
-			 * Game Text
-			 */
-			
-			g.setColor(Color.red);
-			g.setFont(new Font("Century Gothic", Font.BOLD, Utils.levelFS));
-            g.drawString(Utils.txtLevel + level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + level))/2,18);
-			
-			// Timer
-			g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
-            g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
-            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
-            
-            
-            if (timeMil > 99){
-            	gameTime = timeMil/100;
-            }
-            String convtime = String.valueOf(gameTime);
-            g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-            g.drawString(timeDisplay,(175-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
-            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
- 
-            //Lives
-			g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.BOLD, Utils.livesFS));
-            g.drawString(livesDisplay,(875-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
-            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
-            
-            String convlives = String.valueOf(gameLives);
-            g.setColor(Color.white);
-			g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
-            g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
-            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
-			  
-			  
-			  	
+				
+	
+	            if (logicRequiredThisLoop) {
+	                    for (int i=0;i<entities.size();i++) {
+	                            Entity entity = (Entity) entities.get(i);
+	                            entity.doLogic();
+	                    }
+	                    
+	                    logicRequiredThisLoop = false;
+	            }
+				
+				for (int i=0;i<entities.size();i++) {
+	                  Entity entity = (Entity) entities.get(i);
+	                  
+	                  entity.draw(g);
+				}
+				
+				if(gameTime >90){
+					advanceLevel = true;
+					if(gameTime > 200){
+						level = 3;
+					}else{
+						level = 2;
+					}
+				}
+				
+				/* 
+				 * Game Text
+				 */
+				
+				g.setColor(Color.red);
+				g.setFont(new Font("Century Gothic", Font.BOLD, Utils.levelFS));
+	            g.drawString(Utils.txtLevel + level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + level))/2,18);
+				
+				// Timer
+				g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
+	            g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+	            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
+	            
+	            
+	            if (timeMil > 99){
+	            	gameTime = timeMil/100;
+	            }
+	            String convtime = String.valueOf(gameTime);
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
+	            g.drawString(timeDisplay,(175-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+	            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
+	 
+	            //Lives
+				g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.livesFS));
+	            g.drawString(livesDisplay,(875-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
+	            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
+	            
+	            String convlives = String.valueOf(gameLives);
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
+	            g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
+				  
+				  
+				  	
 				// Clear Graphics
 				g.dispose();
 				strategy.show();			  
 				updateEnt();
-				ship.setHorizontalMovement(0);
-		      
-		      // Ship movement
-              if ((leftPressed) && (!rightPressed)) {
-                  ship.setHorizontalMovement(-moveSpeed);
-              } else if ((rightPressed) && (!leftPressed)) {
-                  ship.setHorizontalMovement(moveSpeed);
-              }
-              
-      //testing for collision of player and enemy  
-            for (int p=0;p<entities.size();p++) {
-                      for (int s=p+1;s<entities.size();s++) {
-                              Entity me = (Entity) entities.get(p);
-                              Entity him = (Entity) entities.get(s);
-                              
-                              if (me.collidesWith(him)) {
-                                      me.collidedWith(him);
-                                      him.collidedWith(me);
-                              }
-                      }
-              }
-              
-              try { Thread.sleep(10); } catch (Exception e) {}
+				
+				ship.setHorizontalMovement(0);  
+			    // Ship movement
+	            if ((leftPressed) && (!rightPressed)) {
+	            	ship.setHorizontalMovement(-moveSpeed);
+	            } else if ((rightPressed) && (!leftPressed)) {
+	                ship.setHorizontalMovement(moveSpeed);
+	            }
+	              
+	            //testing for collision of player and enemy  
+	            for (int p=0;p<entities.size();p++) {
+	                      for (int s=p+1;s<entities.size();s++) {
+	                              Entity me = (Entity) entities.get(p);
+	                              Entity him = (Entity) entities.get(s);
+	                              
+	                              if (me.collidesWith(him)) {
+	                                      me.collidedWith(him);
+	                                      him.collidedWith(me);
+	                              }
+	                      }
+	              }
+	              
+	              try { Thread.sleep(10); } catch (Exception e) {}
+			 }else{
+				 try { Thread.sleep(10); } catch (Exception e) {}
+			 }
 		}
 	}
 	
