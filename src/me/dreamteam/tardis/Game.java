@@ -327,13 +327,14 @@ public class Game extends Canvas {
 		gameStart = false;
 		Object[] options = {Utils.bRestart, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
-		Utils.txtCS, Utils.tsDialogTitle,
+		Utils.rtxtCS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
 		options,
 		options[0]);
 	
+		
 		if (startG == 1) {
 			System.exit(0);
 		}
