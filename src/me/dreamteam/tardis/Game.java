@@ -283,8 +283,9 @@ public class Game extends Canvas {
 							CurSprite=1;
 					}
 				}else if(gameTime>= twait && level >2){
-					for(int i = 0; i<2; i++){
-						if(i==0){
+					twait = gameTime;
+					for(int i = 0; i<2; i++){ 
+						if(i==0){ 
 							FinalLoc = SpriteLoc;
 						}else{
 							FinalLoc = SpriteLoc2;
