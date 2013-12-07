@@ -298,7 +298,7 @@ public class Game extends Canvas {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		Utils.systemLF();
 		gameStart = false;
-		Object[] options = {Utils.bRestart, Utils.bQuit};
+		Object[] options = {Utils.bRestart, Utils.bQuit, Utils.bReturn};
 		int startG = JOptionPane.showOptionDialog(null,
 		Utils.rtxtCS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
@@ -318,7 +318,7 @@ public class Game extends Canvas {
 		if (startG == 0) {
 			characterSelect();
 		}
-		
+				
 	}
 	
 	
