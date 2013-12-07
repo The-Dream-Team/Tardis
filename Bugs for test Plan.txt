@@ -3,3 +3,5 @@ Fixes: check location for sprites and moving them a few spaces away making sure 
 
 Bugs: Enemy may appear in similar location multiple times
 Fixes: allow 2 sprites to be created together, but spliting them between the screen.
+
+Bugs: Enemy continue moving even after game has been paused
