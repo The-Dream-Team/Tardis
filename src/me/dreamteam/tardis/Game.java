@@ -201,10 +201,6 @@ public class Game extends Canvas {
 		icon,
 		options,
 		options[0]);
-		
-		if (startG != 0 && startG != 1) {
-			Utils.quitGame();
-		}
 	
 		if (startG == 1) {
 			System.exit(0);
