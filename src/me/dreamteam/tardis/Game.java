@@ -273,7 +273,7 @@ public class Game extends Canvas {
 		
 		Object[] options = {Utils.bPlay, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
-		Utils.txtCS, Utils.tsDialogTitle,
+		Utils.txtTS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
