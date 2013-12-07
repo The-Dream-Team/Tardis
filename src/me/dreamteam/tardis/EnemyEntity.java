@@ -11,7 +11,6 @@ public class EnemyEntity extends Entity {
 		super(ref,x,y);
 		
 		this.game = game;
-		// sets the Enemy to move downwards at the selected speed
 		moveSpeed = s;
 		dy = moveSpeed;
 	}
@@ -24,7 +23,6 @@ public class EnemyEntity extends Entity {
 		dy = moveSpeed;
 	}
 
-	
 	public void move(long delta) {
 		if ((dy < 0) && (y < 10)) {
 			game.updateLogic();
@@ -37,8 +35,6 @@ public class EnemyEntity extends Entity {
 		
 		super.move(delta);
 	}
-	 	
-
 	
 	public void collidedWith(Entity other) {
 	//collision is handled in other file 	

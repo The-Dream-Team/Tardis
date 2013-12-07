@@ -83,13 +83,9 @@ public class Game extends Canvas {
 		panel.setPreferredSize(new Dimension(500,650));
 		panel.setLayout(null);
 		
-		// Canvas size setup
 		setBounds(0,0,500,650);
 		panel.add(this);
-
 		setIgnoreRepaint(true);
-		
-		//Don't move this variable as it will add extra padding if moved below pack
 		container.setResizable(false);
 		container.pack();
 		
@@ -102,7 +98,6 @@ public class Game extends Canvas {
 		container.setLocation(x, y);
 		container.setBackground(Color.black);
 		container.setVisible(true);
-		
 		
 		//What to do when user choose to close
 		container.addWindowListener(new WindowAdapter() {
@@ -123,12 +118,10 @@ public class Game extends Canvas {
         
         requestFocus();
 		initEntities();
-		
 		titleScreen();
-
 	}
 		
-	
+
 	public void characterSelect() {
 		ImageIcon ship1 = new ImageIcon(ship1URL);
 		ImageIcon ship2 = new ImageIcon(ship2URL);
@@ -375,7 +368,7 @@ public class Game extends Canvas {
 				}else{
 					level = 2;
 				}
-				}
+			}
 			
 			/* 
 			 * Game Text
