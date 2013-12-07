@@ -54,7 +54,7 @@ public class Utils {
 	
 	// Character Selection
 	static String txtCS = "Choose your spaceship to begin";
-	static String csDialogTitle = "Get ready!";
+	static String csDialogTitle = "Character Selection";
 	
 	/*
 	 * Utility Methods
