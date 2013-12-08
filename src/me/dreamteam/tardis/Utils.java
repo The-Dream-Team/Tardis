@@ -55,8 +55,10 @@ public class Utils {
 	
 	// Character Selection
 	static String txtCS = "Choose your spaceship to begin";
-	static String rtxtCS = "Game has been paused";
 	static String csDialogTitle = "Character Selection";
+	
+	// Pause screen
+	static String txtPS = "Game has been paused";
 	
 	/*
 	 * Utility Methods
