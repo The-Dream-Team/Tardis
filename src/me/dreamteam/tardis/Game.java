@@ -53,7 +53,6 @@ public class Game extends Canvas {
 	private boolean logicRequiredThisLoop = false;
 	private boolean advanceLevel = false;
 	long lastFrame;
-	
 	private String timeDisplay = "";
 	private String livesDisplay = "";
 	int timeMil;
@@ -306,7 +305,10 @@ public class Game extends Canvas {
 		icon,
 		options,
 		options[0]);
-	
+		for (int i=0;i<entities.size();i++) {
+            Entity entity = (Entity) entities.get(i);
+            entity.setVerticalMovement(0);
+		 }
 		if (pauseG != 1 && pauseG != 2) {
 			gameStart = true;
 		}
