@@ -316,6 +316,7 @@ public class Game extends Canvas {
 		}
 		
 		if (pauseG == 1) {
+			gameTime = 0;
 			characterSelect();
 		}
 				
