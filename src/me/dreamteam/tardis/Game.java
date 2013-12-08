@@ -54,6 +54,7 @@ public class Game extends Canvas {
 	private boolean logicRequiredThisLoop = false;
 	private boolean advanceLevel = false;
 	long lastFrame;
+	long finalTime = 0;
 	private String timeDisplay = "";
 	private String livesDisplay = "";
 	int timeMil;
@@ -298,6 +299,7 @@ public class Game extends Canvas {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		Utils.systemLF();
 		gameStart = false;
+		long LoopTempTime = System.currentTimeMillis();
 		Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
 		int pauseG = JOptionPane.showOptionDialog(null,
 		Utils.txtPS, Utils.tsDialogTitle,
@@ -316,6 +318,11 @@ public class Game extends Canvas {
              entity.setVerticalMovement(0);
 		 }
 		if (pauseG != 1 && pauseG != 2) {
+			for (int i=0;i<entities.size();i++) {
+	            Entity entity = (Entity) entities.get(i);
+	            entity.setVerticalMovement(entCurYLoc[i]);
+			 }
+			finalTime = System.currentTimeMillis() - LoopTempTime;
 			gameStart = true;
 		}
 		
