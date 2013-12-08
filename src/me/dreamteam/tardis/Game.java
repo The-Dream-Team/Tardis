@@ -294,28 +294,28 @@ public class Game extends Canvas {
 		
 	}
 	
-	public void restartGame() {
+	public void pauseGame() {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		Utils.systemLF();
 		gameStart = false;
-		Object[] options = {Utils.bRestart, Utils.bQuit, Utils.bReturn};
-		int startG = JOptionPane.showOptionDialog(null,
-		Utils.rtxtCS, Utils.tsDialogTitle,
+		Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
+		int pauseG = JOptionPane.showOptionDialog(null,
+		Utils.txtPS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
 		options,
 		options[0]);
 	
-		if (startG != 0 && startG != 1) {
+		if (pauseG != 1 && pauseG != 2) {
 			gameStart = true;
 		}
 		
-		if (startG == 1) {
+		if (pauseG == 2) {
 			System.exit(0);
 		}
 		
-		if (startG == 0) {
+		if (pauseG == 1) {
 			characterSelect();
 		}
 				
@@ -476,7 +476,7 @@ public class Game extends Canvas {
                 }
 
                 if (e.getKeyChar() == 27) {
-                	restartGame();
+                	pauseGame();
             }
         } 
         
