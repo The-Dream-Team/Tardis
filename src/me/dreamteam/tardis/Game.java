@@ -343,7 +343,8 @@ public class Game extends Canvas {
 		
 		while (isRunning) {
 			if(gameStart == true){
-				long delta = System.currentTimeMillis() - lastLoopTime;
+				long delta = (System.currentTimeMillis()-finalTime) - lastLoopTime;
+				finalTime = 0;
 				lastLoopTime = System.currentTimeMillis();
 				lastTime = getTime();
 				updateTime();
