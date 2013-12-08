@@ -298,7 +298,7 @@ public class Game extends Canvas {
 		ImageIcon icon = new ImageIcon(iconURL);	
 		Utils.systemLF();
 		gameStart = false;
-		Object[] options = {Utils.bRestart, Utils.bQuit, Utils.bReturn};
+		Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
 		Utils.txtPS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
