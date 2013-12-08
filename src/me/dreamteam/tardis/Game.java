@@ -42,6 +42,7 @@ public class Game extends Canvas {
 	
 	private Entity ship;
 	private int shipS = 0;
+	double curY = 0;
 	private ArrayList entities = new ArrayList();
 	
 	private ArrayList enemies = new ArrayList();
@@ -305,9 +306,14 @@ public class Game extends Canvas {
 		icon,
 		options,
 		options[0]);
+		double[] entCurYLoc = new double[entities.size()];
 		for (int i=0;i<entities.size();i++) {
-            Entity entity = (Entity) entities.get(i);
-            entity.setVerticalMovement(0);
+			Entity entity = (Entity) entities.get(i);
+            entCurYLoc[i] = entity.getVerticalMovement();
+		 }
+		for (int i=0;i<entities.size();i++) {
+			Entity entity = (Entity) entities.get(i);
+             entity.setVerticalMovement(0);
 		 }
 		if (pauseG != 1 && pauseG != 2) {
 			gameStart = true;
