@@ -299,7 +299,7 @@ public class Game extends Canvas {
 		Utils.systemLF();
 		gameStart = false;
 		Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
-		int startG = JOptionPane.showOptionDialog(null,
+		int restartG = JOptionPane.showOptionDialog(null,
 		Utils.txtPS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
@@ -307,15 +307,15 @@ public class Game extends Canvas {
 		options,
 		options[0]);
 	
-		if (startG != 0 && startG != 1) {
+		if (restartG != 1 && restartG != 2) {
 			gameStart = true;
 		}
 		
-		if (startG == 1) {
+		if (restartG == 2) {
 			System.exit(0);
 		}
 		
-		if (startG == 0) {
+		if (restartG == 1) {
 			characterSelect();
 		}
 				
