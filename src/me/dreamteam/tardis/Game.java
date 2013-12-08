@@ -43,8 +43,8 @@ public class Game extends Canvas {
 	private Entity ship;
 	private int shipS = 0;
 	double curY = 0;
+	long lastLoopTime;
 	private ArrayList entities = new ArrayList();
-	
 	private ArrayList enemies = new ArrayList();
  
 	
@@ -166,6 +166,7 @@ public class Game extends Canvas {
 			int FinalLoc;
 			if(gameTime >= twait+2 && advanceLevel == false){
 				twait = gameTime;
+				
 				for(int i = 0; i<2; i++){
 					if(i==0){
 						FinalLoc = SpriteLoc;
@@ -229,6 +230,10 @@ public class Game extends Canvas {
         gameLives = 3;
         level = 1;
         gameStart = true;
+        twait = 0;
+        gameTime = 0;
+        finalTime = 0;
+        lastLoopTime = System.currentTimeMillis();
 	}
 	
 	public void characterSelect() {
@@ -312,10 +317,7 @@ public class Game extends Canvas {
 		for (int i=0;i<entities.size();i++) {
 			Entity entity = (Entity) entities.get(i);
             entCurYLoc[i] = entity.getVerticalMovement();
-		 }
-		for (int i=0;i<entities.size();i++) {
-			Entity entity = (Entity) entities.get(i);
-             entity.setVerticalMovement(0);
+            entity.setVerticalMovement(0);
 		 }
 		if (pauseG != 1 && pauseG != 2) {
 			for (int i=0;i<entities.size();i++) {
@@ -339,16 +341,16 @@ public class Game extends Canvas {
 	
 	
 	public void gameLoop() {
-		long lastLoopTime = System.currentTimeMillis();
+		lastLoopTime = System.currentTimeMillis();
 		
 		while (isRunning) {
 			if(gameStart == true){
+				
 				long delta = (System.currentTimeMillis()-finalTime) - lastLoopTime;
 				finalTime = 0;
 				lastLoopTime = System.currentTimeMillis();
 				lastTime = getTime();
 				updateTime();
-				
 				// Colour in background		
 				Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 				g.setColor(Color.black);
@@ -425,7 +427,7 @@ public class Game extends Canvas {
 				  	
 				// Clear Graphics
 				g.dispose();
-				strategy.show();			  
+				strategy.show();	
 				updateEnt();
 				
 				ship.setHorizontalMovement(0);  
