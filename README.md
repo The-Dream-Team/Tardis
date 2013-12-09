@@ -13,3 +13,4 @@ Remember to take it in turns else there will be conflicts
 ## !! Notifications !! 
 
 Please read the issues for current bugs as well as milestones!
+Congrats guys, we're doing great so far!

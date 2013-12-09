@@ -24,6 +24,10 @@ public class ShipEntity extends Entity {
 	
 	public void collidedWith(Entity other) {
 	
-	// To be done at a later date
-		}
-	}
+            // what to do if collied
+            if (other instanceof EnemyEntity) {
+                System.out.println("Enemy Hit " + other);
+            }
+    }
+		
+}

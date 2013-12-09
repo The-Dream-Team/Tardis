@@ -1,0 +1,8 @@
+Bugs: Enemy spawning in same location
+Fixes: check location for sprites and moving them a few spaces away making sure they do not go off screen
+
+Bugs: Enemy may appear in similar location multiple times
+Fixes: allow 2 sprites to be created together, but spliting them between the screen.
+
+Bugs: Enemy continue moving even after game has been paused
+Fixes: Disable movements of all entities, but storing the movement, then reaasigning them when game continues, and set the time back.
