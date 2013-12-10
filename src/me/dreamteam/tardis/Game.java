@@ -70,11 +70,6 @@ public class Game extends Canvas {
 	
 	long lastTime;
 	
-	URL iconURL = getClass().getResource("/sprites/ship.png");
-	URL ship1URL = getClass().getResource("/sprites/ship.png");
-	URL ship2URL = getClass().getResource("/sprites/ship2.png");
-	URL ship3URL = getClass().getResource("/sprites/ship3.png");
-	
 	private int level = 1;
 	
 	public Game() {
@@ -108,7 +103,7 @@ public class Game extends Canvas {
 			}
 		});
 		
-		ImageIcon icon = new ImageIcon(iconURL);
+		ImageIcon icon = new ImageIcon(Utils.iconURL);
 		container.setIconImage(icon.getImage());
 		
 		// Init keys
@@ -237,9 +232,9 @@ public class Game extends Canvas {
 	}
 	
 	public void characterSelect() {
-		ImageIcon ship1 = new ImageIcon(ship1URL);
-		ImageIcon ship2 = new ImageIcon(ship2URL);
-		ImageIcon ship3 = new ImageIcon(ship3URL);
+		ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
+		ImageIcon ship2 = new ImageIcon(Utils.ship2URL);
+		ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
 		
 		Utils.systemLF();    
 		
@@ -274,7 +269,7 @@ public class Game extends Canvas {
 	}
 		
 	public void titleScreen() {
-		ImageIcon icon = new ImageIcon(iconURL);	
+		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
 		
 		Object[] options = {Utils.bPlay, Utils.bQuit};
@@ -301,7 +296,7 @@ public class Game extends Canvas {
 	}
 	
 	public void pauseGame() {
-		ImageIcon icon = new ImageIcon(iconURL);	
+		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
 		gameStart = false;
 		long LoopTempTime = System.currentTimeMillis();

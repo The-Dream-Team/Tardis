@@ -1,5 +1,7 @@
 package me.dreamteam.tardis;
 
+import java.net.URL;
+
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -68,6 +70,13 @@ public class Utils {
     public static void quitGame() {
 		System.exit(0);
     }
+    
+    // Icon URLS
+    
+	static URL iconURL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
+	static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
+	static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship2.png");
+	static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship3.png");
     
     
     // System look and feel
