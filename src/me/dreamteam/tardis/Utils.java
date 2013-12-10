@@ -45,8 +45,7 @@ public class Utils {
 	/*
 	 * JFrame Options and Text
 	 */
-	
-	
+		
 	// Title Screen
 	static String bPlay = "Play Game";
 	static String bQuit = "Quit Game";
@@ -78,7 +77,6 @@ public class Utils {
 	static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship2.png");
 	static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship3.png");
     
-    
     // System look and feel
     public static void systemLF() {
 	try {
@@ -94,5 +92,3 @@ public class Utils {
 	} 
   }
 }
-
-
