@@ -39,38 +39,41 @@ public class Game extends Canvas {
 	
 	private boolean isRunning = true;
 	private boolean gameStart = false;
+	long lastLoopTime;
 	
 	private Entity ship;
 	private int shipS = 0;
-	double curY = 0;
-	long lastLoopTime;
+
 	private ArrayList entities = new ArrayList();
 	private ArrayList enemies = new ArrayList();
  
-	
 	private double moveSpeed = 180;
-    private boolean leftPressed = false;
+    
+	private boolean leftPressed = false;
     private boolean rightPressed = false;
+    
 	private boolean logicRequiredThisLoop = false;
 	private boolean advanceLevel = false;
+	private int level = 1;
 	long lastFrame;
 	long finalTime = 0;
 	private String timeDisplay = "";
 	private String livesDisplay = "";
-	int timeMil;
 	public int gameTime = 0;
 	public int gameLives = 3; 
+	int timeMil;
+	long lastTime;
+	
 	int SpriteLoc;
 	int SpriteLoc2;
 	int SpriteLoc3;
-	int twait = 0;
+	
+	int tWait = 0;
 	int CurSprite = 1;
+	double curY = 0;
+	
 	ImageIcon blankIcon = new ImageIcon();
 	Random rSpriteLoc = new Random();
-	
-	long lastTime;
-	
-	private int level = 1;
 	
 	public Game() {
 		
@@ -147,7 +150,7 @@ public class Game extends Canvas {
 	}
 	
 	private void updateEnt(){
-		moveSpeed = 180+(twait*0.7);
+		moveSpeed = 180+(tWait*0.7);
 		SpriteLoc = rSpriteLoc.nextInt(200);
 		SpriteLoc2 = 200+rSpriteLoc.nextInt(250);
 		if(SpriteLoc2 < SpriteLoc+56){
@@ -157,10 +160,10 @@ public class Game extends Canvas {
 					SpriteLoc2 = SpriteLoc-56;
 			}
 		}
-		if(twait != gameTime){
+		if(tWait != gameTime){
 			int FinalLoc;
-			if(gameTime >= twait+2 && advanceLevel == false){
-				twait = gameTime;
+			if(gameTime >= tWait+2 && advanceLevel == false){
+				tWait = gameTime;
 				
 				for(int i = 0; i<2; i++){
 					if(i==0){
@@ -175,29 +178,29 @@ public class Game extends Canvas {
 						CurSprite=1;
 				}
 			}else if (advanceLevel == true){
-				if(gameTime>= twait && level ==2){
-					twait = gameTime;
+				if(gameTime>= tWait && level ==2){
+					tWait = gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
 							FinalLoc = SpriteLoc;
 						}else{
 							FinalLoc = SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (twait+(100*0.45)-30));
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
 						entities.add(Enemies);
 						CurSprite += 1;
 						if (CurSprite>5)
 							CurSprite=1;
 					}
-				}else if(gameTime>= twait && level >2){
-					twait = gameTime;
+				}else if(gameTime>= tWait && level >2){
+					tWait = gameTime;
 					for(int i = 0; i<2; i++){ 
 						if(i==0){ 
 							FinalLoc = SpriteLoc;
 						}else{
 							FinalLoc = SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (twait+(100*0.45)-30));
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
 						entities.add(Enemies);
 						CurSprite += 1;
 						if (CurSprite>5)
@@ -214,7 +217,6 @@ public class Game extends Canvas {
         entities.clear();
         initEntities();
         
-        
         // reset key presses
         leftPressed = false;
         rightPressed = false;
@@ -225,7 +227,7 @@ public class Game extends Canvas {
         gameLives = 3;
         level = 1;
         gameStart = true;
-        twait = 0;
+        tWait = 0;
         gameTime = 0;
         finalTime = 0;
         lastLoopTime = System.currentTimeMillis();
