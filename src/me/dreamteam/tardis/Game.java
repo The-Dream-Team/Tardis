@@ -489,13 +489,11 @@ public class Game extends Canvas {
                         rightPressed = true;
                 }
 
-                if (e.getKeyChar() == 27) {
+                if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
                 	pauseGame();
                 }
                 
-                if (e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
-                	pauseGame();
-                }
+               
        
         } 
         
