@@ -482,10 +482,10 @@ public class Game extends Canvas {
     private class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {                
                 
-                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
                         leftPressed = true;
                 }
-                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                         rightPressed = true;
                 }
 
@@ -507,10 +507,10 @@ public class Game extends Canvas {
 
         public void keyReleased(KeyEvent e) {
            
-                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
                         leftPressed = false;
                 }
-                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                         rightPressed = false;
                 }
                 
