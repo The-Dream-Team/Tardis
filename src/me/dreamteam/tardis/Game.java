@@ -492,9 +492,7 @@ public class Game extends Canvas {
                 if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
                 	pauseGame();
                 }
-                
-               
-       
+
         } 
         
 
@@ -505,8 +503,7 @@ public class Game extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                         rightPressed = false;
-                }
-                
+                }        
         }
     }
 	
