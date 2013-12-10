@@ -19,8 +19,7 @@ public class ShipEntity extends Entity {
 		}
 		
 		super.move(delta);
-	}
-	
+	}	
 	
 	public void collidedWith(Entity other) {
 	
