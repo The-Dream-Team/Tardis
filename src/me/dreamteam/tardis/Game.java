@@ -491,7 +491,17 @@ public class Game extends Canvas {
 
                 if (e.getKeyChar() == 27) {
                 	pauseGame();
-            }
+                }
+                
+                if (e.getKeyCode() == KeyEvent.VK_PAUSE) {
+                	pauseGame();
+                }
+                
+                if (e.getKeyCode() == KeyEvent.VK_P) {
+                	pauseGame();
+                }
+                
+            
         } 
         
 
