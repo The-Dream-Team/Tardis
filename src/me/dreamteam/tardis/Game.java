@@ -28,7 +28,6 @@ import me.dreamteam.tardis.EnemyEntity;
 import me.dreamteam.tardis.Utils;
 import me.dreamteam.tardis.UtilsHTML;
 
-
 /**
 Main Class
  */
@@ -120,13 +119,11 @@ public class Game extends Canvas {
 		initEntities();
 		titleScreen();
 	}
-
 	
     public void updateLogic() {
         logicRequiredThisLoop = true;
      }
-	
-	
+		
 	/**
 	 * Create our ship
 	 */
@@ -211,7 +208,6 @@ public class Game extends Canvas {
 		}
 	}
 	
-
 	private void startGame() {
 
         entities.clear();
@@ -336,7 +332,6 @@ public class Game extends Canvas {
 				
 	}
 	
-	
 	public void gameLoop() {
 		lastLoopTime = System.currentTimeMillis();
 		
@@ -348,6 +343,7 @@ public class Game extends Canvas {
 				lastLoopTime = System.currentTimeMillis();
 				lastTime = getTime();
 				updateTime();
+				
 				// Colour in background		
 				Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 				g.setColor(Color.black);
@@ -359,7 +355,6 @@ public class Game extends Canvas {
 					entity.move(delta);
 				}
 				
-	
 	            if (logicRequiredThisLoop) {
 	                    for (int i=0;i<entities.size();i++) {
 	                            Entity entity = (Entity) entities.get(i);
@@ -398,7 +393,6 @@ public class Game extends Canvas {
 	            g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
 	            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
 	            
-	            
 	            if (timeMil > 99){
 	            	gameTime = timeMil/100;
 	            }
@@ -419,9 +413,7 @@ public class Game extends Canvas {
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
 	            g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
-				  
-				  
-				  	
+							  	
 				// Clear Graphics
 				g.dispose();
 				strategy.show();	
@@ -455,7 +447,6 @@ public class Game extends Canvas {
 		}
 	}
 	
-
 	/**
 	 * Update the game time
 	 */
@@ -479,8 +470,7 @@ public class Game extends Canvas {
 	 
 	    return delta;
 	}
-	
-	
+		
     private class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {                
                 
@@ -497,7 +487,6 @@ public class Game extends Canvas {
 
         } 
         
-
         public void keyReleased(KeyEvent e) {
            
                 if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
@@ -508,8 +497,7 @@ public class Game extends Canvas {
                 }        
         }
     }
-	
-	
+		
 		public static void main(String argv[]) {
 			Game g =new Game();
 	
@@ -517,5 +505,4 @@ public class Game extends Canvas {
 			g.gameLoop();
 		}
 
-	
 }
