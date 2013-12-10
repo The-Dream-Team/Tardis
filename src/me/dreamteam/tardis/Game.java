@@ -436,6 +436,11 @@ public class Game extends Canvas {
 	                              if (me.collidesWith(him)) {
 	                                      me.collidedWith(him);
 	                                      him.collidedWith(me);
+	                                      gameLives--; 
+	                                      
+	                                      if (gameLives <= 0){ 
+	                                    	  System.out.println("You ran out of lives");
+	                                      }
 	                              }
 	                      }
 	              }
