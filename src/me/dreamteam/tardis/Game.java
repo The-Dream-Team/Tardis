@@ -12,7 +12,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -33,6 +36,7 @@ Main Class
  */
 
 public class Game extends Canvas {
+	
 	private BufferStrategy strategy;
 	// This provides hardware acceleration
 	
@@ -71,6 +75,8 @@ public class Game extends Canvas {
 	int tWait = 0;
 	int CurSprite = 1;
 	double curY = 0;
+	
+    int debugHits = 0;
 	
 	ImageIcon blankIcon = new ImageIcon();
 	Random rSpriteLoc = new Random();
@@ -228,6 +234,16 @@ public class Game extends Canvas {
         gameTime = 0;
         finalTime = 0;
         lastLoopTime = System.currentTimeMillis();
+        debugHits = 0;
+        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		   //get current date time with Date()
+		   Date date = new Date();
+		
+		System.out.println("=============================================");
+		System.out.println("Beginning session @" + dateFormat.format(date));
+		System.out.println("=============================================");
+        
 	}
 	
 	public void characterSelect() {
@@ -295,6 +311,10 @@ public class Game extends Canvas {
 	}
 	
 	public void gameOver() {
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("GAME OVER DISPLAYED AFTER " + gameTime + " SECONDS");
+		System.out.println("HITS:" + debugHits + "/3");
+		System.out.println("LEVEL: " + level);
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
 		
@@ -467,6 +487,7 @@ public class Game extends Canvas {
 	                              if (me.collidesWith(him)) {
 	                                      me.collidedWith(him);
 	                                      him.collidedWith(me);
+	                                      debugHits++;
 	                                      gameLives--; 
 	                                      
 	                                      if (gameLives <= 0){
