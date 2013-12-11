@@ -30,6 +30,8 @@ public class EnemyEntity extends Entity {
 
 		if ((dy > 0) && (y > 750)) {
 			game.updateLogic();
+            game.removeEntity(this);
+            System.out.println("DEBUG: (GC) Removed " + this + " as it had reached the bottom");
 		
 		}
 		
