@@ -45,6 +45,7 @@ public class Game extends Canvas {
 
 	private ArrayList entities = new ArrayList();
 	private ArrayList enemies = new ArrayList();
+	private ArrayList removeList = new ArrayList();
  
 	private double moveSpeed = 180;
     
@@ -293,6 +294,33 @@ public class Game extends Canvas {
 		
 	}
 	
+	public void gameOver() {
+		ImageIcon icon = new ImageIcon(Utils.iconURL);	
+		Utils.systemLF();
+		
+		Object[] options = {Utils.bPlayAgain, Utils.bQuit};
+		int goG = JOptionPane.showOptionDialog(null,
+		Utils.txtSurvive + gameTime + Utils.txtSeconds, Utils.goDialogTitle,
+		JOptionPane.YES_NO_CANCEL_OPTION,
+		JOptionPane.QUESTION_MESSAGE,
+		icon,
+		options,
+		options[0]);
+		
+		if (goG != 0 && goG != 1) {
+			Utils.quitGame();
+		}
+	
+		if (goG == 1) {
+			System.exit(0);
+		}
+		
+		if (goG == 0) {
+			characterSelect();
+		}
+		
+	}
+	
 	public void pauseGame() {
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
@@ -354,6 +382,9 @@ public class Game extends Canvas {
 					
 					entity.move(delta);
 				}
+	            
+				entities.removeAll(removeList);
+                removeList.clear();
 				
 	            if (logicRequiredThisLoop) {
 	                    for (int i=0;i<entities.size();i++) {
@@ -438,8 +469,8 @@ public class Game extends Canvas {
 	                                      him.collidedWith(me);
 	                                      gameLives--; 
 	                                      
-	                                      if (gameLives <= 0){ 
-	                                    	  System.out.println("You ran out of lives");
+	                                      if (gameLives <= 0){
+	                                    	  gameOver();
 	                                      }
 	                              }
 	                      }
@@ -475,6 +506,10 @@ public class Game extends Canvas {
 	 
 	    return delta;
 	}
+	
+    public void removeEntity(Entity entity) {
+        removeList.add(entity);
+    }
 		
     private class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {                

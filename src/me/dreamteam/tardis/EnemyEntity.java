@@ -37,6 +37,11 @@ public class EnemyEntity extends Entity {
 	}
 	
 	public void collidedWith(Entity other) {
-	//collision is handled in other file 	
+		if (other instanceof ShipEntity) {
+            // remove the affected entities
+            game.removeEntity(this);
+		}
+	
+	
 	}
 }

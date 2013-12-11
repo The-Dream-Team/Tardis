@@ -13,7 +13,7 @@ public class Utils {
 	
 	static String gameName = "Codename TARDIS ";
 	static String build = "Alpha ";
-	static String version = "0.4.4c";
+	static String version = "0.5";
 	
 	/*
 	 * Ship Names
@@ -45,6 +45,8 @@ public class Utils {
 	/*
 	 * JFrame Options and Text
 	 */
+	
+	static String lbk = "\n";
 		
 	// Title Screen
 	static String bPlay = "Play Game";
@@ -57,6 +59,13 @@ public class Utils {
 	// Character Selection
 	static String txtCS = "Choose your spaceship to begin:";
 	static String csDialogTitle = "Character Selection";
+	
+	// Game Over
+	static String txtGO = "Game Over";
+	static String txtSurvive = "You have survived for ";
+	static String txtSeconds = " seconds";
+	static String goDialogTitle = "Game Over";
+	static String bPlayAgain = "Play Again";
 	
 	// Pause screen
 	static String txtPS = "Game paused";
