@@ -28,6 +28,7 @@ import org.lwjgl.Sys;
 import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.ShipEntity;
 import me.dreamteam.tardis.EnemyEntity;
+import me.dreamteam.tardis.Background;
 import me.dreamteam.tardis.Utils;
 import me.dreamteam.tardis.UtilsHTML;
 
