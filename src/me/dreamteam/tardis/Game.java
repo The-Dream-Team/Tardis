@@ -221,7 +221,7 @@ public class Game extends Canvas {
 	private void startGame() {
 
         entities.clear();
-        Background = new ShipEntity(this,"sprites/Bg.png", 0, 0);
+        Background = new ShipEntity(this,"sprites/background.png", 0, 0);
 		backgroundImages.add(Background);
         initEntities();
         
