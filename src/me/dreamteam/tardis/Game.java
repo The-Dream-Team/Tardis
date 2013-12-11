@@ -45,11 +45,13 @@ public class Game extends Canvas {
 	private boolean gameStart = false;
 	long lastLoopTime;
 	
+	private Entity Background;
 	private Entity ship;
 	private int shipS = 0;
 
 	private ArrayList entities = new ArrayList();
 	private ArrayList enemies = new ArrayList();
+	private ArrayList backgroundImages = new ArrayList();
 	private ArrayList removeList = new ArrayList();
  
 	private double moveSpeed = 180;
@@ -219,6 +221,8 @@ public class Game extends Canvas {
 	private void startGame() {
 
         entities.clear();
+        Background = new ShipEntity(this,"sprites/Bg.png", 0, 0);
+		backgroundImages.add(Background);
         initEntities();
         
         // reset key presses
@@ -415,10 +419,13 @@ public class Game extends Canvas {
 	                    
 	                    logicRequiredThisLoop = false;
 	            }
-				
+	            
+	            for (int i=0;i<backgroundImages.size();i++) {
+	                  Entity entity = (Entity) backgroundImages.get(i);
+	                  entity.draw(g);
+				}
 				for (int i=0;i<entities.size();i++) {
 	                  Entity entity = (Entity) entities.get(i);
-	                  
 	                  entity.draw(g);
 				}
 				
