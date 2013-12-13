@@ -12,6 +12,11 @@ public class Background extends Entity {
 		
 		this.game = game;
 	}
+	
+	public void move(long delta) {
+		
+		super.move(delta);
+	}
 
 	
 	public void collidedWith(Entity other) {
