@@ -13,7 +13,7 @@ public class Utils {
 	
 	static String gameName = "Codename TARDIS ";
 	static String build = "Alpha ";
-	static String version = "0.5.1";
+	static String version = "0.5";
 	
 	/*
 	 * Ship Names
