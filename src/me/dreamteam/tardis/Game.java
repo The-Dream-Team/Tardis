@@ -433,6 +433,20 @@ public class Game extends Canvas {
 						
 				}
 	            
+				//testing for collision of player and enemy  
+	            for (int p=0;p<entities.size();p++) {
+	            	for (int s=p+1;s<entities.size();s++) {
+	            		Entity me = (Entity) entities.get(p);
+	            		Entity him = (Entity) entities.get(s);
+	            		
+	            		if (me.collidesWith(him)) {
+	            			me.collidedWith(him);
+	            			him.collidedWith(me);
+	            			debugHits++;
+	            			gameLives--; 
+	            		}
+	            	}
+	            }
 				entities.removeAll(removeList);
                 removeList.clear();
 				
@@ -498,11 +512,15 @@ public class Game extends Canvas {
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
 	            g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
-							  	
+				
 				// Clear Graphics
 				g.dispose();
 				strategy.show();	
 				updateEnt();	
+				
+				if (gameLives == 0){
+    				gameOver();
+    			}
 				
 				ship.setHorizontalMovement(0);  
 			    // Ship movement
@@ -510,25 +528,6 @@ public class Game extends Canvas {
 	            	ship.setHorizontalMovement(-moveSpeed);
 	            } else if ((rightPressed) && (!leftPressed)) {
 	                ship.setHorizontalMovement(moveSpeed);
-	            }
-	              
-	            //testing for collision of player and enemy  
-	            for (int p=0;p<entities.size();p++) {
-	            	for (int s=p+1;s<entities.size();s++) {
-	            		Entity me = (Entity) entities.get(p);
-	            		Entity him = (Entity) entities.get(s);
-	            		
-	            		if (me.collidesWith(him)) {
-	            			me.collidedWith(him);
-	            			him.collidedWith(me);
-	            			debugHits++;
-	            			gameLives--; 
-	            			
-	            			if (gameLives == 0){
-	            				gameOver();
-	            			}
-	            		}
-	            	}
 	            }
 	            
 	              try { Thread.sleep(10); } catch (Exception e) {}
