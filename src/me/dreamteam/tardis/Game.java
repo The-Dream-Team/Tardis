@@ -430,9 +430,7 @@ public class Game extends Canvas {
 						backgroundImages.add(Background);
 						bgLoop =System.currentTimeMillis();
 					}
-					
-
-					
+						
 				}
 	            
 				entities.removeAll(removeList);
