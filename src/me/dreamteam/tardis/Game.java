@@ -524,7 +524,7 @@ public class Game extends Canvas {
 	            			debugHits++;
 	            			gameLives--; 
 	            			
-	            			if (gameLives <= 0){
+	            			if (gameLives == 0){
 	            				gameOver();
 	            			}
 	            		}
