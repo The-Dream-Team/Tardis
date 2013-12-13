@@ -401,7 +401,13 @@ public class Game extends Canvas {
 				Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 				g.setColor(Color.black);
 				g.fillRect(0,0,500,650);
-											
+				
+				for (int i=0;i<backgroundImages.size();i++) {
+					Entity entity = (Entity) backgroundImages.get(i);
+					
+					entity.move(delta);
+				}
+				
 	            for (int i=0;i<entities.size();i++) {
 					Entity entity = (Entity) entities.get(i);
 					
@@ -415,6 +421,10 @@ public class Game extends Canvas {
 	                    for (int i=0;i<entities.size();i++) {
 	                            Entity entity = (Entity) entities.get(i);
 	                            entity.doLogic();
+	                    }
+	                    for (int i=0;i<backgroundImages.size();i++) {
+                            Entity entity = (Entity) backgroundImages.get(i);
+                            entity.doLogic();
 	                    }
 	                    
 	                    logicRequiredThisLoop = false;
@@ -477,6 +487,9 @@ public class Game extends Canvas {
 				g.dispose();
 				strategy.show();	
 				updateEnt();
+				
+
+				
 				
 				ship.setHorizontalMovement(0);  
 			    // Ship movement
