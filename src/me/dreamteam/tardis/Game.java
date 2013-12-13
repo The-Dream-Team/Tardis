@@ -222,9 +222,9 @@ public class Game extends Canvas {
 	private void startGame() {
 
         entities.clear();
-        Background = new ShipEntity(this,"sprites/background.png", 0, 0);
+        Background = new Background(this,"sprites/background.png", 0, 0);
 		backgroundImages.add(Background);
-		Background2 = new ShipEntity(this,"sprites/background.png", 0, -650);
+		Background2 = new Background(this,"sprites/background.png", 0, -650);
 		backgroundImages.add(Background2);
         initEntities();
         
@@ -426,7 +426,7 @@ public class Game extends Canvas {
 						Background.setVerticalMovement(10);
 					}
 					if((bgLoopCheck -bgLoop)> 63000){
-						Background = new ShipEntity(this,"sprites/Background.png",0,-650);
+						Background = new Background(this,"sprites/Background.png",0,-650);
 						backgroundImages.add(Background);
 						bgLoop =System.currentTimeMillis();
 					}
