@@ -46,6 +46,7 @@ public class Game extends Canvas {
 	long lastLoopTime;
 	
 	private Entity Background;
+	private Entity Background2;
 	private Entity ship;
 	private int shipS = 0;
 
@@ -75,6 +76,7 @@ public class Game extends Canvas {
 	int SpriteLoc2;
 	int SpriteLoc3;
 	
+	int by1 = 0;
 	int tWait = 0;
 	int CurSprite = 1;
 	double curY = 0;
@@ -223,6 +225,8 @@ public class Game extends Canvas {
         entities.clear();
         Background = new ShipEntity(this,"sprites/background.png", 0, 0);
 		backgroundImages.add(Background);
+		Background2 = new ShipEntity(this,"sprites/background.png", 0, -650);
+		backgroundImages.add(Background2);
         initEntities();
         
         // reset key presses
@@ -387,6 +391,7 @@ public class Game extends Canvas {
 	
 	public void gameLoop() {
 		lastLoopTime = System.currentTimeMillis();
+		long bgLoop = System.currentTimeMillis();
 		
 		while (isRunning) {
 			if(gameStart == true){
@@ -414,6 +419,23 @@ public class Game extends Canvas {
 					entity.move(delta);
 				}
 	            
+	            long bgLoopCheck = System.currentTimeMillis();
+				for(int i=1; i<3; i++){
+					if(i == 2){
+						Background2.setVerticalMovement(10);
+					}else{
+						Background.setVerticalMovement(10);
+					}
+					if((bgLoopCheck -bgLoop)> 63000){
+						Background = new ShipEntity(this,"sprites/Background.png",0,-650);
+						backgroundImages.add(Background);
+						bgLoop =System.currentTimeMillis();
+					}
+					
+
+					
+				}
+	            
 				entities.removeAll(removeList);
                 removeList.clear();
 				
@@ -421,10 +443,6 @@ public class Game extends Canvas {
 	                    for (int i=0;i<entities.size();i++) {
 	                            Entity entity = (Entity) entities.get(i);
 	                            entity.doLogic();
-	                    }
-	                    for (int i=0;i<backgroundImages.size();i++) {
-                            Entity entity = (Entity) backgroundImages.get(i);
-                            entity.doLogic();
 	                    }
 	                    
 	                    logicRequiredThisLoop = false;
@@ -488,7 +506,13 @@ public class Game extends Canvas {
 				strategy.show();	
 				updateEnt();
 				
-
+				/*
+				long delta2 = (System.currentTimeMillis()) - lastLoopTime;
+				lastLoopTime = System.currentTimeMillis();
+				lastTime = getTime();
+				updateTime();
+				*/
+				
 				
 				
 				ship.setHorizontalMovement(0);  
