@@ -76,7 +76,6 @@ public class Game extends Canvas {
 	int SpriteLoc2;
 	int SpriteLoc3;
 	
-	int by1 = 0;
 	int tWait = 0;
 	int CurSprite = 1;
 	double curY = 0;
@@ -470,6 +469,7 @@ public class Game extends Canvas {
 				 * Game Text
 				 */
 				
+				//Level
 				g.setColor(Color.red);
 				g.setFont(new Font("Century Gothic", Font.BOLD, Utils.levelFS));
 	            g.drawString(Utils.txtLevel + level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + level))/2,18);
@@ -504,16 +504,7 @@ public class Game extends Canvas {
 				// Clear Graphics
 				g.dispose();
 				strategy.show();	
-				updateEnt();
-				
-				/*
-				long delta2 = (System.currentTimeMillis()) - lastLoopTime;
-				lastLoopTime = System.currentTimeMillis();
-				lastTime = getTime();
-				updateTime();
-				*/
-				
-				
+				updateEnt();	
 				
 				ship.setHorizontalMovement(0);  
 			    // Ship movement
@@ -525,23 +516,23 @@ public class Game extends Canvas {
 	              
 	            //testing for collision of player and enemy  
 	            for (int p=0;p<entities.size();p++) {
-	                      for (int s=p+1;s<entities.size();s++) {
-	                              Entity me = (Entity) entities.get(p);
-	                              Entity him = (Entity) entities.get(s);
-	                              
-	                              if (me.collidesWith(him)) {
-	                                      me.collidedWith(him);
-	                                      him.collidedWith(me);
-	                                      debugHits++;
-	                                      gameLives--; 
-	                                      
-	                                      if (gameLives <= 0){
-	                                    	  gameOver();
-	                                      }
-	                              }
-	                      }
-	              }
-	              
+	            	for (int s=p+1;s<entities.size();s++) {
+	            		Entity me = (Entity) entities.get(p);
+	            		Entity him = (Entity) entities.get(s);
+	            		
+	            		if (me.collidesWith(him)) {
+	            			me.collidedWith(him);
+	            			him.collidedWith(me);
+	            			debugHits++;
+	            			gameLives--; 
+	            			
+	            			if (gameLives <= 0){
+	            				gameOver();
+	            			}
+	            		}
+	            	}
+	            }
+	            
 	              try { Thread.sleep(10); } catch (Exception e) {}
 			 }else{
 				 try { Thread.sleep(10); } catch (Exception e) {}
@@ -555,7 +546,7 @@ public class Game extends Canvas {
 	
 	public void updateTime() {
 	    if (getTime() - lastTime > 1000) {
-	        timeMil = 0; //reset the FPS counter
+	        timeMil = 0; //reset the timer counter
 	        lastTime += 1000; //add one second
 	    }
 	    timeMil++;
