@@ -172,7 +172,6 @@ public class Game extends Canvas {
 			int FinalLoc;
 			if(gameTime >= tWait+2 && advanceLevel == false){
 				tWait = gameTime;
-				
 				for(int i = 0; i<2; i++){
 					if(i==0){
 						FinalLoc = SpriteLoc;
