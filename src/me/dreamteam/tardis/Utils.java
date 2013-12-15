@@ -13,7 +13,7 @@ public class Utils {
 	
 	static String gameName = "Codename TARDIS ";
 	static String build = "Alpha ";
-	static String version = "0.5.1";
+	static String version = "0.5.2";
 	
 	/*
 	 * Ship Names
@@ -69,6 +69,12 @@ public class Utils {
 	
 	// Pause screen
 	static String txtPS = "Game paused";
+
+    // Icon URLS
+	static URL iconURL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
+	static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
+	static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship2.png");
+	static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship3.png");
 	
 	/*
 	 * Utility Methods
@@ -78,13 +84,6 @@ public class Utils {
     public static void quitGame() {
 		System.exit(0);
     }
-    
-    // Icon URLS
-    
-	static URL iconURL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
-	static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
-	static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship2.png");
-	static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship3.png");
     
     // System look and feel
     public static void systemLF() {
