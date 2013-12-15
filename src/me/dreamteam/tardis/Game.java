@@ -200,7 +200,35 @@ public class Game extends Canvas {
 						if (CurSprite>5)
 							CurSprite=1;
 					}
-				}else if(gameTime>= tWait && level >2){
+				}else if(gameTime>= tWait && level == 3){
+					tWait = gameTime;
+					for(int i = 0; i<2; i++){ 
+						if(i==0){ 
+							FinalLoc = SpriteLoc;
+						}else{
+							FinalLoc = SpriteLoc2;
+						}
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
+						entities.add(Enemies);
+						CurSprite += 1;
+						if (CurSprite>5)
+							CurSprite=1;
+					}
+				}else if(gameTime>= tWait && level == 4){
+					tWait = gameTime;
+					for(int i = 0; i<2; i++){ 
+						if(i==0){ 
+							FinalLoc = SpriteLoc;
+						}else{
+							FinalLoc = SpriteLoc2;
+						}
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
+						entities.add(Enemies);
+						CurSprite += 1;
+						if (CurSprite>5)
+							CurSprite=1;
+					}
+				}else if(gameTime>= tWait && level >4){
 					tWait = gameTime;
 					for(int i = 0; i<2; i++){ 
 						if(i==0){ 
