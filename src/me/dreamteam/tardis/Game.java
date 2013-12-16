@@ -116,6 +116,19 @@ public class Game extends Canvas {
 			}
 		});
 		
+		container.addWindowListener(new WindowAdapter() {
+			public void windowIconified(WindowEvent e) {
+				// To be done later, minimize event
+			}
+		});
+		
+		container.addWindowListener(new WindowAdapter() {
+			public void windowDeiconified(WindowEvent e) {
+			// To be done later, restore event	
+			}
+		});
+		
+		
 		ImageIcon icon = new ImageIcon(Utils.iconURL);
 		container.setIconImage(icon.getImage());
 		
@@ -461,6 +474,8 @@ public class Game extends Canvas {
 				}
 	            
 				//testing for collision of player and enemy  
+				// p = ship, s = enemy
+				
 	            for (int p=0;p<entities.size();p++) {
 	            	for (int s=p+1;s<entities.size();s++) {
 	            		Entity me = (Entity) entities.get(p);
@@ -470,7 +485,8 @@ public class Game extends Canvas {
 	            			me.collidedWith(him);
 	            			him.collidedWith(me);
 	            			debugHits++;
-	            			gameLives--; 
+	            			gameLives--;      
+	            			
 	            		}
 	            	}
 	            }
