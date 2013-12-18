@@ -25,7 +25,9 @@ public class ShipEntity extends Entity {
 	
             // what to do if collied
             if (other instanceof EnemyEntity) {
-                System.out.println("DEBUG: Enemy Hit " + other);
+            	if (game.debug) {
+                System.out.println("DEBUG: (-) Enemy Hit " + other);
+            	}
             }
     }
 		

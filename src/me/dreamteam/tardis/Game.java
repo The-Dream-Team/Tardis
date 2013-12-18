@@ -41,6 +41,9 @@ public class Game extends Canvas {
 	private BufferStrategy strategy;
 	// This provides hardware acceleration
 	
+	public boolean debug = false;
+	// Enable this if you want to see debug in console
+	
 	private boolean isRunning = true;
 	private boolean gameStart = false;
 	long lastLoopTime;
@@ -288,9 +291,11 @@ public class Game extends Canvas {
 		   //get current date time with Date()
 		   Date date = new Date();
 		
+		if (debug) {
 		System.out.println("=============================================");
 		System.out.println("Beginning session @" + dateFormat.format(date));
 		System.out.println("=============================================");
+		}
         
 	}
 	
@@ -359,10 +364,13 @@ public class Game extends Canvas {
 	}
 	
 	public void gameOver() {
+		if (debug) {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("GAME OVER DISPLAYED AFTER " + gameTime + " SECONDS");
 		System.out.println("HITS:" + debugHits + "/3");
 		System.out.println("LEVEL: " + level);
+		}
+		
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
 		
@@ -483,9 +491,7 @@ public class Game extends Canvas {
 	            		
 	            		if (me.collidesWith(him)) {
 	            			me.collidedWith(him);
-	            			him.collidedWith(me);
-	            			debugHits++;
-	            			gameLives--;      
+	            			him.collidedWith(me); 
 	            			
 	            		}
 	            	}
