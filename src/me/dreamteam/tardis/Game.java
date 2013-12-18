@@ -517,13 +517,13 @@ public class Game extends Canvas {
 	                  entity.draw(g);
 				}
 				
-				if(gameTime >60){
+				if(gameTime >59){
 					advanceLevel = true;
-					if(gameTime < 120){
+					if(gameTime < 119){
 						level = 2;
-					}else if(gameTime <180){
+					}else if(gameTime <179){
 						level = 3;
-					}else if(gameTime <240){
+					}else if(gameTime <239){
 						level = 4;
 					}else if(gameTime >299){
 						level = 5;
