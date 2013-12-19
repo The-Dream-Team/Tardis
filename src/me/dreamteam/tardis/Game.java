@@ -240,7 +240,7 @@ public class Game extends Canvas {
 		
 		if (Tardis.debug) {
 		System.out.println("=============================================");
-		System.out.println("Beginning session @" + dateFormat.format(date));
+		System.out.println("Beginning session @ " + dateFormat.format(date));
 		System.out.println("=============================================");
 		}
         
