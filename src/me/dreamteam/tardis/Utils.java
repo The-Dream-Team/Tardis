@@ -2,6 +2,7 @@ package me.dreamteam.tardis;
 
 import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -75,6 +76,9 @@ public class Utils {
 	static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
 	static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship2.png");
 	static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship3.png");
+	
+	// Blank Icon
+	static ImageIcon blankIcon = new ImageIcon();
 	
 	/*
 	 * Utility Methods

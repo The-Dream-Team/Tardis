@@ -259,7 +259,7 @@ public class Game extends Canvas {
 		int characterS = JOptionPane.showOptionDialog(null,
 		UtilsHTML.csDialog, Utils.csDialogTitle, JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.INFORMATION_MESSAGE,
-		Tardis.blankIcon,
+		Utils.blankIcon,
 		coptions,
 		coptions[0]);
 
