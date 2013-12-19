@@ -10,13 +10,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferStrategy;
-import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -31,62 +27,13 @@ import me.dreamteam.tardis.EnemyEntity;
 import me.dreamteam.tardis.Background;
 import me.dreamteam.tardis.Utils;
 import me.dreamteam.tardis.UtilsHTML;
+import me.dreamteam.tardis.Tardis;
 
 /**
 Main Class
  */
 
 public class Game extends Canvas {
-	
-	private BufferStrategy strategy;
-	// This provides hardware acceleration
-	
-	public boolean debug = false;
-	// Enable this if you want to see debug in console
-	
-	private boolean isRunning = true;
-	private boolean gameStart = false;
-	long lastLoopTime;
-	
-	private Entity Background;
-	private Entity Background2;
-	private Entity ship;
-	private int shipS = 0;
-
-	private ArrayList entities = new ArrayList();
-	private ArrayList enemies = new ArrayList();
-	private ArrayList backgroundImages = new ArrayList();
-	private ArrayList removeList = new ArrayList();
- 
-	private double moveSpeed = 180;
-    
-	private boolean leftPressed = false;
-    private boolean rightPressed = false;
-    
-	private boolean logicRequiredThisLoop = false;
-	private boolean advanceLevel = false;
-	private int level = 1;
-	long lastFrame;
-	long finalTime = 0;
-	private String timeDisplay = "";
-	private String livesDisplay = "";
-	public int gameTime = 0;
-	public int gameLives = 3; 
-	int timeMil;
-	long lastTime;
-	
-	int SpriteLoc;
-	int SpriteLoc2;
-	int SpriteLoc3;
-	
-	int tWait = 0;
-	int CurSprite = 1;
-	double curY = 0;
-	
-    int debugHits = 0;
-	
-	ImageIcon blankIcon = new ImageIcon();
-	Random rSpriteLoc = new Random();
 	
 	public Game() {
 		
@@ -140,7 +87,7 @@ public class Game extends Canvas {
         
 		// create the buffering strategy for graphics
 		createBufferStrategy(2);
-		strategy = getBufferStrategy();
+		Tardis.strategy = getBufferStrategy();
         
         requestFocus();
 		initEntities();
@@ -148,7 +95,7 @@ public class Game extends Canvas {
 	}
 	
     public void updateLogic() {
-        logicRequiredThisLoop = true;
+        Tardis.logicRequiredThisLoop = true;
      }
 		
 	/**
@@ -157,105 +104,105 @@ public class Game extends Canvas {
 	
 	private void initEntities() {
 		
-		if (shipS == 0) {
-		ship = new ShipEntity(this,"sprites/ship.png",220,568);
-		entities.add(ship);
+		if (Tardis.shipS == 0) {
+			Tardis.ship = new ShipEntity(this,"sprites/ship.png",220,568);
+			Tardis.entities.add(Tardis.ship);
 		}
 		
-		if (shipS == 1) {
-		ship = new ShipEntity(this,"sprites/ship2.png",220,568);
-		entities.add(ship);
+		if (Tardis.shipS == 1) {
+			Tardis.ship = new ShipEntity(this,"sprites/ship2.png",220,568);
+			Tardis.entities.add(Tardis.ship);
 		}
 		
-		if (shipS == 2) {
-		ship = new ShipEntity(this,"sprites/ship3.png",220,568);
-		entities.add(ship);
+		if (Tardis.shipS == 2) {
+			Tardis.ship = new ShipEntity(this,"sprites/ship3.png",220,568);
+			Tardis.entities.add(Tardis.ship);
 		}
 	}
 	
 	private void updateEnt(){
-		moveSpeed = 180+(tWait*0.7);
-		SpriteLoc = rSpriteLoc.nextInt(200);
-		SpriteLoc2 = 200+rSpriteLoc.nextInt(250);
-		if(SpriteLoc2 < SpriteLoc+56){
-			if(SpriteLoc2 > SpriteLoc-56){
-				SpriteLoc2 = SpriteLoc-56;
-				if (SpriteLoc2 > 450)
-					SpriteLoc2 = SpriteLoc-56;
+		Tardis.moveSpeed = 180+(Tardis.tWait*0.7);
+		Tardis.SpriteLoc = Tardis.rSpriteLoc.nextInt(200);
+		Tardis.SpriteLoc2 = 200+Tardis.rSpriteLoc.nextInt(250);
+		if(Tardis.SpriteLoc2 < Tardis.SpriteLoc+56){
+			if(Tardis.SpriteLoc2 > Tardis.SpriteLoc-56){
+				Tardis.SpriteLoc2 = Tardis.SpriteLoc-56;
+				if (Tardis.SpriteLoc2 > 450)
+					Tardis.SpriteLoc2 = Tardis.SpriteLoc-56;
 			}
 		}
-		if(tWait != gameTime){
+		if(Tardis.tWait != Tardis.gameTime){
 			int FinalLoc;
-			if(gameTime >= tWait+2 && advanceLevel == false){
-				tWait = gameTime;
+			if(Tardis.gameTime >= Tardis.tWait+2 && Tardis.advanceLevel == false){
+				Tardis.tWait = Tardis.gameTime;
 				for(int i = 0; i<2; i++){
 					if(i==0){
-						FinalLoc = SpriteLoc;
+						FinalLoc = Tardis.SpriteLoc;
 					}else{
-						FinalLoc = SpriteLoc2;
+						FinalLoc = Tardis.SpriteLoc2;
 					}
-					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50);
-					entities.add(Enemies);
-					CurSprite += 1;
-					if (CurSprite>5)
-						CurSprite=1;
+					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Tardis.CurSprite+".png",FinalLoc,-50);
+					Tardis.entities.add(Enemies);
+					Tardis.CurSprite += 1;
+					if (Tardis.CurSprite>5)
+						Tardis.CurSprite=1;
 				}
-			}else if (advanceLevel == true){
-				if(gameTime>= tWait && level ==2){
-					tWait = gameTime;
+			}else if (Tardis.advanceLevel == true){
+				if(Tardis.gameTime>= Tardis.tWait && Tardis.level ==2){
+					Tardis.tWait = Tardis.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = SpriteLoc;
+							FinalLoc = Tardis.SpriteLoc;
 						}else{
-							FinalLoc = SpriteLoc2;
+							FinalLoc = Tardis.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
-						entities.add(Enemies);
-						CurSprite += 1;
-						if (CurSprite>5)
-							CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Tardis.CurSprite+".png",FinalLoc,-50, (Tardis.tWait+(100*0.45)-30));
+						Tardis.entities.add(Enemies);
+						Tardis.CurSprite += 1;
+						if (Tardis.CurSprite>5)
+							Tardis.CurSprite=1;
 					}
-				}else if(gameTime>= tWait && level == 3){
-					tWait = gameTime;
+				}else if(Tardis.gameTime>= Tardis.tWait && Tardis.level == 3){
+					Tardis.tWait = Tardis.gameTime;
 					for(int i = 0; i<2; i++){ 
 						if(i==0){ 
-							FinalLoc = SpriteLoc;
+							FinalLoc = Tardis.SpriteLoc;
 						}else{
-							FinalLoc = SpriteLoc2;
+							FinalLoc = Tardis.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
-						entities.add(Enemies);
-						CurSprite += 1;
-						if (CurSprite>5)
-							CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Tardis.CurSprite+".png",FinalLoc,-50, (Tardis.tWait+(100*0.45)-30));
+						Tardis.entities.add(Enemies);
+						Tardis.CurSprite += 1;
+						if (Tardis.CurSprite>5)
+							Tardis.CurSprite=1;
 					}
-				}else if(gameTime>= tWait && level == 4){
-					tWait = gameTime;
+				}else if(Tardis.gameTime>= Tardis.tWait && Tardis.level == 4){
+					Tardis.tWait = Tardis.gameTime;
 					for(int i = 0; i<2; i++){ 
 						if(i==0){ 
-							FinalLoc = SpriteLoc;
+							FinalLoc = Tardis.SpriteLoc;
 						}else{
-							FinalLoc = SpriteLoc2;
+							FinalLoc = Tardis.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
-						entities.add(Enemies);
-						CurSprite += 1;
-						if (CurSprite>5)
-							CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Tardis.CurSprite+".png",FinalLoc,-50, (Tardis.tWait+(100*0.45)-30));
+						Tardis.entities.add(Enemies);
+						Tardis.CurSprite += 1;
+						if (Tardis.CurSprite>5)
+							Tardis.CurSprite=1;
 					}
-				}else if(gameTime>= tWait && level >4){
-					tWait = gameTime;
+				}else if(Tardis.gameTime>= Tardis.tWait && Tardis.level >4){
+					Tardis.tWait = Tardis.gameTime;
 					for(int i = 0; i<2; i++){ 
 						if(i==0){ 
-							FinalLoc = SpriteLoc;
+							FinalLoc = Tardis.SpriteLoc;
 						}else{
-							FinalLoc = SpriteLoc2;
+							FinalLoc = Tardis.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+CurSprite+".png",FinalLoc,-50, (tWait+(100*0.45)-30));
-						entities.add(Enemies);
-						CurSprite += 1;
-						if (CurSprite>5)
-							CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Tardis.CurSprite+".png",FinalLoc,-50, (Tardis.tWait+(100*0.45)-30));
+						Tardis.entities.add(Enemies);
+						Tardis.CurSprite += 1;
+						if (Tardis.CurSprite>5)
+							Tardis.CurSprite=1;
 					}
 				}
 			}
@@ -264,34 +211,34 @@ public class Game extends Canvas {
 	
 	private void startGame() {
 
-        entities.clear();
-        Background = new Background(this,"sprites/background.png", 0, 0);
-		backgroundImages.add(Background);
-		Background2 = new Background(this,"sprites/background.png", 0, -650);
-		backgroundImages.add(Background2);
+		Tardis.entities.clear();
+		Tardis.Background = new Background(this,"sprites/background.png", 0, 0);
+		Tardis.backgroundImages.add(Tardis.Background);
+		Tardis.Background2 = new Background(this,"sprites/background.png", 0, -650);
+		Tardis.backgroundImages.add(Tardis.Background2);
         initEntities();
         
         // reset key presses
-        leftPressed = false;
-        rightPressed = false;
+        Tardis.leftPressed = false;
+        Tardis.rightPressed = false;
         
         //reset time
-        timeMil = 0;
+        Tardis.timeMil = 0;
         //reset lives
-        gameLives = 3;
-        level = 1;
-        gameStart = true;
-        tWait = 0;
-        gameTime = 0;
-        finalTime = 0;
-        lastLoopTime = System.currentTimeMillis();
-        debugHits = 0;
+        Tardis.gameLives = 3;
+        Tardis.level = 1;
+        Tardis.gameStart = true;
+        Tardis.tWait = 0;
+        Tardis.gameTime = 0;
+        Tardis.finalTime = 0;
+        Tardis.lastLoopTime = System.currentTimeMillis();
+        Tardis.debugHits = 0;
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		   //get current date time with Date()
 		   Date date = new Date();
 		
-		if (debug) {
+		if (Tardis.debug) {
 		System.out.println("=============================================");
 		System.out.println("Beginning session @" + dateFormat.format(date));
 		System.out.println("=============================================");
@@ -312,7 +259,7 @@ public class Game extends Canvas {
 		int characterS = JOptionPane.showOptionDialog(null,
 		UtilsHTML.csDialog, Utils.csDialogTitle, JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.INFORMATION_MESSAGE,
-		blankIcon,
+		Tardis.blankIcon,
 		coptions,
 		coptions[0]);
 
@@ -321,17 +268,17 @@ public class Game extends Canvas {
 		}
 		
 		if (characterS == 2) {
-			shipS = 2;
+			Tardis.shipS = 2;
 			startGame();
 		}
 	
 		if (characterS == 1) {
-			shipS = 1;
+			Tardis.shipS = 1;
 			startGame();
 		}
 		
 		if (characterS == 0) {
-			shipS = 0;
+			Tardis.shipS = 0;
 			startGame();
 		}
 	}
@@ -364,11 +311,11 @@ public class Game extends Canvas {
 	}
 	
 	public void gameOver() {
-		if (debug) {
+		if (Tardis.debug) {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("GAME OVER DISPLAYED AFTER " + gameTime + " SECONDS");
-		System.out.println("HITS:" + debugHits + "/3");
-		System.out.println("LEVEL: " + level);
+		System.out.println("GAME OVER DISPLAYED AFTER " + Tardis.gameTime + " SECONDS");
+		System.out.println("HITS:" + Tardis.debugHits + "/3");
+		System.out.println("LEVEL: " + Tardis.level);
 		}
 		
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
@@ -376,7 +323,7 @@ public class Game extends Canvas {
 		
 		Object[] options = {Utils.bPlayAgain, Utils.bQuit};
 		int goG = JOptionPane.showOptionDialog(null,
-		Utils.txtSurvive + gameTime + Utils.txtSeconds, Utils.goDialogTitle,
+		Utils.txtSurvive + Tardis.gameTime + Utils.txtSeconds, Utils.goDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
@@ -400,7 +347,7 @@ public class Game extends Canvas {
 	public void pauseGame() {
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
-		gameStart = false;
+		Tardis.gameStart = false;
 		long LoopTempTime = System.currentTimeMillis();
 		Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
 		int pauseG = JOptionPane.showOptionDialog(null,
@@ -410,19 +357,19 @@ public class Game extends Canvas {
 		icon,
 		options,
 		options[0]);
-		double[] entCurYLoc = new double[entities.size()];
-		for (int i=0;i<entities.size();i++) {
-			Entity entity = (Entity) entities.get(i);
+		double[] entCurYLoc = new double[Tardis.entities.size()];
+		for (int i=0;i<Tardis.entities.size();i++) {
+			Entity entity = (Entity) Tardis.entities.get(i);
             entCurYLoc[i] = entity.getVerticalMovement();
             entity.setVerticalMovement(0);
 		 }
 		if (pauseG != 1 && pauseG != 2) {
-			for (int i=0;i<entities.size();i++) {
-	            Entity entity = (Entity) entities.get(i);
+			for (int i=0;i<Tardis.entities.size();i++) {
+	            Entity entity = (Entity) Tardis.entities.get(i);
 	            entity.setVerticalMovement(entCurYLoc[i]);
 			 }
-			finalTime = System.currentTimeMillis() - LoopTempTime;
-			gameStart = true;
+			Tardis.finalTime = System.currentTimeMillis() - LoopTempTime;
+			Tardis.gameStart = true;
 		}
 		
 		if (pauseG == 2) {
@@ -430,38 +377,38 @@ public class Game extends Canvas {
 		}
 		
 		if (pauseG == 1) {
-			gameTime = 0;
+			Tardis.gameTime = 0;
 			characterSelect();
 		}
 				
 	}
 	
 	public void gameLoop() {
-		lastLoopTime = System.currentTimeMillis();
+		Tardis.lastLoopTime = System.currentTimeMillis();
 		long bgLoop = System.currentTimeMillis();
 		
-		while (isRunning) {
-			if(gameStart == true){
+		while (Tardis.isRunning) {
+			if(Tardis.gameStart == true){
 				
-				long delta = (System.currentTimeMillis()-finalTime) - lastLoopTime;
-				finalTime = 0;
-				lastLoopTime = System.currentTimeMillis();
-				lastTime = getTime();
+				long delta = (System.currentTimeMillis()-Tardis.finalTime) - Tardis.lastLoopTime;
+				Tardis.finalTime = 0;
+				Tardis.lastLoopTime = System.currentTimeMillis();
+				Tardis.lastTime = getTime();
 				updateTime();
 				
 				// Colour in background		
-				Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+				Graphics2D g = (Graphics2D) Tardis.strategy.getDrawGraphics();
 				g.setColor(Color.black);
 				g.fillRect(0,0,500,650);
 				
-				for (int i=0;i<backgroundImages.size();i++) {
-					Entity entity = (Entity) backgroundImages.get(i);
+				for (int i=0;i<Tardis.backgroundImages.size();i++) {
+					Entity entity = (Entity) Tardis.backgroundImages.get(i);
 					
 					entity.move(delta);
 				}
 				
-	            for (int i=0;i<entities.size();i++) {
-					Entity entity = (Entity) entities.get(i);
+	            for (int i=0;i<Tardis.entities.size();i++) {
+					Entity entity = (Entity) Tardis.entities.get(i);
 					
 					entity.move(delta);
 				}
@@ -469,13 +416,13 @@ public class Game extends Canvas {
 	            long bgLoopCheck = System.currentTimeMillis();
 				for(int i=1; i<3; i++){
 					if(i == 2){
-						Background2.setVerticalMovement(10);
+						Tardis.Background2.setVerticalMovement(10);
 					}else{
-						Background.setVerticalMovement(10);
+						Tardis.Background.setVerticalMovement(10);
 					}
 					if((bgLoopCheck -bgLoop)> 63000){
-						Background = new Background(this,"sprites/Background.png",0,-650);
-						backgroundImages.add(Background);
+						Tardis.Background = new Background(this,"sprites/Background.png",0,-650);
+						Tardis.backgroundImages.add(Tardis.Background);
 						bgLoop =System.currentTimeMillis();
 					}
 						
@@ -484,10 +431,10 @@ public class Game extends Canvas {
 				//testing for collision of player and enemy  
 				// p = ship, s = enemy
 				
-	            for (int p=0;p<entities.size();p++) {
-	            	for (int s=p+1;s<entities.size();s++) {
-	            		Entity me = (Entity) entities.get(p);
-	            		Entity him = (Entity) entities.get(s);
+	            for (int p=0;p<Tardis.entities.size();p++) {
+	            	for (int s=p+1;s<Tardis.entities.size();s++) {
+	            		Entity me = (Entity) Tardis.entities.get(p);
+	            		Entity him = (Entity) Tardis.entities.get(s);
 	            		
 	            		if (me.collidesWith(him)) {
 	            			me.collidedWith(him);
@@ -496,37 +443,37 @@ public class Game extends Canvas {
 	            		}
 	            	}
 	            }
-				entities.removeAll(removeList);
-                removeList.clear();
+	            Tardis.entities.removeAll(Tardis.removeList);
+	            Tardis.removeList.clear();
 				
-	            if (logicRequiredThisLoop) {
-	                    for (int i=0;i<entities.size();i++) {
-	                            Entity entity = (Entity) entities.get(i);
+	            if (Tardis.logicRequiredThisLoop) {
+	                    for (int i=0;i<Tardis.entities.size();i++) {
+	                            Entity entity = (Entity) Tardis.entities.get(i);
 	                            entity.doLogic();
 	                    }
 	                    
-	                    logicRequiredThisLoop = false;
+	                    Tardis.logicRequiredThisLoop = false;
 	            }
 	            
-	            for (int i=0;i<backgroundImages.size();i++) {
-	                  Entity entity = (Entity) backgroundImages.get(i);
+	            for (int i=0;i<Tardis.backgroundImages.size();i++) {
+	                  Entity entity = (Entity) Tardis.backgroundImages.get(i);
 	                  entity.draw(g);
 				}
-				for (int i=0;i<entities.size();i++) {
-	                  Entity entity = (Entity) entities.get(i);
+				for (int i=0;i<Tardis.entities.size();i++) {
+	                  Entity entity = (Entity) Tardis.entities.get(i);
 	                  entity.draw(g);
 				}
 				
-				if(gameTime >59){
-					advanceLevel = true;
-					if(gameTime < 119){
-						level = 2;
-					}else if(gameTime <179){
-						level = 3;
-					}else if(gameTime <239){
-						level = 4;
-					}else if(gameTime >299){
-						level = 5;
+				if(Tardis.gameTime >59){
+					Tardis.advanceLevel = true;
+					if(Tardis.gameTime < 119){
+						Tardis.level = 2;
+					}else if(Tardis.gameTime <179){
+						Tardis.level = 3;
+					}else if(Tardis.gameTime <239){
+						Tardis.level = 4;
+					}else if(Tardis.gameTime >299){
+						Tardis.level = 5;
 					}
 				}
 				
@@ -537,50 +484,50 @@ public class Game extends Canvas {
 				//Level
 				g.setColor(Color.red);
 				g.setFont(new Font("Century Gothic", Font.BOLD, Utils.levelFS));
-	            g.drawString(Utils.txtLevel + level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + level))/2,18);
+	            g.drawString(Utils.txtLevel + Tardis.level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + Tardis.level))/2,18);
 				
 				// Timer
 				g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
-	            g.drawString(timeDisplay,(70-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+	            g.drawString(Tardis.timeDisplay,(70-g.getFontMetrics().stringWidth(Tardis.timeDisplay))/2,18);
 	            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
 	            
-	            if (timeMil > 99){
-	            	gameTime = timeMil/100;
+	            if (Tardis.timeMil > 99){
+	            	Tardis.gameTime = Tardis.timeMil/100;
 	            }
-	            String convtime = String.valueOf(gameTime);
+	            String convtime = String.valueOf(Tardis.gameTime);
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString(timeDisplay,(175-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+	            g.drawString(Tardis.timeDisplay,(175-g.getFontMetrics().stringWidth(Tardis.timeDisplay))/2,18);
 	            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
 	 
 	            //Lives
 				g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.livesFS));
-	            g.drawString(livesDisplay,(875-g.getFontMetrics().stringWidth(livesDisplay))/2,18);
+	            g.drawString(Tardis.livesDisplay,(875-g.getFontMetrics().stringWidth(Tardis.livesDisplay))/2,18);
 	            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
 	            
-	            String convlives = String.valueOf(gameLives);
+	            String convlives = String.valueOf(Tardis.gameLives);
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
-	            g.drawString(timeDisplay,(965-g.getFontMetrics().stringWidth(timeDisplay))/2,18);
+	            g.drawString(Tardis.timeDisplay,(965-g.getFontMetrics().stringWidth(Tardis.timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 				
 				// Clear Graphics
 				g.dispose();
-				strategy.show();	
+				Tardis.strategy.show();	
 				updateEnt();	
 				
-				if (gameLives == 0){
+				if (Tardis.gameLives == 0){
     				gameOver();
     			}
 				
-				ship.setHorizontalMovement(0);  
+				Tardis.ship.setHorizontalMovement(0);  
 			    // Ship movement
-	            if ((leftPressed) && (!rightPressed)) {
-	            	ship.setHorizontalMovement(-moveSpeed);
-	            } else if ((rightPressed) && (!leftPressed)) {
-	                ship.setHorizontalMovement(moveSpeed);
+	            if ((Tardis.leftPressed) && (!Tardis.rightPressed)) {
+	            	Tardis.ship.setHorizontalMovement(-Tardis.moveSpeed);
+	            } else if ((Tardis.rightPressed) && (!Tardis.leftPressed)) {
+	            	Tardis.ship.setHorizontalMovement(Tardis.moveSpeed);
 	            }
 	            
 	              try { Thread.sleep(10); } catch (Exception e) {}
@@ -595,11 +542,11 @@ public class Game extends Canvas {
 	 */
 	
 	public void updateTime() {
-	    if (getTime() - lastTime > 1000) {
-	        timeMil = 0; //reset the timer counter
-	        lastTime += 1000; //add one second
+	    if (getTime() - Tardis.lastTime > 1000) {
+	    	Tardis.timeMil = 0; //reset the timer counter
+	    	Tardis.lastTime += 1000; //add one second
 	    }
-	    timeMil++;
+	    Tardis.timeMil++;
 	}
 	
 	public long getTime() {
@@ -608,24 +555,24 @@ public class Game extends Canvas {
 	
 	public int getDelta() {
 	    long time = getTime();
-	    int delta = (int) (time - lastFrame);
-	    lastFrame = time;
+	    int delta = (int) (time - Tardis.lastFrame);
+	    Tardis.lastFrame = time;
 	 
 	    return delta;
 	}
 	
     public void removeEntity(Entity entity) {
-        removeList.add(entity);
+    	Tardis.removeList.add(entity);
     }
 		
     private class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {                
                 
                 if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
-                        leftPressed = true;
+                	Tardis.leftPressed = true;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
-                        rightPressed = true;
+                	Tardis.rightPressed = true;
                 }
 
                 if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
@@ -637,10 +584,10 @@ public class Game extends Canvas {
         public void keyReleased(KeyEvent e) {
            
                 if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
-                        leftPressed = false;
+                	Tardis.leftPressed = false;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
-                        rightPressed = false;
+                	Tardis.rightPressed = false;
                 }        
         }
     }
