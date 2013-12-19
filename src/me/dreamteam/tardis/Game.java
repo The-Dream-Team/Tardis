@@ -314,8 +314,7 @@ public class Game extends Canvas {
 		if (Tardis.debug) {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("GAME OVER DISPLAYED AFTER " + Tardis.gameTime + " SECONDS");
-		System.out.println("HITS:" + Tardis.debugHits + "/3");
-		System.out.println("LEVEL: " + Tardis.level);
+		System.out.println("HITS:" + Tardis.debugHits + "/3" + " | " + "LEVEL: " + Tardis.level);
 		}
 		
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
