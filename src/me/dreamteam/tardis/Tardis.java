@@ -4,8 +4,6 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
-
 public class Tardis {
 	
 	/*
