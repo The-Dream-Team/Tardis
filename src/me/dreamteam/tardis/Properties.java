@@ -22,7 +22,7 @@ public class Properties{
 	
 	/* Game Initilisation Variables */
 	
-	public boolean isRunning = true;
+	public boolean Running = true;
 	public boolean gameStart = false;
 	public long lastLoopTime;
 	

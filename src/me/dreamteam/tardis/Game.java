@@ -22,8 +22,8 @@ import javax.swing.JPanel;
 import org.lwjgl.Sys;
 
 import me.dreamteam.tardis.Entity;
-import me.dreamteam.tardis.ShipEntity;
-import me.dreamteam.tardis.EnemyEntity;
+import me.dreamteam.tardis.Player;
+import me.dreamteam.tardis.Enemy;
 import me.dreamteam.tardis.Background;
 import me.dreamteam.tardis.Utils;
 import me.dreamteam.tardis.UtilsHTML;
@@ -89,7 +89,7 @@ public class Game extends Canvas {
 		properties.strategy = getBufferStrategy();
         
         requestFocus();
-		initEntities();
+        initPlayer();
 		titleScreen();
 	}
 		
@@ -97,20 +97,20 @@ public class Game extends Canvas {
 	 * Create our ship
 	 */
 	
-	private void initEntities() {
+	private void initPlayer() {
 		
 		if (properties.shipS == 0) {
-			properties.ship = new ShipEntity(this,"sprites/ship.png",220,568);
+			properties.ship = new Player(this,"sprites/ship.png",220,568);
 			properties.entities.add(properties.ship);
 		}
 		
 		if (properties.shipS == 1) {
-			properties.ship = new ShipEntity(this,"sprites/ship2.png",220,568);
+			properties.ship = new Player(this,"sprites/ship2.png",220,568);
 			properties.entities.add(properties.ship);
 		}
 		
 		if (properties.shipS == 2) {
-			properties.ship = new ShipEntity(this,"sprites/ship3.png",220,568);
+			properties.ship = new Player(this,"sprites/ship3.png",220,568);
 			properties.entities.add(properties.ship);
 		}
 	}
@@ -136,7 +136,7 @@ public class Game extends Canvas {
 					}else{
 						FinalLoc = properties.SpriteLoc2;
 					}
-					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50);
+					Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50);
 					properties.entities.add(Enemies);
 					properties.CurSprite += 1;
 					if (properties.CurSprite>5)
@@ -151,7 +151,7 @@ public class Game extends Canvas {
 						}else{
 							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
 						properties.CurSprite += 1;
 						if (properties.CurSprite>5)
@@ -165,7 +165,7 @@ public class Game extends Canvas {
 						}else{
 							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
 						properties.CurSprite += 1;
 						if (properties.CurSprite>5)
@@ -179,7 +179,7 @@ public class Game extends Canvas {
 						}else{
 							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
 						properties.CurSprite += 1;
 						if (properties.CurSprite>5)
@@ -193,7 +193,7 @@ public class Game extends Canvas {
 						}else{
 							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
 						properties.CurSprite += 1;
 						if (properties.CurSprite>5)
@@ -211,7 +211,7 @@ public class Game extends Canvas {
 		properties.backgroundImages.add(properties.Background);
 		properties.Background2 = new Background(this,"sprites/background.png", 0, -650);
 		properties.backgroundImages.add(properties.Background2);
-        initEntities();
+		initPlayer();
         
         // reset key presses
         properties.leftPressed = false;
@@ -381,7 +381,7 @@ public class Game extends Canvas {
 		properties.lastLoopTime = System.currentTimeMillis();
 		long bgLoop = System.currentTimeMillis();
 		
-		while (properties.isRunning) {
+		while (properties.Running) {
 			if(properties.gameStart == true){
 				
 				long delta = (System.currentTimeMillis()-properties.finalTime) - properties.lastLoopTime;
@@ -397,13 +397,11 @@ public class Game extends Canvas {
 				
 				for (int i=0;i<properties.backgroundImages.size();i++) {
 					Entity entity = (Entity) properties.backgroundImages.get(i);
-					
 					entity.move(delta);
 				}
 				
 	            for (int i=0;i<properties.entities.size();i++) {
 					Entity entity = (Entity) properties.entities.get(i);
-					
 					entity.move(delta);
 				}
 	            
@@ -433,7 +431,6 @@ public class Game extends Canvas {
 	            		if (me.collidesWith(him)) {
 	            			me.collidedWith(him);
 	            			him.collidedWith(me); 
-	            			
 	            		}
 	            	}
 	            }

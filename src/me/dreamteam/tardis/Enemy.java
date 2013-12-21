@@ -1,13 +1,11 @@
 package me.dreamteam.tardis;
 
-public class EnemyEntity extends Entity {
-	
+public class Enemy extends Entity {
 	// The speed at which the Enemy moves 
     private double moveSpeed = 100;
-	
 	private Game game;
 	
-	public EnemyEntity(Game game,String ref,int x,int y, double s) {
+	public Enemy(Game game,String ref,int x,int y, double s) {
 		super(ref,x,y);
 		
 		this.game = game;
@@ -15,7 +13,7 @@ public class EnemyEntity extends Entity {
 		dy = moveSpeed;
 	}
 	
-	public EnemyEntity(Game game,String ref,int x,int y) {
+	public Enemy(Game game,String ref,int x,int y) {
 		super(ref,x,y);
 		
 		this.game = game;
@@ -39,13 +37,13 @@ public class EnemyEntity extends Entity {
 	}
 	
 	public void collidedWith(Entity other) {
-		if (other instanceof ShipEntity) {
+		if (other instanceof Player) {
             // remove the affected entities
 			Properties.gameLives--;
 			game.removeEntity(this);
 		}
 		
-		if (other instanceof EnemyEntity) {
+		if (other instanceof Enemy) {
 			if (Properties.debug) {
 			Properties.debugHits++;
             System.out.println("DEBUG: (-) Enemy " + this + " hit " + other);

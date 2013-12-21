@@ -1,11 +1,10 @@
 package me.dreamteam.tardis;
 
-public class ShipEntity extends Entity {
+public class Player extends Entity {
 	private Game game;
 	
-	public ShipEntity(Game game,String ref,int x,int y) {
+	public Player(Game game,String ref,int x,int y) {
 		super(ref,x,y);
-		
 		this.game = game;
 	}
 	
@@ -22,9 +21,8 @@ public class ShipEntity extends Entity {
 	}	
 	
 	public void collidedWith(Entity other) {
-	
             // what to do if collied
-            if (other instanceof EnemyEntity) {
+            if (other instanceof Enemy) {
             	if (Properties.debug) {
                 System.out.println("DEBUG: (-) Enemy Hit " + other);
             	}

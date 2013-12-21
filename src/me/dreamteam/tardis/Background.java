@@ -14,7 +14,6 @@ public class Background extends Entity {
 		super.move(delta);
 	}
 
-	
 	public void collidedWith(Entity other) {
 	}
 }
