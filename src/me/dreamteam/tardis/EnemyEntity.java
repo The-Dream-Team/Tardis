@@ -25,11 +25,9 @@ public class EnemyEntity extends Entity {
 
 	public void move(long delta) {
 		if ((dy < 0) && (y < 10)) {
-			game.updateLogic();
 		}
 
 		if ((dy > 0) && (y > 750)) {
-			game.updateLogic();
             game.removeEntity(this);
             if (Properties.debug) {
             System.out.println("DEBUG: (GC) Removed " + this + " as it had reached the bottom");
