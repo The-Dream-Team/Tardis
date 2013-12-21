@@ -29,25 +29,25 @@ public class Properties{
 	
 	/* Entities */
 	
-	public static Entity Background;
-	public static Entity Background2;
-	public static Entity ship;
+	public Entity Background;
+	public Entity Background2;
+	public Entity ship;
 	public static int shipS = 0;
 
-	public static ArrayList entities = new ArrayList();
-	public static ArrayList enemies = new ArrayList();
-	public static ArrayList backgroundImages = new ArrayList();
-	public static ArrayList removeList = new ArrayList();
+	public ArrayList entities = new ArrayList();
+	public ArrayList enemies = new ArrayList();
+	public ArrayList backgroundImages = new ArrayList();
+	public ArrayList removeList = new ArrayList();
  
-	public static double moveSpeed = 180;
+	public double moveSpeed = 180;
 	
-	public static int SpriteLoc;
-	public static int SpriteLoc2;
-	public static int SpriteLoc3;
+	public int SpriteLoc;
+	public int SpriteLoc2;
+	public int SpriteLoc3;
 	
-	public static int CurSprite = 1;
-	public static double curY = 0;
-	public static Random rSpriteLoc = new Random();
+	public int CurSprite = 1;
+	public double curY = 0;
+	public Random rSpriteLoc = new Random();
 
 	/* Keyboard Listeners */
 	
@@ -60,13 +60,13 @@ public class Properties{
 	public static boolean advanceLevel = false;
 	public static int level = 1;
 	public static long lastFrame;
-	public static long finalTime = 0;
+	public long finalTime = 0;
 	public static String timeDisplay = "";
 	public static String livesDisplay = "";
 	public static int gameTime = 0;
 	public static int gameLives = 3; 
 	public static int timeMil;
-	public static long lastTime;
-	public static int tWait = 0;
+	public long lastTime;
+	public int tWait = 0;
 
 }
