@@ -11,10 +11,9 @@ public class Properties{
 	 * This class is for the purpose of declaring game variables to be used in the main class (or in some cases, other classes)
 	 */
 	
-
 	/* Hardware Acceleration */
 	
-	public static BufferStrategy strategy;
+	public BufferStrategy strategy;
 	
 	/* Debug */
 	
@@ -23,16 +22,16 @@ public class Properties{
 	
 	/* Game Initilisation Variables */
 	
-	public static boolean isRunning = true;
-	public static boolean gameStart = false;
-	public static long lastLoopTime;
+	public boolean isRunning = true;
+	public boolean gameStart = false;
+	public long lastLoopTime;
 	
 	/* Entities */
 	
 	public Entity Background;
 	public Entity Background2;
 	public Entity ship;
-	public static int shipS = 0;
+	public int shipS = 0;
 
 	public ArrayList entities = new ArrayList();
 	public ArrayList enemies = new ArrayList();
@@ -51,21 +50,21 @@ public class Properties{
 
 	/* Keyboard Listeners */
 	
-	public static boolean leftPressed = false;
-	public static boolean rightPressed = false;
+	public boolean leftPressed = false;
+	public boolean rightPressed = false;
     
 	/* Game Logic and Time */
 	
-	public static boolean logicRequiredThisLoop = false;
-	public static boolean advanceLevel = false;
-	public static int level = 1;
-	public static long lastFrame;
+	public boolean logicRequiredThisLoop = false;
+	public boolean advanceLevel = false;
+	public int level = 1;
+	public long lastFrame;
 	public long finalTime = 0;
-	public static String timeDisplay = "";
-	public static String livesDisplay = "";
-	public static int gameTime = 0;
+	public String timeDisplay = "";
+	public String livesDisplay = "";
+	public int gameTime = 0;
 	public static int gameLives = 3; 
-	public static int timeMil;
+	public int timeMil;
 	public long lastTime;
 	public int tWait = 0;
 
