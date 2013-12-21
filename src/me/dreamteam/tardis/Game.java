@@ -34,7 +34,7 @@ Main Class
  */
 
 public class Game extends Canvas {
-	Properties Properties = new Properties();
+	Properties properties = new Properties();
 	public Game(){
 		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);	
 			
@@ -86,7 +86,7 @@ public class Game extends Canvas {
         
 		// create the buffering strategy for graphics
 		createBufferStrategy(2);
-		Properties.strategy = getBufferStrategy();
+		properties.strategy = getBufferStrategy();
         
         requestFocus();
 		initEntities();
@@ -94,7 +94,7 @@ public class Game extends Canvas {
 	}
 	
     public void updateLogic() {
-    	Properties.logicRequiredThisLoop = true;
+    	properties.logicRequiredThisLoop = true;
      }
 		
 	/**
@@ -103,105 +103,105 @@ public class Game extends Canvas {
 	
 	private void initEntities() {
 		
-		if (Properties.shipS == 0) {
-			Properties.ship = new ShipEntity(this,"sprites/ship.png",220,568);
-			Properties.entities.add(Properties.ship);
+		if (properties.shipS == 0) {
+			properties.ship = new ShipEntity(this,"sprites/ship.png",220,568);
+			properties.entities.add(properties.ship);
 		}
 		
-		if (Properties.shipS == 1) {
-			Properties.ship = new ShipEntity(this,"sprites/ship2.png",220,568);
-			Properties.entities.add(Properties.ship);
+		if (properties.shipS == 1) {
+			properties.ship = new ShipEntity(this,"sprites/ship2.png",220,568);
+			properties.entities.add(properties.ship);
 		}
 		
-		if (Properties.shipS == 2) {
-			Properties.ship = new ShipEntity(this,"sprites/ship3.png",220,568);
-			Properties.entities.add(Properties.ship);
+		if (properties.shipS == 2) {
+			properties.ship = new ShipEntity(this,"sprites/ship3.png",220,568);
+			properties.entities.add(properties.ship);
 		}
 	}
 	
 	private void updateEnt(){
-		Properties.moveSpeed = 180+(Properties.tWait*0.7);
-		Properties.SpriteLoc = Properties.rSpriteLoc.nextInt(200);
-		Properties.SpriteLoc2 = 200+Properties.rSpriteLoc.nextInt(250);
-		if(Properties.SpriteLoc2 < Properties.SpriteLoc+56){
-			if(Properties.SpriteLoc2 > Properties.SpriteLoc-56){
-				Properties.SpriteLoc2 = Properties.SpriteLoc-56;
-				if (Properties.SpriteLoc2 > 450)
-					Properties.SpriteLoc2 = Properties.SpriteLoc-56;
+		properties.moveSpeed = 180+(properties.tWait*0.7);
+		properties.SpriteLoc = properties.rSpriteLoc.nextInt(200);
+		properties.SpriteLoc2 = 200+properties.rSpriteLoc.nextInt(250);
+		if(properties.SpriteLoc2 < properties.SpriteLoc+56){
+			if(properties.SpriteLoc2 > properties.SpriteLoc-56){
+				properties.SpriteLoc2 = properties.SpriteLoc-56;
+				if (properties.SpriteLoc2 > 450)
+					properties.SpriteLoc2 = properties.SpriteLoc-56;
 			}
 		}
-		if(Properties.tWait != Properties.gameTime){
+		if(properties.tWait != properties.gameTime){
 			int FinalLoc;
-			if(Properties.gameTime >= Properties.tWait+2 && Properties.advanceLevel == false){
-				Properties.tWait = Properties.gameTime;
+			if(properties.gameTime >= properties.tWait+2 && properties.advanceLevel == false){
+				properties.tWait = properties.gameTime;
 				for(int i = 0; i<2; i++){
 					if(i==0){
-						FinalLoc = Properties.SpriteLoc;
+						FinalLoc = properties.SpriteLoc;
 					}else{
-						FinalLoc = Properties.SpriteLoc2;
+						FinalLoc = properties.SpriteLoc2;
 					}
-					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Properties.CurSprite+".png",FinalLoc,-50);
-					Properties.entities.add(Enemies);
-					Properties.CurSprite += 1;
-					if (Properties.CurSprite>5)
-						Properties.CurSprite=1;
+					Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50);
+					properties.entities.add(Enemies);
+					properties.CurSprite += 1;
+					if (properties.CurSprite>5)
+						properties.CurSprite=1;
 				}
-			}else if (Properties.advanceLevel == true){
-				if(Properties.gameTime>= Properties.tWait && Properties.level ==2){
-					Properties.tWait = Properties.gameTime;
+			}else if (properties.advanceLevel == true){
+				if(properties.gameTime>= properties.tWait && properties.level ==2){
+					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = Properties.SpriteLoc;
+							FinalLoc = properties.SpriteLoc;
 						}else{
-							FinalLoc = Properties.SpriteLoc2;
+							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Properties.CurSprite+".png",FinalLoc,-50, (Properties.tWait+(100*0.45)-30));
-						Properties.entities.add(Enemies);
-						Properties.CurSprite += 1;
-						if (Properties.CurSprite>5)
-							Properties.CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						properties.entities.add(Enemies);
+						properties.CurSprite += 1;
+						if (properties.CurSprite>5)
+							properties.CurSprite=1;
 					}
-				}else if(Properties.gameTime>= Properties.tWait && Properties.level ==2){
-					Properties.tWait = Properties.gameTime;
+				}else if(properties.gameTime>= properties.tWait && properties.level ==2){
+					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = Properties.SpriteLoc;
+							FinalLoc = properties.SpriteLoc;
 						}else{
-							FinalLoc = Properties.SpriteLoc2;
+							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Properties.CurSprite+".png",FinalLoc,-50, (Properties.tWait+(100*0.45)-30));
-						Properties.entities.add(Enemies);
-						Properties.CurSprite += 1;
-						if (Properties.CurSprite>5)
-							Properties.CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						properties.entities.add(Enemies);
+						properties.CurSprite += 1;
+						if (properties.CurSprite>5)
+							properties.CurSprite=1;
 					}
-				}else if(Properties.gameTime>= Properties.tWait && Properties.level ==2){
-					Properties.tWait = Properties.gameTime;
+				}else if(properties.gameTime>= properties.tWait && properties.level ==2){
+					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = Properties.SpriteLoc;
+							FinalLoc = properties.SpriteLoc;
 						}else{
-							FinalLoc = Properties.SpriteLoc2;
+							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Properties.CurSprite+".png",FinalLoc,-50, (Properties.tWait+(100*0.45)-30));
-						Properties.entities.add(Enemies);
-						Properties.CurSprite += 1;
-						if (Properties.CurSprite>5)
-							Properties.CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						properties.entities.add(Enemies);
+						properties.CurSprite += 1;
+						if (properties.CurSprite>5)
+							properties.CurSprite=1;
 					}
-				}else if(Properties.gameTime>= Properties.tWait && Properties.level ==2){
-					Properties.tWait = Properties.gameTime;
+				}else if(properties.gameTime>= properties.tWait && properties.level ==2){
+					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = Properties.SpriteLoc;
+							FinalLoc = properties.SpriteLoc;
 						}else{
-							FinalLoc = Properties.SpriteLoc2;
+							FinalLoc = properties.SpriteLoc2;
 						}
-						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+Properties.CurSprite+".png",FinalLoc,-50, (Properties.tWait+(100*0.45)-30));
-						Properties.entities.add(Enemies);
-						Properties.CurSprite += 1;
-						if (Properties.CurSprite>5)
-							Properties.CurSprite=1;
+						Entity Enemies = new EnemyEntity(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						properties.entities.add(Enemies);
+						properties.CurSprite += 1;
+						if (properties.CurSprite>5)
+							properties.CurSprite=1;
 					}
 				}
 			}
@@ -210,27 +210,27 @@ public class Game extends Canvas {
 	
 	private void startGame() {
 
-		Properties.entities.clear();
-		Properties.Background = new Background(this,"sprites/background.png", 0, 0);
-		Properties.backgroundImages.add(Properties.Background);
-		Properties.Background2 = new Background(this,"sprites/background.png", 0, -650);
-		Properties.backgroundImages.add(Properties.Background2);
+		properties.entities.clear();
+		properties.Background = new Background(this,"sprites/background.png", 0, 0);
+		properties.backgroundImages.add(properties.Background);
+		properties.Background2 = new Background(this,"sprites/background.png", 0, -650);
+		properties.backgroundImages.add(properties.Background2);
         initEntities();
         
         // reset key presses
-        Properties.leftPressed = false;
-        Properties.rightPressed = false;
+        properties.leftPressed = false;
+        properties.rightPressed = false;
         
         //reset time
-        Properties.timeMil = 0;
+        properties.timeMil = 0;
         //reset lives
         Properties.gameLives = 3;
-        Properties.level = 1;
-        Properties.gameStart = true;
-        Properties.tWait = 0;
-        Properties.gameTime = 0;
-        Properties.finalTime = 0;
-        Properties.lastLoopTime = System.currentTimeMillis();
+        properties.level = 1;
+        properties.gameStart = true;
+        properties.tWait = 0;
+        properties.gameTime = 0;
+        properties.finalTime = 0;
+        properties.lastLoopTime = System.currentTimeMillis();
         Properties.debugHits = 0;
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -267,17 +267,17 @@ public class Game extends Canvas {
 		}
 		
 		if (characterS == 2) {
-			Properties.shipS = 2;
+			properties.shipS = 2;
 			startGame();
 		}
 	
 		if (characterS == 1) {
-			Properties.shipS = 1;
+			properties.shipS = 1;
 			startGame();
 		}
 		
 		if (characterS == 0) {
-			Properties.shipS = 0;
+			properties.shipS = 0;
 			startGame();
 		}
 	}
@@ -312,8 +312,8 @@ public class Game extends Canvas {
 	public void gameOver() {
 		if (Properties.debug) {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("GAME OVER DISPLAYED AFTER " + Properties.gameTime + " SECONDS");
-		System.out.println("HITS:" + Properties.debugHits + "/3" + " | " + "LEVEL: " + Properties.level);
+		System.out.println("GAME OVER DISPLAYED AFTER " + properties.gameTime + " SECONDS");
+		System.out.println("HITS:" + Properties.debugHits + "/3" + " | " + "LEVEL: " + properties.level);
 		}
 		
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
@@ -321,7 +321,7 @@ public class Game extends Canvas {
 		
 		Object[] options = {Utils.bPlayAgain, Utils.bQuit};
 		int goG = JOptionPane.showOptionDialog(null,
-		Utils.txtSurvive + Properties.gameTime + Utils.txtSeconds, Utils.goDialogTitle,
+		Utils.txtSurvive + properties.gameTime + Utils.txtSeconds, Utils.goDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE,
 		icon,
@@ -345,7 +345,7 @@ public class Game extends Canvas {
 	public void pauseGame() {
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
-		Properties.gameStart = false;
+		properties.gameStart = false;
 		long LoopTempTime = System.currentTimeMillis();
 		Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
 		int pauseG = JOptionPane.showOptionDialog(null,
@@ -355,19 +355,19 @@ public class Game extends Canvas {
 		icon,
 		options,
 		options[0]);
-		double[] entCurYLoc = new double[Properties.entities.size()];
-		for (int i=0;i<Properties.entities.size();i++) {
-			Entity entity = (Entity) Properties.entities.get(i);
+		double[] entCurYLoc = new double[properties.entities.size()];
+		for (int i=0;i<properties.entities.size();i++) {
+			Entity entity = (Entity) properties.entities.get(i);
             entCurYLoc[i] = entity.getVerticalMovement();
             entity.setVerticalMovement(0);
 		 }
 		if (pauseG != 1 && pauseG != 2) {
-			for (int i=0;i<Properties.entities.size();i++) {
-	            Entity entity = (Entity) Properties.entities.get(i);
+			for (int i=0;i<properties.entities.size();i++) {
+	            Entity entity = (Entity) properties.entities.get(i);
 	            entity.setVerticalMovement(entCurYLoc[i]);
 			 }
-			Properties.finalTime = System.currentTimeMillis() - LoopTempTime;
-			Properties.gameStart = true;
+			properties.finalTime = System.currentTimeMillis() - LoopTempTime;
+			properties.gameStart = true;
 		}
 		
 		if (pauseG == 2) {
@@ -375,38 +375,38 @@ public class Game extends Canvas {
 		}
 		
 		if (pauseG == 1) {
-			Properties.gameTime = 0;
+			properties.gameTime = 0;
 			characterSelect();
 		}
 				
 	}
 	
 	public void gameLoop() {
-		Properties.lastLoopTime = System.currentTimeMillis();
+		properties.lastLoopTime = System.currentTimeMillis();
 		long bgLoop = System.currentTimeMillis();
 		
-		while (Properties.isRunning) {
-			if(Properties.gameStart == true){
+		while (properties.isRunning) {
+			if(properties.gameStart == true){
 				
-				long delta = (System.currentTimeMillis()-Properties.finalTime) - Properties.lastLoopTime;
-				Properties.finalTime = 0;
-				Properties.lastLoopTime = System.currentTimeMillis();
-				Properties.lastTime = getTime();
+				long delta = (System.currentTimeMillis()-properties.finalTime) - properties.lastLoopTime;
+				properties.finalTime = 0;
+				properties.lastLoopTime = System.currentTimeMillis();
+				properties.lastTime = getTime();
 				updateTime();
 				
 				// Colour in background		
-				Graphics2D g = (Graphics2D) Properties.strategy.getDrawGraphics();
+				Graphics2D g = (Graphics2D) properties.strategy.getDrawGraphics();
 				g.setColor(Color.black);
 				g.fillRect(0,0,500,650);
 				
-				for (int i=0;i<Properties.backgroundImages.size();i++) {
-					Entity entity = (Entity) Properties.backgroundImages.get(i);
+				for (int i=0;i<properties.backgroundImages.size();i++) {
+					Entity entity = (Entity) properties.backgroundImages.get(i);
 					
 					entity.move(delta);
 				}
 				
-	            for (int i=0;i<Properties.entities.size();i++) {
-					Entity entity = (Entity) Properties.entities.get(i);
+	            for (int i=0;i<properties.entities.size();i++) {
+					Entity entity = (Entity) properties.entities.get(i);
 					
 					entity.move(delta);
 				}
@@ -414,13 +414,13 @@ public class Game extends Canvas {
 	            long bgLoopCheck = System.currentTimeMillis();
 				for(int i=1; i<3; i++){
 					if(i == 2){
-						Properties.Background2.setVerticalMovement(10);
+						properties.Background2.setVerticalMovement(10);
 					}else{
-						Properties.Background.setVerticalMovement(10);
+						properties.Background.setVerticalMovement(10);
 					}
 					if((bgLoopCheck -bgLoop)> 63000){
-						Properties.Background = new Background(this,"sprites/Background.png",0,-650);
-						Properties.backgroundImages.add(Properties.Background);
+						properties.Background = new Background(this,"sprites/Background.png",0,-650);
+						properties.backgroundImages.add(properties.Background);
 						bgLoop =System.currentTimeMillis();
 					}
 						
@@ -429,10 +429,10 @@ public class Game extends Canvas {
 				//testing for collision of player and enemy  
 				// p = ship, s = enemy
 				
-	            for (int p=0;p<Properties.entities.size();p++) {
-	            	for (int s=p+1;s<Properties.entities.size();s++) {
-	            		Entity me = (Entity) Properties.entities.get(p);
-	            		Entity him = (Entity) Properties.entities.get(s);
+	            for (int p=0;p<properties.entities.size();p++) {
+	            	for (int s=p+1;s<properties.entities.size();s++) {
+	            		Entity me = (Entity) properties.entities.get(p);
+	            		Entity him = (Entity) properties.entities.get(s);
 	            		
 	            		if (me.collidesWith(him)) {
 	            			me.collidedWith(him);
@@ -441,37 +441,37 @@ public class Game extends Canvas {
 	            		}
 	            	}
 	            }
-	            Properties.entities.removeAll(Properties.removeList);
-	            Properties.removeList.clear();
+	            properties.entities.removeAll(properties.removeList);
+	            properties.removeList.clear();
 				
-	            if (Properties.logicRequiredThisLoop) {
-	                    for (int i=0;i<Properties.entities.size();i++) {
-	                            Entity entity = (Entity) Properties.entities.get(i);
+	            if (properties.logicRequiredThisLoop) {
+	                    for (int i=0;i<properties.entities.size();i++) {
+	                            Entity entity = (Entity) properties.entities.get(i);
 	                            entity.doLogic();
 	                    }
 	                    
-	                    Properties.logicRequiredThisLoop = false;
+	                    properties.logicRequiredThisLoop = false;
 	            }
 	            
-	            for (int i=0;i<Properties.backgroundImages.size();i++) {
-	                  Entity entity = (Entity) Properties.backgroundImages.get(i);
+	            for (int i=0;i<properties.backgroundImages.size();i++) {
+	                  Entity entity = (Entity) properties.backgroundImages.get(i);
 	                  entity.draw(g);
 				}
-				for (int i=0;i<Properties.entities.size();i++) {
-	                  Entity entity = (Entity) Properties.entities.get(i);
+				for (int i=0;i<properties.entities.size();i++) {
+	                  Entity entity = (Entity) properties.entities.get(i);
 	                  entity.draw(g);
 				}
 				
-				if(Properties.gameTime >59){
-					Properties.advanceLevel = true;
-					if(Properties.gameTime < 119){
-						Properties.level = 2;
-					}else if(Properties.gameTime <179){
-						Properties.level = 3;
-					}else if(Properties.gameTime <239){
-						Properties.level = 4;
-					}else if(Properties.gameTime >299){
-						Properties.level = 5;
+				if(properties.gameTime >59){
+					properties.advanceLevel = true;
+					if(properties.gameTime < 119){
+						properties.level = 2;
+					}else if(properties.gameTime <179){
+						properties.level = 3;
+					}else if(properties.gameTime <239){
+						properties.level = 4;
+					}else if(properties.gameTime >299){
+						properties.level = 5;
 					}
 				}
 				
@@ -482,50 +482,50 @@ public class Game extends Canvas {
 				//Level
 				g.setColor(Color.red);
 				g.setFont(new Font("Century Gothic", Font.BOLD, Utils.levelFS));
-	            g.drawString(Utils.txtLevel + Properties.level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + Properties.level))/2,18);
+	            g.drawString(Utils.txtLevel + properties.level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + properties.level))/2,18);
 				
 				// Timer
 				g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
-	            g.drawString(Properties.timeDisplay,(70-g.getFontMetrics().stringWidth(Properties.timeDisplay))/2,18);
+	            g.drawString(properties.timeDisplay,(70-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
 	            
-	            if (Properties.timeMil > 99){
-	            	Properties.gameTime = Properties.timeMil/100;
+	            if (properties.timeMil > 99){
+	            	properties.gameTime = properties.timeMil/100;
 	            }
-	            String convtime = String.valueOf(Properties.gameTime);
+	            String convtime = String.valueOf(properties.gameTime);
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString(Properties.timeDisplay,(175-g.getFontMetrics().stringWidth(Properties.timeDisplay))/2,18);
+	            g.drawString(properties.timeDisplay,(175-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
 	 
 	            //Lives
 				g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.livesFS));
-	            g.drawString(Properties.livesDisplay,(875-g.getFontMetrics().stringWidth(Properties.livesDisplay))/2,18);
+	            g.drawString(properties.livesDisplay,(875-g.getFontMetrics().stringWidth(properties.livesDisplay))/2,18);
 	            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
 	            
 	            String convlives = String.valueOf(Properties.gameLives);
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
-	            g.drawString(Properties.timeDisplay,(965-g.getFontMetrics().stringWidth(Properties.timeDisplay))/2,18);
+	            g.drawString(properties.timeDisplay,(965-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 				
 				// Clear Graphics
 				g.dispose();
-				Properties.strategy.show();	
+				properties.strategy.show();	
 				updateEnt();	
 				
 				if (Properties.gameLives == 0){
     				gameOver();
     			}
 				
-				Properties.ship.setHorizontalMovement(0);  
+				properties.ship.setHorizontalMovement(0);  
 			    // Ship movement
-	            if ((Properties.leftPressed) && (!Properties.rightPressed)) {
-	            	Properties.ship.setHorizontalMovement(-Properties.moveSpeed);
-	            } else if ((Properties.rightPressed) && (!Properties.leftPressed)) {
-	            	Properties.ship.setHorizontalMovement(Properties.moveSpeed);
+	            if ((properties.leftPressed) && (!properties.rightPressed)) {
+	            	properties.ship.setHorizontalMovement(-properties.moveSpeed);
+	            } else if ((properties.rightPressed) && (!properties.leftPressed)) {
+	            	properties.ship.setHorizontalMovement(properties.moveSpeed);
 	            }
 	            
 	              try { Thread.sleep(10); } catch (Exception e) {}
@@ -540,11 +540,11 @@ public class Game extends Canvas {
 	 */
 	
 	public void updateTime() {
-	    if (getTime() - Properties.lastTime > 1000) {
-	    	Properties.timeMil = 0; //reset the timer counter
-	    	Properties.lastTime += 1000; //add one second
+	    if (getTime() - properties.lastTime > 1000) {
+	    	properties.timeMil = 0; //reset the timer counter
+	    	properties.lastTime += 1000; //add one second
 	    }
-	    Properties.timeMil++;
+	    properties.timeMil++;
 	}
 	
 	public long getTime() {
@@ -553,24 +553,24 @@ public class Game extends Canvas {
 	
 	public int getDelta() {
 	    long time = getTime();
-	    int delta = (int) (time - Properties.lastFrame);
-	    Properties.lastFrame = time;
+	    int delta = (int) (time - properties.lastFrame);
+	    properties.lastFrame = time;
 	 
 	    return delta;
 	}
 	
     public void removeEntity(Entity entity) {
-    	Properties.removeList.add(entity);
+    	properties.removeList.add(entity);
     }
 		
     private class KeyInputHandler extends KeyAdapter {
         public void keyPressed(KeyEvent e) {                
                 
                 if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
-                	Properties.leftPressed = true;
+                	properties.leftPressed = true;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
-                	Properties.rightPressed = true;
+                	properties.rightPressed = true;
                 }
 
                 if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
@@ -582,10 +582,10 @@ public class Game extends Canvas {
         public void keyReleased(KeyEvent e) {
            
                 if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
-                	Properties.leftPressed = false;
+                	properties.leftPressed = false;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
-                	Properties.rightPressed = false;
+                	properties.rightPressed = false;
                 }        
         }
     }
