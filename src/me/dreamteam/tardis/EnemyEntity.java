@@ -31,7 +31,7 @@ public class EnemyEntity extends Entity {
 		if ((dy > 0) && (y > 750)) {
 			game.updateLogic();
             game.removeEntity(this);
-            if (Tardis.debug) {
+            if (Properties.debug) {
             System.out.println("DEBUG: (GC) Removed " + this + " as it had reached the bottom");
             }
 		
@@ -43,13 +43,13 @@ public class EnemyEntity extends Entity {
 	public void collidedWith(Entity other) {
 		if (other instanceof ShipEntity) {
             // remove the affected entities
-			Tardis.gameLives--;
+			Properties.gameLives--;
 			game.removeEntity(this);
 		}
 		
 		if (other instanceof EnemyEntity) {
-			if (Tardis.debug) {
-			Tardis.debugHits++;
+			if (Properties.debug) {
+			Properties.debugHits++;
             System.out.println("DEBUG: (-) Enemy " + this + " hit " + other);
 			}
 		}
