@@ -92,10 +92,6 @@ public class Game extends Canvas {
 		initEntities();
 		titleScreen();
 	}
-	
-    public void updateLogic() {
-    	properties.logicRequiredThisLoop = true;
-     }
 		
 	/**
 	 * Create our ship
@@ -443,15 +439,6 @@ public class Game extends Canvas {
 	            }
 	            properties.entities.removeAll(properties.removeList);
 	            properties.removeList.clear();
-				
-	            if (properties.logicRequiredThisLoop) {
-	                    for (int i=0;i<properties.entities.size();i++) {
-	                            Entity entity = (Entity) properties.entities.get(i);
-	                            entity.doLogic();
-	                    }
-	                    
-	                    properties.logicRequiredThisLoop = false;
-	            }
 	            
 	            for (int i=0;i<properties.backgroundImages.size();i++) {
 	                  Entity entity = (Entity) properties.backgroundImages.get(i);

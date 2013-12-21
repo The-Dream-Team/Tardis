@@ -55,7 +55,6 @@ public class Properties{
     
 	/* Game Logic and Time */
 	
-	public boolean logicRequiredThisLoop = false;
 	public boolean advanceLevel = false;
 	public int level = 1;
 	public long lastFrame;
