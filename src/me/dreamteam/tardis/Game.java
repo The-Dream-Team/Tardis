@@ -380,7 +380,6 @@ public class Game extends Canvas {
 	public void gameLoop() {
 		properties.lastLoopTime = System.currentTimeMillis();
 		long bgLoop = System.currentTimeMillis();
-		
 		while (properties.Running) {
 			if(properties.gameStart == true){
 				
@@ -494,7 +493,18 @@ public class Game extends Canvas {
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
 	            g.drawString(properties.timeDisplay,(965-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
-				
+	            
+	         	//Weapon
+				g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
+	            g.drawString(properties.timeDisplay,(70-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,300);
+	            g.drawString("Weapon: ",(110-g.getFontMetrics().stringWidth("Weapon: "))/2,645);
+	            
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
+	            g.drawString(properties.timeDisplay,(500-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,400);
+	            g.drawString("0/0/0",(245-g.getFontMetrics().stringWidth("0/0/0"))/2,645);
+
 				// Clear Graphics
 				g.dispose();
 				properties.strategy.show();	
