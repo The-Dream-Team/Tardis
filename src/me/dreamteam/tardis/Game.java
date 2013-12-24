@@ -143,7 +143,7 @@ public class Game extends Canvas {
 						properties.CurSprite=1;
 				}
 			}else if (properties.advanceLevel == true){
-				if(properties.gameTime>= properties.tWait && properties.level ==2){
+				if(properties.gameTime>= properties.tWait+2 && properties.level ==2){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
@@ -157,7 +157,7 @@ public class Game extends Canvas {
 						if (properties.CurSprite>5)
 							properties.CurSprite=1;
 					}
-				}else if(properties.gameTime>= properties.tWait && properties.level ==2){
+				}else if(properties.gameTime>= properties.tWait && properties.level ==3){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
@@ -171,7 +171,7 @@ public class Game extends Canvas {
 						if (properties.CurSprite>5)
 							properties.CurSprite=1;
 					}
-				}else if(properties.gameTime>= properties.tWait && properties.level ==2){
+				}else if(properties.gameTime>= properties.tWait && properties.level ==4){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
@@ -185,7 +185,7 @@ public class Game extends Canvas {
 						if (properties.CurSprite>5)
 							properties.CurSprite=1;
 					}
-				}else if(properties.gameTime>= properties.tWait && properties.level ==2){
+				}else if(properties.gameTime>= properties.tWait && properties.level ==5){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
