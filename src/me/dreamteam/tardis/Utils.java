@@ -30,6 +30,8 @@ public class Utils {
 	
 	static int fontSize = 18;  // Global Font Size
 	
+	static int splashFS = 32; // Loading screen
+	
 	static int timeFS = 18; // Font size for Time display
 	static int timeIFS = 18; // Font size for timer
 	
@@ -48,6 +50,10 @@ public class Utils {
 	 */
 	
 	static String lbk = "\n";
+	
+	// Loading (Splash)
+	
+	static String txtLoad = "Loading...";
 		
 	// Title Screen
 	static String bPlay = "Play Game";

@@ -42,6 +42,7 @@ public class Game extends Canvas {
 		panel.setPreferredSize(new Dimension(500,650));	
 		panel.setLayout(null);
 			
+        panel.setBackground(Color.black);
 		setBounds(0,0,500,650);	
 		panel.add(this);
 		setIgnoreRepaint(true);	
@@ -88,9 +89,19 @@ public class Game extends Canvas {
 		createBufferStrategy(2);
 		properties.strategy = getBufferStrategy();
         
-        requestFocus();
+		
+		requestFocus();
         initPlayer();
 		titleScreen();
+		
+		Graphics2D gi = (Graphics2D) properties.strategy.getDrawGraphics();
+		
+		gi.setColor(Color.red);
+		gi.setFont(new Font("Century Gothic", Font.BOLD + Font.ITALIC, Utils.splashFS));
+        gi.drawString(Utils.txtLoad,(500-gi.getFontMetrics().stringWidth(Utils.txtLoad))/2,248);
+        properties.strategy.show();
+        gi.dispose();
+		
 	}
 		
 	/**
@@ -203,6 +214,8 @@ public class Game extends Canvas {
 			}
 		}
 	}
+	
+	
 	
 	private void startGame() {
 
@@ -380,6 +393,7 @@ public class Game extends Canvas {
 	public void gameLoop() {
 		properties.lastLoopTime = System.currentTimeMillis();
 		long bgLoop = System.currentTimeMillis();
+		
 		while (properties.Running) {
 			if(properties.gameStart == true){
 				
