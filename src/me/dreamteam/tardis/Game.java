@@ -45,6 +45,7 @@ public class Game extends Canvas {
         panel.setBackground(Color.black);
 		setBounds(0,0,500,650);	
 		panel.add(this);
+		
 		setIgnoreRepaint(true);	
 		container.setResizable(false);	
 		container.pack();	
@@ -88,7 +89,14 @@ public class Game extends Canvas {
 		// create the buffering strategy for graphics
 		createBufferStrategy(2);
 		properties.strategy = getBufferStrategy();
-        
+		
+		Graphics2D gix = (Graphics2D) properties.strategy.getDrawGraphics();
+	
+		gix.setColor(Color.DARK_GRAY);
+		gix.setFont(new Font("Century Gothic", Font.BOLD + Font.ITALIC, Utils.splashFS));
+        gix.drawString(Utils.gameName + Utils.version,(550-gix.getFontMetrics().stringWidth(Utils.gameName))/2,648);
+        properties.strategy.show();
+        gix.dispose();
 		
 		requestFocus();
         initPlayer();
