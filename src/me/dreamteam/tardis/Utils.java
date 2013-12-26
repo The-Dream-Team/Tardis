@@ -61,7 +61,7 @@ public class Utils {
 	static String bRestart = "Restart Game";
 	static String bReturn = "Return to Game";
 	static String txtTS = "Welcome to " + gameName + version;
-	static String tsDialogTitle = gameName;
+	static String tsDialogTitle = "";
 	
 	// Character Selection
 	static String txtCS = "Choose your spaceship to begin:";
