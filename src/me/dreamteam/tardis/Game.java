@@ -584,7 +584,7 @@ public class Game extends Canvas {
 	}
 	
 	public void useWeapon(){
-		Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+10,properties.ship.getY()-30);
+		Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+18,properties.ship.getY()-15);
 		properties.entities.add(shot);
 	}
 	/**
