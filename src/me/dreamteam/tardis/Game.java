@@ -19,6 +19,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 import org.lwjgl.Sys;
 
@@ -51,6 +53,12 @@ public class Game extends Canvas {
 		setIgnoreRepaint(true);	
 		container.setResizable(false);	
 		container.pack();	
+		
+		// Set up elements colours
+		UIManager UI=new UIManager();
+		 UI.put("OptionPane.background",new ColorUIResource(0,0,0));
+		 UI.put("Panel.background",new ColorUIResource(0,0,0));
+		 UI.put("OptionPane.messageForeground", new ColorUIResource(255,255,255));
 			
 		// Window setup	
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();	
