@@ -12,7 +12,7 @@ public class Utils {
 	 * Game Information
 	 */
 	
-	static String gameName = "Codename TARDIS ";
+	static String gameName = "SUPER SPACESHIP ADVENTURE ";
 	static String build = "Alpha ";
 	static String version = "0.6.1";
 	
@@ -30,7 +30,7 @@ public class Utils {
 	
 	static int fontSize = 18;  // Global Font Size
 	
-	static int splashFS = 32; // Loading screen
+	static int splashFS = 24; // Loading screen
 	
 	static int timeFS = 18; // Font size for Time display
 	static int timeIFS = 18; // Font size for timer
@@ -79,7 +79,7 @@ public class Utils {
 	static String txtPS = "Game paused";
 
     // Icon URLS
-	static URL splashURL = me.dreamteam.tardis.Game.class.getResource("/sprites/background.png");
+	static URL splashURL = me.dreamteam.tardis.Game.class.getResource("/sprites/splashbackground.png");
 	static URL iconURL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
 	static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship.png");
 	static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/sprites/ship2.png");
