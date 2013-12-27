@@ -42,11 +42,11 @@ public class Properties{
  
 	public double moveSpeed = 180;
 	
-	public int SpriteLoc;
-	public int SpriteLoc2;
-	public int SpriteLoc3;
+	public int spriteLoc;
+	public int spriteLoc2;
+	public int spriteLoc3;
 	
-	public int CurSprite = 1;
+	public int curSprite = 1;
 	public double curY = 0;
 	public Random rSpriteLoc = new Random();
 
