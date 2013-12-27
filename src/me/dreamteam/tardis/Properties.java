@@ -1,5 +1,6 @@
 package me.dreamteam.tardis;
 
+import java.awt.Image;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.Random;
@@ -25,6 +26,7 @@ public class Properties{
 	public boolean Running = true;
 	public boolean gameStart = false;
 	public long lastLoopTime;
+	public Image splashbg;
 	
 	/* Entities */
 	

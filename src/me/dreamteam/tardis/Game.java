@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -35,6 +36,7 @@ Main Class
 
 public class Game extends Canvas {
 	Properties properties = new Properties();
+	
 	public Game(){
 		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);	
 			
@@ -91,6 +93,11 @@ public class Game extends Canvas {
 		properties.strategy = getBufferStrategy();
 		
 		Graphics2D gix = (Graphics2D) properties.strategy.getDrawGraphics();
+			
+		ImageIcon splashbgicon = new ImageIcon(Utils.splashURL);
+		properties.splashbg = splashbgicon.getImage();
+		
+		gix.drawImage(properties.splashbg, 0, 0, null);
 	
 		gix.setColor(Color.DARK_GRAY);
 		gix.setFont(new Font("Century Gothic", Font.BOLD + Font.ITALIC, Utils.splashFS));
