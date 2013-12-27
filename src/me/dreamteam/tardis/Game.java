@@ -39,7 +39,6 @@ Main Class
 
 public class Game extends Canvas {
 	Properties properties = new Properties();
-	
 	public Game(){
 		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);	
 			
@@ -568,6 +567,14 @@ public class Game extends Canvas {
 	            
 	            if (properties.firing && properties.weapon1 >0) {
 					useWeapon();
+					properties.weaponLoopTime = System.currentTimeMillis();
+					properties.setWeapon(0);
+				}else if(properties.firing && System.currentTimeMillis() < properties.weaponLoopTime+4421){
+					useWeapon();
+				}else{
+					if(System.currentTimeMillis() > properties.weaponLoopTime+4421){
+						properties.firing = false;
+					}
 				}
 	              try { Thread.sleep(10); } catch (Exception e) {}
 			 }else{
@@ -634,9 +641,6 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                 	properties.rightPressed = false;
                 }
-                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-    				properties.firing = false;
-    			}
         }
     }
 		
