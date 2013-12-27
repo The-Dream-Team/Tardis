@@ -61,6 +61,7 @@ public class Properties{
 	public long finalTime = 0;
 	public String timeDisplay = "";
 	public String livesDisplay = "";
+	public String weaponDisplay = "0/0/0";
 	public int gameTime = 0;
 	public static int gameLives = 3; 
 	public int timeMil;
