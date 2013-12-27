@@ -566,7 +566,7 @@ public class Game extends Canvas {
 	            	properties.ship.setHorizontalMovement(properties.moveSpeed);
 	            }
 	            
-	            if (properties.firing) {
+	            if (properties.firing && properties.weapon1 >0) {
 					useWeapon();
 				}
 	              try { Thread.sleep(10); } catch (Exception e) {}

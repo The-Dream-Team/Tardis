@@ -64,7 +64,7 @@ public class Properties{
 	public long finalTime = 0;
 	public String timeDisplay = "";
 	public String livesDisplay = "";
-	public int weapon1 = 0;
+	public int weapon1 = 1;
 	public int weapon2 = 0;
 	public int weapon3 = 0;
 	public String weaponDisplay = weapon1+"/"+weapon2+"/"+weapon3;
