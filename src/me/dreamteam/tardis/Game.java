@@ -259,6 +259,7 @@ public class Game extends Canvas {
         Properties.gameLives = 3;
         properties.level = 1;
         properties.gameStart = true;
+        properties.advanceLevel = false;
         properties.tWait = 0;
         properties.gameTime = 0;
         properties.finalTime = 0;
