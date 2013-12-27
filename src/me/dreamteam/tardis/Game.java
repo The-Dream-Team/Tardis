@@ -101,7 +101,7 @@ public class Game extends Canvas {
 	
 		gix.setColor(Color.DARK_GRAY);
 		gix.setFont(new Font("Century Gothic", Font.BOLD + Font.ITALIC, Utils.splashFS));
-        gix.drawString(Utils.gameName + Utils.version,(550-gix.getFontMetrics().stringWidth(Utils.gameName))/2,648);
+        gix.drawString(Utils.build + Utils.version,(1100-gix.getFontMetrics().stringWidth(Utils.gameName))/2,648);
         properties.strategy.show();
         gix.dispose();
 		
