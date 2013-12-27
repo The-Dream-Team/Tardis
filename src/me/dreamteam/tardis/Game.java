@@ -263,6 +263,7 @@ public class Game extends Canvas {
         properties.gameTime = 0;
         properties.finalTime = 0;
         properties.lastLoopTime = System.currentTimeMillis();
+        properties.setWeapon(1);
         Properties.debugHits = 0;
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
