@@ -152,13 +152,13 @@ public class Game extends Canvas {
 	
 	private void updateEnt(){
 		properties.moveSpeed = 180+(properties.tWait*0.7);
-		properties.SpriteLoc = properties.rSpriteLoc.nextInt(200);
-		properties.SpriteLoc2 = 200+properties.rSpriteLoc.nextInt(250);
-		if(properties.SpriteLoc2 < properties.SpriteLoc+56){
-			if(properties.SpriteLoc2 > properties.SpriteLoc-56){
-				properties.SpriteLoc2 = properties.SpriteLoc-56;
-				if (properties.SpriteLoc2 > 450)
-					properties.SpriteLoc2 = properties.SpriteLoc-56;
+		properties.spriteLoc = properties.rSpriteLoc.nextInt(200);
+		properties.spriteLoc2 = 200+properties.rSpriteLoc.nextInt(250);
+		if(properties.spriteLoc2 < properties.spriteLoc+56){
+			if(properties.spriteLoc2 > properties.spriteLoc-56){
+				properties.spriteLoc2 = properties.spriteLoc-56;
+				if (properties.spriteLoc2 > 450)
+					properties.spriteLoc2 = properties.spriteLoc-56;
 			}
 		}
 		if(properties.tWait != properties.gameTime){
@@ -167,72 +167,72 @@ public class Game extends Canvas {
 				properties.tWait = properties.gameTime;
 				for(int i = 0; i<2; i++){
 					if(i==0){
-						FinalLoc = properties.SpriteLoc;
+						FinalLoc = properties.spriteLoc;
 					}else{
-						FinalLoc = properties.SpriteLoc2;
+						FinalLoc = properties.spriteLoc2;
 					}
-					Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50);
+					Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.curSprite+".png",FinalLoc,-50);
 					properties.entities.add(Enemies);
-					properties.CurSprite += 1;
-					if (properties.CurSprite>5)
-						properties.CurSprite=1;
+					properties.curSprite += 1;
+					if (properties.curSprite>5)
+						properties.curSprite=1;
 				}
 			}else if (properties.advanceLevel == true){
 				if(properties.gameTime>= properties.tWait+2 && properties.level ==2){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = properties.SpriteLoc;
+							FinalLoc = properties.spriteLoc;
 						}else{
-							FinalLoc = properties.SpriteLoc2;
+							FinalLoc = properties.spriteLoc2;
 						}
-						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.curSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
-						properties.CurSprite += 1;
-						if (properties.CurSprite>5)
-							properties.CurSprite=1;
+						properties.curSprite += 1;
+						if (properties.curSprite>5)
+							properties.curSprite=1;
 					}
 				}else if(properties.gameTime>= properties.tWait && properties.level ==3){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = properties.SpriteLoc;
+							FinalLoc = properties.spriteLoc;
 						}else{
-							FinalLoc = properties.SpriteLoc2;
+							FinalLoc = properties.spriteLoc2;
 						}
-						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.curSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
-						properties.CurSprite += 1;
-						if (properties.CurSprite>5)
-							properties.CurSprite=1;
+						properties.curSprite += 1;
+						if (properties.curSprite>5)
+							properties.curSprite=1;
 					}
 				}else if(properties.gameTime>= properties.tWait && properties.level ==4){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = properties.SpriteLoc;
+							FinalLoc = properties.spriteLoc;
 						}else{
-							FinalLoc = properties.SpriteLoc2;
+							FinalLoc = properties.spriteLoc2;
 						}
-						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.curSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
-						properties.CurSprite += 1;
-						if (properties.CurSprite>5)
-							properties.CurSprite=1;
+						properties.curSprite += 1;
+						if (properties.curSprite>5)
+							properties.curSprite=1;
 					}
 				}else if(properties.gameTime>= properties.tWait && properties.level ==5){
 					properties.tWait = properties.gameTime;
 					for(int i = 0; i<2; i++){
 						if(i==0){
-							FinalLoc = properties.SpriteLoc;
+							FinalLoc = properties.spriteLoc;
 						}else{
-							FinalLoc = properties.SpriteLoc2;
+							FinalLoc = properties.spriteLoc2;
 						}
-						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.CurSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
+						Entity Enemies = new Enemy(this,"sprites/enemies/0"+properties.curSprite+".png",FinalLoc,-50, (properties.tWait+(100*0.45)-30));
 						properties.entities.add(Enemies);
-						properties.CurSprite += 1;
-						if (properties.CurSprite>5)
-							properties.CurSprite=1;
+						properties.curSprite += 1;
+						if (properties.curSprite>5)
+							properties.curSprite=1;
 					}
 				}
 			}
