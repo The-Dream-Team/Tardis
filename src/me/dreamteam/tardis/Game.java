@@ -566,6 +566,9 @@ public class Game extends Canvas {
 	            	properties.ship.setHorizontalMovement(properties.moveSpeed);
 	            }
 	            
+	            if (properties.firing) {
+					useWeapon();
+				}
 	              try { Thread.sleep(10); } catch (Exception e) {}
 			 }else{
 				 try { Thread.sleep(10); } catch (Exception e) {}
@@ -573,6 +576,10 @@ public class Game extends Canvas {
 		}
 	}
 	
+	public void useWeapon(){
+		Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+10,properties.ship.getY()-30);
+		properties.entities.add(shot);
+	}
 	/**
 	 * Update the game time
 	 */
@@ -610,7 +617,9 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                 	properties.rightPressed = true;
                 }
-
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+    				properties.firing = true;
+    			}
                 if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
                 	pauseGame();
                 }
@@ -624,7 +633,10 @@ public class Game extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                 	properties.rightPressed = false;
-                }        
+                }
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+    				properties.firing = false;
+    			}
         }
     }
 		
