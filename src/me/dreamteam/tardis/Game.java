@@ -585,6 +585,10 @@ public class Game extends Canvas {
 	}
 	
 	public void useWeapon(){
+		if (System.currentTimeMillis() - properties.lastFire < properties.timeBetweenShots) {
+			return;
+		}
+		properties.lastFire = System.currentTimeMillis();
 		Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+18,properties.ship.getY()-15);
 		properties.entities.add(shot);
 	}

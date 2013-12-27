@@ -73,6 +73,8 @@ public class Properties{
 	public int timeMil;
 	public long lastTime;
 	public int tWait = 0;
+	public long lastFire = 0;
+	public long timeBetweenShots = 50;
 	public long weaponLoopTime;
 	public void setWeapon(int w){
 		weapon1 = w;
