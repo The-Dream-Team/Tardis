@@ -27,6 +27,7 @@ import org.lwjgl.Sys;
 import me.dreamteam.tardis.Entity;
 import me.dreamteam.tardis.Player;
 import me.dreamteam.tardis.Enemy;
+import me.dreamteam.tardis.Weapon;
 import me.dreamteam.tardis.Background;
 import me.dreamteam.tardis.Utils;
 import me.dreamteam.tardis.UtilsHTML;
