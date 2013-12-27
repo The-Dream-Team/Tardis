@@ -54,6 +54,7 @@ public class Properties{
 	
 	public boolean leftPressed = false;
 	public boolean rightPressed = false;
+	public boolean firing = false;
     
 	/* Game Logic and Time */
 	
