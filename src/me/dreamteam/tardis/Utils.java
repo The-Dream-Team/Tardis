@@ -72,7 +72,7 @@ public class Utils {
 	static String txtGO = "Game Over";
 	static String txtSurvive = "You have survived for ";
 	static String txtSeconds = " seconds";
-	static String goDialogTitle = "Game Over";
+	static String goDialogTitle = "";
 	static String bPlayAgain = "Play Again";
 	
 	// Pause screen
