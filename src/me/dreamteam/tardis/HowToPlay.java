@@ -33,7 +33,7 @@ public class HowToPlay extends JFrame {
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 400);
 		setUndecorated(true);
 		
 		
@@ -87,7 +87,7 @@ public class HowToPlay extends JFrame {
 		JLabel htpHide = new JLabel("Click here to hide...");
 		htpHide.setForeground(Color.WHITE);
 		htpHide.setFont(new Font("Monospaced", Font.BOLD, 16));
-		htpHide.setBounds(220, 264, 220, 25);
+		htpHide.setBounds(220, 364, 220, 25);
 		contentPane.add(htpHide);
 		
 		JLabel lblSometimesYouMay = new JLabel("Sometimes you may get a powerup, use SPACE KEY to use the powerup.");
