@@ -79,7 +79,7 @@ public class HowToPlay extends JFrame {
 		htpLine3.setBounds(10, 143, 430, 14);
 		contentPane.add(htpLine3);
 		
-		JLabel htpLine4 = new JLabel("Alternatively, you can use the A key to move left, or the D key to move right");
+		JLabel htpLine4 = new JLabel("Alternatively, you can use the A KEY to move left, or the D KEY to move right");
 		htpLine4.setForeground(Color.WHITE);
 		htpLine4.setBounds(10, 161, 430, 14);
 		contentPane.add(htpLine4);
@@ -89,6 +89,11 @@ public class HowToPlay extends JFrame {
 		htpHide.setFont(new Font("Monospaced", Font.BOLD, 16));
 		htpHide.setBounds(220, 264, 220, 25);
 		contentPane.add(htpHide);
+		
+		JLabel lblSometimesYouMay = new JLabel("Sometimes you may get a powerup, use SPACE KEY to use the powerup.");
+		lblSometimesYouMay.setForeground(Color.WHITE);
+		lblSometimesYouMay.setBounds(10, 186, 430, 14);
+		contentPane.add(lblSometimesYouMay);
 		
 		
 	}
