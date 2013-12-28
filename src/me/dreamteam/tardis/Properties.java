@@ -27,6 +27,7 @@ public class Properties{
 	public boolean gameStart = false;
 	public long lastLoopTime;
 	public Image splashbg;
+	public static int wake = 0;
 	
 	/* Entities */
 	
