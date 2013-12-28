@@ -652,6 +652,15 @@ public class Game extends Canvas {
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                 	properties.rightPressed = true;
                 }
+                if (e.getKeyCode() == KeyEvent.VK_1) {
+                	System.out.println("1 clicked");
+                }
+                if (e.getKeyCode() == KeyEvent.VK_2) {
+                	System.out.println("2 clicked");
+                }
+                if (e.getKeyCode() == KeyEvent.VK_3) {
+                	System.out.println("3 clicked");
+                }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
     				properties.firing = true;
     			}
