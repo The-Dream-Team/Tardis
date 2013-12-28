@@ -266,6 +266,7 @@ public class Game extends Canvas {
         properties.finalTime = 0;
         properties.lastLoopTime = System.currentTimeMillis();
         properties.firing = false;
+        properties.curWeapon = 1;
         properties.setWeapon(1);
         Properties.debugHits = 0;
         
