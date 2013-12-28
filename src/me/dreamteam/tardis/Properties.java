@@ -43,6 +43,7 @@ public class Properties{
  
 	public double moveSpeed = 180;
 	
+	/* Sprites */
 	public int spriteLoc;
 	public int spriteLoc2;
 	public int spriteLoc3;
@@ -77,6 +78,8 @@ public class Properties{
 	public long lastFire = 0;
 	public long timeBetweenShots = 110;
 	public long weaponLoopTime;
+	public int curWeapon;
+	public boolean weaponPressed = false;
 	public void setWeapon(int w){
 		weapon1 = w;
 		weaponDisplay = weapon1+"/"+weapon2+"/"+weapon3;
