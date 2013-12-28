@@ -41,12 +41,11 @@ public class HowToPlay extends JFrame {
 		setType(Type.UTILITY);
 			
 		// Window setup	
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();	
-		int w = getSize().width;	
+		int htpdim = Toolkit.getDefaultToolkit().getScreenResolution();	
+		int w = getSize().width;
 		int h = getSize().height;	
-		int x = (dim.width-w)/2;	
-		int y = (dim.height-h)/2;
-		setLocation(x, y);
+		int x = (htpdim-w)*7+70;	
+		int y = (htpdim-h)*4;
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -55,6 +54,8 @@ public class HowToPlay extends JFrame {
 		
 		
 		contentPane = new JPanel();
+		
+		setLocation(x, y);
 		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
