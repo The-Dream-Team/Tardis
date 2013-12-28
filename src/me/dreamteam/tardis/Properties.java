@@ -79,6 +79,7 @@ public class Properties{
 	public long timeBetweenShots = 110;
 	public long weaponLoopTime;
 	public int curWeapon;
+	public boolean weaponPressed = false;
 	public void setWeapon(int w){
 		weapon1 = w;
 		weaponDisplay = weapon1+"/"+weapon2+"/"+weapon3;

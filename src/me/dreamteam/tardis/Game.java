@@ -602,6 +602,12 @@ public class Game extends Canvas {
 						properties.firing = false;
 					}
 				}
+	            if(properties.weaponPressed){
+	            	if(properties.weapon1 ==0){
+						System.out.println("No Ammo!");
+	            	}
+				}
+	            properties.weaponPressed = false;
 	              try { Thread.sleep(10); } catch (Exception e) {}
 			 }else{
 				 try { Thread.sleep(10); } catch (Exception e) {}
@@ -670,6 +676,7 @@ public class Game extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
     				properties.firing = true;
+    				properties.weaponPressed = true;
     			}
                 if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
                 	pauseGame();
