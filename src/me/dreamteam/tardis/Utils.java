@@ -58,6 +58,7 @@ public class Utils {
 		
 	// Title Screen
 	static String bPlay = "Play Game";
+	static String bHowTo = "How to Play";
 	static String bQuit = "Quit Game";
 	static String bRestart = "Restart Game";
 	static String bReturn = "Return to Game";
