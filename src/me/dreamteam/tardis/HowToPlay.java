@@ -1,34 +1,16 @@
 package me.dreamteam.tardis;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.Panel;
-
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 
 import java.awt.Color;
-import java.awt.Window.Type;
-
-import javax.swing.JButton;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
-import javax.swing.ImageIcon;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.JTextPane;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
 public class HowToPlay extends JFrame {
@@ -65,7 +47,7 @@ public class HowToPlay extends JFrame {
 		
 		JLabel htpTitle = new JLabel("Welcome to Super Spaceship Adventure");
 		htpTitle.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		htpTitle.setBounds(10, 93, 306, 23);
+		htpTitle.setBounds(10, 72, 306, 23);
 		htpTitle.setForeground(Color.WHITE);
 		contentPane.add(htpTitle);
 		addMouseListener(new MouseAdapter() {
@@ -84,19 +66,35 @@ public class HowToPlay extends JFrame {
 		
 		JLabel htpLine1 = new JLabel("To begin, choose a spaceship.");
 		htpLine1.setForeground(Color.WHITE);
-		htpLine1.setBounds(10, 127, 306, 14);
+		htpLine1.setBounds(10, 98, 306, 14);
 		contentPane.add(htpLine1);
 		
 		JLabel htpLine2 = new JLabel("Your spaceship will guide you through the universe, an universe filled with enemies.");
 		htpLine2.setForeground(Color.WHITE);
-		htpLine2.setBounds(10, 146, 430, 14);
+		htpLine2.setBounds(10, 118, 430, 14);
 		contentPane.add(htpLine2);
+		
+		JLabel htpLine3 = new JLabel("To move your spaceship, use LEFT ARROW KEY or RIGHT ARROW KEY. ");
+		htpLine3.setForeground(Color.WHITE);
+		htpLine3.setBounds(10, 143, 430, 14);
+		contentPane.add(htpLine3);
+		
+		JLabel htpLine4 = new JLabel("Alternatively, you can use the A KEY to move left, or the D KEY to move right");
+		htpLine4.setForeground(Color.WHITE);
+		htpLine4.setBounds(10, 161, 430, 14);
+		contentPane.add(htpLine4);
 		
 		JLabel htpHide = new JLabel("Click here to hide...");
 		htpHide.setForeground(Color.WHITE);
 		htpHide.setFont(new Font("Monospaced", Font.BOLD, 16));
 		htpHide.setBounds(220, 264, 220, 25);
 		contentPane.add(htpHide);
+		
+		JLabel lblSometimesYouMay = new JLabel("Sometimes you may get a powerup, use SPACE KEY to use the powerup.");
+		lblSometimesYouMay.setForeground(Color.WHITE);
+		lblSometimesYouMay.setBounds(10, 186, 430, 14);
+		contentPane.add(lblSometimesYouMay);
+		
 		
 	}
 }
