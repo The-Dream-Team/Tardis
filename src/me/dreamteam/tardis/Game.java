@@ -321,7 +321,7 @@ public class Game extends Canvas {
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
 		
-		Object[] options = {Utils.bPlay, Utils.bQuit};
+		Object[] options = {Utils.bPlay, Utils.bHowTo, Utils.bQuit};
 		int startG = JOptionPane.showOptionDialog(null,
 		Utils.txtTS, Utils.tsDialogTitle,
 		JOptionPane.YES_NO_CANCEL_OPTION,
@@ -334,14 +334,23 @@ public class Game extends Canvas {
 			Utils.quitGame();
 		}
 	
-		if (startG == 1) {
+		if (startG == 2) {
 			System.exit(0);
+		}
+		
+		if (startG == 1) {
+			howToPlay();
 		}
 		
 		if (startG == 0) {
 			characterSelect();
 		}
 		
+	}
+	
+	public void howToPlay() {
+		JOptionPane.showMessageDialog (null, "Not yet available", "Information", JOptionPane.PLAIN_MESSAGE); 
+		titleScreen();
 	}
 	
 	public void gameOver() {
