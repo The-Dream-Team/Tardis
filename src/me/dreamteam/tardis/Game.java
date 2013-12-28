@@ -590,9 +590,11 @@ public class Game extends Canvas {
 	            }
 	            
 	            if (properties.firing && properties.weapon1 >0) {
-					useWeapon();
-					properties.weaponLoopTime = System.currentTimeMillis();
-					properties.setWeapon(0);
+	            	if(properties.curWeapon ==1){
+	            		useWeapon();
+						properties.weaponLoopTime = System.currentTimeMillis();
+						properties.setWeapon(0);
+	            	}
 				}else if(properties.firing && System.currentTimeMillis() < properties.weaponLoopTime+4421){
 					useWeapon();
 				}else{
@@ -608,12 +610,14 @@ public class Game extends Canvas {
 	}
 	
 	public void useWeapon(){
-		if (System.currentTimeMillis() - properties.lastFire < properties.timeBetweenShots) {
-			return;
+		if(properties.curWeapon ==1){
+			if (System.currentTimeMillis() - properties.lastFire < properties.timeBetweenShots) {
+				return;
+			}
+			properties.lastFire = System.currentTimeMillis();
+			Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+18,properties.ship.getY()-15);
+			properties.entities.add(shot);
 		}
-		properties.lastFire = System.currentTimeMillis();
-		Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+18,properties.ship.getY()-15);
-		properties.entities.add(shot);
 	}
 	/**
 	 * Update the game time
@@ -653,13 +657,16 @@ public class Game extends Canvas {
                 	properties.rightPressed = true;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_1) {
-                	System.out.println("1 clicked");
+                	properties.curWeapon = 1;
+                	System.out.println("Current weapon set to weapon "+properties.curWeapon);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_2) {
-                	System.out.println("2 clicked");
+                	properties.curWeapon = 2;
+                	System.out.println("Current weapon set to weapon "+properties.curWeapon);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_3) {
-                	System.out.println("3 clicked");
+                	properties.curWeapon = 3;
+                	System.out.println("Current weapon set to weapon "+properties.curWeapon);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
     				properties.firing = true;
