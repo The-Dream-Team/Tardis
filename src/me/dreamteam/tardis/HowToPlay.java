@@ -28,6 +28,8 @@ import javax.swing.Box;
 import javax.swing.JTextPane;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
 
 public class HowToPlay extends JFrame {
 
@@ -44,7 +46,7 @@ public class HowToPlay extends JFrame {
 		int htpdim = Toolkit.getDefaultToolkit().getScreenResolution();	
 		int w = getSize().width;
 		int h = getSize().height;	
-		int x = (htpdim-w)*7+70;	
+		int x = (htpdim-w)*7+62;	
 		int y = (htpdim-h)*4;
 		
 		setResizable(false);
@@ -57,7 +59,7 @@ public class HowToPlay extends JFrame {
 		
 		setLocation(x, y);
 		
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.WHITE));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -74,7 +76,7 @@ public class HowToPlay extends JFrame {
 			}
 		});
 		
-		JLabel htpHeading = new JLabel("How to Play");
+		JLabel htpHeading = new JLabel("How to Play...");
 		htpHeading.setForeground(Color.WHITE);
 		htpHeading.setFont(new Font("Tahoma", Font.BOLD, 39));
 		htpHeading.setBounds(10, 11, 430, 59);
@@ -90,7 +92,7 @@ public class HowToPlay extends JFrame {
 		htpLine2.setBounds(10, 146, 430, 14);
 		contentPane.add(htpLine2);
 		
-		JLabel htpHide = new JLabel("Click anywhere to hide");
+		JLabel htpHide = new JLabel("Click here to hide");
 		htpHide.setForeground(Color.WHITE);
 		htpHide.setFont(new Font("Monospaced", Font.BOLD, 16));
 		htpHide.setBounds(220, 264, 220, 25);
