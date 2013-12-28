@@ -39,9 +39,10 @@ Main Class
 
 public class Game extends Canvas {
 	Properties properties = new Properties();
+	
 	public Game(){
 		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);	
-			
+		
 		JPanel panel = (JPanel) container.getContentPane();
 		panel.setPreferredSize(new Dimension(500,650));	
 		panel.setLayout(null);
@@ -317,7 +318,7 @@ public class Game extends Canvas {
 		}
 	}
 		
-	public void titleScreen() {
+	public void titleScreen() {		
 		ImageIcon icon = new ImageIcon(Utils.iconURL);	
 		Utils.systemLF();
 		
@@ -349,8 +350,19 @@ public class Game extends Canvas {
 	}
 	
 	public void howToPlay() {
-		JOptionPane.showMessageDialog (null, "Not yet available", "Information", JOptionPane.PLAIN_MESSAGE); 
-		titleScreen();
+		
+		HowToPlay HTP = new HowToPlay();
+		HTP.setVisible(true);
+		
+		while (Properties.wake == 0) {
+			System.out.println("Waiting...");
+		}
+		
+		if (Properties.wake == 1) {
+			Properties.wake--;
+			titleScreen();
+		}
+		
 	}
 	
 	public void gameOver() {
