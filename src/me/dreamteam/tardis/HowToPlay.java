@@ -92,7 +92,7 @@ public class HowToPlay extends JFrame {
 		htpLine2.setBounds(10, 146, 430, 14);
 		contentPane.add(htpLine2);
 		
-		JLabel htpHide = new JLabel("Click here to hide");
+		JLabel htpHide = new JLabel("Click here to hide...");
 		htpHide.setForeground(Color.WHITE);
 		htpHide.setFont(new Font("Monospaced", Font.BOLD, 16));
 		htpHide.setBounds(220, 264, 220, 25);
