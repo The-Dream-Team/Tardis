@@ -13,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.awt.Font;
 import javax.swing.border.MatteBorder;
 
+import me.dreamteam.tardis.Properties;
+
 public class HowToPlay extends JFrame {
 
 	private JPanel contentPane;
@@ -25,11 +27,6 @@ public class HowToPlay extends JFrame {
 		setType(Type.UTILITY);
 			
 		// Window setup	
-		int htpdim = Toolkit.getDefaultToolkit().getScreenResolution();	
-		int w = getSize().width;
-		int h = getSize().height;	
-		int x = (htpdim-w)*7+62;	
-		int y = (htpdim-h)*4;
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -39,7 +36,10 @@ public class HowToPlay extends JFrame {
 		
 		contentPane = new JPanel();
 		
-		setLocation(x, y);
+		// Set how to play to show in middle of container
+		int htpX = Properties.sX + 30;
+		int htpY = Properties.sY + 170;
+		setLocation(htpX, htpY);
 		
 		contentPane.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.WHITE));
 		setContentPane(contentPane);

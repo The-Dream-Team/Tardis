@@ -87,5 +87,11 @@ public class Properties{
 	public int getWeapon(){
 		return weapon1;
 	}
+	
+	/* Window Toolkit */
+	
+	public static int sX = 0;
+	public static int sY = 0;
+	
 
 }
