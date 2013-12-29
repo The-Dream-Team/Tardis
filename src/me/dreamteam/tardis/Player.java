@@ -24,7 +24,7 @@ public class Player extends Entity {
             // what to do if collied
             if (other instanceof Enemy) {
             	if (Properties.debug) {
-                System.out.println("DEBUG: (-) Enemy Hit " + other);
+                System.out.println("DEBUG: [INFO] Enemy Hit " + other);
             	}
             }
     }

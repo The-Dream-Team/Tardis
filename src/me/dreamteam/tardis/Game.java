@@ -607,8 +607,10 @@ public class Game extends Canvas {
 					}
 				}
 	            if(properties.weaponPressed){
-	            	if(properties.weapon1 ==0){
-						System.out.println("No Ammo!");
+	            	if(properties.weapon1 == 0){
+	            		if (properties.debug) {
+						System.out.println("DEBUG: [INFO] No Ammo!");
+	            		}
 	            	}
 				}
 	            properties.weaponPressed = false;
@@ -620,7 +622,7 @@ public class Game extends Canvas {
 	}
 	
 	public void useWeapon(){
-		if(properties.curWeapon ==1){
+		if(properties.curWeapon == 1){
 			if (System.currentTimeMillis() - properties.lastFire < properties.timeBetweenShots) {
 				return;
 			}
@@ -668,15 +670,21 @@ public class Game extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_1) {
                 	properties.curWeapon = 1;
-                	System.out.println("Current weapon set to weapon "+properties.curWeapon);
+                	if (properties.debug) {
+                	System.out.println("DEBUG: [INFO] Current weapon set to weapon "+properties.curWeapon);
+                	}
                 }
                 if (e.getKeyCode() == KeyEvent.VK_2) {
                 	properties.curWeapon = 2;
-                	System.out.println("Current weapon set to weapon "+properties.curWeapon);
+                	if (properties.debug) {
+                	System.out.println("DEBUG: [INFO] Current weapon set to weapon "+properties.curWeapon);
+                	}
                 }
                 if (e.getKeyCode() == KeyEvent.VK_3) {
                 	properties.curWeapon = 3;
-                	System.out.println("Current weapon set to weapon "+properties.curWeapon);
+                	if (properties.debug) {
+                	System.out.println("DEBUG: [INFO] Current weapon set to weapon "+properties.curWeapon);
+                	}
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
     				properties.firing = true;
