@@ -71,6 +71,9 @@ public class Game extends Canvas {
 		container.setBackground(Color.black);	
 		container.setVisible(true);	
 		
+		properties.sX = x;
+		properties.sY = y;
+		
 		//What to do when user choose to close
 		container.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
