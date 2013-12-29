@@ -28,7 +28,7 @@ public class Enemy extends Entity {
 		if ((dy > 0) && (y > 750)) {
             game.removeEntity(this);
             if (Properties.debug) {
-            System.out.println("DEBUG: (GC) Removed " + this + " as it had reached the bottom");
+            System.out.println("DEBUG: [GC] Removed " + this + " as it had reached the bottom");
             }
 		
 		}
@@ -46,7 +46,7 @@ public class Enemy extends Entity {
 		if (other instanceof Enemy) {
 			if (Properties.debug) {
 			Properties.debugHits++;
-            System.out.println("DEBUG: (-) Enemy " + this + " hit " + other);
+            System.out.println("DEBUG: [INFO] Enemy " + this + " hit " + other);
 			}
 		}
 	
