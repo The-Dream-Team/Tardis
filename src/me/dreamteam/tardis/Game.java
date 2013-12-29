@@ -359,7 +359,7 @@ public class Game extends Canvas {
 		HTP.setVisible(true);
 		
 		while (Properties.wake == 0) {
-			System.out.println("Waiting...");
+			System.out.println("DEBUG [INFO] Waiting...");
 		}
 		
 		if (Properties.wake == 1) {
