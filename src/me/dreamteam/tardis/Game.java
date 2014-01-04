@@ -630,8 +630,10 @@ public class Game extends Canvas {
 				return;
 			}
 			properties.lastFire = System.currentTimeMillis();
-			Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+18,properties.ship.getY()-15);
+			Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+13,properties.ship.getY()-15);
 			properties.entities.add(shot);
+			Weapon shot2 = new Weapon(this,"sprites/shot.png",properties.ship.getX()+23,properties.ship.getY()-15);
+			properties.entities.add(shot2);
 		}
 	}
 	/**
