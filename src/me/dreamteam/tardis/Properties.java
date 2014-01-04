@@ -37,7 +37,6 @@ public class Properties{
 	public int shipS = 0;
 
 	public ArrayList entities = new ArrayList();
-	public ArrayList enemies = new ArrayList();
 	public ArrayList backgroundImages = new ArrayList();
 	public ArrayList removeList = new ArrayList();
  

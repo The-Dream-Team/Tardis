@@ -17,7 +17,6 @@ public class Weapon extends Entity {
 
 
 	public void move(long delta) {
-		// proceed with normal move
 		super.move(delta);
 	}
 	
