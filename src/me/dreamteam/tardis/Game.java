@@ -574,7 +574,23 @@ public class Game extends Canvas {
 	            
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString(properties.weaponDisplay,(245-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            g.drawString("1",(245-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);///
+	            
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
+	            g.drawString("/",(265-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
+	            g.drawString("1",(285-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
+	            g.drawString("/" ,(305-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
+	            g.drawString("0",(325-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
 
 				// Clear Graphics
 				g.dispose();
