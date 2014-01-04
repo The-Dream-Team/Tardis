@@ -574,23 +574,23 @@ public class Game extends Canvas {
 	            
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString("1",(245-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);///
+	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);///
 	            
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString("/",(265-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            g.drawString("/",(225-g.getFontMetrics().stringWidth("/"))/2,645);
 	            
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString("1",(285-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
 	            
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString("/" ,(305-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            g.drawString("/" ,(265-g.getFontMetrics().stringWidth("/"))/2,645);
 	            
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString("0",(325-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
+	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
 
 				// Clear Graphics
 				g.dispose();
