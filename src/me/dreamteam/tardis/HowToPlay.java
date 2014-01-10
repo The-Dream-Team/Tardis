@@ -75,7 +75,7 @@ public class HowToPlay extends JFrame {
 		htpLine2.setBounds(10, 115, 430, 14);
 		contentPane.add(htpLine2);
 		
-		JLabel htpLine3 = new JLabel("To move your spaceship, use LEFT ARROW KEY or RIGHT ARROW KEY. ");
+		JLabel htpLine3 = new JLabel("To move your spaceship, use the LEFT and RIGHT ARROW KEY. ");
 		htpLine3.setForeground(Color.WHITE);
 		htpLine3.setBounds(10, 145, 430, 14);
 		contentPane.add(htpLine3);
@@ -85,7 +85,7 @@ public class HowToPlay extends JFrame {
 		htpLine4.setBounds(10, 160, 430, 14);
 		contentPane.add(htpLine4);
 		
-		JLabel htpLine5 = new JLabel("Sometimes you may get a powerup, use SPACE KEY to use the powerup.");
+		JLabel htpLine5 = new JLabel("Sometimes you may get a powerup, use SPACE KEY to activate them.");
 		htpLine5.setForeground(Color.WHITE);
 		htpLine5.setBounds(10, 185, 430, 14);
 		contentPane.add(htpLine5);
