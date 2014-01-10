@@ -568,7 +568,7 @@ public class Game extends Canvas {
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 	            
 	         	//Weapon
-				g.setColor(Color.white);
+				g.setColor(Color.orange);
 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
 	            g.drawString(Utils.txtWeapon,(110-g.getFontMetrics().stringWidth(Utils.txtWeapon))/2,645);
 	            if(properties.curWeapon==1){
