@@ -661,10 +661,22 @@ public class Game extends Canvas {
 				return;
 			}
 			properties.lastFire = System.currentTimeMillis();
-			Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+13,properties.ship.getY()-15);
-			properties.entities.add(shot);
-			Weapon shot2 = new Weapon(this,"sprites/shot.png",properties.ship.getX()+23,properties.ship.getY()-15);
-			properties.entities.add(shot2);
+			if(properties.shipS ==0){
+				Weapon shot = new Weapon(this,"sprites/shot1.png",properties.ship.getX()+13,properties.ship.getY()-15);
+				properties.entities.add(shot);
+				Weapon shot2 = new Weapon(this,"sprites/shot1.png",properties.ship.getX()+23,properties.ship.getY()-15);
+				properties.entities.add(shot2);
+			}else if(properties.shipS ==1){
+				Weapon shot = new Weapon(this,"sprites/shot2.png",properties.ship.getX()+13,properties.ship.getY()-15);
+				properties.entities.add(shot);
+				Weapon shot2 = new Weapon(this,"sprites/shot2.png",properties.ship.getX()+23,properties.ship.getY()-15);
+				properties.entities.add(shot2);
+			}else if(properties.shipS ==2){
+				Weapon shot = new Weapon(this,"sprites/shot3.png",properties.ship.getX()+13,properties.ship.getY()-15);
+				properties.entities.add(shot);
+				Weapon shot2 = new Weapon(this,"sprites/shot3.png",properties.ship.getX()+23,properties.ship.getY()-15);
+				properties.entities.add(shot2);
+			}
 		}
 	}
 	/**
