@@ -568,14 +568,45 @@ public class Game extends Canvas {
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 	            
 	         	//Weapon
-				g.setColor(Color.white);
+				g.setColor(Color.orange);
 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeFS));
 	            g.drawString(Utils.txtWeapon,(110-g.getFontMetrics().stringWidth(Utils.txtWeapon))/2,645);
-	            
+	            if(properties.curWeapon==1){
+	            	g.setColor(Color.ORANGE);
+	 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeIFS));
+	 	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);
+	            }else{
+	            	g.setColor(Color.white);
+	 				g.setFont(new Font("Lucida Console", Font.PLAIN, Utils.timeIFS));
+	 	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);
+	            }
+	            	
 	            g.setColor(Color.white);
-				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.timeIFS));
-	            g.drawString(properties.weaponDisplay,(245-g.getFontMetrics().stringWidth(properties.weaponDisplay))/2,645);
-
+				g.setFont(new Font("Lucida Console", Font.PLAIN, Utils.timeIFS));
+	            g.drawString("/",(225-g.getFontMetrics().stringWidth("/"))/2,645);
+	            
+	            if(properties.curWeapon==2){
+	            	g.setColor(Color.ORANGE);
+	 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeIFS));
+	 	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
+	            }else{
+	            	g.setColor(Color.white);
+	 				g.setFont(new Font("Lucida Console", Font.PLAIN, Utils.timeIFS));
+	 	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
+	            }
+	            g.setColor(Color.white);
+				g.setFont(new Font("Lucida Console", Font.PLAIN, Utils.timeIFS));
+	            g.drawString("/" ,(265-g.getFontMetrics().stringWidth("/"))/2,645);
+	            
+	            if(properties.curWeapon==3){
+	            	g.setColor(Color.ORANGE);
+	 				g.setFont(new Font("Lucida Console", Font.BOLD, Utils.timeIFS));
+	 	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
+	            }else{
+	            	g.setColor(Color.white);
+	 				g.setFont(new Font("Lucida Console", Font.PLAIN, Utils.timeIFS));
+	 	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
+	            }
 				// Clear Graphics
 				g.dispose();
 				properties.strategy.show();	
@@ -630,8 +661,22 @@ public class Game extends Canvas {
 				return;
 			}
 			properties.lastFire = System.currentTimeMillis();
-			Weapon shot = new Weapon(this,"sprites/shot.png",properties.ship.getX()+18,properties.ship.getY()-15);
-			properties.entities.add(shot);
+			if(properties.shipS ==0){
+				Weapon shot = new Weapon(this,"sprites/shot1.png",properties.ship.getX()+13,properties.ship.getY()-15);
+				properties.entities.add(shot);
+				Weapon shot2 = new Weapon(this,"sprites/shot1.png",properties.ship.getX()+23,properties.ship.getY()-15);
+				properties.entities.add(shot2);
+			}else if(properties.shipS ==1){
+				Weapon shot = new Weapon(this,"sprites/shot2.png",properties.ship.getX()+13,properties.ship.getY()-15);
+				properties.entities.add(shot);
+				Weapon shot2 = new Weapon(this,"sprites/shot2.png",properties.ship.getX()+23,properties.ship.getY()-15);
+				properties.entities.add(shot2);
+			}else if(properties.shipS ==2){
+				Weapon shot = new Weapon(this,"sprites/shot3.png",properties.ship.getX()+13,properties.ship.getY()-15);
+				properties.entities.add(shot);
+				Weapon shot2 = new Weapon(this,"sprites/shot3.png",properties.ship.getX()+23,properties.ship.getY()-15);
+				properties.entities.add(shot2);
+			}
 		}
 	}
 	/**
