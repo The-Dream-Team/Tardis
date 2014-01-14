@@ -70,7 +70,7 @@ public class HowToPlay extends JFrame {
 		htpLine1.setBounds(10, 100, 306, 14);
 		contentPane.add(htpLine1);
 		
-		JLabel htpLine2 = new JLabel("Your spaceship will guide you through the universe, an universe filled with enemies.");
+		JLabel htpLine2 = new JLabel("Your spaceship will guide you through the universe, a universe filled with enemies.");
 		htpLine2.setForeground(Color.WHITE);
 		htpLine2.setBounds(10, 115, 430, 14);
 		contentPane.add(htpLine2);
