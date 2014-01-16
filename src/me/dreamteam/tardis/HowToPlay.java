@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Font;
 import javax.swing.border.MatteBorder;
 
-import me.dreamteam.tardis.Properties;
+import me.dreamteam.tardis.GProperties;
 
 public class HowToPlay extends JFrame {
 
@@ -37,8 +37,8 @@ public class HowToPlay extends JFrame {
 		contentPane = new JPanel();
 		
 		// Set how to play to show in middle of container
-		int htpX = Properties.sX + 30;
-		int htpY = Properties.sY + 170;
+		int htpX = GProperties.sX + 30;
+		int htpY = GProperties.sY + 170;
 		setLocation(htpX, htpY);
 		
 		contentPane.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.WHITE));
@@ -49,7 +49,7 @@ public class HowToPlay extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				setVisible(false);
-				Properties.wake = 1;
+				GProperties.wake = 1;
 			}
 		});
 		
