@@ -2,10 +2,14 @@ package me.dreamteam.tardis;
 
 import java.awt.Image;
 import java.awt.image.BufferStrategy;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Properties{
+public class GProperties{
 	
 	/*
 	 * IMPORTANT INFORMATION:
@@ -92,5 +96,11 @@ public class Properties{
 	public static int sX = 0;
 	public static int sY = 0;
 	
+	public void propertiesFile() {
+		
+    	// Work in progress 
 
-}
+		}
+		
+		
+	}

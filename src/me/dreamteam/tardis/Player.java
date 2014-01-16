@@ -23,7 +23,7 @@ public class Player extends Entity {
 	public void collidedWith(Entity other) {
             // what to do if collied
             if (other instanceof Enemy) {
-            	if (Properties.debug) {
+            	if (GProperties.debug) {
                 System.out.println("DEBUG: [INFO] Enemy Hit " + other);
             	}
             }

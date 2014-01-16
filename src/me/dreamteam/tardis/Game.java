@@ -31,14 +31,14 @@ import me.dreamteam.tardis.Weapon;
 import me.dreamteam.tardis.Background;
 import me.dreamteam.tardis.Utils;
 import me.dreamteam.tardis.UtilsHTML;
-import me.dreamteam.tardis.Properties;
+import me.dreamteam.tardis.GProperties;
 
 /**
 Main Class
  */
 
 public class Game extends Canvas {
-	Properties properties = new Properties();
+	GProperties properties = new GProperties();
 	
 	public Game(){
 		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);	
@@ -260,7 +260,7 @@ public class Game extends Canvas {
         //reset time
         properties.timeMil = 0;
         //reset lives
-        Properties.gameLives = 3;
+        GProperties.gameLives = 3;
         properties.level = 1;
         properties.gameStart = true;
         properties.advanceLevel = false;
@@ -271,13 +271,13 @@ public class Game extends Canvas {
         properties.firing = false;
         properties.curWeapon = 1;
         properties.setWeapon(1);
-        Properties.debugHits = 0;
+        GProperties.debugHits = 0;
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		   //get current date time with Date()
 		   Date date = new Date();
 		
-		if (Properties.debug) {
+		if (GProperties.debug) {
 		System.out.println("=============================================");
 		System.out.println("Beginning session @ " + dateFormat.format(date));
 		System.out.println("=============================================");
@@ -358,22 +358,29 @@ public class Game extends Canvas {
 		HowToPlay HTP = new HowToPlay();
 		HTP.setVisible(true);
 		
-		while (Properties.wake == 0) {
+		while (GProperties.wake == 0) {
             try { Thread.sleep(10); } catch (Exception e) {}
 		}
 		
-		if (Properties.wake == 1) {
-			Properties.wake--;
+		if (GProperties.wake == 1) {
+			GProperties.wake--;
 			titleScreen();
 		}
 		
 	}
 	
 	public void gameOver() {
-		if (Properties.debug) {
+		
+		try {
+			new Database().updateDb();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if (GProperties.debug) {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("GAME OVER DISPLAYED AFTER " + properties.gameTime + " SECONDS");
-		System.out.println("HITS:" + Properties.debugHits + "/3" + " | " + "LEVEL: " + properties.level);
+		System.out.println("HITS:" + GProperties.debugHits + "/3" + " | " + "LEVEL: " + properties.level);
 		}
 		
 		//Game over display
@@ -561,7 +568,7 @@ public class Game extends Canvas {
 	            g.drawString(properties.livesDisplay,(875-g.getFontMetrics().stringWidth(properties.livesDisplay))/2,18);
 	            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
 	            
-	            String convlives = String.valueOf(Properties.gameLives);
+	            String convlives = String.valueOf(GProperties.gameLives);
 	            g.setColor(Color.white);
 				g.setFont(new Font("Lucida Console", Font.ITALIC, Utils.livesIFS));
 	            g.drawString(properties.timeDisplay,(965-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
@@ -612,7 +619,7 @@ public class Game extends Canvas {
 				properties.strategy.show();	
 				updateEnt();	
 				
-				if (Properties.gameLives == 0){
+				if (GProperties.gameLives == 0){
     				gameOver();
     			}
 				
