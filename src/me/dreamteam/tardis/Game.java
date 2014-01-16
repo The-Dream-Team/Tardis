@@ -371,6 +371,8 @@ public class Game extends Canvas {
 	
 	public void gameOver() {
 		
+		new GProperties().propertiesFile();
+		
 		try {
 			new Database().updateDb();
 		} catch (Exception e) {

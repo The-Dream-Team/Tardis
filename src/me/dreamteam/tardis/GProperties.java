@@ -4,9 +4,11 @@ import java.awt.Image;
 import java.awt.image.BufferStrategy;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.Random;
 
 public class GProperties{
@@ -98,7 +100,27 @@ public class GProperties{
 	
 	public void propertiesFile() {
 		
-    	// Work in progress 
+		Properties prop = new Properties();
+		 
+    	try {
+    		prop.load(new FileInputStream("game.properties"));
+    		
+    		String pcA = prop.getProperty("plays");
+    		int pcB = Integer.parseInt(pcA);
+    		int pcC = pcB + 1;
+    		String pcD = "" + pcC;
+    		
+    	    prop.setProperty("plays", pcD);
+    	    
+    	    prop.store(new FileOutputStream("game.properties"), null);
+    		
+    		if (debug) {
+            System.out.println("DEBUG: [INFO] Total plays: " + prop.getProperty("plays"));
+    		}
+ 
+    	} catch (IOException ex) {
+    		ex.printStackTrace();
+        }
 
 		}
 		
