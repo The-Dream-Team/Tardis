@@ -11,6 +11,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,6 +42,7 @@ public class Game extends Canvas {
 	GProperties properties = new GProperties();
 	
 	public Game(){
+		System.setProperty("org.lwjgl.librarypath", new File("natives").getAbsolutePath());
 		JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);	
 		
 		JPanel panel = (JPanel) container.getContentPane();
