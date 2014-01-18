@@ -132,6 +132,18 @@ public class Game extends Canvas {
         gi.drawString(Utils.txtLoad,(500-gi.getFontMetrics().stringWidth(Utils.txtLoad))/2,248);
         properties.strategy.show();
         gi.dispose();
+        
+        // Register Font
+		try {       
+		URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/fonts/hobo.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		ge.registerFont(font);
+		      gi.setFont(font);
+		      }catch(Exception e)
+		  {
+		        e.printStackTrace();
+		  }
 		
 	}
 		
@@ -547,17 +559,6 @@ public class Game extends Canvas {
 				/* 
 				 * Game Text
 				 */
-				
-				try {       
-				URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/fonts/hobo.ttf");
-				Font font = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
-				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(font);
-				      g.setFont(font);
-				      }catch(Exception e)
-				  {
-				        e.printStackTrace();
-				  }
 				
 				//Level
 				g.setColor(Color.red);
