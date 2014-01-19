@@ -38,13 +38,13 @@ public class Utils {
 	static int livesFS = 18; // Font size for Lives display
 	static int livesIFS = 18; // Font size for number of lives
 	
-	static int levelFS = 16; // Font size for Level display
-	static int levelIFS = 16; //Font size for number of levels
+	static int levelFS = 14; // Font size for Level display
+	static int levelIFS = 14; //Font size for number of levels
 	
-	static String txtTime = "Time:";
-	static String txtLives = "Lives:";
-	static String txtLevel = "Level ";
-	static String txtWeapon = "Weapon: ";
+	static String txtTime = "TIME";
+	static String txtLives = "LIVES";
+	static String txtLevel = "LEVEL ";
+	static String txtWeapon = "WEAPON ";
 	
 	/*
 	 * JFrame Options and Text
