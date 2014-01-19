@@ -561,12 +561,12 @@ public class Game extends Canvas {
 				 */
 				
 				//Level
-				g.setColor(Color.red);
+				g.setColor(Color.RED);
 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.levelFS));
 	            g.drawString(Utils.txtLevel + properties.level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + properties.level))/2,18);
 				
 				// Timer
-				g.setColor(Color.white);
+				g.setColor(Color.WHITE);
 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeFS));
 	            g.drawString(properties.timeDisplay,(70-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
@@ -575,25 +575,25 @@ public class Game extends Canvas {
 	            	properties.gameTime = properties.timeMil/100;
 	            }
 	            String convtime = String.valueOf(properties.gameTime);
-	            g.setColor(Color.orange);
+	            g.setColor(Color.ORANGE);
 				g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.timeIFS));
 	            g.drawString(properties.timeDisplay,(175-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
 	 
 	            //Lives
-				g.setColor(Color.white);
+				g.setColor(Color.WHITE);
 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.livesFS));
 	            g.drawString(properties.livesDisplay,(870-g.getFontMetrics().stringWidth(properties.livesDisplay))/2,18);
 	            g.drawString(Utils.txtLives,(870-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
 	            
 	            String convlives = String.valueOf(GProperties.gameLives);
-	            g.setColor(Color.orange);
+	            g.setColor(Color.ORANGE);
 				g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.livesIFS));
 	            g.drawString(properties.timeDisplay,(965-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 	            
 	         	//Weapon
-				g.setColor(Color.orange);
+				g.setColor(Color.WHITE);
 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeFS));
 	            g.drawString(Utils.txtWeapon,(110-g.getFontMetrics().stringWidth(Utils.txtWeapon))/2,645);
 	            if(properties.curWeapon==1){
@@ -601,12 +601,12 @@ public class Game extends Canvas {
 	 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);
 	            }else{
-	            	g.setColor(Color.white);
+	            	g.setColor(Color.WHITE);
 	 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);
 	            }
 	            	
-	            g.setColor(Color.white);
+	            g.setColor(Color.WHITE);
 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	            g.drawString("/",(225-g.getFontMetrics().stringWidth("/"))/2,645);
 	            
@@ -615,11 +615,11 @@ public class Game extends Canvas {
 	 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
 	            }else{
-	            	g.setColor(Color.white);
+	            	g.setColor(Color.WHITE);
 	 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
 	            }
-	            g.setColor(Color.white);
+	            g.setColor(Color.WHITE);
 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	            g.drawString("/" ,(265-g.getFontMetrics().stringWidth("/"))/2,645);
 	            
