@@ -135,7 +135,7 @@ public class Game extends Canvas {
         
         // Register Font
 		try {       
-		URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/fonts/hobo.ttf");
+		URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/fonts/Volter.ttf");
 		Font font = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		ge.registerFont(font);
@@ -404,7 +404,7 @@ public class Game extends Canvas {
 		//Game over display
 		Graphics2D g2 = (Graphics2D) properties.strategy.getDrawGraphics();
 		g2.setColor(Color.red);
-		g2.setFont(new Font("04b03", Font.BOLD, 32));
+		g2.setFont(new Font("Volter (Goldfish)", Font.BOLD, 32));
         g2.drawString(Utils.txtGO,(500-g2.getFontMetrics().stringWidth(Utils.txtGO))/2,80);
         properties.strategy.show();
         g2.dispose();
@@ -562,12 +562,12 @@ public class Game extends Canvas {
 				
 				//Level
 				g.setColor(Color.red);
-				g.setFont(new Font("04b03", Font.BOLD, Utils.levelFS));
+				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.levelFS));
 	            g.drawString(Utils.txtLevel + properties.level,(500-g.getFontMetrics().stringWidth(Utils.txtLevel + properties.level))/2,18);
 				
 				// Timer
 				g.setColor(Color.white);
-				g.setFont(new Font("04b03", Font.BOLD, Utils.timeFS));
+				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeFS));
 	            g.drawString(properties.timeDisplay,(70-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(Utils.txtTime,(70-g.getFontMetrics().stringWidth(Utils.txtTime))/2,18);
 	            
@@ -575,61 +575,61 @@ public class Game extends Canvas {
 	            	properties.gameTime = properties.timeMil/100;
 	            }
 	            String convtime = String.valueOf(properties.gameTime);
-	            g.setColor(Color.white);
-				g.setFont(new Font("04b03", Font.ITALIC, Utils.timeIFS));
+	            g.setColor(Color.orange);
+				g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.timeIFS));
 	            g.drawString(properties.timeDisplay,(175-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convtime,(175-g.getFontMetrics().stringWidth(convtime))/2,18);
 	 
 	            //Lives
 				g.setColor(Color.white);
-				g.setFont(new Font("04b03", Font.BOLD, Utils.livesFS));
-	            g.drawString(properties.livesDisplay,(875-g.getFontMetrics().stringWidth(properties.livesDisplay))/2,18);
-	            g.drawString(Utils.txtLives,(875-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
+				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.livesFS));
+	            g.drawString(properties.livesDisplay,(870-g.getFontMetrics().stringWidth(properties.livesDisplay))/2,18);
+	            g.drawString(Utils.txtLives,(870-g.getFontMetrics().stringWidth(Utils.txtLives))/2,18);
 	            
 	            String convlives = String.valueOf(GProperties.gameLives);
-	            g.setColor(Color.white);
-				g.setFont(new Font("04b03", Font.ITALIC, Utils.livesIFS));
+	            g.setColor(Color.orange);
+				g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.livesIFS));
 	            g.drawString(properties.timeDisplay,(965-g.getFontMetrics().stringWidth(properties.timeDisplay))/2,18);
 	            g.drawString(convlives,(965-g.getFontMetrics().stringWidth(convlives))/2,18);
 	            
 	         	//Weapon
 				g.setColor(Color.orange);
-				g.setFont(new Font("04b03", Font.BOLD, Utils.timeFS));
+				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeFS));
 	            g.drawString(Utils.txtWeapon,(110-g.getFontMetrics().stringWidth(Utils.txtWeapon))/2,645);
 	            if(properties.curWeapon==1){
 	            	g.setColor(Color.ORANGE);
-	 				g.setFont(new Font("04b03", Font.BOLD, Utils.timeIFS));
+	 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);
 	            }else{
 	            	g.setColor(Color.white);
-	 				g.setFont(new Font("04b03", Font.PLAIN, Utils.timeIFS));
+	 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon1),(205-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1)))/2,645);
 	            }
 	            	
 	            g.setColor(Color.white);
-				g.setFont(new Font("04b03", Font.PLAIN, Utils.timeIFS));
+				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	            g.drawString("/",(225-g.getFontMetrics().stringWidth("/"))/2,645);
 	            
 	            if(properties.curWeapon==2){
 	            	g.setColor(Color.ORANGE);
-	 				g.setFont(new Font("04b03", Font.BOLD, Utils.timeIFS));
+	 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
 	            }else{
 	            	g.setColor(Color.white);
-	 				g.setFont(new Font("04b03", Font.PLAIN, Utils.timeIFS));
+	 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon2),(245-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2)))/2,645);
 	            }
 	            g.setColor(Color.white);
-				g.setFont(new Font("04b03", Font.PLAIN, Utils.timeIFS));
+				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	            g.drawString("/" ,(265-g.getFontMetrics().stringWidth("/"))/2,645);
 	            
 	            if(properties.curWeapon==3){
 	            	g.setColor(Color.ORANGE);
-	 				g.setFont(new Font("04b03", Font.BOLD, Utils.timeIFS));
+	 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
 	            }else{
 	            	g.setColor(Color.white);
-	 				g.setFont(new Font("04b03", Font.PLAIN, Utils.timeIFS));
+	 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
 	            }
 				// Clear Graphics
