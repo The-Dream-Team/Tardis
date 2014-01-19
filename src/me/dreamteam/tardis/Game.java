@@ -403,7 +403,7 @@ public class Game extends Canvas {
 		
 		//Game over display
 		Graphics2D g2 = (Graphics2D) properties.strategy.getDrawGraphics();
-		g2.setColor(Color.red);
+		g2.setColor(Color.RED);
 		g2.setFont(new Font("Volter (Goldfish)", Font.BOLD, 32));
         g2.drawString(Utils.txtGO,(500-g2.getFontMetrics().stringWidth(Utils.txtGO))/2,80);
         properties.strategy.show();
@@ -628,7 +628,7 @@ public class Game extends Canvas {
 	 				g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
 	            }else{
-	            	g.setColor(Color.white);
+	            	g.setColor(Color.WHITE);
 	 				g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.timeIFS));
 	 	            g.drawString(String.valueOf(properties.weapon3),(285-g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3)))/2,645);
 	            }
