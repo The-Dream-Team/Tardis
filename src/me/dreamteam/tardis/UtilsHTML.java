@@ -18,12 +18,15 @@ public class UtilsHTML {
 
     static String breakHTML = "<br>";
 
+    static String fontHTML = "<font face=\"Volter (Goldfish)\">";
+    static String eFontHTML = "</font>";
+
     // Character Selection Buttons
     static String bpcsStart = startHTML + imageHTML;
     static String bpcsMiddle = eimageHTML + breakHTML + centerHTML;
     static String bpcsEnd = ecenterHTML + endHTML;
 
     // Character Selection Dialog
-    static String csDialog = startHTML + boldHTML + "&raquo; " + Utils.txtCS + eboldHTML + endHTML;
+    static String csDialog = startHTML + fontHTML + boldHTML + Utils.txtCS + eboldHTML + eFontHTML + endHTML;
 
 }
