@@ -46,7 +46,7 @@ public class HowToPlay extends JFrame {
 
         JLabel htpHeading = new JLabel("How to Play...");
         htpHeading.setForeground(Color.WHITE);
-        htpHeading.setFont(new Font("Tahoma", Font.BOLD, 39));
+        htpHeading.setFont(new Font("Volter (Goldfish)", Font.BOLD, 39));
         htpHeading.setBounds(10, 5, 430, 59);
         contentPane.add(htpHeading);
 
@@ -98,7 +98,7 @@ public class HowToPlay extends JFrame {
 
         JLabel htpHide = new JLabel("Click here to hide...");
         htpHide.setForeground(Color.WHITE);
-        htpHide.setFont(new Font("Monospaced", Font.BOLD, 16));
+        htpHide.setFont(new Font("Volter (Goldfish)", Font.BOLD, 18));
         htpHide.setBounds(220, 364, 220, 25);
         contentPane.add(htpHide);
 
