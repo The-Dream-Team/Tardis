@@ -111,7 +111,7 @@ public class Game extends Canvas {
             e.printStackTrace();
         }
 
-        UI.put("OptionPane.messageFont", new Font ("Volter (Goldfish)",Font.PLAIN, 14));
+        UI.put("OptionPane.messageFont", new Font ("Volter (Goldfish)",Font.BOLD, 14));
 
         requestFocus();
         initPlayer();
