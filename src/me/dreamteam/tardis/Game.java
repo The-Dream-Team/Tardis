@@ -388,6 +388,9 @@ public class Game extends Canvas {
         g2.setColor(Color.RED);
         g2.setFont(new Font("Volter (Goldfish)", Font.BOLD, 32));
         g2.drawString(Utils.txtGO, (500 - g2.getFontMetrics().stringWidth(Utils.txtGO)) / 2, 80);
+        g2.setColor(Color.WHITE);
+        g2.setFont(new Font("Volter (Goldfish)", Font.BOLD, 33));
+        g2.drawString(Utils.txtGO, (500 - g2.getFontMetrics().stringWidth(Utils.txtGO)) / 2, 80);
         properties.strategy.show();
         g2.dispose();
 
