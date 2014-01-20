@@ -100,6 +100,19 @@ public class Game extends Canvas {
         properties.strategy.show();
         gix.dispose();
 
+        // Register Font
+        try {
+            URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/fonts/Volter.ttf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(font);
+            gix.setFont(font);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        UI.put("OptionPane.messageFont", new Font ("Volter (Goldfish)",Font.PLAIN, 14));
+
         requestFocus();
         initPlayer();
         titleScreen();
@@ -107,21 +120,10 @@ public class Game extends Canvas {
         Graphics2D gi = (Graphics2D) properties.strategy.getDrawGraphics();
 
         gi.setColor(Color.red);
-        gi.setFont(new Font("Century Gothic", Font.BOLD + Font.ITALIC, Utils.splashFS));
+        gi.setFont(new Font("Volter (Goldfish)", Font.BOLD + Font.ITALIC, Utils.splashFS));
         gi.drawString(Utils.txtLoad, (500 - gi.getFontMetrics().stringWidth(Utils.txtLoad)) / 2, 248);
         properties.strategy.show();
         gi.dispose();
-
-        // Register Font
-        try {
-            URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/fonts/Volter.ttf");
-            Font font = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(font);
-            gi.setFont(font);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
     }
 
