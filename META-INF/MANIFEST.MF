@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: me.dreamteam.tardis.Game
+Class-Path: libs/lwjgl.jar libs/lwjgl_util.jar libs/sqlite-jdbc-3.7.2.jar
