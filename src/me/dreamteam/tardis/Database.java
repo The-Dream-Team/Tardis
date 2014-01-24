@@ -12,11 +12,11 @@ public class Database {
         Statement stmt = null;
 
         try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
+            Class.forName("com.mysql.jdbc.Driver");
+            c = DriverManager.getConnection("jdbc:mysql://37.187.75.63:3306/SSA?user=root&password=Lunar172");
 
             if (GProperties.debug) {
-                System.out.println("DEBUG: [INFO] Connected to SQLite database sucessfully");
+                System.out.println("DEBUG: [INFO] Connected to MySQL database successfully");
             }
 
             stmt = c.createStatement();
@@ -27,7 +27,7 @@ public class Database {
             c.close();
         } catch (Exception e) {
             System.err.println("DEBUG: [ERROR]" + e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            return;
         }
     }
 }

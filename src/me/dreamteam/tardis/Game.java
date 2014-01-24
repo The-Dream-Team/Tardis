@@ -22,7 +22,7 @@ public class Game extends Canvas {
     GProperties properties = new GProperties();
 
     public Game() {
-        System.setProperty("org.lwjgl.librarypath",System.getProperty("user.dir") + "\\natives");
+        System.setProperty("org.lwjgl.librarypath",System.getProperty("user.dir") + "\\native");
         JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
         JPanel panel = (JPanel) container.getContentPane();
