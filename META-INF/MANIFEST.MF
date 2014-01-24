@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Class-Path: libs/lwjgl.jar libs/lwjgl_util.jar libs/sqlite-jdbc-3.7.2.jar
+Class-Path: libs/lwjgl.jar libs/lwjgl_util.jar libs/sqlite-jdbc-3.7.2.jar libs/mysql-connector-java-5.1.28.jar
 Main-Class: me.dreamteam.tardis.Game
 
