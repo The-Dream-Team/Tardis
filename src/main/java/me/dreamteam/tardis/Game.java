@@ -754,9 +754,10 @@ public class Game extends Canvas {
             	if (e.getKeyCode() == KeyEvent.VK_F7) {
                 	properties.advanceLevel = true;
                     properties.timeMil = 18000;
-                    for (int r = 1; r < properties.entities.size(); r++) {
+                    for (int r = 0; r < properties.entities.size(); r++) {
                     	properties.removeList.add(properties.entities.get(r));
-                    }
+                    }  
+                    initPlayer();
             	}
             }
             
