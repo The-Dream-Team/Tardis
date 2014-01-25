@@ -708,7 +708,8 @@ public class Game extends Canvas {
     }
 
     public long getTime() {
-        return (Sys.getTime() * 1000) / Sys.getTimerResolution();
+       
+        return ((System.nanoTime()/1000000)+552);
     }
 
     public int getDelta() {
