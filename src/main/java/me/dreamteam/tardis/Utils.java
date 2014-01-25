@@ -50,8 +50,6 @@ public class Utils {
 	 * JFrame Options and Text
 	 */
 
-    static String lbk = "\n";
-
     // Loading (Splash)
 
     static String txtLoad = "Loading...";
