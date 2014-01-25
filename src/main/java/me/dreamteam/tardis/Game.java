@@ -149,11 +149,11 @@ public class Game extends Canvas {
         properties.moveSpeed = 180 + (properties.tWait * 0.7);
         properties.spriteLoc = properties.rSpriteLoc.nextInt(200);
         properties.spriteLoc2 = 200 + properties.rSpriteLoc.nextInt(250);
-        if (properties.spriteLoc2 < properties.spriteLoc + 56) {
-            if (properties.spriteLoc2 > properties.spriteLoc - 56) {
-                properties.spriteLoc2 = properties.spriteLoc - 56;
+        if (properties.spriteLoc2 < properties.spriteLoc + 63) {
+            if (properties.spriteLoc2 > properties.spriteLoc - 63) {
+                properties.spriteLoc2 = properties.spriteLoc - 63;
                 if (properties.spriteLoc2 > 450)
-                    properties.spriteLoc2 = properties.spriteLoc - 56;
+                    properties.spriteLoc2 = properties.spriteLoc - 63;
             }
         }
         if (properties.tWait != properties.gameTime) {
