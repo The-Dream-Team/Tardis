@@ -1,7 +1,5 @@
 package me.dreamteam.tardis;
 
-import org.lwjgl.Sys;
-
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
@@ -708,7 +706,7 @@ public class Game extends Canvas {
     }
 
     public long getTime() {
-       
+ 
         return ((System.nanoTime()/1000000)+552);
     }
 
