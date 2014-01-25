@@ -77,11 +77,11 @@ public class Utils {
     static String txtPS = "Game paused";
 
     // Icon URLS
-    static URL splashURL = me.dreamteam.tardis.Game.class.getResource("/me/dreamteam/tardis/sprites/splashbackground.png");
-    static URL iconURL = me.dreamteam.tardis.Game.class.getResource("/me/dreamteam/tardis/sprites/ship.png");
-    static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/me/dreamteam/tardis/sprites/ship.png");
-    static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/me/dreamteam/tardis/sprites/ship2.png");
-    static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/me/dreamteam/tardis/sprites/ship3.png");
+    static URL splashURL = me.dreamteam.tardis.Game.class.getResource("/src/main/resources/sprites/splashbackground.png");
+    static URL iconURL = me.dreamteam.tardis.Game.class.getResource("/src/main/resources/sprites/ship.png");
+    static URL ship1URL = me.dreamteam.tardis.Game.class.getResource("/src/main/resources/sprites/ship.png");
+    static URL ship2URL = me.dreamteam.tardis.Game.class.getResource("/src/main/resources/sprites/ship2.png");
+    static URL ship3URL = me.dreamteam.tardis.Game.class.getResource("/src/main/resources/sprites/ship3.png");
 
     // Blank Icon
     static ImageIcon blankIcon = new ImageIcon();
