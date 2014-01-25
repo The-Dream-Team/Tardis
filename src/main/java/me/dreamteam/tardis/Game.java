@@ -749,7 +749,6 @@ public class Game extends Canvas {
             if (e.getKeyChar() == 27 || e.getKeyCode() == KeyEvent.VK_PAUSE || e.getKeyCode() == KeyEvent.VK_P) {
                 pauseGame();
             }
-
             if (properties.debug) {
             	if (e.getKeyCode() == KeyEvent.VK_F7) {
                 	properties.advanceLevel = true;
@@ -760,7 +759,6 @@ public class Game extends Canvas {
                     initPlayer();
             	}
             }
-            
             if (properties.debug) {
                 if (e.getKeyCode() == KeyEvent.VK_F6) {
                     GProperties.gameLives = 0;
