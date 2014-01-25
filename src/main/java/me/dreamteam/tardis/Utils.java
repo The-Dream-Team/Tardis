@@ -38,6 +38,9 @@ public class Utils {
     static int levelFS = 14; // Font size for Level display
     static int levelIFS = 14; //Font size for number of levels
 
+    static int weaponFS = 14; // Font size for Weapon display
+    static int weaponIFS = 14; //Font size for number of ammo
+
     static String txtTime = "TIME";
     static String txtLives = "LIVES";
     static String txtLevel = "LEVEL ";
