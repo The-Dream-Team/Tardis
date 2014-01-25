@@ -38,8 +38,8 @@ public class Utils {
     static int levelFS = 14; // Font size for Level display
     static int levelIFS = 14; //Font size for number of levels
 
-    static int weaponFS = 14; // Font size for Weapon display
-    static int weaponIFS = 14; //Font size for number of ammo
+    static int weaponFS = 18; // Font size for Weapon display
+    static int weaponIFS = 18; //Font size for number of ammo
 
     static String txtTime = "TIME";
     static String txtLives = "LIVES";
@@ -57,9 +57,9 @@ public class Utils {
     static String txtLoad = "Loading...";
 
     // Title Screen
-    static String bPlay = "Play Game";
+    static String bPlay = "Play";
     static String bHowTo = "How to Play";
-    static String bQuit = "Quit Game";
+    static String bQuit = "Quit";
     static String bRestart = "Restart Game";
     static String bReturn = "Return to Game";
     static String txtTS = "Welcome to " + gameName;
