@@ -757,7 +757,7 @@ public class Game extends Canvas {
             }
 
             if (properties.debug) {
-                if (e.getKeyCode() == KeyEvent.VK_A) {
+                if (e.getKeyCode() == KeyEvent.VK_F7) {
                     properties.advanceLevel = true;
                     properties.timeMil = 18000;
                     
