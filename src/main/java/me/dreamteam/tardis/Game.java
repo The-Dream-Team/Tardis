@@ -757,12 +757,19 @@ public class Game extends Canvas {
             }
 
             if (properties.debug) {
+                if (e.getKeyCode() == KeyEvent.VK_A) {
+                    properties.advanceLevel = true;
+                    properties.gameTime = 180;
+                    
+                }
+            }
+            
+            if (properties.debug) {
                 if (e.getKeyCode() == KeyEvent.VK_F6) {
                     GProperties.gameLives = 0;
                 }
             }
-
-
+            
         }
 
         public void keyReleased(KeyEvent e) {
