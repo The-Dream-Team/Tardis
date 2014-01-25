@@ -209,12 +209,12 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (150 + (115 * 0.45) - 30));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
-                            properties.curSprite = 1;
-                    }
+                        	properties.curSprite = 1;
+                    	}
                 } else if (properties.gameTime >= properties.tWait && properties.level == 5) {
                     properties.tWait = properties.gameTime;
                     for (int i = 0; i < 2; i++) {
@@ -223,7 +223,7 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (115 + (100 * 0.45) - 30));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
