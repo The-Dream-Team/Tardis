@@ -23,7 +23,7 @@
                         <phase>package</phase>
                         <configuration>
                             <descriptorRefs>
-                                <descriptorRef>executable</descriptorRef>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
                             <archive>
                                 <manifest>
