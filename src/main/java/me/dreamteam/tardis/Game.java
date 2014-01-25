@@ -98,7 +98,7 @@ public class Game extends Canvas {
 
         // Register Font
         try {
-            URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/me/dreamteam/tardis/fonts/Volter.ttf");
+            URL fontUrl = me.dreamteam.tardis.Game.class.getResource("/src/main/resources/fonts/Volter.ttf");
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(font);
@@ -130,17 +130,17 @@ public class Game extends Canvas {
     private void initPlayer() {
 
         if (properties.shipS == 0) {
-            properties.ship = new Player(this, "me/dreamteam/tardis/sprites/ship.png", 220, 568);
+            properties.ship = new Player(this, "src/main/resources/sprites/ship.png", 220, 568);
             properties.entities.add(properties.ship);
         }
 
         if (properties.shipS == 1) {
-            properties.ship = new Player(this, "me/dreamteam/tardis/sprites/ship2.png", 220, 568);
+            properties.ship = new Player(this, "src/main/resources/sprites/ship2.png", 220, 568);
             properties.entities.add(properties.ship);
         }
 
         if (properties.shipS == 2) {
-            properties.ship = new Player(this, "me/dreamteam/tardis/sprites/ship3.png", 220, 568);
+            properties.ship = new Player(this, "src/main/resources/sprites/ship3.png", 220, 568);
             properties.entities.add(properties.ship);
         }
     }
@@ -166,7 +166,7 @@ public class Game extends Canvas {
                     } else {
                         FinalLoc = properties.spriteLoc2;
                     }
-                    Entity Enemies = new Enemy(this, "me/dreamteam/tardis/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50);
+                    Entity Enemies = new Enemy(this, "src/main/resources/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50);
                     properties.entities.add(Enemies);
                     properties.curSprite += 1;
                     if (properties.curSprite > 5)
@@ -181,7 +181,7 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "me/dreamteam/tardis/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        Entity Enemies = new Enemy(this, "src/main/resources/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -195,7 +195,7 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "me/dreamteam/tardis/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        Entity Enemies = new Enemy(this, "src/main/resources/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -209,7 +209,7 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "me/dreamteam/tardis/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        Entity Enemies = new Enemy(this, "src/main/resources/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -223,7 +223,7 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "me/dreamteam/tardis/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        Entity Enemies = new Enemy(this, "src/main/resources/sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -238,9 +238,9 @@ public class Game extends Canvas {
     private void startGame() {
 
         properties.entities.clear();
-        properties.Background = new Background(this, "me/dreamteam/tardis/sprites/background.png", 0, 0);
+        properties.Background = new Background(this, "src/main/resources/sprites/background.png", 0, 0);
         properties.backgroundImages.add(properties.Background);
-        properties.Background2 = new Background(this, "me/dreamteam/tardis/sprites/background.png", 0, -650);
+        properties.Background2 = new Background(this, "src/main/resources/sprites/background.png", 0, -650);
         properties.backgroundImages.add(properties.Background2);
         initPlayer();
 
@@ -491,7 +491,7 @@ public class Game extends Canvas {
                         properties.Background.setVerticalMovement(10);
                     }
                     if ((bgLoopCheck - bgLoop) > 63000) {
-                        properties.Background = new Background(this, "me/dreamteam/tardis/sprites/Background.png", 0, -650);
+                        properties.Background = new Background(this, "src/main/resources/sprites/Background.png", 0, -650);
                         properties.backgroundImages.add(properties.Background);
                         bgLoop = System.currentTimeMillis();
                     }
@@ -674,19 +674,19 @@ public class Game extends Canvas {
             }
             properties.lastFire = System.currentTimeMillis();
             if (properties.shipS == 0) {
-                Weapon shot = new Weapon(this, "me/dreamteam/tardis/sprites/Shot1.png", properties.ship.getX() + 13, properties.ship.getY() - 15);
+                Weapon shot = new Weapon(this, "src/main/resources/sprites/Shot1.png", properties.ship.getX() + 13, properties.ship.getY() - 15);
                 properties.entities.add(shot);
-                Weapon shot2 = new Weapon(this, "me/dreamteam/tardis/sprites/Shot1.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
+                Weapon shot2 = new Weapon(this, "src/main/resources/sprites/Shot1.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
                 properties.entities.add(shot2);
             } else if (properties.shipS == 1) {
-                Weapon shot = new Weapon(this, "me/dreamteam/tardis/sprites/Shot2.png", properties.ship.getX() + 13, properties.ship.getY() - 15);
+                Weapon shot = new Weapon(this, "src/main/resources/sprites/Shot2.png", properties.ship.getX() + 13, properties.ship.getY() - 15);
                 properties.entities.add(shot);
-                Weapon shot2 = new Weapon(this, "me/dreamteam/tardis/sprites/Shot2.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
+                Weapon shot2 = new Weapon(this, "src/main/resources/sprites/Shot2.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
                 properties.entities.add(shot2);
             } else if (properties.shipS == 2) {
-                Weapon shot = new Weapon(this, "me/dreamteam/tardis/sprites/Shot3.png", properties.ship.getX() + 13, properties.ship.getY() - 15);
+                Weapon shot = new Weapon(this, "src/main/resources/sprites/Shot3.png", properties.ship.getX() + 13, properties.ship.getY() - 15);
                 properties.entities.add(shot);
-                Weapon shot2 = new Weapon(this, "me/dreamteam/tardis/sprites/Shot3.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
+                Weapon shot2 = new Weapon(this, "src/main/resources/sprites/Shot3.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
                 properties.entities.add(shot2);
             }
         }
