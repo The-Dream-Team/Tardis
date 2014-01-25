@@ -646,13 +646,7 @@ public class Game extends Canvas {
                         properties.firing = false;
                     }
                 }
-                if (properties.weaponPressed) {
-                    if (properties.weapon1 == 0) {
-                        if (properties.debug) {
-                            System.out.println("DEBUG: [INFO] No Ammo!");
-                        }
-                    }
-                }
+
                 properties.weaponPressed = false;
                 try {
                     Thread.sleep(10);
