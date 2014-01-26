@@ -1,4 +1,4 @@
-Tardis
+Super SpaceShip Adventure
 ======
 Work in progress
 
@@ -7,6 +7,8 @@ Work in progress
 Use Windows PowerShell and run the following commands
 * git fetch upstream
 * git merge upstream/master
+or 
+* ./update.ps1
 
 Remember to take it in turns else there will be conflicts
 
