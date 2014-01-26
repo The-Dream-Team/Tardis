@@ -532,7 +532,7 @@ public class Game extends Canvas {
                         properties.level = 3;
                     } else if (properties.gameTime < 239) {
                         properties.level = 4;
-                    } else if (properties.gameTime > 299) {
+                    } else if (properties.gameTime >= 240) {
                         properties.level = 5;
                     }
                 }
