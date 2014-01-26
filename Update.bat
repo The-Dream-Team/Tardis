@@ -1,6 +1,6 @@
 @echo off
 
-cd C:\Users\%USERNAME%\Documents\GitHub\Tardis-main\Tardis
+cd C:\Users\%USERNAME%\Documents\GitHub\Tardis
 
 
 echo Updating...
