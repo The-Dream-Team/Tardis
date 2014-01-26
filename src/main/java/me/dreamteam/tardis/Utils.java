@@ -19,7 +19,7 @@ public class Utils {
 
     static String ship1Name = "P3N-15";
     static String ship2Name = "FALCON";
-    static String ship3Name = "MOTH";
+    static String ship3Name = "BEHEMOTH";
 	
 	/*
 	 * gText Options
