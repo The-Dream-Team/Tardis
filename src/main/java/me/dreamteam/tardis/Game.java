@@ -491,7 +491,7 @@ public class Game extends Canvas {
                         properties.Background.setVerticalMovement(10);
                     }
                     if ((bgLoopCheck - bgLoop) > 63000) {
-                        properties.Background = new Background(this, "sprites/Background.png", 0, -650);
+                        properties.Background = new Background(this, "sprites/background.png", 0, -650);
                         properties.backgroundImages.add(properties.Background);
                         bgLoop = System.currentTimeMillis();
                     }
