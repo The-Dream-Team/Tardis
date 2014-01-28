@@ -2,11 +2,18 @@ package me.dreamteam.tardis;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
+
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -263,7 +270,9 @@ public class Game extends Canvas {
         properties.curWeapon = 1;
         properties.setWeapon(1);
         GProperties.debugHits = 0;
-
+        
+        SoundAction();
+        
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
         Date date = new Date();
@@ -685,6 +694,15 @@ public class Game extends Canvas {
             }
         }
     }
+    
+    public static void SoundAction(){
+		InputStream input;
+		try{
+			input = new FileInputStream(new File("src/theme_level1.wav"));
+			AudioStream audios = new AudioStream(input);
+			AudioPlayer.player.start(audios);
+		}catch(Exception E){}
+	}
 
     /**
      * Update the game time
