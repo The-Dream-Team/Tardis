@@ -698,8 +698,8 @@ public class Game extends Canvas {
     public static void SoundAction(){
 		InputStream input;
 		try{
-			input = new FileInputStream(new File("src/sound/theme_level1.wav"));
-			AudioStream audios = new AudioStream(input);
+			input = me.dreamteam.tardis.Game.class.getResource("/sound/theme_level1.wav").openStream();
+            AudioStream audios = new AudioStream(input);
 			AudioPlayer.player.start(audios);
 		}catch(Exception E){}
 	}
