@@ -28,12 +28,12 @@ public class SpriteStore {
             URL url = this.getClass().getClassLoader().getResource(ref);
 
             if (url == null) {
-                fail("Can't find sprite or resource: " + ref);
+                fail("DEBUG: [WARN] Can't find sprite or resource: " + ref);
             }
 
             sourceImage = ImageIO.read(url);
         } catch (IOException e) {
-            fail("Failed to load: " + ref);
+            fail("DEBUG: [ERROR] Failed to load: " + ref);
         }
 
         GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
