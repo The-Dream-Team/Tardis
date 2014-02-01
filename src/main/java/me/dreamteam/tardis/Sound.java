@@ -4,11 +4,14 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 
 public class Sound {
-    /*
-    This class is reserved for sound development, whereby it will be a sound manager similar to the SpriteStore / Sprite class
-     */
-	
-	public static final Sound sound1 = new Sound("/sound/theme_level1.wav");
+
+    // Themes
+	public static final Sound soundTheme1 = new Sound("/sound/theme1.wav");
+
+    // Explosions
+    public static final Sound soundExplosion = new Sound("/sound/explosion.wav");
+
+
 	private AudioClip clip;
 
 	public Sound(String filename){

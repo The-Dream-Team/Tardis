@@ -11,8 +11,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.text.DateFormat;
@@ -271,7 +269,7 @@ public class Game extends Canvas {
         properties.setWeapon(1);
         GProperties.debugHits = 0;
         
-        Sound.sound1.play();
+        Sound.soundTheme1.play();
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
@@ -698,7 +696,7 @@ public class Game extends Canvas {
     public static void SoundAction(){
 		InputStream input;
 		try{
-			input = me.dreamteam.tardis.Game.class.getResource("/sound/theme_level1.wav").openStream();
+			input = me.dreamteam.tardis.Game.class.getResource("/sound/theme1.wav").openStream();
             AudioStream audios = new AudioStream(input);
 			AudioPlayer.player.start(audios);
 		}catch(Exception E){}
