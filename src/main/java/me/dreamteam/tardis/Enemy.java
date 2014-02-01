@@ -4,6 +4,7 @@ public class Enemy extends Entity {
     // The speed at which the Enemy moves
     private double moveSpeed = 100;
     private Game game;
+    Sound sound;
 
     public Enemy(Game game, String ref, int x, int y, double s) {
         super(ref, x, y);
@@ -40,6 +41,7 @@ public class Enemy extends Entity {
         if (other instanceof Player) {
             // remove the affected entities
             GProperties.gameLives--;
+            Sound.soundExplosion.play();
             game.removeEntity(this);
         }
 
