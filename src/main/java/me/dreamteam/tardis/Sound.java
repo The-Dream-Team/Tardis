@@ -13,7 +13,7 @@ public class Sound {
 
 	public Sound(String filename){
 		try{
-			clip = Applet.newAudioClip(Sound.class.getResource(filename));
+			clip = Applet.newAudioClip(me.dreamteam.tardis.Game.class.getResource(filename));
 		}catch(Exception e){}
 	}
 
