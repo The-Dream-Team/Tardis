@@ -7,16 +7,12 @@ public class Sound {
 
     // Themes
 	public static final Sound soundTheme1 = new Sound("/sound/theme1.wav");
-
     // Explosions
     public static final Sound soundExplosion = new Sound("/sound/explosion.wav");
-
     // Game Over
     public static final Sound soundGameOver = new Sound("/sound/gameover.wav");
-    
     // Weapon Shots
     public static final Sound soundShoot = new Sound("/sound/Shoot.wav");
-
 
 	private AudioClip clip;
 
