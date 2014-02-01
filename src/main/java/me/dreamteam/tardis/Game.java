@@ -372,6 +372,7 @@ public class Game extends Canvas {
 
     public void gameOver() {
 
+        Sound.soundGameOver.play();
         new GProperties().propertiesFile();
 
         try {

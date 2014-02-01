@@ -11,6 +11,8 @@ public class Sound {
     // Explosions
     public static final Sound soundExplosion = new Sound("/sound/explosion.wav");
 
+    public static final Sound soundGameOver = new Sound("/sound/gameover.wav");
+
 
 	private AudioClip clip;
 
