@@ -3,9 +3,6 @@ package me.dreamteam.tardis;
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -693,15 +690,6 @@ public class Game extends Canvas {
         }
     }
     
-    public static void SoundAction(){
-		InputStream input;
-		try{
-			input = me.dreamteam.tardis.Game.class.getResource("/sound/theme1.wav").openStream();
-            AudioStream audios = new AudioStream(input);
-			AudioPlayer.player.start(audios);
-		}catch(Exception E){}
-	}
-
     /**
      * Update the game time
      */
