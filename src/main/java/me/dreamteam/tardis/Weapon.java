@@ -5,6 +5,7 @@ public class Weapon extends Entity {
     private double moveSpeed = -300;
 
     private Game game;
+    Sound sound;
 
 
     public Weapon(Game game, String sprite, int x, int y) {
@@ -26,6 +27,8 @@ public class Weapon extends Entity {
 
             game.removeEntity(this);
             game.removeEntity(other);
+
+            Sound.soundExplosion.play(); // This will play an explosion sound on enemy hit
 
         }
     }
