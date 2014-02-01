@@ -25,7 +25,7 @@ import java.util.Date;
 
 public class Game extends Canvas {
     GProperties properties = new GProperties();
-
+    Sound sound;
     public Game() {
         JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
@@ -271,7 +271,7 @@ public class Game extends Canvas {
         properties.setWeapon(1);
         GProperties.debugHits = 0;
         
-        SoundAction();
+        Sound.sound1.play();
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
