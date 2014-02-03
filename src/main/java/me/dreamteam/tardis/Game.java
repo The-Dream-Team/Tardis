@@ -553,8 +553,8 @@ public class Game extends Canvas {
                 // Timer
                 g.setColor(Color.WHITE);
                 g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeFS));
-                g.drawString(properties.timeDisplay, (70 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
-                g.drawString(Utils.txtTime, (70 - g.getFontMetrics().stringWidth(Utils.txtTime)) / 2, 18);
+                g.drawString(properties.timeDisplay, (125 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
+                g.drawString(Utils.txtTime, (125 - g.getFontMetrics().stringWidth(Utils.txtTime)) / 2, 18);
 
                 if (properties.timeMil > 99) {
                     properties.gameTime = properties.timeMil / 100;
@@ -562,8 +562,8 @@ public class Game extends Canvas {
                 String convtime = String.valueOf(properties.gameTime);
                 g.setColor(Color.ORANGE);
                 g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.timeIFS));
-                g.drawString(properties.timeDisplay, (175 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
-                g.drawString(convtime, (175 - g.getFontMetrics().stringWidth(convtime)) / 2, 18);
+                g.drawString(properties.timeDisplay, (255 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
+                g.drawString(convtime, (255 - g.getFontMetrics().stringWidth(convtime)) / 2, 18);
 
                 //Lives
                 g.setColor(Color.WHITE);
