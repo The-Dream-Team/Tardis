@@ -41,7 +41,7 @@ public class Utils {
     static int weaponFS = 18; // Font size for Weapon display
     static int weaponIFS = 18; //Font size for number of ammo
 
-    static String txtTime = "TIME";
+    static String txtTime = "DISTANCE";
     static String txtLives = "LIVES";
     static String txtLevel = "LEVEL ";
     static String txtWeapon = "WEAPON ";
