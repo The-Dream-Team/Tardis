@@ -706,7 +706,6 @@ public class Game extends Canvas {
     }
 
     public long getTime() {
- 
         return ((System.nanoTime()/1000000)+552);
     }
 
