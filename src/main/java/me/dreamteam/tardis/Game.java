@@ -561,8 +561,8 @@ public class Game extends Canvas {
                 String convtime = String.valueOf(properties.gameTime*10);
                 g.setColor(Color.ORANGE);
                 g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.timeIFS));
-                g.drawString(properties.timeDisplay, (255 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
-                g.drawString(convtime, (255 - g.getFontMetrics().stringWidth(convtime)) / 2, 18);
+                g.drawString(properties.timeDisplay, (275 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
+                g.drawString(convtime, (275 - g.getFontMetrics().stringWidth(convtime)) / 2, 18);
 
                 //Lives
                 g.setColor(Color.WHITE);
