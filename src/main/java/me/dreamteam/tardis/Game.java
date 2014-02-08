@@ -559,7 +559,7 @@ public class Game extends Canvas {
                 if (properties.timeMil > 99) {
                     properties.gameTime = properties.timeMil / 100;
                 }
-                String convtime = String.valueOf(properties.gameTime);
+                String convtime = String.valueOf(properties.gameTime*10);
                 g.setColor(Color.ORANGE);
                 g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.timeIFS));
                 g.drawString(properties.timeDisplay, (255 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
