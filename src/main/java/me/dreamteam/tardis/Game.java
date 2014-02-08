@@ -237,7 +237,6 @@ public class Game extends Canvas {
 
 
     private void startGame() {
-
         properties.entities.clear();
         properties.Background = new Background(this, "sprites/background.png", 0, 0);
         properties.backgroundImages.add(properties.Background);
@@ -399,7 +398,7 @@ public class Game extends Canvas {
 
         Object[] options = {Utils.bPlayAgain, Utils.bQuit};
         int goG = JOptionPane.showOptionDialog(null,
-                Utils.txtSurvive + properties.gameTime + Utils.txtSeconds, Utils.goDialogTitle,
+                Utils.txtTravelled + properties.gameTime + Utils.txtMetre, Utils.goDialogTitle,
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 icon,
@@ -550,7 +549,7 @@ public class Game extends Canvas {
                 g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.levelFS));
                 g.drawString(Utils.txtLevel + properties.level, (500 - g.getFontMetrics().stringWidth(Utils.txtLevel + properties.level)) / 2, 18);
 
-                // Timer
+                // Distance
                 g.setColor(Color.WHITE);
                 g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.timeFS));
                 g.drawString(properties.timeDisplay, (125 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
