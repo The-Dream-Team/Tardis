@@ -13,7 +13,7 @@ public class Database {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            c = DriverManager.getConnection("jdbc:mysql://37.187.75.63:3306/SSA?user=root&password=password");
+            c = DriverManager.getConnection("jdbc:mysql://37.187.75.63:3306/SSA?user=thedreamteam&password=password");
 
             if (GProperties.debug) {
                 System.out.println("DEBUG: [INFO] Connected to MySQL database successfully");
