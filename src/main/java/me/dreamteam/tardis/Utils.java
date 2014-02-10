@@ -69,8 +69,8 @@ public class Utils {
 
     // Game Over
     static String txtGO = "Game Over";
-    static String txtSurvive = "You have survived for ";
-    static String txtSeconds = " seconds";
+    static String txtTravelled = "You have travelled ";
+    static String txtMetre = "m";
     static String goDialogTitle = "";
     static String bPlayAgain = "Play Again";
 
