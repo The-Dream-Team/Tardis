@@ -70,7 +70,7 @@ public class Utils {
     // Game Over
     static String txtGO = "Game Over";
     static String txtTravelled = "You have travelled ";
-    static String txtMetre = "m";
+    static String txtMetre = "0m";
     static String goDialogTitle = "";
     static String bPlayAgain = "Play Again";
 
