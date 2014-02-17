@@ -31,4 +31,14 @@ public class Sound {
 			}.start();
 		}catch(Exception ex){}
 	}
+	
+	public void stop(){
+		try{
+			new Thread(){
+				public void run(){
+					clip.stop();
+				}
+			}.start();
+		}catch(Exception ex){}
+	}
 }

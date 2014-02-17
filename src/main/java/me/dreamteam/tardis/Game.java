@@ -366,7 +366,8 @@ public class Game extends Canvas {
     }
 
     public void gameOver() {
-
+    	Sound.soundTheme1.stop();
+    	Sound.soundShoot.stop();
         Sound.soundGameOver.play();
         new GProperties().propertiesFile();
 
@@ -416,6 +417,7 @@ public class Game extends Canvas {
         if (goG == 0) {
             characterSelect();
         }
+        
 
     }
 
