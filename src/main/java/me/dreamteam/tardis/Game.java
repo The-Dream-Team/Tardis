@@ -425,6 +425,8 @@ public class Game extends Canvas {
         ImageIcon icon = new ImageIcon(Utils.iconURL);
         Utils.systemLF();
         properties.gameStart = false;
+        Sound.soundTheme1.stop();
+        Sound.soundShoot.stop();
         long LoopTempTime = System.currentTimeMillis();
         Object[] options = {Utils.bReturn, Utils.bRestart, Utils.bQuit};
         int pauseG = JOptionPane.showOptionDialog(null,
@@ -447,6 +449,7 @@ public class Game extends Canvas {
             }
             properties.finalTime = System.currentTimeMillis() - LoopTempTime;
             properties.gameStart = true;
+            Sound.soundTheme1.play();
         }
 
         if (pauseG == 2) {
