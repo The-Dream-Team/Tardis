@@ -680,20 +680,18 @@ public class Game extends Canvas {
                 properties.entities.add(shot);
                 Weapon shot2 = new Weapon(this, "sprites/Shot1.png", properties.ship.getX() + 23, properties.ship.getY() - 15);
                 properties.entities.add(shot2);
-                Sound.soundShoot.play();
             } else if (properties.shipS == 1) {
                 Weapon shot = new Weapon(this, "sprites/Shot2.png", properties.ship.getX() + 0, properties.ship.getY() - -12);
                 properties.entities.add(shot);
                 Weapon shot2 = new Weapon(this, "sprites/Shot2.png", properties.ship.getX() + 35, properties.ship.getY() - -12);
                 properties.entities.add(shot2);
-                Sound.soundShoot.play();
             } else if (properties.shipS == 2) {
                 Weapon shot = new Weapon(this, "sprites/Shot3.png", properties.ship.getX() + 0, properties.ship.getY() - 15);
                 properties.entities.add(shot);
                 Weapon shot2 = new Weapon(this, "sprites/Shot3.png", properties.ship.getX() + 37, properties.ship.getY() - 15);
                 properties.entities.add(shot2);
-                Sound.soundShoot.play();
             }
+            Sound.soundShoot.play();
         }
     }
     
