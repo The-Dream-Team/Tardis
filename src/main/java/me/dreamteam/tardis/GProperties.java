@@ -70,6 +70,8 @@ public class GProperties {
     public long finalTime = 0;
     public String timeDisplay = "";
     public String livesDisplay = "";
+    public boolean usedPack = false;
+    public boolean pack = false;
     public int weapon1 = 1;
     public int weapon2 = 0;
     public int weapon3 = 0;

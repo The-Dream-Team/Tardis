@@ -157,6 +157,15 @@ public class Game extends Canvas {
                     properties.spriteLoc2 = properties.spriteLoc - 63;
             }
         }
+        if(properties.usedPack == false){
+        	if(properties.gameLives < 3){
+        		int check = properties.rSpriteLoc.nextInt(10000);
+        		if(check == 59){
+        			if(properties.debug)
+        				System.out.println("Success");
+        		}
+        	}
+        }
         if (properties.tWait != properties.gameTime) {
             int FinalLoc;
             if (properties.gameTime >= properties.tWait + 2 && properties.advanceLevel == false) {
