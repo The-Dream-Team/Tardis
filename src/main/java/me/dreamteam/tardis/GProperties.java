@@ -32,6 +32,7 @@ public class GProperties {
     public long lastLoopTime;
     public Image splashbg;
     public static int wake = 0;
+    public static String username = "";
 	
 	/* Entities */
 
@@ -73,7 +74,7 @@ public class GProperties {
     public int weapon2 = 0;
     public int weapon3 = 0;
     public String weaponDisplay = weapon1 + "/" + weapon2 + "/" + weapon3;
-    public int gameTime = 0;
+    public static int gameTime = 0;
     public static int gameLives = 3;
     public int timeMil;
     public long lastTime;

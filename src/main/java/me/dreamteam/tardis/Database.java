@@ -1,33 +1,49 @@
 package me.dreamteam.tardis;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.io.*;
+import java.net.*;
+import java.net.HttpURLConnection;
 
 public class Database {
-    private static Connection con;
 
     public void updateDb() throws Exception {
-        Connection c = null;
-        Statement stmt = null;
+        String distance = Integer.toString(GProperties.gameTime);
+        String username = GProperties.username;
+        final String USER_AGENT = "Mozilla/5.0";
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            c = DriverManager.getConnection("jdbc:mysql://37.187.75.63:3306/SSA?user=thedreamteam&password=password");
+        String url = "http://the-dreamteam.co.uk/includes/highscores/update.php";
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            if (GProperties.debug) {
-                System.out.println("DEBUG: [INFO] Connected to MySQL database successfully");
-            }
+        con.setRequestMethod("POST");
+        con.setRequestProperty("User-Agent", USER_AGENT);
+        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
-            stmt = c.createStatement();
+        String urlParameters = "username=" + username + "&distance=" + distance;
 
-            // Work in progress
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(urlParameters);
+        wr.flush();
+        wr.close();
 
+        int responseCode = con.getResponseCode();
+        System.out.println("\nSending 'POST' request to URL : " + url);
+        System.out.println("Post parameters : " + urlParameters);
+        System.out.println("Response Code : " + responseCode);
 
-            c.close();
-        } catch (Exception e) {
-            System.err.println("DEBUG: [ERROR]" + e.getClass().getName() + ": " + e.getMessage());
-            return;
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
         }
+        in.close();
+
+        //print result
+        System.out.println(response.toString());
+
     }
 }
