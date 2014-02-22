@@ -159,14 +159,14 @@ public class Game extends Canvas {
         }
         if(properties.usedPack == false){
         	if(properties.gameLives < 3){
-        		int check = properties.rSpriteLoc.nextInt(10000);
+        		int check = properties.rSpriteLoc.nextInt(100);
         		if(check == 59){
-        				properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
-        				properties.packList.add(properties.Pack);
-        				properties.usedPack = true;
-        				if(properties.Pack != null){
-        	                properties.Pack.setVerticalMovement(100);
-        				}
+        			properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
+        			properties.packList.add(properties.Pack);
+        			properties.usedPack = true;
+        			if(properties.Pack != null){
+       	                properties.Pack.setVerticalMovement(100);
+       				}
         		}
         	}
         }else{
@@ -176,6 +176,10 @@ public class Game extends Canvas {
             	shipe.collidedWith(packe);
             	packe.collidedWith(shipe);
             }
+        }
+        if(properties.pack == true){
+        	properties.packList.remove(0);
+        	properties.pack = false;
         }
         if (properties.tWait != properties.gameTime) {
             int FinalLoc;
@@ -271,7 +275,7 @@ public class Game extends Canvas {
         //reset time
         properties.timeMil = 0;
         //reset lives
-        GProperties.gameLives = 3;
+        GProperties.gameLives = 2;
         properties.level = 1;
         properties.gameStart = true;
         properties.advanceLevel = false;
