@@ -2,7 +2,6 @@ package me.dreamteam.tardis;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -20,6 +19,7 @@ import java.util.Date;
 public class Game extends Canvas {
     GProperties properties = new GProperties();
     Sound sound;
+
     public Game() {
         JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
@@ -108,7 +108,7 @@ public class Game extends Canvas {
             e.printStackTrace();
         }
 
-        UI.put("OptionPane.messageFont", new Font ("Volter (Goldfish)",Font.BOLD, 14));
+        UI.put("OptionPane.messageFont", new Font("Volter (Goldfish)", Font.BOLD, 14));
 
         requestFocus();
         initPlayer();
@@ -214,8 +214,8 @@ public class Game extends Canvas {
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
-                        	properties.curSprite = 1;
-                    	}
+                            properties.curSprite = 1;
+                    }
                 } else if (properties.gameTime >= properties.tWait && properties.level == 5) {
                     properties.tWait = properties.gameTime;
                     for (int i = 0; i < 2; i++) {
@@ -263,9 +263,9 @@ public class Game extends Canvas {
         properties.curWeapon = 1;
         properties.setWeapon(1);
         GProperties.debugHits = 0;
-        
+
         Sound.soundTheme1.play();
-        
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
         Date date = new Date();
@@ -347,9 +347,12 @@ public class Game extends Canvas {
     }
 
     public void playerName() {
-        properties.username = JOptionPane.showInputDialog(null,"Enter your username","",JOptionPane.PLAIN_MESSAGE);
+        properties.username = JOptionPane.showInputDialog(null,
+                Utils.txtUsernameEntry,
+                "",
+                JOptionPane.PLAIN_MESSAGE);
         if (properties.username != null) {
-        characterSelect();
+            characterSelect();
         } else {
             titleScreen();
         }
@@ -375,8 +378,8 @@ public class Game extends Canvas {
     }
 
     public void gameOver() {
-    	Sound.soundTheme1.stop();
-    	Sound.soundShoot.stop();
+        Sound.soundTheme1.stop();
+        Sound.soundShoot.stop();
         Sound.soundGameOver.play();
         new GProperties().propertiesFile();
 
@@ -426,7 +429,7 @@ public class Game extends Canvas {
         if (goG == 0) {
             characterSelect();
         }
-        
+
 
     }
 
@@ -555,7 +558,7 @@ public class Game extends Canvas {
                 }
 
 				/* 
-				 * Game Text
+                 * Game Text
 				 */
 
                 //Level
@@ -572,7 +575,7 @@ public class Game extends Canvas {
                 if (properties.timeMil > 99) {
                     properties.gameTime = properties.timeMil / 100;
                 }
-                String convtime = String.valueOf(properties.gameTime*10);
+                String convtime = String.valueOf(properties.gameTime * 10);
                 g.setColor(Color.ORANGE);
                 g.setFont(new Font("Volter (Goldfish)", Font.ITALIC, Utils.timeIFS));
                 g.drawString(properties.timeDisplay, (275 - g.getFontMetrics().stringWidth(properties.timeDisplay)) / 2, 18);
@@ -703,7 +706,7 @@ public class Game extends Canvas {
             Sound.soundShoot.play();
         }
     }
-    
+
     /**
      * Update the game time
      */
@@ -717,7 +720,7 @@ public class Game extends Canvas {
     }
 
     public long getTime() {
-        return ((System.nanoTime()/1000000)+552);
+        return ((System.nanoTime() / 1000000) + 552);
     }
 
     public int getDelta() {
@@ -767,21 +770,21 @@ public class Game extends Canvas {
                 pauseGame();
             }
             if (properties.debug) {
-            	if (e.getKeyCode() == KeyEvent.VK_F7) {
-                	properties.advanceLevel = true;
+                if (e.getKeyCode() == KeyEvent.VK_F7) {
+                    properties.advanceLevel = true;
                     properties.timeMil = 18000;
                     for (int r = 0; r < properties.entities.size(); r++) {
-                    	properties.removeList.add(properties.entities.get(r));
-                    }  
+                        properties.removeList.add(properties.entities.get(r));
+                    }
                     initPlayer();
-            	}
+                }
             }
             if (properties.debug) {
                 if (e.getKeyCode() == KeyEvent.VK_F6) {
                     GProperties.gameLives = 0;
                 }
             }
-            
+
         }
 
         public void keyReleased(KeyEvent e) {
