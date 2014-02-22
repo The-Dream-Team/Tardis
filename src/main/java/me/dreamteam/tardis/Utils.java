@@ -44,7 +44,7 @@ public class Utils {
     static String txtTime = "DISTANCE";
     static String txtLives = "LIVES";
     static String txtLevel = "LEVEL ";
-    static String txtWeapon = "WEAPON ";
+    static String txtWeapon = "POWER UPS ";
 	
 	/*
 	 * JFrame Options and Text
