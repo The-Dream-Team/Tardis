@@ -63,6 +63,9 @@ public class Utils {
     static String txtTS = "Welcome to " + gameName;
     static String tsDialogTitle = "";
 
+    // Username Entry
+    static String txtUsernameEntry = "Enter your username";
+
     // Character Selection
     static String txtCS = "Choose your spaceship to begin:";
     static String csDialogTitle = "Character Selection";
