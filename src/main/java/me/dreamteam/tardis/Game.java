@@ -596,42 +596,42 @@ public class Game extends Canvas {
                 //Weapon
                 g.setColor(Color.WHITE);
                 g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponFS));
-                g.drawString(Utils.txtWeapon, (110 - g.getFontMetrics().stringWidth(Utils.txtWeapon)) / 2, 645);
+                g.drawString(Utils.txtWeapon, (150 - g.getFontMetrics().stringWidth(Utils.txtWeapon)) / 2, 645);
                 if (properties.curWeapon == 1) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (205 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon1), (265 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 645);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (205 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon1), (265 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 645);
                 }
 
                 g.setColor(Color.WHITE);
                 g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                g.drawString("/", (225 - g.getFontMetrics().stringWidth("/")) / 2, 645);
+                g.drawString("/", (285 - g.getFontMetrics().stringWidth("/")) / 2, 645);
 
                 if (properties.curWeapon == 2) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon2), (245 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon2), (305 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2))) / 2, 645);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon2), (245 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon2), (305 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2))) / 2, 645);
                 }
                 g.setColor(Color.WHITE);
                 g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                g.drawString("/", (265 - g.getFontMetrics().stringWidth("/")) / 2, 645);
+                g.drawString("/", (325 - g.getFontMetrics().stringWidth("/")) / 2, 645);
 
                 if (properties.curWeapon == 3) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon3), (285 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon3), (345 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3))) / 2, 645);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon3), (285 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon3), (345 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3))) / 2, 645);
                 }
                 // Clear Graphics
                 g.dispose();

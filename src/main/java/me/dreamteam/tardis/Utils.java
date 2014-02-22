@@ -11,7 +11,7 @@ public class Utils {
 
     static String gameName = "SUPER SPACESHIP ADVENTURE ";
     static String build = "Alpha ";
-    static String version = "0.8.16";
+    static String version = "0.8.17";
 	
 	/*
 	 * Ship Names
@@ -44,7 +44,7 @@ public class Utils {
     static String txtTime = "DISTANCE";
     static String txtLives = "LIVES";
     static String txtLevel = "LEVEL ";
-    static String txtWeapon = "WEAPON ";
+    static String txtWeapon = "POWER UPS ";
 	
 	/*
 	 * JFrame Options and Text
