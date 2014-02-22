@@ -159,7 +159,7 @@ public class Game extends Canvas {
         }
         if(properties.usedPack == false){
         	if(properties.gameLives < 3){
-        		int check = properties.rSpriteLoc.nextInt(100);
+        		int check = properties.rSpriteLoc.nextInt(10000);
         		if(check == 59){
         				properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
         				properties.packList.add(properties.Pack);
@@ -271,7 +271,7 @@ public class Game extends Canvas {
         //reset time
         properties.timeMil = 0;
         //reset lives
-        GProperties.gameLives = 2;
+        GProperties.gameLives = 3;
         properties.level = 1;
         properties.gameStart = true;
         properties.advanceLevel = false;
