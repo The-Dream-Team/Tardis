@@ -161,12 +161,10 @@ public class Game extends Canvas {
         	if(properties.gameLives < 3){
         		int check = properties.rSpriteLoc.nextInt(100);
         		if(check == 59){
-        				properties.Pack = new Others(this, "sprites/astronaut.png", 50, -50);
+        				properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
         				properties.packList.add(properties.Pack);
         				if(properties.Pack != null){
         	                properties.Pack.setVerticalMovement(100);
-        				}else if(){
-        					
         				}
         		}
         	}
@@ -517,7 +515,7 @@ public class Game extends Canvas {
                     entity.move(delta);
                 }
                 for (int i = 0; i < properties.packList.size(); i++) {
-                    Others entity = (Others) properties.packList.get(i);
+                    Entity entity = (Entity) properties.packList.get(i);
                     entity.move(delta);
                 }
                 
