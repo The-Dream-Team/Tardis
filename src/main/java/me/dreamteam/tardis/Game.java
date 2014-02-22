@@ -341,9 +341,14 @@ public class Game extends Canvas {
         }
 
         if (startG == 0) {
-            characterSelect();
+            playerName();
         }
 
+    }
+
+    public void playerName() {
+        properties.username = JOptionPane.showInputDialog("Enter your username",JOptionPane.PLAIN_MESSAGE);
+        characterSelect();
     }
 
     public void howToPlay() {
