@@ -161,8 +161,13 @@ public class Game extends Canvas {
         	if(properties.gameLives < 3){
         		int check = properties.rSpriteLoc.nextInt(100);
         		if(check == 59){
-        				Entity pack = new Enemy(this, "sprites/astronaut.png", 50, -50);
-        				properties.packList.add(pack);
+        				properties.Pack = new Others(this, "sprites/astronaut.png", 50, -50);
+        				properties.packList.add(properties.Pack);
+        				if(properties.Pack != null){
+        	                properties.Pack.setVerticalMovement(100);
+        				}else if(){
+        					
+        				}
         		}
         	}
         }
@@ -511,6 +516,11 @@ public class Game extends Canvas {
                     Entity entity = (Entity) properties.entities.get(i);
                     entity.move(delta);
                 }
+                for (int i = 0; i < properties.packList.size(); i++) {
+                    Others entity = (Others) properties.packList.get(i);
+                    entity.move(delta);
+                }
+                
 
                 long bgLoopCheck = System.currentTimeMillis();
                 for (int i = 1; i < 3; i++) {
@@ -549,6 +559,10 @@ public class Game extends Canvas {
                 }
                 for (int i = 0; i < properties.entities.size(); i++) {
                     Entity entity = (Entity) properties.entities.get(i);
+                    entity.draw(g);
+                }
+                for (int i = 0; i < properties.packList.size(); i++) {
+                    Entity entity = (Entity) properties.packList.get(i);
                     entity.draw(g);
                 }
 
