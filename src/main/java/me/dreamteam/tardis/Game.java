@@ -159,10 +159,10 @@ public class Game extends Canvas {
         }
         if(properties.usedPack == false){
         	if(properties.gameLives < 3){
-        		int check = properties.rSpriteLoc.nextInt(10000);
+        		int check = properties.rSpriteLoc.nextInt(100);
         		if(check == 59){
-        			if(properties.debug)
-        				System.out.println("Success");
+        				Entity pack = new Enemy(this, "sprites/astronaut.png", 50, -50);
+        				properties.packList.add(pack);
         		}
         	}
         }
@@ -260,7 +260,7 @@ public class Game extends Canvas {
         //reset time
         properties.timeMil = 0;
         //reset lives
-        GProperties.gameLives = 3;
+        GProperties.gameLives = 2;
         properties.level = 1;
         properties.gameStart = true;
         properties.advanceLevel = false;
@@ -524,7 +524,6 @@ public class Game extends Canvas {
                         properties.backgroundImages.add(properties.Background);
                         bgLoop = System.currentTimeMillis();
                     }
-
                 }
 
                 //testing for collision of player and enemy
