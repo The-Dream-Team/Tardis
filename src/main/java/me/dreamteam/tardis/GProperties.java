@@ -71,7 +71,7 @@ public class GProperties {
     public String timeDisplay = "";
     public String livesDisplay = "";
     public boolean usedPack = false;
-    public boolean pack = false;
+    public static boolean pack = false;
     public ArrayList packList = new ArrayList();
     public Entity Pack;
     public int weapon1 = 1;
