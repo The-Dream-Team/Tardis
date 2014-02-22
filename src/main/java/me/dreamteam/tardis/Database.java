@@ -8,7 +8,7 @@ import java.net.URLConnection;
 public class Database {
 
     public void updateDb() throws Exception {
-        String dbDistance = Integer.toString(GProperties.gameTime);
+        String dbDistance = Integer.toString(GProperties.gameTime) + "0";
         String dbUsername = GProperties.username;
         try {
             // Send data
