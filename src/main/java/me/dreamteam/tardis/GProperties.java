@@ -79,7 +79,7 @@ public class GProperties {
     public int weapon3 = 0;
     public String weaponDisplay = weapon1 + "/" + weapon2 + "/" + weapon3;
     public static int gameTime = 0;
-    public static int gameLives = 2;
+    public static int gameLives = 3;
     public int timeMil;
     public long lastTime;
     public int tWait = 0;

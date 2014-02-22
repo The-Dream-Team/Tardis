@@ -159,17 +159,23 @@ public class Game extends Canvas {
         }
         if(properties.usedPack == false){
         	if(properties.gameLives < 3){
-        		int check = properties.rSpriteLoc.nextInt(100);
+        		int check = properties.rSpriteLoc.nextInt(10000);
         		if(check == 59){
-        				properties.Pack = new Others(this, "sprites/astronaut.png", 50, -50);
+        				properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
         				properties.packList.add(properties.Pack);
+        				properties.usedPack = true;
         				if(properties.Pack != null){
         	                properties.Pack.setVerticalMovement(100);
-        				}else if(){
-        					
         				}
         		}
         	}
+        }else{
+        	Entity shipe = (Entity) properties.entities.get(0);
+        	Pack packe = (Pack) properties.packList.get(0);
+            if (shipe.collidesWith(packe)) {
+            	shipe.collidedWith(packe);
+            	packe.collidedWith(shipe);
+            }
         }
         if (properties.tWait != properties.gameTime) {
             int FinalLoc;
@@ -265,7 +271,7 @@ public class Game extends Canvas {
         //reset time
         properties.timeMil = 0;
         //reset lives
-        GProperties.gameLives = 2;
+        GProperties.gameLives = 3;
         properties.level = 1;
         properties.gameStart = true;
         properties.advanceLevel = false;
@@ -517,7 +523,7 @@ public class Game extends Canvas {
                     entity.move(delta);
                 }
                 for (int i = 0; i < properties.packList.size(); i++) {
-                    Others entity = (Others) properties.packList.get(i);
+                    Entity entity = (Entity) properties.packList.get(i);
                     entity.move(delta);
                 }
                 
@@ -550,6 +556,8 @@ public class Game extends Canvas {
                         }
                     }
                 }
+               
+                
                 properties.entities.removeAll(properties.removeList);
                 properties.removeList.clear();
 
