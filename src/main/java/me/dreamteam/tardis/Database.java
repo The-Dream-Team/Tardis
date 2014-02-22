@@ -2,35 +2,32 @@ package me.dreamteam.tardis;
 
 import java.io.*;
 import java.net.*;
-import java.net.HttpURLConnection;
 
 public class Database {
 
     public void updateDb() throws Exception {
-        String distance = Integer.toString(GProperties.gameTime);
-        String username = GProperties.username;
-
+        String dbDistance = Integer.toString(GProperties.gameTime);
+        String dbUsername = GProperties.username;
         try {
-            // open a connection to the site
-            URL url = new URL("http://www.the-dreamteam.co.uk/includes/highscores/update.php");
-            URLConnection con = url.openConnection();
-            // activate the output
-            con.setDoOutput(true);
-            PrintStream ps = new PrintStream(con.getOutputStream());
-            // send your parameters to your site
-            ps.print("username=" + username);
-            ps.print("&distance" + distance);
+            // Send data
+            URL dbConnect = new URL("http://37.187.75.63/includes/highscores/update.php?username=" +dbUsername + "&distance=" + dbDistance);
+            URLConnection conn = dbConnect.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(
+                            conn.getInputStream()));
+            String inputLine;
 
-            // we have to get the input stream in order to actually send the request
-            con.getInputStream();
-
-            // close the print stream
-            ps.close();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            while ((inputLine = in.readLine()) != null)
+                if (GProperties.debug) {
+                    System.out.println("DEBUG: [INFO] Retrieved the following from server:" + inputLine);
+                }
+            in.close();
         }
-
+        catch(Exception ex) {
+            if (GProperties.debug) {
+            System.out.println("DEBUG: [WARNING] " + ex.toString());
+            }
+        }
     }
+
 }
