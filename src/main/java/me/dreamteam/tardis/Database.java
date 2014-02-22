@@ -1,7 +1,9 @@
 package me.dreamteam.tardis;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class Database {
 
@@ -10,7 +12,7 @@ public class Database {
         String dbUsername = GProperties.username;
         try {
             // Send data
-            URL dbConnect = new URL("http://37.187.75.63/includes/highscores/update.php?username=" +dbUsername + "&distance=" + dbDistance);
+            URL dbConnect = new URL("http://37.187.75.63/includes/highscores/update.php?username=" + dbUsername + "&distance=" + dbDistance);
             URLConnection conn = dbConnect.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(
@@ -22,10 +24,9 @@ public class Database {
                     System.out.println("DEBUG: [INFO] Retrieved the following from server:" + inputLine);
                 }
             in.close();
-        }
-        catch(Exception ex) {
+        } catch (Exception ex) {
             if (GProperties.debug) {
-            System.out.println("DEBUG: [WARNING] " + ex.toString());
+                System.out.println("DEBUG: [WARNING] " + ex.toString());
             }
         }
     }

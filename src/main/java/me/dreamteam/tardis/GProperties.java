@@ -12,7 +12,7 @@ import java.util.Random;
 public class GProperties {
 
 	/*
-	 * IMPORTANT INFORMATION:
+     * IMPORTANT INFORMATION:
 	 * This class is for the purpose of declaring game variables to be used in the main class (or in some cases, other classes)
 	 */
 	
