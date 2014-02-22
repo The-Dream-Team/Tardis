@@ -15,5 +15,8 @@ public class Pack extends Entity {
     }
 
     public void collidedWith(Entity other) {
+    	 if (other instanceof Player) {
+             GProperties.gameLives++;
+         }
     }
 }

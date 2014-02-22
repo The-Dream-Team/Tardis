@@ -163,11 +163,19 @@ public class Game extends Canvas {
         		if(check == 59){
         				properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
         				properties.packList.add(properties.Pack);
+        				properties.usedPack = true;
         				if(properties.Pack != null){
         	                properties.Pack.setVerticalMovement(100);
         				}
         		}
         	}
+        }else{
+        	Entity shipe = (Entity) properties.entities.get(0);
+        	Pack packe = (Pack) properties.packList.get(0);
+            if (shipe.collidesWith(packe)) {
+            	shipe.collidedWith(packe);
+            	packe.collidedWith(shipe);
+            }
         }
         if (properties.tWait != properties.gameTime) {
             int FinalLoc;
@@ -548,6 +556,8 @@ public class Game extends Canvas {
                         }
                     }
                 }
+               
+                
                 properties.entities.removeAll(properties.removeList);
                 properties.removeList.clear();
 
