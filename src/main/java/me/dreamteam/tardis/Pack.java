@@ -20,6 +20,7 @@ public class Pack extends Entity {
              GProperties.gameLives++;
              game.removeEntity(this);
              GProperties.pack = true;
+             Sound.soundPowerup.play();
          }
     }
 }

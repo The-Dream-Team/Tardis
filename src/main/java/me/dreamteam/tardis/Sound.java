@@ -13,6 +13,8 @@ public class Sound {
     public static final Sound soundGameOver = new Sound("/sound/gameover.wav");
     // Weapon Shots
     public static final Sound soundShoot = new Sound("/sound/shoot.wav");
+    // Powerup Shots
+    public static final Sound soundPowerup = new Sound("/sound/powerup.wav");
 
     private AudioClip clip;
 
