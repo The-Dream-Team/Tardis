@@ -159,7 +159,7 @@ public class Game extends Canvas {
         }
         if(properties.usedPack == false){
         	if(properties.gameLives < 3){
-        		int check = properties.rSpriteLoc.nextInt(100);
+        		int check = properties.rSpriteLoc.nextInt(10000);
         		if(check == 59){
         			properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
         			properties.packList.add(properties.Pack);
@@ -170,17 +170,17 @@ public class Game extends Canvas {
         		}
         	}
         }else{
-        	Entity shipe = (Entity) properties.entities.get(0);
-        	Pack packe = (Pack) properties.packList.get(0);
-            if (shipe.collidesWith(packe)) {
-            	shipe.collidedWith(packe);
-            	packe.collidedWith(shipe);
-            }
+        	if(properties.pack == false){
+        		Entity shipe = (Entity) properties.entities.get(0);
+        		Pack packe = (Pack) properties.packList.get(0);
+        		if (shipe.collidesWith(packe)) {
+        			shipe.collidedWith(packe);
+        			packe.collidedWith(shipe);
+        			properties.packList.remove(0);
+            	}
+        	}
         }
-        if(properties.pack == true){
-        	properties.packList.remove(0);
-        	properties.pack = false;
-        }
+        
         if (properties.tWait != properties.gameTime) {
             int FinalLoc;
             if (properties.gameTime >= properties.tWait + 2 && properties.advanceLevel == false) {
@@ -275,7 +275,7 @@ public class Game extends Canvas {
         //reset time
         properties.timeMil = 0;
         //reset lives
-        GProperties.gameLives = 2;
+        GProperties.gameLives = 3;
         properties.level = 1;
         properties.gameStart = true;
         properties.advanceLevel = false;
