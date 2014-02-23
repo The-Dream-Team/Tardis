@@ -160,8 +160,9 @@ public class Game extends Canvas {
         if(properties.usedPack == false){
         	if(properties.gameLives < 3){
         		int check = properties.rSpriteLoc.nextInt(10000);
+        		int rPackLoc = properties.rSpriteLoc.nextInt(450);
         		if(check == 59){
-        			properties.Pack = new Pack(this, "sprites/astronaut.png", 50, -50);
+        			properties.Pack = new Pack(this, "sprites/astronaut.png", rPackLoc, -50);
         			properties.packList.add(properties.Pack);
         			properties.usedPack = true;
         			if(properties.Pack != null){
