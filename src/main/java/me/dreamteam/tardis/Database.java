@@ -103,6 +103,7 @@ public class Database {
 	          stmt.executeUpdate(sql);
 	          c.commit();
 	          Utils.ship2Name = "FALCON";
+	          stmt.close();
           }
           if (GProperties.gameTime+0 >= 80 ){
 	          stmt = c.createStatement();
@@ -110,9 +111,10 @@ public class Database {
 	          stmt.executeUpdate(sql);
 	          c.commit();
 	          Utils.ship3Name = "MOTH";
+	          stmt.close();
           }
           
-          stmt.close();
+          
           
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
