@@ -55,10 +55,24 @@ public class Database {
         	  System.out.println("Name = " + name );
         	  System.out.println("Desc = " + desc);
         	  System.out.println("Unlocked = " + unlocked);
-        	  
+
+              if (id == 1 && unlocked == 0) {
+                  GProperties.achFalcon = false;
+                  Utils.ship2Name = "LOCKED";
+              }
+
+              if (id == 2 && unlocked == 0) {
+                  GProperties.achMoth = false;
+                  Utils.ship3Name = "<b>LOCKED</b>";
+              }
+
         	  if (id == 1 && unlocked == 1) {
-        		  System.out.println("HIP HIP HOORAY");
+        		  GProperties.achFalcon = true;
         	  }
+
+              if (id == 2 && unlocked == 1) {
+                  GProperties.achMoth = true;
+              }
           }
           
           

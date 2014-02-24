@@ -69,6 +69,10 @@ public class Utils {
     // Character Selection
     static String txtCS = "Choose your spaceship to begin:";
     static String csDialogTitle = "Character Selection";
+    static String txtFalconLocked = "This ship is locked\n" +
+            "You need to travel more than 60m";
+    static String txtMothLocked = "This ship is locked\n" +
+            "You need to travel more than 80m";
 
     // Game Over
     static String txtGO = "Game Over";
