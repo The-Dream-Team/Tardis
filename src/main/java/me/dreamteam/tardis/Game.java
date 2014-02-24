@@ -434,7 +434,7 @@ public class Game extends Canvas {
         ImageIcon icon = new ImageIcon(Utils.iconURL);
         Utils.systemLF();
 
-        Object[] options = {Utils.bPlayAgain, Utils.bQuit};
+        Object[] options = {Utils.bPlayAgain, Utils.bHs, Utils.bQuit};
         int goG = JOptionPane.showOptionDialog(null,
                 Utils.txtTravelled + properties.gameTime + Utils.txtMetre, Utils.goDialogTitle,
                 JOptionPane.YES_NO_CANCEL_OPTION,
@@ -443,11 +443,22 @@ public class Game extends Canvas {
                 options,
                 options[0]);
 
-        if (goG != 0 && goG != 1) {
+        if (goG != 0 && goG != 1 && goG != 2) {
             Utils.quitGame();
         }
 
         if (goG == 1) {
+            try {
+                String url = "http://the-dreamteam.co.uk/highscores.php";
+                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+                titleScreen();
+            }
+            catch (java.io.IOException e) {
+                System.out.println("DEBUG: [WARNING] " + e.getMessage());
+            }
+        }
+
+        if (goG == 2) {
             System.exit(0);
         }
 
