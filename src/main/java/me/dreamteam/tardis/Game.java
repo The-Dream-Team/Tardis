@@ -173,12 +173,14 @@ public class Game extends Canvas {
         }else{
         	if(properties.pack == false){
         		Entity shipe = (Entity) properties.entities.get(0);
-        		Pack packe = (Pack) properties.packList.get(0);
-        		if (shipe.collidesWith(packe)) {
-        			shipe.collidedWith(packe);
-        			packe.collidedWith(shipe);
-        			properties.packList.remove(0);
-            	}
+        		for(int i = 0; i < properties.packList.size(); i++){
+	        		Pack packe = (Pack) properties.packList.get(1);
+	        		if (shipe.collidesWith(packe)) {
+	        			shipe.collidedWith(packe);
+	        			packe.collidedWith(shipe);
+	        			properties.packList.remove(1);
+	            	}
+        		}
         	}
         }
         
