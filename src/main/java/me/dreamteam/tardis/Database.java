@@ -40,7 +40,7 @@ public class Database {
           Class.forName("org.sqlite.JDBC");
           c = DriverManager.getConnection("jdbc:sqlite:game.db");
 
-          System.out.println("Opened database successfully");
+          System.out.println("DEBUG: [INFO] Opened database successfully");
           
           
         //Check Achievements
@@ -51,11 +51,7 @@ public class Database {
         	  String name = rs.getString("name");
         	  String desc = rs.getString("desc");
         	  int unlocked = rs.getInt("unlocked");
-        	  System.out.println("ID = " + id);
-        	  System.out.println("Name = " + name );
-        	  System.out.println("Desc = " + desc);
-        	  System.out.println("Unlocked = " + unlocked);
-
+        	  
               if (id == 1 && unlocked == 0) {
                   GProperties.achFalcon = false;
                   Utils.ship2Name = "<b>LOCKED</b>";
