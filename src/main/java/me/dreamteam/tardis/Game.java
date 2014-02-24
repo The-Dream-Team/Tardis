@@ -267,8 +267,10 @@ public class Game extends Canvas {
         properties.backgroundImages.add(properties.Background);
         properties.Background2 = new Background(this, "sprites/background.png", 0, -650);
         properties.backgroundImages.add(properties.Background2);
+        properties.Pack = new Pack(this, "sprites/crate.png", 5, 628);
+		properties.packList.add(properties.Pack);
         initPlayer();
-
+        
         // reset key presses
         properties.leftPressed = false;
         properties.rightPressed = false;
@@ -640,45 +642,17 @@ public class Game extends Canvas {
                 g.drawString(convlives, (965 - g.getFontMetrics().stringWidth(convlives)) / 2, 18);
 
                 //Weapon
-                g.setColor(Color.WHITE);
-                g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponFS));
-                g.drawString(Utils.txtWeapon, (150 - g.getFontMetrics().stringWidth(Utils.txtWeapon)) / 2, 645);
                 if (properties.curWeapon == 1) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (285 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (285 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 645);
+                    g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
                 }
 
-                g.setColor(Color.WHITE);
-                g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                g.drawString("/", (305 - g.getFontMetrics().stringWidth("/")) / 2, 645);
-
-                if (properties.curWeapon == 2) {
-                    g.setColor(Color.ORANGE);
-                    g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon2), (325 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2))) / 2, 645);
-                } else {
-                    g.setColor(Color.WHITE);
-                    g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon2), (325 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon2))) / 2, 645);
-                }
-                g.setColor(Color.WHITE);
-                g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                g.drawString("/", (345 - g.getFontMetrics().stringWidth("/")) / 2, 645);
-
-                if (properties.curWeapon == 3) {
-                    g.setColor(Color.ORANGE);
-                    g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon3), (365 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3))) / 2, 645);
-                } else {
-                    g.setColor(Color.WHITE);
-                    g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon3), (365 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon3))) / 2, 645);
-                }
+            
                 // Clear Graphics
                 g.dispose();
                 properties.strategy.show();
