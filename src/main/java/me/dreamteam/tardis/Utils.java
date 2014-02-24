@@ -76,6 +76,7 @@ public class Utils {
     static String txtMetre = "0m";
     static String goDialogTitle = "";
     static String bPlayAgain = "Play Again";
+    static String bHs = "High Scores";
 
     // Pause screen
     static String txtPS = "Game paused";
