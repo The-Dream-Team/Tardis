@@ -70,9 +70,9 @@ public class Utils {
     static String txtCS = "Choose your spaceship to begin:";
     static String csDialogTitle = "Character Selection";
     static String txtFalconLocked = "This ship is locked\n" +
-            "You need to travel more than 60m";
+            "You need to travel more than 150m";
     static String txtMothLocked = "This ship is locked\n" +
-            "You need to travel more than 80m";
+            "You need to travel more than 300m";
 
     // Game Over
     static String txtGO = "Game Over";
