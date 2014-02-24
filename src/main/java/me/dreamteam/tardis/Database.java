@@ -40,7 +40,7 @@ public class Database {
           Class.forName("org.sqlite.JDBC");
           c = DriverManager.getConnection("jdbc:sqlite:game.db");
 
-          System.out.println("Opened database successfully");
+          System.out.println("DEBUG: [INFO] Opened database successfully");
           
           
         //Check Achievements
@@ -51,11 +51,7 @@ public class Database {
         	  String name = rs.getString("name");
         	  String desc = rs.getString("desc");
         	  int unlocked = rs.getInt("unlocked");
-        	  System.out.println("ID = " + id);
-        	  System.out.println("Name = " + name );
-        	  System.out.println("Desc = " + desc);
-        	  System.out.println("Unlocked = " + unlocked);
-
+        	  
               if (id == 1 && unlocked == 0) {
                   GProperties.achFalcon = false;
                   Utils.ship2Name = "<b>LOCKED</b>";
@@ -97,7 +93,7 @@ public class Database {
           
           
         //Check Achievements
-          if (GProperties.gameTime+0 >= 60 ){
+          if (GProperties.gameTime+0 >= 150 ){
 	          stmt = c.createStatement();
 	          String sql = "UPDATE achievements set unlocked = 1 where id=1;";
 	          stmt.executeUpdate(sql);
@@ -105,7 +101,7 @@ public class Database {
 	          Utils.ship2Name = "FALCON";
 	          stmt.close();
           }
-          if (GProperties.gameTime+0 >= 80 ){
+          if (GProperties.gameTime+0 >= 300 ){
 	          stmt = c.createStatement();
 	          String sql = "UPDATE achievements set unlocked = 1 where id=2;";
 	          stmt.executeUpdate(sql);
