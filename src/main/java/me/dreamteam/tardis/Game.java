@@ -292,7 +292,6 @@ public class Game extends Canvas {
 
         Sound.soundTheme1.play();
         
-        database.SQLConnect();
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
@@ -307,6 +306,9 @@ public class Game extends Canvas {
     }
 
     public void characterSelect() {
+    	
+    	database.SQLConnect();
+        
         ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
         ImageIcon ship2 = new ImageIcon(Utils.ship2URL);
         ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
