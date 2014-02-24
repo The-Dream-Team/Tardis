@@ -81,11 +81,6 @@ public class HowToPlay extends JFrame {
         htpLine5.setBounds(10, 185, 430, 14);
         contentPane.add(htpLine5);
 
-        JLabel htpLine6 = new JLabel("To switch between powerups, use NUM 1, NUM 2 or NUM 3");
-        htpLine6.setForeground(Color.WHITE);
-        htpLine6.setBounds(10, 200, 430, 14);
-        contentPane.add(htpLine6);
-
         JLabel htpLine7 = new JLabel("Powerups are limited, so use them wisely!");
         htpLine7.setForeground(Color.WHITE);
         htpLine7.setBounds(10, 215, 430, 14);
