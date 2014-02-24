@@ -83,8 +83,44 @@ public class Database {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+    }
+    
+    //Update SQL
+    public void SQLUpdate(){
+    	Connection c = null;
+    	Statement stmt = null;
+        try {
+          Class.forName("org.sqlite.JDBC");
+          c = DriverManager.getConnection("jdbc:sqlite:game.db");
+          c.setAutoCommit(false);
+          System.out.println("Opened database successfully");
+          
+          
+        //Check Achievements
+          if (GProperties.gameTime+0 >= 60 ){
+	          stmt = c.createStatement();
+	          String sql = "UPDATE achievements set unlocked = 1 where id=1;";
+	          stmt.executeUpdate(sql);
+	          c.commit();
+	          Utils.ship2Name = "FALCON";
+          }
+          if (GProperties.gameTime+0 >= 80 ){
+	          stmt = c.createStatement();
+	          String sql = "UPDATE achievements set unlocked = 1 where id=2;";
+	          stmt.executeUpdate(sql);
+	          c.commit();
+	          Utils.ship3Name = "MOTH";
+          }
+          
+          stmt.close();
+          
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
         
         
     }
+
 
 }

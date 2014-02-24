@@ -425,6 +425,7 @@ public class Game extends Canvas {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        database.SQLUpdate();
 
         if (GProperties.debug) {
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
