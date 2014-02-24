@@ -102,7 +102,13 @@ public class GProperties {
 
     public static int sX = 0;
     public static int sY = 0;
+    
+    /* Achievements */
 
+    public static boolean achFalcon = false;
+    public static boolean achMoth = false;
+    
+    
     public void propertiesFile() {
 
         Properties prop = new Properties();
@@ -110,12 +116,10 @@ public class GProperties {
         try {
             prop.load(new FileInputStream("game.properties"));
 
-            String pcA = prop.getProperty("plays");
-            int pcB = Integer.parseInt(pcA);
-            int pcC = pcB + 1;
-            String pcD = "" + pcC;
+            String AchMoth = prop.getProperty("moth");
+            String AchFal = prop.getProperty("falcon");
 
-            prop.setProperty("plays", pcD);
+            prop.setProperty("moth", "true");
 
             prop.store(new FileOutputStream("game.properties"), null);
 
