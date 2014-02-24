@@ -93,7 +93,7 @@ public class Database {
           
           
         //Check Achievements
-          if (GProperties.gameTime+0 >= 60 ){
+          if (GProperties.gameTime+0 >= 150 ){
 	          stmt = c.createStatement();
 	          String sql = "UPDATE achievements set unlocked = 1 where id=1;";
 	          stmt.executeUpdate(sql);
@@ -101,7 +101,7 @@ public class Database {
 	          Utils.ship2Name = "FALCON";
 	          stmt.close();
           }
-          if (GProperties.gameTime+0 >= 80 ){
+          if (GProperties.gameTime+0 >= 300 ){
 	          stmt = c.createStatement();
 	          String sql = "UPDATE achievements set unlocked = 1 where id=2;";
 	          stmt.executeUpdate(sql);
