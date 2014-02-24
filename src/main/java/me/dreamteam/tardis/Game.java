@@ -19,7 +19,7 @@ import java.util.Date;
 public class Game extends Canvas {
     GProperties properties = new GProperties();
     Sound sound;
-
+    Database database = new Database();
     public Game() {
         JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
@@ -274,7 +274,6 @@ public class Game extends Canvas {
         // reset key presses
         properties.leftPressed = false;
         properties.rightPressed = false;
-
         //reset time
         properties.timeMil = 0;
         //reset lives
@@ -292,7 +291,9 @@ public class Game extends Canvas {
         GProperties.debugHits = 0;
 
         Sound.soundTheme1.play();
-
+        
+        database.SQLConnect();
+        
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
         Date date = new Date();
@@ -311,7 +312,7 @@ public class Game extends Canvas {
         ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
 
         Utils.systemLF();
-
+        
         Object[] coptions = {UtilsHTML.bpcsStart + ship1 + UtilsHTML.bpcsMiddle + Utils.ship1Name + UtilsHTML.bpcsEnd,
                 UtilsHTML.bpcsStart + ship2 + UtilsHTML.bpcsMiddle + Utils.ship2Name + UtilsHTML.bpcsEnd,
                 UtilsHTML.bpcsStart + ship3 + UtilsHTML.bpcsMiddle + Utils.ship3Name + UtilsHTML.bpcsEnd};
@@ -321,6 +322,7 @@ public class Game extends Canvas {
                 Utils.blankIcon,
                 coptions,
                 coptions[0]);
+        
 
         if (characterS != 2 && characterS != 1 && characterS != 0) {
             titleScreen();
