@@ -328,14 +328,20 @@ public class Game extends Canvas {
             titleScreen();
         }
 
-        if (characterS == 2) {
+        if (characterS == 2 && GProperties.achMoth == true) {
             properties.shipS = 2;
             startGame();
+        } else if (characterS == 2 && GProperties.achMoth == false) {
+            JOptionPane.showMessageDialog(null,Utils.txtMothLocked, "", JOptionPane.WARNING_MESSAGE);
+            characterSelect();
         }
 
-        if (characterS == 1) {
+        if (characterS == 1 && GProperties.achFalcon == true) {
             properties.shipS = 1;
             startGame();
+        } else if (characterS == 1 && GProperties.achFalcon == false) {
+            JOptionPane.showMessageDialog(null,Utils.txtFalconLocked, "", JOptionPane.WARNING_MESSAGE);
+            characterSelect();
         }
 
         if (characterS == 0) {
