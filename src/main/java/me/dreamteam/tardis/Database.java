@@ -58,7 +58,7 @@ public class Database {
 
               if (id == 1 && unlocked == 0) {
                   GProperties.achFalcon = false;
-                  Utils.ship2Name = "LOCKED";
+                  Utils.ship2Name = "<b>LOCKED</b>";
               }
 
               if (id == 2 && unlocked == 0) {
