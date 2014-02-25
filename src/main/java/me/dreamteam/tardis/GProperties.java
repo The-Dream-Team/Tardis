@@ -15,7 +15,7 @@ public class GProperties {
      * IMPORTANT INFORMATION:
 	 * This class is for the purpose of declaring game variables to be used in the main class (or in some cases, other classes)
 	 */
-	
+
 	/* Hardware Acceleration */
 
     public BufferStrategy strategy;
@@ -107,8 +107,8 @@ public class GProperties {
 
     public static boolean achFalcon = false;
     public static boolean achMoth = false;
-    
-    
+
+
     public void propertiesFile() {
 
         Properties prop = new Properties();
