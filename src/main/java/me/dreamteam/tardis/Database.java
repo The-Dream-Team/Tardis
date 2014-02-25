@@ -89,7 +89,7 @@ public class Database {
           Class.forName("org.sqlite.JDBC");
           c = DriverManager.getConnection("jdbc:sqlite:game.db");
           c.setAutoCommit(false);
-          System.out.println("Opened database successfully");
+          System.out.println("DEBUG: [INFO] Opened database successfully");
           
           
         //Check Achievements
@@ -113,11 +113,42 @@ public class Database {
           
           
         } catch ( Exception e ) {
-          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.err.println("DEBUG: [ERROR]" + e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
         
         
+    }
+
+    public void SQLReset(){
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:game.db");
+            c.setAutoCommit(false);
+            System.out.println("DEBUG: [INFO] Opened database successfully");
+
+
+                stmt = c.createStatement();
+                String sql = "UPDATE achievements set unlocked = 0 where id=1; ";
+                String sql2 = "UPDATE achievements set unlocked = 0 where id=2; ";
+                stmt.executeUpdate(sql);
+                stmt.executeUpdate(sql2);
+                c.commit();
+                Utils.ship3Name = "MOTH";
+                Utils.ship2Name = "FALCON";
+                stmt.close();
+            System.out.println("DEBUG: [INFO] Successfully reset database and achievements");
+
+
+
+        } catch ( Exception e ) {
+            System.err.println("DEBUG: [ERROR]" + e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+
+
     }
 
 
