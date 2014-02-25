@@ -6,7 +6,7 @@ import java.net.URL;
 public class Utils {
 
 	/* 
-	 * Game Information
+     * Game Information
 	 */
 
     static String gameName = "SUPER SPACESHIP ADVENTURE ";
