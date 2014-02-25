@@ -1,9 +1,9 @@
 package me.dreamteam.tardis;
 
 public class Pack extends Entity {
-	
+
     private Game game;
-    
+
     public Pack(Game game, String ref, int x, int y) {
         super(ref, x, y);
 
@@ -16,11 +16,11 @@ public class Pack extends Entity {
     }
 
     public void collidedWith(Entity other) {
-    	 if (other instanceof Player) {
-             GProperties.gameLives++;
-             game.removeEntity(this);
-             GProperties.pack = true;
-             Sound.soundPowerup.play();
-         }
+        if (other instanceof Player) {
+            GProperties.gameLives++;
+            game.removeEntity(this);
+            GProperties.pack = true;
+            Sound.soundPowerup.play();
+        }
     }
 }
