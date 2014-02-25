@@ -817,6 +817,11 @@ public class Game extends Canvas {
                     GProperties.gameLives = 0;
                 }
             }
+            if (properties.debug) {
+                if (e.getKeyCode() == KeyEvent.VK_F8) {
+                    database.SQLReset();
+                }
+            }
 
         }
 
