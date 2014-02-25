@@ -20,6 +20,7 @@ public class Game extends Canvas {
     GProperties properties = new GProperties();
     Sound sound;
     Database database = new Database();
+
     public Game() {
         JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
@@ -157,33 +158,33 @@ public class Game extends Canvas {
                     properties.spriteLoc2 = properties.spriteLoc - 63;
             }
         }
-        if(properties.usedPack == false){
-        	if(properties.gameLives < 3){
-        		int check = properties.rSpriteLoc.nextInt(10000);
-        		int rPackLoc = properties.rSpriteLoc.nextInt(450);
-        		if(check == 59){
-        			properties.Pack = new Pack(this, "sprites/astronaut.png", rPackLoc, -50);
-        			properties.packList.add(properties.Pack);
-        			properties.usedPack = true;
-        			if(properties.Pack != null){
-       	                properties.Pack.setVerticalMovement(100);
-       				}
-        		}
-        	}
-        }else{
-        	if(properties.pack == false){
-        		Entity shipe = (Entity) properties.entities.get(0);
-        		for(int i = 0; i < properties.packList.size(); i++){
-	        		Pack packe = (Pack) properties.packList.get(1);
-	        		if (shipe.collidesWith(packe)) {
-	        			shipe.collidedWith(packe);
-	        			packe.collidedWith(shipe);
-	        			properties.packList.remove(1);
-	            	}
-        		}
-        	}
+        if (properties.usedPack == false) {
+            if (properties.gameLives < 3) {
+                int check = properties.rSpriteLoc.nextInt(10000);
+                int rPackLoc = properties.rSpriteLoc.nextInt(450);
+                if (check == 59) {
+                    properties.Pack = new Pack(this, "sprites/astronaut.png", rPackLoc, -50);
+                    properties.packList.add(properties.Pack);
+                    properties.usedPack = true;
+                    if (properties.Pack != null) {
+                        properties.Pack.setVerticalMovement(100);
+                    }
+                }
+            }
+        } else {
+            if (properties.pack == false) {
+                Entity shipe = (Entity) properties.entities.get(0);
+                for (int i = 0; i < properties.packList.size(); i++) {
+                    Pack packe = (Pack) properties.packList.get(1);
+                    if (shipe.collidesWith(packe)) {
+                        shipe.collidedWith(packe);
+                        packe.collidedWith(shipe);
+                        properties.packList.remove(1);
+                    }
+                }
+            }
         }
-        
+
         if (properties.tWait != properties.gameTime) {
             int FinalLoc;
             if (properties.gameTime >= properties.tWait + 2 && properties.advanceLevel == false) {
@@ -270,9 +271,9 @@ public class Game extends Canvas {
         properties.Background2 = new Background(this, "sprites/background.png", 0, -650);
         properties.backgroundImages.add(properties.Background2);
         properties.Pack = new Pack(this, "sprites/crate.png", 5, 628);
-		properties.packList.add(properties.Pack);
+        properties.packList.add(properties.Pack);
         initPlayer();
-        
+
         // reset key presses
         properties.leftPressed = false;
         properties.rightPressed = false;
@@ -293,8 +294,8 @@ public class Game extends Canvas {
         GProperties.debugHits = 0;
 
         Sound.soundTheme1.play();
-        
-        
+
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         //get current date time with Date()
         Date date = new Date();
@@ -308,15 +309,15 @@ public class Game extends Canvas {
     }
 
     public void characterSelect() {
-    	
-    	database.SQLConnect();
-        
+
+        database.SQLConnect();
+
         ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
         ImageIcon ship2 = new ImageIcon(Utils.ship2URL);
         ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
 
         Utils.systemLF();
-        
+
         Object[] coptions = {UtilsHTML.bpcsStart + ship1 + UtilsHTML.bpcsMiddle + Utils.ship1Name + UtilsHTML.bpcsEnd,
                 UtilsHTML.bpcsStart + ship2 + UtilsHTML.bpcsMiddle + Utils.ship2Name + UtilsHTML.bpcsEnd,
                 UtilsHTML.bpcsStart + ship3 + UtilsHTML.bpcsMiddle + Utils.ship3Name + UtilsHTML.bpcsEnd};
@@ -326,7 +327,7 @@ public class Game extends Canvas {
                 Utils.blankIcon,
                 coptions,
                 coptions[0]);
-        
+
 
         if (characterS != 2 && characterS != 1 && characterS != 0) {
             titleScreen();
@@ -336,7 +337,7 @@ public class Game extends Canvas {
             properties.shipS = 2;
             startGame();
         } else if (characterS == 2 && GProperties.achMoth == false) {
-            JOptionPane.showMessageDialog(null,Utils.txtMothLocked, "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, Utils.txtMothLocked, "", JOptionPane.WARNING_MESSAGE);
             characterSelect();
         }
 
@@ -344,7 +345,7 @@ public class Game extends Canvas {
             properties.shipS = 1;
             startGame();
         } else if (characterS == 1 && GProperties.achFalcon == false) {
-            JOptionPane.showMessageDialog(null,Utils.txtFalconLocked, "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, Utils.txtFalconLocked, "", JOptionPane.WARNING_MESSAGE);
             characterSelect();
         }
 
@@ -467,8 +468,7 @@ public class Game extends Canvas {
                 String url = "http://the-dreamteam.co.uk/highscores.php";
                 java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
                 titleScreen();
-            }
-            catch (java.io.IOException e) {
+            } catch (java.io.IOException e) {
                 System.out.println("DEBUG: [WARNING] " + e.getMessage());
             }
         }
@@ -557,7 +557,7 @@ public class Game extends Canvas {
                     Entity entity = (Entity) properties.packList.get(i);
                     entity.move(delta);
                 }
-                
+
 
                 long bgLoopCheck = System.currentTimeMillis();
                 for (int i = 1; i < 3; i++) {
@@ -587,8 +587,8 @@ public class Game extends Canvas {
                         }
                     }
                 }
-               
-                
+
+
                 properties.entities.removeAll(properties.removeList);
                 properties.removeList.clear();
 
@@ -665,7 +665,7 @@ public class Game extends Canvas {
                     g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
                 }
 
-            
+
                 // Clear Graphics
                 g.dispose();
                 properties.strategy.show();
