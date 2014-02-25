@@ -19,12 +19,12 @@ public class GProperties {
 	/* Hardware Acceleration */
 
     public BufferStrategy strategy;
-	
+
 	/* Debug */
 
     public static boolean debug = true;
     public static int debugHits = 0;
-	
+
 	/* Game Initilisation Variables */
 
     public boolean Running = true;
