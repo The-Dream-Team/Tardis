@@ -16,25 +16,29 @@ import java.util.Date;
  * Main Class
  */
 
+
+
 public class Game extends Canvas {
+
+
     GProperties properties = new GProperties();
     Sound sound;
     Database database = new Database();
 
     public Game() {
-        JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
-        JPanel panel = (JPanel) container.getContentPane();
-        panel.setPreferredSize(new Dimension(500, 650));
-        panel.setLayout(null);
+        GUI gui = new GUI();
 
-        panel.setBackground(Color.black);
+        JPanel panelGame;
+        panelGame = (JPanel) gui.getContentPane();
+        panelGame.setPreferredSize(new Dimension(500, 650));
+        panelGame.setLayout(null);
+
+        panelGame.setBackground(Color.black);
         setBounds(0, 0, 500, 650);
-        panel.add(this);
+        panelGame.add(this);
 
         setIgnoreRepaint(true);
-        container.setResizable(false);
-        container.pack();
 
         // Set up elements colours
         UIManager UI = new UIManager();
@@ -42,41 +46,8 @@ public class Game extends Canvas {
         UI.put("Panel.background", new ColorUIResource(0, 0, 0));
         UI.put("OptionPane.messageForeground", new ColorUIResource(255, 255, 255));
 
-        // Window setup
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        int w = container.getSize().width;
-        int h = container.getSize().height;
-        int x = (dim.width - w) / 2;
-        int y = (dim.height - h) / 2;
-        container.setLocation(x, y);
-        container.setBackground(Color.black);
-        container.setVisible(true);
-
-        properties.sX = x;
-        properties.sY = y;
-
-        //What to do when user choose to close
-        container.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                Utils.quitGame();
-            }
-        });
-
-        container.addWindowListener(new WindowAdapter() {
-            public void windowIconified(WindowEvent e) {
-                // To be done later, minimize event
-            }
-        });
-
-        container.addWindowListener(new WindowAdapter() {
-            public void windowDeiconified(WindowEvent e) {
-                // To be done later, restore event
-            }
-        });
-
-
-        ImageIcon icon = new ImageIcon(Utils.iconURL);
-        container.setIconImage(icon.getImage());
+        //properties.sX = x;
+        //properties.sY = y;
 
         // Init keys
         addKeyListener(new KeyInputHandler());
@@ -836,11 +807,13 @@ public class Game extends Canvas {
         }
     }
 
-    public static void main(String argv[]) {
-        Game g = new Game();
 
-        // Start the main game loop
-        g.gameLoop();
+
+    public static void main(String argv[]) {
+        new GUI().setVisible(true);
+        
     }
+
+
 
 }
