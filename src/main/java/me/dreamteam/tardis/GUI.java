@@ -9,6 +9,8 @@ import javax.swing.*;
 public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify
+    static javax.swing.JDesktopPane GameFrame;
+    static javax.swing.JPanel GamePanel;
     static javax.swing.JPanel Master;
     private javax.swing.JButton btnAbout;
     private javax.swing.JButton btnAch;
@@ -58,7 +60,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel txtHTPTitle;
     private javax.swing.JTextPane txtpUsername;
     static javax.swing.JPanel panelGame;
-    private java.awt.Canvas canvas1;
+    static java.awt.Canvas Canvas;
+
     /**
      * Creates new form GameUI
      */
@@ -123,6 +126,7 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         Master = new javax.swing.JPanel();
+        GameFrame = new javax.swing.JDesktopPane();
         panelGame = new javax.swing.JPanel();
         panelMain = new javax.swing.JPanel();
         btnPlayGame = new javax.swing.JButton();
@@ -171,7 +175,8 @@ public class GUI extends javax.swing.JFrame {
         labelLogoSmall3 = new javax.swing.JLabel();
         txtHTPTitle = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        canvas1 = new java.awt.Canvas();
+        Canvas = new java.awt.Canvas();
+        GamePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(Utils.gameName + Utils.version);
@@ -563,6 +568,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pbAch1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+
                                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtAchTitle2)
@@ -646,15 +652,39 @@ public class GUI extends javax.swing.JFrame {
 
         Master.add(panelHTP, "panelHTP");
 
+        GameFrame.setMaximumSize(new java.awt.Dimension(500, 650));
+        GameFrame.setMinimumSize(new java.awt.Dimension(500, 650));
+        GameFrame.setName("GameFrame"); // NOI18N
+
+        GamePanel.setName("GamePanel"); // NOI18N
+
+        javax.swing.GroupLayout GamePanelLayout = new javax.swing.GroupLayout(GamePanel);
+        GamePanel.setLayout(GamePanelLayout);
+        GamePanelLayout.setHorizontalGroup(
+                GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 500, Short.MAX_VALUE)
+        );
+        GamePanelLayout.setVerticalGroup(
+                GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 650, Short.MAX_VALUE)
+        );
+
+        GamePanel.setBounds(0, 0, 500, 650);
+        GameFrame.add(GamePanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout panelGameLayout = new javax.swing.GroupLayout(panelGame);
         panelGame.setLayout(panelGameLayout);
         panelGameLayout.setHorizontalGroup(
                 panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelGameLayout.createSequentialGroup()
+                                .addComponent(GameFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelGameLayout.setVerticalGroup(
                 panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelGameLayout.createSequentialGroup()
+                                .addComponent(GameFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         Master.add(panelGame, "panelGameC");

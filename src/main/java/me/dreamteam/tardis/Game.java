@@ -19,8 +19,6 @@ import java.util.Date;
 
 
 public class Game extends Canvas {
-
-
     GProperties properties = new GProperties();
     Sound sound;
     Database database = new Database();
@@ -29,14 +27,16 @@ public class Game extends Canvas {
 
         GUI gui = new GUI();
 
-        JPanel panelGame;
-        panelGame = (JPanel) gui.getContentPane();
-        panelGame.setPreferredSize(new Dimension(500, 650));
-        panelGame.setLayout(null);
+        JDesktopPane container = gui.GameFrame;
+        container.setVisible(true);
+        JPanel panel = (JPanel) gui.GamePanel;
 
-        panelGame.setBackground(Color.black);
+        panel.setPreferredSize(new Dimension(500, 650));
+        panel.setLayout(null);
+
+        panel.setBackground(Color.black);
         setBounds(0, 0, 500, 650);
-        panelGame.add(this);
+        panel.add(this);
 
         setIgnoreRepaint(true);
 
@@ -46,8 +46,18 @@ public class Game extends Canvas {
         UI.put("Panel.background", new ColorUIResource(0, 0, 0));
         UI.put("OptionPane.messageForeground", new ColorUIResource(255, 255, 255));
 
-        //properties.sX = x;
-        //properties.sY = y;
+        // Window setup
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = container.getSize().width;
+        int h = container.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        container.setLocation(x, y);
+        container.setBackground(Color.black);
+
+
+        properties.sX = x;
+        properties.sY = y;
 
         // Init keys
         addKeyListener(new KeyInputHandler());
@@ -55,6 +65,8 @@ public class Game extends Canvas {
         // create the buffering strategy for graphics
         createBufferStrategy(2);
         properties.strategy = getBufferStrategy();
+
+
 
         Graphics2D gix = (Graphics2D) properties.strategy.getDrawGraphics();
 
@@ -93,6 +105,8 @@ public class Game extends Canvas {
         gi.drawString(Utils.txtLoad, (500 - gi.getFontMetrics().stringWidth(Utils.txtLoad)) / 2, 248);
         properties.strategy.show();
         gi.dispose();
+
+        container.setVisible(true);
 
     }
 
@@ -811,7 +825,7 @@ public class Game extends Canvas {
 
     public static void main(String argv[]) {
         new GUI().setVisible(true);
-        
+
     }
 
 
