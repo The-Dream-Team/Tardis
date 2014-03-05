@@ -25,12 +25,10 @@ public class Game extends Canvas {
 
     public Game() {
 
-        GUI gui = new GUI();
 
-        JDesktopPane container = gui.GameFrame;
-        container.setVisible(true);
-        JPanel panel = (JPanel) gui.GamePanel;
+        JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
+        JPanel panel = (JPanel) container.getContentPane();
         panel.setPreferredSize(new Dimension(500, 650));
         panel.setLayout(null);
 
@@ -39,6 +37,8 @@ public class Game extends Canvas {
         panel.add(this);
 
         setIgnoreRepaint(true);
+        container.setResizable(false);
+        container.pack();
 
         // Set up elements colours
         UIManager UI = new UIManager();
@@ -54,19 +54,37 @@ public class Game extends Canvas {
         int y = (dim.height - h) / 2;
         container.setLocation(x, y);
         container.setBackground(Color.black);
-
+        container.setVisible(true);
 
         properties.sX = x;
         properties.sY = y;
 
-        // Init keys
-        addKeyListener(new KeyInputHandler());
+        //What to do when user choose to close
+        container.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                Utils.quitGame();
+            }
+        });
+
+        container.addWindowListener(new WindowAdapter() {
+            public void windowIconified(WindowEvent e) {
+                // To be done later, minimize event
+            }
+        });
+
+        container.addWindowListener(new WindowAdapter() {
+            public void windowDeiconified(WindowEvent e) {
+                // To be done later, restore event
+            }
+        });
+
+
+        ImageIcon icon = new ImageIcon(Utils.iconURL);
+        container.setIconImage(icon.getImage());
 
         // create the buffering strategy for graphics
         createBufferStrategy(2);
         properties.strategy = getBufferStrategy();
-
-
 
         Graphics2D gix = (Graphics2D) properties.strategy.getDrawGraphics();
 
@@ -95,6 +113,10 @@ public class Game extends Canvas {
         UI.put("OptionPane.messageFont", new Font("Volter (Goldfish)", Font.BOLD, 14));
 
         requestFocus();
+
+        // Init keys
+        addKeyListener(new KeyInputHandler());
+
         initPlayer();
         titleScreen();
 
@@ -106,7 +128,8 @@ public class Game extends Canvas {
         properties.strategy.show();
         gi.dispose();
 
-        container.setVisible(true);
+
+
 
     }
 
@@ -753,7 +776,9 @@ public class Game extends Canvas {
         properties.removeList.add(entity);
     }
 
+
     private class KeyInputHandler extends KeyAdapter {
+        @Override
         public void keyPressed(KeyEvent e) {
 
             if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
@@ -810,6 +835,7 @@ public class Game extends Canvas {
 
         }
 
+        @Override
         public void keyReleased(KeyEvent e) {
 
             if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
