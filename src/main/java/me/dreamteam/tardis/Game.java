@@ -119,7 +119,7 @@ public class Game extends Canvas {
         addKeyListener(new KeyInputHandler());
 
         //initPlayer();
-        titleScreen();
+        playerName();
 
         Graphics2D gi = (Graphics2D) properties.strategy.getDrawGraphics();
 
@@ -326,43 +326,6 @@ public class Game extends Canvas {
         ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
 
         Utils.systemLF();
-        /*
-        Object[] coptions = {UtilsHTML.bpcsStart + ship1 + UtilsHTML.bpcsMiddle + Utils.ship1Name + UtilsHTML.bpcsEnd,
-                UtilsHTML.bpcsStart + ship2 + UtilsHTML.bpcsMiddle + Utils.ship2Name + UtilsHTML.bpcsEnd,
-                UtilsHTML.bpcsStart + ship3 + UtilsHTML.bpcsMiddle + Utils.ship3Name + UtilsHTML.bpcsEnd};
-        int characterS = JOptionPane.showOptionDialog(null,
-                UtilsHTML.csDialog, Utils.csDialogTitle, JOptionPane.YES_NO_CANCEL_OPTION,
-                JOptionPane.INFORMATION_MESSAGE,
-                Utils.blankIcon,
-                coptions,
-                coptions[0]);
-		
-
-        if (characterS != 2 && characterS != 1 && characterS != 0) {
-            titleScreen();
-        }
-
-        if (characterS == 2 && GProperties.achMoth == true) {
-            properties.shipS = 2;
-            startGame();
-        } else if (characterS == 2 && GProperties.achMoth == false) {
-            JOptionPane.showMessageDialog(null, Utils.txtMothLocked, "", JOptionPane.WARNING_MESSAGE);
-            characterSelect();
-        }
-
-        if (characterS == 1 && GProperties.achFalcon == true) {
-            properties.shipS = 1;
-            startGame();
-        } else if (characterS == 1 && GProperties.achFalcon == false) {
-            JOptionPane.showMessageDialog(null, Utils.txtFalconLocked, "", JOptionPane.WARNING_MESSAGE);
-            characterSelect();
-        }
-
-        if (characterS == 0) {
-            properties.shipS = 0;
-            startGame();
-        }
-        */
         properties.shipS = 0;
         startGame();
         
@@ -371,37 +334,11 @@ public class Game extends Canvas {
     }
 
     public void titleScreen() {
-    	/*
-        ImageIcon icon = new ImageIcon(Utils.iconURL);
-        Utils.systemLF();
-
-        Object[] options = {Utils.bPlay, Utils.bHowTo, Utils.bQuit};
-        int startG = JOptionPane.showOptionDialog(null,
-                Utils.txtTS, Utils.tsDialogTitle,
-                JOptionPane.YES_NO_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                icon,
-                options,
-                options[0]);
-		*/
             playerName();
 
     }
 
     public void playerName() {
-    	/*
-        properties.username = JOptionPane.showInputDialog(null,
-                Utils.txtUsernameEntry,
-                "",
-                JOptionPane.PLAIN_MESSAGE);
-        if (properties.username != null) {
-            characterSelect();
-        } else {
-            titleScreen();
-        }
-        
-    }
-    */
     	properties.username = "testUser";
     	 characterSelect();
     }
@@ -420,7 +357,7 @@ public class Game extends Canvas {
 
         if (GProperties.wake == 1) {
             GProperties.wake--;
-            titleScreen();
+            playerName();
         }
 
     }
@@ -475,7 +412,7 @@ public class Game extends Canvas {
             try {
                 String url = "http://the-dreamteam.co.uk/highscores.php";
                 java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-                titleScreen();
+                playerName();
             } catch (java.io.IOException e) {
                 System.out.println("DEBUG: [WARNING] " + e.getMessage());
             }
