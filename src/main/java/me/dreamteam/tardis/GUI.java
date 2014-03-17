@@ -735,11 +735,7 @@ public class GUI extends javax.swing.JFrame {
         //CardLayout cl = (CardLayout)(Master.getLayout());
         //cl.show(Master, "panelGameC");
         dispose();
-
-        Game g = new Game();
-
-        // Start the main game loop
-        g.gameLoop();
+        GProperties.release = true;
     }
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
