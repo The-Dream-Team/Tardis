@@ -20,6 +20,8 @@ public class GProperties {
 
     public BufferStrategy strategy;
 
+    public static boolean release = false;
+
 	/* Debug */
 
     public static boolean debug = true;
