@@ -762,7 +762,7 @@ public class GUI extends javax.swing.JFrame {
      private void txtpUsernameKeyPressed(java.awt.event.KeyEvent evt) {
         txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("ENTER"),
                 "doNothing");
-        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("SPACE_BAR"),
+        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),
                 "doNothing");
        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"),
                 "doNothing");
@@ -775,12 +775,18 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {
+
+        int openWebsite;
+        openWebsite = JOptionPane.showConfirmDialog(null, "The website will be opened within your web browser. \nDo you wish to continue?", "Website",JOptionPane.YES_NO_OPTION);
+
+        if (openWebsite == 0) {
         try {
             String url = "http://the-dreamteam.co.uk";
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         }
         catch (java.io.IOException e) {
             System.out.println(e.getMessage());
+        }
         }
     }
 
