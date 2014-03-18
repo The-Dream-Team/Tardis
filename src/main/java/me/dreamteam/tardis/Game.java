@@ -376,25 +376,6 @@ public class Game extends Canvas {
     	 characterSelect();
     }
 
-    public void howToPlay() {
-
-        HowToPlay HTP = new HowToPlay();
-        HTP.setVisible(true);
-
-        while (GProperties.wake == 0) {
-            try {
-                Thread.sleep(10);
-            } catch (Exception e) {
-            }
-        }
-
-        if (GProperties.wake == 1) {
-            GProperties.wake--;
-            playerName();
-        }
-
-    }
-
     public void gameOver() {
         Sound.soundTheme1.stop();
         Sound.soundShoot.stop();
