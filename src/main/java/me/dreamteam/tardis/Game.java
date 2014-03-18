@@ -8,7 +8,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -78,6 +84,22 @@ public class Game extends Canvas {
                 // To be done later, restore event
             }
         });
+
+
+        // Ensure that database exists, if not, create it.
+
+        Path db_Original = Paths.get("/data/database.db");
+        Path db_Destination = Paths.get("/");
+        File f = new File("database.db");
+        if(!f.exists() && !f.isDirectory())
+            {
+                System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
+                try {
+                Files.copy(db_Original, db_Destination, LinkOption.NOFOLLOW_LINKS);
+                } catch (IOException e) {
+                // Catch exception
+                }
+            }
 
 
         ImageIcon icon = new ImageIcon(Utils.iconURL);
