@@ -309,11 +309,11 @@ public class GUI extends javax.swing.JFrame {
         txtpUsername.setAutoscrolls(false);
         txtpUsername.setMargin(new java.awt.Insets(8, 8, 8, 8));
         txtpUsername.getDocument().putProperty("filterNewlines", Boolean.TRUE);
-        // txtpUsername.addKeyListener(new java.awt.event.KeyAdapter() {
-        //    public void keyPressed(java.awt.event.KeyEvent evt) {
-        //        txtpUsernameKeyPressed(evt);
-        //    }
-        // });
+        txtpUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+           public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpUsernameKeyPressed(evt);
+            }
+         });
         jScrollPane1.setViewportView(txtpUsername);
 
         btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
@@ -759,16 +759,16 @@ public class GUI extends javax.swing.JFrame {
         cl.next(Master);
     }
 
-    // private void txtpUsernameKeyPressed(java.awt.event.KeyEvent evt) {
-    //    txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("ENTER"),
-    //            "doNothing");
-    //    txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("SPACE_BAR"),
-    //            "doNothing");
-    //   txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"),
-    //            "doNothing");
-    //    txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("TAB"),
-    //            "doNothing");
-    //}
+     private void txtpUsernameKeyPressed(java.awt.event.KeyEvent evt) {
+        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("ENTER"),
+                "doNothing");
+        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("SPACE_BAR"),
+                "doNothing");
+       txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"),
+                "doNothing");
+        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("TAB"),
+                "doNothing");
+    }
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
