@@ -41,7 +41,7 @@ public class Database {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:game.db");
+            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
 
             System.out.println("DEBUG: [INFO] Opened database successfully");
 
@@ -90,7 +90,7 @@ public class Database {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:game.db");
+            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
             c.setAutoCommit(false);
             System.out.println("DEBUG: [INFO] Opened database successfully");
 
@@ -127,7 +127,7 @@ public class Database {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:game.db");
+            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
             c.setAutoCommit(false);
             System.out.println("DEBUG: [INFO] Opened database successfully");
 
@@ -138,7 +138,7 @@ public class Database {
             stmt.executeUpdate(sql);
             stmt.executeUpdate(sql2);
             c.commit();
-            Utils.ship3Name = "MOTH";
+            Utils.ship3Name = "CICADA";
             Utils.ship2Name = "FALCON";
             stmt.close();
             System.out.println("DEBUG: [INFO] Successfully reset database and achievements");

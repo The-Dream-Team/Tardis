@@ -8,6 +8,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.*;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -78,6 +79,38 @@ public class Game extends Canvas {
                 // To be done later, restore event
             }
         });
+
+
+        // Ensure that database exists, if not, create it.
+
+        File f = new File("./SSA.db");
+        if(!f.exists() && !f.isDirectory())
+            {
+                System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
+                InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("/data/SSA.db");
+                if (stream == null) {
+                }
+                OutputStream resStreamOut = null;
+                int readBytes;
+                byte[] buffer = new byte[4096];
+                try {
+                    resStreamOut = new FileOutputStream(new File("./SSA.db"));
+                    while ((readBytes = stream.read(buffer)) > 0) {
+                        resStreamOut.write(buffer, 0, readBytes);
+                    }
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        stream.close();
+                        resStreamOut.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
 
 
         ImageIcon icon = new ImageIcon(Utils.iconURL);
@@ -341,25 +374,6 @@ public class Game extends Canvas {
     public void playerName() {
     	properties.username = "testUser";
     	 characterSelect();
-    }
-
-    public void howToPlay() {
-
-        HowToPlay HTP = new HowToPlay();
-        HTP.setVisible(true);
-
-        while (GProperties.wake == 0) {
-            try {
-                Thread.sleep(10);
-            } catch (Exception e) {
-            }
-        }
-
-        if (GProperties.wake == 1) {
-            GProperties.wake--;
-            playerName();
-        }
-
     }
 
     public void gameOver() {
