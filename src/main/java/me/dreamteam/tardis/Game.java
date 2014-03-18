@@ -83,7 +83,7 @@ public class Game extends Canvas {
 
         // Ensure that database exists, if not, create it.
 
-        File f = new File("SSA.db");
+        File f = new File("./SSA.db");
         if(!f.exists() && !f.isDirectory())
             {
                 System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
@@ -94,7 +94,7 @@ public class Game extends Canvas {
                 int readBytes;
                 byte[] buffer = new byte[4096];
                 try {
-                    resStreamOut = new FileOutputStream(new File("SSA.db"));
+                    resStreamOut = new FileOutputStream(new File("./SSA.db"));
                     while ((readBytes = stream.read(buffer)) > 0) {
                         resStreamOut.write(buffer, 0, readBytes);
                     }
