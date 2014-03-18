@@ -10,10 +10,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -87,11 +83,11 @@ public class Game extends Canvas {
 
         // Ensure that database exists, if not, create it.
 
-        File f = new File("game.db");
+        File f = new File("/SSA.db");
         if(!f.exists() && !f.isDirectory())
             {
                 System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
-                InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("game.db");
+                InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("data/game.db");
                 if (stream == null) {
                     //send your exception or warning
                 }
@@ -103,9 +99,9 @@ public class Game extends Canvas {
                     while ((readBytes = stream.read(buffer)) > 0) {
                         resStreamOut.write(buffer, 0, readBytes);
                     }
-                } catch (IOException e1) {
+                } catch (IOException e) {
                     // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    e.printStackTrace();
                 } finally {
                     try {
                         stream.close();
