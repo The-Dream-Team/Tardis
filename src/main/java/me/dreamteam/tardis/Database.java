@@ -138,7 +138,7 @@ public class Database {
             stmt.executeUpdate(sql);
             stmt.executeUpdate(sql2);
             c.commit();
-            Utils.ship3Name = "MOTH";
+            Utils.ship3Name = "CICADA";
             Utils.ship2Name = "FALCON";
             stmt.close();
             System.out.println("DEBUG: [INFO] Successfully reset database and achievements");
