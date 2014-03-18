@@ -91,7 +91,7 @@ public class Game extends Canvas {
         if(!f.exists() && !f.isDirectory())
             {
                 System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
-                InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("/game.db");
+                InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("game.db");
                 if (stream == null) {
                     //send your exception or warning
                 }
