@@ -88,9 +88,9 @@ public class Game extends Canvas {
 
         // Ensure that database exists, if not, create it.
 
-        Path db_Original = Paths.get("/data/database.db");
+        Path db_Original = Paths.get("/game.db");
         Path db_Destination = Paths.get("/");
-        File f = new File("database.db");
+        File f = new File("game.db");
         if(!f.exists() && !f.isDirectory())
             {
                 System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
