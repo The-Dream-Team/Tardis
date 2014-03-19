@@ -742,11 +742,11 @@ public class GUI extends javax.swing.JFrame {
         GProperties.username = txtpUsername.getText();
 
         if (GProperties.username == null || GProperties.username.length() == 0) {
-            JOptionPane.showMessageDialog(null,"Please enter an username");
+            JOptionPane.showMessageDialog(null,"Please enter an username","Warning",JOptionPane.WARNING_MESSAGE);
         } else if (GProperties.username.length() < 3) {
-            JOptionPane.showMessageDialog(null,"Please enter an username that is at least 3 characters");
+            JOptionPane.showMessageDialog(null,"Please enter an username that is at least 3 characters","Warning",JOptionPane.WARNING_MESSAGE);
             } else if (GProperties.shipS == null) {
-                JOptionPane.showMessageDialog(null,"Please choose a ship");
+                JOptionPane.showMessageDialog(null,"Please choose a ship","Warning",JOptionPane.WARNING_MESSAGE);
                 } else {
                     dispose();
                     GProperties.release = true;
