@@ -523,6 +523,14 @@ public class GUI extends javax.swing.JFrame {
         txtAchDesc1.setText("Travel a distance of 1000m");
 
         pbAch1.setToolTipText("");
+        if (GProperties.achFalcon) {
+            pbAch1.setValue(100);
+        }
+
+        pbAch2.setToolTipText("");
+        if (GProperties.achMoth) {
+            pbAch2.setValue(100);
+        }
 
         txtAchDesc2.setFont(new java.awt.Font("Minecraftia", 0, 12)); // NOI18N
         txtAchDesc2.setForeground(new java.awt.Color(255, 255, 255));
