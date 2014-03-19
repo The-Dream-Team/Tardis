@@ -325,21 +325,41 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        if (GProperties.achFalcon == false) {
         btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip2.setText("FALCON");
+        btnShip2.setText("LOCKED");
         btnShip2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShip2ActionPerformed(evt);
             }
         });
+        } else {
+            btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            btnShip2.setText("FALCON");
+            btnShip2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnShip2ActionPerformed(evt);
+                }
+            });
+        }
 
+        if (GProperties.achMoth == false) {
         btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip3.setText("CICADA");
+        btnShip3.setText("LOCKED");
         btnShip3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShip3ActionPerformed(evt);
             }
         });
+        } else {
+            btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            btnShip3.setText("CICADA");
+            btnShip3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnShip3ActionPerformed(evt);
+                }
+            });
+        }
 
         btnPlay.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
         btnPlay.setText("Play >>");
@@ -723,6 +743,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void btnShip2ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (GProperties.achFalcon == true) {
         jTextPane1.setText("The FALCON is a fast ship and is manufactured by Hawk Industries.\nThe ship can fire from the the sides if ammo is present.");
         btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
         btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
@@ -734,6 +755,9 @@ public class GUI extends javax.swing.JFrame {
         btnShip3.setForeground(new java.awt.Color(0, 0, 0));
 
         GProperties.shipS = 1;
+        } else {
+            JOptionPane.showMessageDialog(null,"This ship is currently locked\nYou can unlock it through achievements");
+        }
     }
 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {
@@ -759,6 +783,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void btnShip3ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (GProperties.achMoth == true) {
         jTextPane1.setText("The CICADA is a slow ship and is manufactured by Anon Industries.\nThe ship can fire from the the sides if ammo is present.");
         btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
         btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
@@ -769,6 +794,9 @@ public class GUI extends javax.swing.JFrame {
         btnShip3.setForeground(new java.awt.Color(255, 0, 1));
 
         GProperties.shipS = 2;
+        } else {
+            JOptionPane.showMessageDialog(null,"This ship is currently locked\nYou can unlock it through achievements");
+        }
     }
 
     private void btnAchActionPerformed(java.awt.event.ActionEvent evt) {
