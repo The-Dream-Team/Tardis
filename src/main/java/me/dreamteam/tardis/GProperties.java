@@ -34,14 +34,14 @@ public class GProperties {
     public long lastLoopTime;
     public Image splashbg;
     public static int wake = 0;
-    public static String username = "";
+    public static String username;
 	
 	/* Entities */
 
     public Entity Background;
     public Entity Background2;
     public Entity ship;
-    public static int shipS = 0;
+    public static Integer shipS;
 
     public ArrayList entities = new ArrayList();
     public ArrayList backgroundImages = new ArrayList();

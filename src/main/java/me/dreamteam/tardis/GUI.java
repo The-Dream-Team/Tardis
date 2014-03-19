@@ -740,8 +740,17 @@ public class GUI extends javax.swing.JFrame {
         //CardLayout cl = (CardLayout)(Master.getLayout());
         //cl.show(Master, "panelGameC");
         GProperties.username = txtpUsername.getText();
-        dispose();
-        GProperties.release = true;
+
+        if (GProperties.username == null || GProperties.username.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Please enter an username");
+        } else if (GProperties.username.length() < 3) {
+            JOptionPane.showMessageDialog(null,"Please enter an username that is at least 3 characters");
+            } else if (GProperties.shipS == null) {
+                JOptionPane.showMessageDialog(null,"Please choose a ship");
+                } else {
+                    dispose();
+                    GProperties.release = true;
+                 }
     }
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
