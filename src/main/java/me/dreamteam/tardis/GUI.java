@@ -314,6 +314,7 @@ public class GUI extends javax.swing.JFrame {
                 txtpUsernameKeyPressed(evt);
             }
          });
+
         jScrollPane1.setViewportView(txtpUsername);
 
         btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
@@ -734,6 +735,7 @@ public class GUI extends javax.swing.JFrame {
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {
         //CardLayout cl = (CardLayout)(Master.getLayout());
         //cl.show(Master, "panelGameC");
+        GProperties.username = txtpUsername.getText();
         dispose();
         GProperties.release = true;
     }
