@@ -314,6 +314,7 @@ public class GUI extends javax.swing.JFrame {
                 txtpUsernameKeyPressed(evt);
             }
          });
+
         jScrollPane1.setViewportView(txtpUsername);
 
         btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
@@ -717,6 +718,8 @@ public class GUI extends javax.swing.JFrame {
         btnShip1.setForeground(new java.awt.Color(255, 0, 1));
         btnShip2.setForeground(new java.awt.Color(0, 0, 0));
         btnShip3.setForeground(new java.awt.Color(0, 0, 0));
+
+        GProperties.shipS = 0;
     }
 
     private void btnShip2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -729,13 +732,25 @@ public class GUI extends javax.swing.JFrame {
         btnShip1.setForeground(new java.awt.Color(0, 0, 0));
         btnShip2.setForeground(new java.awt.Color(255, 0, 1));
         btnShip3.setForeground(new java.awt.Color(0, 0, 0));
+
+        GProperties.shipS = 1;
     }
 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {
         //CardLayout cl = (CardLayout)(Master.getLayout());
         //cl.show(Master, "panelGameC");
-        dispose();
-        GProperties.release = true;
+        GProperties.username = txtpUsername.getText();
+
+        if (GProperties.username == null || GProperties.username.length() == 0) {
+            JOptionPane.showMessageDialog(null,"Please enter an username");
+        } else if (GProperties.username.length() < 3) {
+            JOptionPane.showMessageDialog(null,"Please enter an username that is at least 3 characters");
+            } else if (GProperties.shipS == null) {
+                JOptionPane.showMessageDialog(null,"Please choose a ship");
+                } else {
+                    dispose();
+                    GProperties.release = true;
+                 }
     }
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
@@ -752,6 +767,8 @@ public class GUI extends javax.swing.JFrame {
         btnShip1.setForeground(new java.awt.Color(0, 0, 0));
         btnShip2.setForeground(new java.awt.Color(0, 0, 0));
         btnShip3.setForeground(new java.awt.Color(255, 0, 1));
+
+        GProperties.shipS = 2;
     }
 
     private void btnAchActionPerformed(java.awt.event.ActionEvent evt) {
@@ -771,13 +788,19 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {
+
+        int quitDialog;
+        quitDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Quit Game",JOptionPane.YES_NO_OPTION);
+
+        if (quitDialog == 0) {
         System.exit(0);
+        }
     }
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {
 
         int openWebsite;
-        openWebsite = JOptionPane.showConfirmDialog(null, "The website will be opened within your web browser. \nDo you wish to continue?", "Website",JOptionPane.YES_NO_OPTION);
+        openWebsite = JOptionPane.showConfirmDialog(null, "The website will be opened within your web browser. \nDo you wish to continue?", "Open Website",JOptionPane.YES_NO_OPTION);
 
         if (openWebsite == 0) {
         try {
