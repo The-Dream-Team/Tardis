@@ -359,7 +359,7 @@ public class Game extends Canvas {
         ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
 
         Utils.systemLF();
-        properties.shipS = 0;
+        // properties.shipS = 0;
         startGame();
         
         
@@ -372,7 +372,6 @@ public class Game extends Canvas {
     }
 
     public void playerName() {
-    	properties.username = "testUser";
     	 characterSelect();
     }
 
@@ -488,6 +487,8 @@ public class Game extends Canvas {
     public void gameLoop() {
         properties.lastLoopTime = System.currentTimeMillis();
         long bgLoop = System.currentTimeMillis();
+
+        System.out.println("DEBUG: [INFO] USERNAME: " + properties.username);
 
         while (properties.Running) {
             if (properties.gameStart == true && properties.release == true) {
