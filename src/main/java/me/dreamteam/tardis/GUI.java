@@ -779,13 +779,19 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {
+
+        int quitDialog;
+        quitDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Quit Game",JOptionPane.YES_NO_OPTION);
+
+        if (quitDialog == 0) {
         System.exit(0);
+        }
     }
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {
 
         int openWebsite;
-        openWebsite = JOptionPane.showConfirmDialog(null, "The website will be opened within your web browser. \nDo you wish to continue?", "Website",JOptionPane.YES_NO_OPTION);
+        openWebsite = JOptionPane.showConfirmDialog(null, "The website will be opened within your web browser. \nDo you wish to continue?", "Open Website",JOptionPane.YES_NO_OPTION);
 
         if (openWebsite == 0) {
         try {
