@@ -718,6 +718,8 @@ public class GUI extends javax.swing.JFrame {
         btnShip1.setForeground(new java.awt.Color(255, 0, 1));
         btnShip2.setForeground(new java.awt.Color(0, 0, 0));
         btnShip3.setForeground(new java.awt.Color(0, 0, 0));
+
+        GProperties.shipS = 0;
     }
 
     private void btnShip2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -730,6 +732,8 @@ public class GUI extends javax.swing.JFrame {
         btnShip1.setForeground(new java.awt.Color(0, 0, 0));
         btnShip2.setForeground(new java.awt.Color(255, 0, 1));
         btnShip3.setForeground(new java.awt.Color(0, 0, 0));
+
+        GProperties.shipS = 1;
     }
 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {
@@ -754,6 +758,8 @@ public class GUI extends javax.swing.JFrame {
         btnShip1.setForeground(new java.awt.Color(0, 0, 0));
         btnShip2.setForeground(new java.awt.Color(0, 0, 0));
         btnShip3.setForeground(new java.awt.Color(255, 0, 1));
+
+        GProperties.shipS = 2;
     }
 
     private void btnAchActionPerformed(java.awt.event.ActionEvent evt) {

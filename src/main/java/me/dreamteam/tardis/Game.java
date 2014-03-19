@@ -359,7 +359,7 @@ public class Game extends Canvas {
         ImageIcon ship3 = new ImageIcon(Utils.ship3URL);
 
         Utils.systemLF();
-        properties.shipS = 0;
+        // properties.shipS = 0;
         startGame();
         
         

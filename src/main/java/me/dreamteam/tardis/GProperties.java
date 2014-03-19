@@ -41,7 +41,7 @@ public class GProperties {
     public Entity Background;
     public Entity Background2;
     public Entity ship;
-    public int shipS = 0;
+    public static int shipS = 0;
 
     public ArrayList entities = new ArrayList();
     public ArrayList backgroundImages = new ArrayList();
