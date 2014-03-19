@@ -386,7 +386,12 @@ public class Game extends Canvas {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        database.SQLUpdate();
+
+        try {
+            new Database().SQLUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (GProperties.debug) {
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
