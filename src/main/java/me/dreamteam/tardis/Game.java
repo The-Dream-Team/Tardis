@@ -484,14 +484,7 @@ public class Game extends Canvas {
 
         if (pauseG == 1) {
             properties.gameTime = 0;
-            System.err.println("Someone is Restarting me...");
-            setVisible(false);
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
-            setVisible(true);
+            characterSelect();
         }
 
     }
