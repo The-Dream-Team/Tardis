@@ -108,6 +108,10 @@ public class Utils {
     static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters";
     static String txtWarningShip = "Please choose a ship";
 
+    // Website Dialog
+    static String txtWebsite = "Website";
+    static String txtWebsiteMsg = "The website will be opened within your web browser. \\nDo you wish to continue?";
+
     // Quit Game Dialog
     static String txtQuit = "Quit Game";
     static String txtQuitMsg = "Are you sure you want to quit?";

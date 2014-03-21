@@ -840,7 +840,7 @@ public class GUI extends javax.swing.JFrame {
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {
 
         int openWebsite;
-        openWebsite = JOptionPane.showConfirmDialog(null, "The website will be opened within your web browser. \nDo you wish to continue?", "Open Website",JOptionPane.YES_NO_OPTION);
+        openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtWebsiteMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
 
         if (openWebsite == 0) {
         try {
