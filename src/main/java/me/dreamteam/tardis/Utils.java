@@ -19,7 +19,7 @@ public class Utils {
 
     static String ship1Name = "P3N-15";
     static String ship2Name = "FALCON";
-    static String ship3Name = "MOTH";
+    static String ship3Name = "CICADA";
 	
 	/*
 	 * gText Options
@@ -63,16 +63,8 @@ public class Utils {
     static String txtTS = "Welcome to " + gameName;
     static String tsDialogTitle = "";
 
-    // Username Entry
-    static String txtUsernameEntry = "Enter your username";
-
     // Character Selection
     static String txtCS = "Choose your spaceship to begin:";
-    static String csDialogTitle = "Character Selection";
-    static String txtFalconLocked = "This ship is locked\n" +
-            "You need to travel more than 150m";
-    static String txtMothLocked = "This ship is locked\n" +
-            "You need to travel more than 300m";
 
     // Game Over
     static String txtGO = "Game Over";
@@ -94,6 +86,64 @@ public class Utils {
 
     // Blank Icon
     static ImageIcon blankIcon = new ImageIcon();
+
+
+    /*
+     * GUI Text
+     */
+
+    // Buttons
+    static String btnPlay = "Play Game >>";
+    static String btnPlayGame = "Play Game";
+    static String btnPrev = "<< Return to Previous Menu";
+    static String btnPrevShort = "<<";
+    static String btnHTP = "How to Play";
+    static String btnAch = "Achievements & Unlocks";
+
+    // Username
+    static String txtUsernameEntry = "Enter your username";
+
+    // Ship
+    static String txtChooseShip = "Choose a ship from above";
+
+    static String txtShip1Desc = "The PEN-15 is a medium speed ship and is manufactured by Surex Industries.\nThe ship can fire from the hull if ammo is present.";
+    static String txtShip2Desc = "The FALCON is a fast ship and is manufactured by Hawk Industries.\nThe ship can fire from the the sides if ammo is present.";
+    static String txtShip3Desc = "The CICADA is a slow ship and is manufactured by Anon Industries.\nThe ship can fire from the the sides if ammo is present.";
+
+    static String txtShipLocked = "This ship is currently locked\nYou can unlock it through achievements";
+    static String txtLocked = "LOCKED";
+
+    // Validation warnings
+    static String txtWarning = "Warning";
+    static String txtWarningUsername = "Please enter an username";
+    static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters";
+    static String txtWarningShip = "Please choose a ship";
+
+    // How to Play (WIP)
+    static String txtHTPTitle = "      How to Play";
+
+    // Achievements
+    static String txtAchTitle = "Achievements & Unlocks ";
+
+    static String txtAch1 = "Explorer";
+    static String txtAch1Desc = "Travel a distance of 1000m";
+
+    static String txtAch2 = "Voyager";
+    static String txtAch2Desc = "Travel a distance of 5000m";
+
+    static String txtAch3 = "TBA";
+    static String txtAch3Desc = "TBA";
+
+    // Website Dialog
+    static String txtWebsite = "Website";
+    static String txtWebsiteMsg = "The website will be opened within your web browser. \\nDo you wish to continue?";
+    static String urlWebsite = "http://the-dreamteam.co.uk";
+
+    // Quit Game Dialog
+    static String txtQuit = "Quit Game";
+    static String txtQuitMsg = "Are you sure you want to quit?";
+
+
 	
 	/*
 	 * Utility Methods
