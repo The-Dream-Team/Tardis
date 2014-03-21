@@ -382,7 +382,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnAch.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnAch.setText("Achievements & Unlocks");
+        btnAch.setText(Utils.btnAch);
         btnAch.setActionCommand("\n");
         btnAch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

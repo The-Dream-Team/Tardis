@@ -98,6 +98,7 @@ public class Utils {
     static String btnPrev = "<< Return to Previous Menu";
     static String btnPrevShort = "<<";
     static String btnHTP = "How to Play";
+    static String btnAch = "Achievements & Unlocks";
 
     // Username
     static String txtUsernameEntry = "Enter your username";
