@@ -322,7 +322,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtpUsername);
 
         btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip1.setText("PEN-15");
+        btnShip1.setText(Utils.ship1Name);
         btnShip1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShip1ActionPerformed(evt);
@@ -339,7 +339,7 @@ public class GUI extends javax.swing.JFrame {
         });
         } else {
             btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-            btnShip2.setText("FALCON");
+            btnShip2.setText(Utils.ship2Name);
             btnShip2.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnShip2ActionPerformed(evt);
@@ -357,7 +357,7 @@ public class GUI extends javax.swing.JFrame {
         });
         } else {
             btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-            btnShip3.setText("CICADA");
+            btnShip3.setText(Utils.ship3Name);
             btnShip3.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnShip3ActionPerformed(evt);

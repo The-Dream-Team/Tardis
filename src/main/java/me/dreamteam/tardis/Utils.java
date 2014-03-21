@@ -19,7 +19,7 @@ public class Utils {
 
     static String ship1Name = "P3N-15";
     static String ship2Name = "FALCON";
-    static String ship3Name = "MOTH";
+    static String ship3Name = "CICADA";
 	
 	/*
 	 * gText Options
@@ -68,11 +68,6 @@ public class Utils {
 
     // Character Selection
     static String txtCS = "Choose your spaceship to begin:";
-    static String csDialogTitle = "Character Selection";
-    static String txtFalconLocked = "This ship is locked\n" +
-            "You need to travel more than 150m";
-    static String txtMothLocked = "This ship is locked\n" +
-            "You need to travel more than 300m";
 
     // Game Over
     static String txtGO = "Game Over";
