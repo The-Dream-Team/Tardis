@@ -136,7 +136,7 @@ public class Utils {
 
     // Website Dialog
     static String txtWebsite = "Website";
-    static String txtWebsiteMsg = "The website will be opened within your web browser. \\nDo you wish to continue?";
+    static String txtWebsiteMsg = "The website will be opened within your web browser. \nDo you wish to continue?";
     static String urlWebsite = "http://the-dreamteam.co.uk";
 
     // Quit Game Dialog
