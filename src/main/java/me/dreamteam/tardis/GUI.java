@@ -741,7 +741,7 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void btnShip1ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTextPane1.setText("The PEN-15 is a medium speed ship and is manufactured by Surex Industries.\nThe ship can fire from the hull if ammo is present.");
+        jTextPane1.setText(Utils.txtShip1Desc);
         // Bold and Font
         btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
         btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
@@ -756,7 +756,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnShip2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (GProperties.achFalcon == true) {
-        jTextPane1.setText("The FALCON is a fast ship and is manufactured by Hawk Industries.\nThe ship can fire from the the sides if ammo is present.");
+        jTextPane1.setText(Utils.txtShip2Desc);
         btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
         btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
         btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
@@ -796,7 +796,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnShip3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (GProperties.achMoth == true) {
-        jTextPane1.setText("The CICADA is a slow ship and is manufactured by Anon Industries.\nThe ship can fire from the the sides if ammo is present.");
+        jTextPane1.setText(Utils.txtShip3Desc);
         btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
         btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
         btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N

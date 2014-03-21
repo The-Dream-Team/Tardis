@@ -95,6 +95,11 @@ public class Utils {
      * GUI Text
      */
 
+
+    static String txtShip1Desc = "The PEN-15 is a medium speed ship and is manufactured by Surex Industries.\nThe ship can fire from the hull if ammo is present.";
+    static String txtShip2Desc = "The FALCON is a fast ship and is manufactured by Hawk Industries.\nThe ship can fire from the the sides if ammo is present.";
+    static String txtShip3Desc = "The CICADA is a slow ship and is manufactured by Anon Industries.\nThe ship can fire from the the sides if ammo is present.";
+
     static String txtShipLocked = "This ship is currently locked\nYou can unlock it through achievements";
 
     // Validation warnings
