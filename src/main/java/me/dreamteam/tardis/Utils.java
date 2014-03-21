@@ -118,8 +118,8 @@ public class Utils {
     static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters";
     static String txtWarningShip = "Please choose a ship";
 
-    // How to Play
-    static String txtHowToPlay = "How to Play";
+    // How to Play (WIP)
+    static String txtHTPTitle = "      How to Play";
 
     // Achievements
     static String txtAchTitle = "Achievements & Unlocks ";
@@ -132,7 +132,6 @@ public class Utils {
 
     static String txtAch3 = "TBA";
     static String txtAch3Desc = "TBA";
-
 
     // Website Dialog
     static String txtWebsite = "Website";

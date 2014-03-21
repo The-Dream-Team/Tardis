@@ -648,7 +648,7 @@ public class GUI extends javax.swing.JFrame {
 
         txtHTPTitle.setFont(new java.awt.Font("Minecraftia", 1, 24)); // NOI18N
         txtHTPTitle.setForeground(new java.awt.Color(255, 255, 255));
-        txtHTPTitle.setText("      How to Play");
+        txtHTPTitle.setText(Utils.txtHTPTitle);
         txtHTPTitle.setToolTipText("");
 
         javax.swing.GroupLayout panelHTPLayout = new javax.swing.GroupLayout(panelHTP);
