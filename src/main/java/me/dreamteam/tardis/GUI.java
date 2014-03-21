@@ -219,7 +219,7 @@ public class GUI extends javax.swing.JFrame {
 
         btnPlayGame.setBackground(new java.awt.Color(0, 0, 0));
         btnPlayGame.setFont(new java.awt.Font("Minecraftia", 1, 36)); // NOI18N
-        btnPlayGame.setText("Play Game");
+        btnPlayGame.setText(Utils.btnPlayGame);
         btnPlayGame.setToolTipText("");
         btnPlayGame.setOpaque(false);
         btnPlayGame.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/ship.png"))); // NOI18N
@@ -231,7 +231,7 @@ public class GUI extends javax.swing.JFrame {
 
         btnHTP.setBackground(new java.awt.Color(0, 0, 0));
         btnHTP.setFont(new java.awt.Font("Minecraftia", 0, 24)); // NOI18N
-        btnHTP.setText("How to Play");
+        btnHTP.setText(Utils.btnHTP);
         btnHTP.setBorder(btnPlayGame.getBorder());
         btnHTP.setFocusPainted(false);
         btnHTP.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +242,7 @@ public class GUI extends javax.swing.JFrame {
 
         btnAbout.setBackground(new java.awt.Color(0, 0, 0));
         btnAbout.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
-        btnAbout.setText("Website");
+        btnAbout.setText(Utils.txtWebsite);
         btnAbout.setFocusPainted(false);
         btnAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +252,7 @@ public class GUI extends javax.swing.JFrame {
 
         btnQuit.setBackground(new java.awt.Color(0, 0, 0));
         btnQuit.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
-        btnQuit.setText("Quit");
+        btnQuit.setText(Utils.txtQuit);
         btnQuit.setFocusPainted(false);
         btnQuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,7 +305,7 @@ public class GUI extends javax.swing.JFrame {
 
         txtEnterUsername.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
         txtEnterUsername.setForeground(new java.awt.Color(255, 255, 255));
-        txtEnterUsername.setText("Please enter your username");
+        txtEnterUsername.setText(Utils.txtUsernameEntry);
 
         jScrollPane1.setBorder(null);
 
@@ -331,7 +331,7 @@ public class GUI extends javax.swing.JFrame {
 
         if (GProperties.achFalcon == false) {
         btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip2.setText("LOCKED");
+        btnShip2.setText(Utils.txtLocked);
         btnShip2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShip2ActionPerformed(evt);
@@ -349,7 +349,7 @@ public class GUI extends javax.swing.JFrame {
 
         if (GProperties.achMoth == false) {
         btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip3.setText("LOCKED");
+        btnShip3.setText(Utils.txtLocked);
         btnShip3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShip3ActionPerformed(evt);
@@ -366,7 +366,7 @@ public class GUI extends javax.swing.JFrame {
         }
 
         btnPlay.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
-        btnPlay.setText("Play >>");
+        btnPlay.setText(Utils.btnPlay);
         btnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlayActionPerformed(evt);
@@ -374,7 +374,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnBack.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
-        btnBack.setText("<<");
+        btnBack.setText(Utils.btnPrevShort);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -408,7 +408,7 @@ public class GUI extends javax.swing.JFrame {
         jTextPane1.setBorder(BorderFactory.createEmptyBorder());
         jTextPane1.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
         jTextPane1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextPane1.setText("Choose a ship from above");
+        jTextPane1.setText(Utils.txtChooseShip);
         jTextPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextPane1.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jTextPane1.setEnabled(false);
@@ -503,7 +503,7 @@ public class GUI extends javax.swing.JFrame {
         panelAch.setName("panelAch"); // NOI18N
 
         btnPrev.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
-        btnPrev.setText("<< Return to Previous Menu");
+        btnPrev.setText(Utils.btnPrev);
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -636,7 +636,7 @@ public class GUI extends javax.swing.JFrame {
         panelHTP.setName("panelHTP"); // NOI18N
 
         btnPrev1.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
-        btnPrev1.setText("<< Return to Previous Menu");
+        btnPrev1.setText(Utils.btnPrev);
         btnPrev1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrev1ActionPerformed(evt);

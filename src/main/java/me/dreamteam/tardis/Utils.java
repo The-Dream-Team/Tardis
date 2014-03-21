@@ -63,9 +63,6 @@ public class Utils {
     static String txtTS = "Welcome to " + gameName;
     static String tsDialogTitle = "";
 
-    // Username Entry
-    static String txtUsernameEntry = "Enter your username";
-
     // Character Selection
     static String txtCS = "Choose your spaceship to begin:";
 
@@ -95,19 +92,34 @@ public class Utils {
      * GUI Text
      */
 
+    // Buttons
+    static String btnPlay = "Play Game >>";
+    static String btnPlayGame = "Play Game";
+    static String btnPrev = "<< Return to Previous Menu";
+    static String btnPrevShort = "<<";
+    static String btnHTP = "How to Play";
 
-    // Ship Descriptions
+    // Username
+    static String txtUsernameEntry = "Enter your username";
+
+    // Ship
+    static String txtChooseShip = "Choose a ship from above";
+
     static String txtShip1Desc = "The PEN-15 is a medium speed ship and is manufactured by Surex Industries.\nThe ship can fire from the hull if ammo is present.";
     static String txtShip2Desc = "The FALCON is a fast ship and is manufactured by Hawk Industries.\nThe ship can fire from the the sides if ammo is present.";
     static String txtShip3Desc = "The CICADA is a slow ship and is manufactured by Anon Industries.\nThe ship can fire from the the sides if ammo is present.";
 
     static String txtShipLocked = "This ship is currently locked\nYou can unlock it through achievements";
+    static String txtLocked = "LOCKED";
 
     // Validation warnings
     static String txtWarning = "Warning";
     static String txtWarningUsername = "Please enter an username";
     static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters";
     static String txtWarningShip = "Please choose a ship";
+
+    // How to Play
+    static String txtHowToPlay = "How to Play";
 
     // Website Dialog
     static String txtWebsite = "Website";
