@@ -4,8 +4,6 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -72,7 +70,7 @@ public class GUI extends javax.swing.JFrame {
         systemLF();
         UIManager.put("Button.focus", Color.white);
         try {
-            new Database().SQLConnect();
+            new Database().dbConnect();
         } catch (Exception e) {
             e.printStackTrace();
         }

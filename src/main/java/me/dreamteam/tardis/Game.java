@@ -352,7 +352,7 @@ public class Game extends Canvas {
 
     public void characterSelect() {
 
-        database.SQLConnect();
+        database.dbConnect();
 
         ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
         ImageIcon ship2 = new ImageIcon(Utils.ship2URL);
@@ -382,13 +382,13 @@ public class Game extends Canvas {
         new GProperties().propertiesFile();
 
         try {
-            new Database().updateDb();
+            new Database().dbUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            new Database().SQLUpdate();
+            new Database().dbUpdateAchievements();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -785,7 +785,7 @@ public class Game extends Canvas {
             }
             if (properties.debug) {
                 if (e.getKeyCode() == KeyEvent.VK_F8) {
-                    database.SQLReset();
+                    database.dbReset();
                 }
             }
 

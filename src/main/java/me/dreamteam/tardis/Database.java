@@ -11,7 +11,7 @@ import java.sql.Statement;
 
 public class Database {
 
-    public void updateDb() throws Exception {
+    public void dbUpdate() throws Exception {
         String dbDistance = Integer.toString(GProperties.gameTime) + "0";
         String dbUsername = GProperties.username;
         try {
@@ -36,7 +36,7 @@ public class Database {
     }
 
     //sql connection
-    public void SQLConnect() {
+    public void dbConnect() {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -85,7 +85,7 @@ public class Database {
     }
 
     //Update SQL
-    public void SQLUpdate() {
+    public void dbUpdateAchievements() {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -122,7 +122,7 @@ public class Database {
 
     }
 
-    public void SQLReset() {
+    public void dbReset() {
         Connection c = null;
         Statement stmt = null;
         try {
