@@ -11,6 +11,7 @@ import java.sql.Statement;
 
 public class Database {
 
+    // Update high scores by connecting to the website
     public void dbUpdateScore() throws Exception {
         String dbDistance = Integer.toString(GProperties.gameTime) + "0";
         String dbUsername = GProperties.username;
@@ -35,7 +36,7 @@ public class Database {
         }
     }
 
-    //sql connection
+    // Initiate connection to the SQLite database and get unlocked achievements
     public void dbConnect() {
         Connection c = null;
         Statement stmt = null;
@@ -82,7 +83,7 @@ public class Database {
         }
     }
 
-    //Update SQL
+    // Update achievements if the player has made the successful criteria
     public void dbUpdateAchievements() {
         Connection c = null;
         Statement stmt = null;
@@ -118,6 +119,7 @@ public class Database {
 
     }
 
+    // Reset the database, for testing purposes
     public void dbReset() {
         Connection c = null;
         Statement stmt = null;
