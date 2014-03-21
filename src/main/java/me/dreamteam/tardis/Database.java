@@ -57,12 +57,10 @@ public class Database {
 
                 if (id == 1 && unlocked == 0) {
                     GProperties.achFalcon = false;
-                    Utils.ship2Name = "<b>LOCKED</b>";
                 }
 
                 if (id == 2 && unlocked == 0) {
                     GProperties.achMoth = false;
-                    Utils.ship3Name = "<b>LOCKED</b>";
                 }
 
                 if (id == 1 && unlocked == 1) {
@@ -101,7 +99,6 @@ public class Database {
                 String sql = "UPDATE achievements set unlocked = 1 where id=1;";
                 stmt.executeUpdate(sql);
                 c.commit();
-                Utils.ship2Name = "FALCON";
                 stmt.close();
             }
             if (GProperties.gameTime + 0 >= 300) {
@@ -109,7 +106,6 @@ public class Database {
                 String sql = "UPDATE achievements set unlocked = 1 where id=2;";
                 stmt.executeUpdate(sql);
                 c.commit();
-                Utils.ship3Name = "MOTH";
                 stmt.close();
             }
 
@@ -138,8 +134,6 @@ public class Database {
             stmt.executeUpdate(sql);
             stmt.executeUpdate(sql2);
             c.commit();
-            Utils.ship3Name = "CICADA";
-            Utils.ship2Name = "FALCON";
             stmt.close();
             System.out.println("DEBUG: [INFO] Successfully reset database and achievements");
 
