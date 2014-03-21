@@ -807,7 +807,7 @@ public class GUI extends javax.swing.JFrame {
 
         GProperties.shipS = 2;
         } else {
-            JOptionPane.showMessageDialog(null,"This ship is currently locked\nYou can unlock it through achievements");
+            JOptionPane.showMessageDialog(null,Utils.txtShipLocked);
         }
     }
 
@@ -830,7 +830,7 @@ public class GUI extends javax.swing.JFrame {
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {
 
         int quitDialog;
-        quitDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Quit Game",JOptionPane.YES_NO_OPTION);
+        quitDialog = JOptionPane.showConfirmDialog(null, Utils.txtQuitMsg, Utils.txtQuit,JOptionPane.YES_NO_OPTION);
 
         if (quitDialog == 0) {
         System.exit(0);
