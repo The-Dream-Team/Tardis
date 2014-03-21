@@ -10,8 +10,8 @@ public class Utils {
 	 */
 
     static String gameName = "SUPER SPACESHIP ADVENTURE ";
-    static String build = "Alpha ";
-    static String version = "0.9.3";
+    static String build = "Beta ";
+    static String version = "0.10.1";
 
 	/*
      * Ship Names
