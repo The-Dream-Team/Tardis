@@ -844,7 +844,7 @@ public class GUI extends javax.swing.JFrame {
 
         if (openWebsite == 0) {
         try {
-            String url = "http://the-dreamteam.co.uk";
+            String url = Utils.urlWebsite;
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
         }
         catch (java.io.IOException e) {
