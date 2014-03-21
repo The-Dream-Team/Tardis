@@ -89,6 +89,21 @@ public class Utils {
 
     // Blank Icon
     static ImageIcon blankIcon = new ImageIcon();
+
+
+    /*
+     * GUI Text
+     */
+
+    static String txtShipLocked = "This ship is currently locked\nYou can unlock it through achievements";
+
+    // Validation warnings
+    static String txtWarning = "Warning";
+    static String txtWarningUsername = "Please enter an username";
+    static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters";
+    static String txtWarningShip = "Please choose a ship";
+
+
 	
 	/*
 	 * Utility Methods

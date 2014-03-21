@@ -768,7 +768,7 @@ public class GUI extends javax.swing.JFrame {
 
         GProperties.shipS = 1;
         } else {
-            JOptionPane.showMessageDialog(null,"This ship is currently locked\nYou can unlock it through achievements");
+            JOptionPane.showMessageDialog(null,Utils.txtShipLocked);
         }
     }
 
@@ -778,11 +778,11 @@ public class GUI extends javax.swing.JFrame {
         GProperties.username = txtpUsername.getText();
 
         if (GProperties.username == null || GProperties.username.length() == 0) {
-            JOptionPane.showMessageDialog(null,"Please enter an username","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,Utils.txtWarningUsername,Utils.txtWarning,JOptionPane.WARNING_MESSAGE);
         } else if (GProperties.username.length() < 3) {
-            JOptionPane.showMessageDialog(null,"Please enter an username that is at least 3 characters","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,Utils.txtWarningUsernameChar,Utils.txtWarning,JOptionPane.WARNING_MESSAGE);
             } else if (GProperties.shipS == null) {
-                JOptionPane.showMessageDialog(null,"Please choose a ship","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null,Utils.txtWarningShip,Utils.txtWarning,JOptionPane.WARNING_MESSAGE);
                 } else {
                     dispose();
                     GProperties.release = true;
