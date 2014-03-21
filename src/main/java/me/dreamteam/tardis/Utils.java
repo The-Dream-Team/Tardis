@@ -121,6 +121,19 @@ public class Utils {
     // How to Play
     static String txtHowToPlay = "How to Play";
 
+    // Achievements
+    static String txtAchTitle = "Achievements & Unlocks ";
+
+    static String txtAch1 = "Explorer";
+    static String txtAch1Desc = "Travel a distance of 1000m";
+
+    static String txtAch2 = "Voyager";
+    static String txtAch2Desc = "Travel a distance of 5000m";
+
+    static String txtAch3 = "TBA";
+    static String txtAch3Desc = "TBA";
+
+
     // Website Dialog
     static String txtWebsite = "Website";
     static String txtWebsiteMsg = "The website will be opened within your web browser. \\nDo you wish to continue?";

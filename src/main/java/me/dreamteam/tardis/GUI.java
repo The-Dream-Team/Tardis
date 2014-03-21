@@ -515,16 +515,16 @@ public class GUI extends javax.swing.JFrame {
 
         txtAchTitle.setFont(new java.awt.Font("Minecraftia", 1, 24)); // NOI18N
         txtAchTitle.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchTitle.setText("Achievements & Unlocks ");
+        txtAchTitle.setText(Utils.txtAchTitle);
         txtAchTitle.setToolTipText("");
 
         txtAchTitle1.setFont(new java.awt.Font("Minecraftia", 1, 14)); // NOI18N
         txtAchTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchTitle1.setText("Explorer");
+        txtAchTitle1.setText(Utils.txtAch1);
 
         txtAchDesc1.setFont(new java.awt.Font("Minecraftia", 0, 12)); // NOI18N
         txtAchDesc1.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchDesc1.setText("Travel a distance of 1000m");
+        txtAchDesc1.setText(Utils.txtAch1Desc);
 
         pbAch1.setToolTipText("");
         if (GProperties.achFalcon) {
@@ -538,19 +538,19 @@ public class GUI extends javax.swing.JFrame {
 
         txtAchDesc2.setFont(new java.awt.Font("Minecraftia", 0, 12)); // NOI18N
         txtAchDesc2.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchDesc2.setText("Travel a distance of 5000m");
+        txtAchDesc2.setText(Utils.txtAch2Desc);
 
         txtAchTitle2.setFont(new java.awt.Font("Minecraftia", 1, 14)); // NOI18N
         txtAchTitle2.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchTitle2.setText("Voyager");
+        txtAchTitle2.setText(Utils.txtAch2);
 
         txtAchDesc3.setFont(new java.awt.Font("Minecraftia", 0, 12)); // NOI18N
         txtAchDesc3.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchDesc3.setText("Achievement 3 Text");
+        txtAchDesc3.setText(Utils.txtAch3Desc);
 
         txtAchTitle3.setFont(new java.awt.Font("Minecraftia", 1, 14)); // NOI18N
         txtAchTitle3.setForeground(new java.awt.Color(255, 255, 255));
-        txtAchTitle3.setText("Achievement 3");
+        txtAchTitle3.setText(Utils.txtAch3);
 
         javax.swing.GroupLayout panelAchLayout = new javax.swing.GroupLayout(panelAch);
         panelAch.setLayout(panelAchLayout);
