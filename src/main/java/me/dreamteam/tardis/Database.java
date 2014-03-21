@@ -11,7 +11,7 @@ import java.sql.Statement;
 
 public class Database {
 
-    public void dbUpdate() throws Exception {
+    public void dbUpdateScore() throws Exception {
         String dbDistance = Integer.toString(GProperties.gameTime) + "0";
         String dbUsername = GProperties.username;
         try {

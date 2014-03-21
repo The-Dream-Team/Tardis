@@ -382,7 +382,7 @@ public class Game extends Canvas {
         new GProperties().propertiesFile();
 
         try {
-            new Database().dbUpdate();
+            new Database().dbUpdateScore();
         } catch (Exception e) {
             e.printStackTrace();
         }
