@@ -300,7 +300,7 @@ public class Game extends Canvas {
         properties.lastLoopTime = System.currentTimeMillis();
         properties.firing = false;
         properties.curWeapon = 1;
-        properties.setWeapon(1);
+        properties.weapon = 1;
         GProperties.debugHits = 0;
 
         Sound.soundTheme1.play();
@@ -586,11 +586,11 @@ public class Game extends Canvas {
                 if (properties.curWeapon == 1) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
+                    g.drawString(String.valueOf(properties.weapon), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 647);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
+                    g.drawString(String.valueOf(properties.weapon), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 647);
                 }
 
 
@@ -611,11 +611,11 @@ public class Game extends Canvas {
                     properties.ship.setHorizontalMovement(properties.moveSpeed);
                 }
 
-                if (properties.firing && properties.weapon1 > 0) {
+                if (properties.firing && properties.weapon > 0) {
                     if (properties.curWeapon == 1) {
                         useWeapon();
                         properties.weaponLoopTime = System.currentTimeMillis();
-                        properties.weapon1 = 0;
+                        properties.weapon = 0;
                     }
                     if (properties.curWeapon != 1) {
                         properties.firing = false;

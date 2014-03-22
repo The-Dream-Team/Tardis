@@ -76,7 +76,7 @@ public class GProperties {
     public static boolean pack = false;
     public ArrayList packList = new ArrayList();
     public Entity Pack;
-    public static int weapon1 = 1;
+    public static int weapon = 1;
     public static int gameTime = 0;
     public static int gameLives = 3;
     public int timeMil;
@@ -87,14 +87,6 @@ public class GProperties {
     public long weaponLoopTime;
     public int curWeapon = 1;
     public boolean weaponPressed = false;
-
-    public void setWeapon(int w) {
-        weapon1 = w;
-    }
-
-    public int getWeapon() {
-        return weapon1;
-    }
 	
 	/* Window Toolkit */
 
