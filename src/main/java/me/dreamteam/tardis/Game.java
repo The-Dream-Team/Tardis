@@ -331,11 +331,6 @@ public class Game extends Canvas {
         startGame();
     }
 
-    public void titleScreen() {
-            playerName();
-
-    }
-
     public void playerName() {
     	 characterSelect();
     }
