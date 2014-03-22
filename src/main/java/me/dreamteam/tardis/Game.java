@@ -120,7 +120,7 @@ public class Game extends Canvas {
         addKeyListener(new KeyInputHandler());
 
         //initPlayer();
-        playerName();
+        characterSelect();
 
         Graphics2D gi = (Graphics2D) properties.strategy.getDrawGraphics();
 
@@ -331,15 +331,6 @@ public class Game extends Canvas {
         startGame();
     }
 
-    public void titleScreen() {
-            playerName();
-
-    }
-
-    public void playerName() {
-    	 characterSelect();
-    }
-
     public void gameOver() {
         Sound.soundTheme1.stop();
         Sound.soundShoot.stop();
@@ -399,7 +390,7 @@ public class Game extends Canvas {
             try {
             	 String url = "http://the-dreamteam.co.uk/highscores.php";
                  java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-                 playerName();
+                 characterSelect();
             }
             catch (java.io.IOException e) {
                 System.out.println(e.getMessage());
