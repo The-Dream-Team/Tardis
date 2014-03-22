@@ -139,7 +139,7 @@ public class Utils {
     static String txtWebsiteMsg = "The website will be opened within your web browser. \nDo you wish to continue?";
     static String urlWebsite = "http://the-dreamteam.co.uk";
     
-    static String txtHighscoreMsg = "Highscore will be displayed on your web browser. \nDo you wish to continue?";
+    static String txtHighscoreMsg = "Highscore will be displayed on your web browser.";
 
     // Quit Game Dialog
     static String txtQuit = "Quit Game";
