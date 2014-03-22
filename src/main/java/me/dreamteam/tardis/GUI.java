@@ -330,7 +330,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         if (GProperties.achFalcon == false) {
-        btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+        btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
         btnShip2.setText(Utils.txtLocked);
         btnShip2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,7 +338,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         } else {
-            btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
             btnShip2.setText(Utils.ship2Name);
             btnShip2.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
