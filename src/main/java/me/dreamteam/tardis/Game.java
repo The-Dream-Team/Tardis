@@ -329,9 +329,6 @@ public class Game extends Canvas {
         Utils.systemLF();
         // properties.shipS = 0;
         startGame();
-        
-        
-        
     }
 
     public void titleScreen() {
@@ -506,7 +503,6 @@ public class Game extends Canvas {
                 }
 
                 //testing for collision of player and enemy
-                // p = ship, s = enemy
 
                 for (int p = 0; p < properties.entities.size(); p++) {
                     for (int s = p + 1; s < properties.entities.size(); s++) {
