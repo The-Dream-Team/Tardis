@@ -393,7 +393,7 @@ public class Game extends Canvas {
 
         if (goG == 1) {
         	int openWebsite;
-            openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtWebsiteMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
+            openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtHighscoreMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
 
             if (openWebsite == 0) {
             try {
