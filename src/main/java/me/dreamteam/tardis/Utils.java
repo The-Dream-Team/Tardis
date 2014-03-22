@@ -120,10 +120,10 @@ public class Utils {
     static String txtWarningShip = "Please choose a ship";
 
     // How to Play (WIP)
-    static String txtHTPTitle = "      How to Play";
+    static String txtHTPTitle = "                 How to Play";
 
     // Achievements
-    static String txtAchTitle = "Achievements & Unlocks ";
+    static String txtAchTitle = "        Achievements & Unlocks ";
 
     static String txtAch1 = "Explorer";
     static String txtAch1Desc = "Travel a distance of 1000m";
