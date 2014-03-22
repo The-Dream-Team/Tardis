@@ -81,38 +81,6 @@ public class Game extends Canvas {
         });
 
 
-        // Ensure that database exists, if not, create it.
-
-        File f = new File("./SSA.db");
-        if(!f.exists() && !f.isDirectory())
-            {
-                System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
-                InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("/data/SSA.db");
-                if (stream == null) {
-                }
-                OutputStream resStreamOut = null;
-                int readBytes;
-                byte[] buffer = new byte[4096];
-                try {
-                    resStreamOut = new FileOutputStream(new File("./SSA.db"));
-                    while ((readBytes = stream.read(buffer)) > 0) {
-                        resStreamOut.write(buffer, 0, readBytes);
-                    }
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        stream.close();
-                        resStreamOut.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }
-
-
         ImageIcon icon = new ImageIcon(Utils.iconURL);
         container.setIconImage(icon.getImage());
 
@@ -352,7 +320,7 @@ public class Game extends Canvas {
 
     public void characterSelect() {
 
-        database.SQLConnect();
+        database.dbConnect();
 
         ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
         ImageIcon ship2 = new ImageIcon(Utils.ship2URL);
@@ -382,13 +350,13 @@ public class Game extends Canvas {
         new GProperties().propertiesFile();
 
         try {
-            new Database().updateDb();
+            new Database().dbUpdateScore();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            new Database().SQLUpdate();
+            new Database().dbUpdateAchievements();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -785,7 +753,7 @@ public class Game extends Canvas {
             }
             if (properties.debug) {
                 if (e.getKeyCode() == KeyEvent.VK_F8) {
-                    database.SQLReset();
+                    database.dbReset();
                 }
             }
 
@@ -805,7 +773,39 @@ public class Game extends Canvas {
 
 
     public static void main(String argv[]) {
-    	 new GUI().setVisible(true);
+
+        // Ensure that database exists, if not, create it.
+
+        File f = new File("./SSA.db");
+        if(!f.exists() && !f.isDirectory())
+        {
+            System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
+            InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("/data/SSA.db");
+            if (stream == null) {
+            }
+            OutputStream resStreamOut = null;
+            int readBytes;
+            byte[] buffer = new byte[4096];
+            try {
+                resStreamOut = new FileOutputStream(new File("./SSA.db"));
+                while ((readBytes = stream.read(buffer)) > 0) {
+                    resStreamOut.write(buffer, 0, readBytes);
+                }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } finally {
+                try {
+                    stream.close();
+                    resStreamOut.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+
+        new GUI().setVisible(true);
     	 
     	 Game g = new Game();
          g.gameLoop();
