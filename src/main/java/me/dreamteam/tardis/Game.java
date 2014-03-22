@@ -615,7 +615,7 @@ public class Game extends Canvas {
                     if (properties.curWeapon == 1) {
                         useWeapon();
                         properties.weaponLoopTime = System.currentTimeMillis();
-                        properties.setWeapon(0);
+                        properties.weapon1 = 0;
                     }
                     if (properties.curWeapon != 1) {
                         properties.firing = false;
