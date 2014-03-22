@@ -300,7 +300,7 @@ public class Game extends Canvas {
         properties.lastLoopTime = System.currentTimeMillis();
         properties.firing = false;
         properties.curWeapon = 1;
-        properties.setWeapon(1);
+        properties.weapon = 1;
         GProperties.debugHits = 0;
 
         Sound.soundTheme1.play();
@@ -329,9 +329,6 @@ public class Game extends Canvas {
         Utils.systemLF();
         // properties.shipS = 0;
         startGame();
-        
-        
-        
     }
 
     public void titleScreen() {
@@ -395,12 +392,18 @@ public class Game extends Canvas {
         }
 
         if (goG == 1) {
+        	int openWebsite;
+            openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtWebsiteMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
+
+            if (openWebsite == 0) {
             try {
-                String url = "http://the-dreamteam.co.uk/highscores.php";
-                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-                playerName();
-            } catch (java.io.IOException e) {
-                System.out.println("DEBUG: [WARNING] " + e.getMessage());
+            	 String url = "http://the-dreamteam.co.uk/highscores.php";
+                 java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+                 playerName();
+            }
+            catch (java.io.IOException e) {
+                System.out.println(e.getMessage());
+            }
             }
         }
 
@@ -506,7 +509,6 @@ public class Game extends Canvas {
                 }
 
                 //testing for collision of player and enemy
-                // p = ship, s = enemy
 
                 for (int p = 0; p < properties.entities.size(); p++) {
                     for (int s = p + 1; s < properties.entities.size(); s++) {
@@ -590,11 +592,11 @@ public class Game extends Canvas {
                 if (properties.curWeapon == 1) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
+                    g.drawString(String.valueOf(properties.weapon), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 647);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon1), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon1))) / 2, 647);
+                    g.drawString(String.valueOf(properties.weapon), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 647);
                 }
 
 
@@ -615,11 +617,11 @@ public class Game extends Canvas {
                     properties.ship.setHorizontalMovement(properties.moveSpeed);
                 }
 
-                if (properties.firing && properties.weapon1 > 0) {
+                if (properties.firing && properties.weapon > 0) {
                     if (properties.curWeapon == 1) {
                         useWeapon();
                         properties.weaponLoopTime = System.currentTimeMillis();
-                        properties.setWeapon(0);
+                        properties.weapon = 0;
                     }
                     if (properties.curWeapon != 1) {
                         properties.firing = false;
@@ -710,24 +712,6 @@ public class Game extends Canvas {
             }
             if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
                 properties.rightPressed = true;
-            }
-            if (e.getKeyCode() == KeyEvent.VK_1) {
-                properties.curWeapon = 1;
-                if (properties.debug) {
-                    System.out.println("DEBUG: [INFO] Current weapon set to weapon " + properties.curWeapon);
-                }
-            }
-            if (e.getKeyCode() == KeyEvent.VK_2) {
-                properties.curWeapon = 2;
-                if (properties.debug) {
-                    System.out.println("DEBUG: [INFO] Current weapon set to weapon " + properties.curWeapon);
-                }
-            }
-            if (e.getKeyCode() == KeyEvent.VK_3) {
-                properties.curWeapon = 3;
-                if (properties.debug) {
-                    System.out.println("DEBUG: [INFO] Current weapon set to weapon " + properties.curWeapon);
-                }
             }
             if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 properties.firing = true;
