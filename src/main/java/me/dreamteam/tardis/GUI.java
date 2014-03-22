@@ -349,7 +349,7 @@ public class GUI extends javax.swing.JFrame {
         }
 
         if (GProperties.achMoth == false) {
-        btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+        btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
         btnShip3.setText(Utils.txtLocked);
         btnShip3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
