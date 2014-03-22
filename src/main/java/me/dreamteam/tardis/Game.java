@@ -392,12 +392,18 @@ public class Game extends Canvas {
         }
 
         if (goG == 1) {
+        	int openWebsite;
+            openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtWebsiteMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
+
+            if (openWebsite == 0) {
             try {
-                String url = "http://the-dreamteam.co.uk/highscores.php";
-                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-                playerName();
-            } catch (java.io.IOException e) {
-                System.out.println("DEBUG: [WARNING] " + e.getMessage());
+            	 String url = "http://the-dreamteam.co.uk/highscores.php";
+                 java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+                 playerName();
+            }
+            catch (java.io.IOException e) {
+                System.out.println(e.getMessage());
+            }
             }
         }
 
