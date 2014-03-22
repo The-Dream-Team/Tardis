@@ -116,7 +116,7 @@ public class Utils {
     // Validation warnings
     static String txtWarning = "Warning";
     static String txtWarningUsername = "Please enter an username";
-    static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters";
+    static String txtWarningUsernameChar = "Please enter an username that is at least 3 characters long";
     static String txtWarningShip = "Please choose a ship";
 
     // How to Play (WIP)

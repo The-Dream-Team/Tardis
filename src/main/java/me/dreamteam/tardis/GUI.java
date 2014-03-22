@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
 import javax.swing.*;
 
 
@@ -184,7 +185,7 @@ public class GUI extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         Canvas = new java.awt.Canvas();
         GamePanel = new javax.swing.JPanel();
-
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(Utils.gameName + Utils.version);
         setMaximumSize(new java.awt.Dimension(500, 650));
@@ -650,7 +651,7 @@ public class GUI extends javax.swing.JFrame {
         txtHTPTitle.setForeground(new java.awt.Color(255, 255, 255));
         txtHTPTitle.setText(Utils.txtHTPTitle);
         txtHTPTitle.setToolTipText("");
-
+        
         javax.swing.GroupLayout panelHTPLayout = new javax.swing.GroupLayout(panelHTP);
         panelHTP.setLayout(panelHTPLayout);
         panelHTPLayout.setHorizontalGroup(
@@ -828,13 +829,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {
-
-        int quitDialog;
-        quitDialog = JOptionPane.showConfirmDialog(null, Utils.txtQuitMsg, Utils.txtQuit,JOptionPane.YES_NO_OPTION);
-
-        if (quitDialog == 0) {
         System.exit(0);
-        }
     }
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {
