@@ -555,6 +555,9 @@ public class GUI extends javax.swing.JFrame {
         if (GProperties.achMoth) {
             pbAch2.setValue(GProperties.ach2Distance);
         }
+        
+        pbAch3.setToolTipText("");
+        pbAch3.setValue(GProperties.ach3Distance);
 
         txtAchDesc2.setFont(new java.awt.Font("Minecraftia", 0, 12)); // NOI18N
         txtAchDesc2.setForeground(new java.awt.Color(255, 255, 255));
