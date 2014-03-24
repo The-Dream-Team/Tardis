@@ -21,7 +21,8 @@ public class Database {
             URLConnection conn = dbConnect.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(
-                            conn.getInputStream()));
+                            conn.getInputStream())
+            );
             String inputLine;
 
             while ((inputLine = in.readLine()) != null)
