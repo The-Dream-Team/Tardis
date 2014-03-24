@@ -2,7 +2,6 @@ package me.dreamteam.tardis;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -37,10 +36,11 @@ public class Game extends Canvas {
         setIgnoreRepaint(true);
         container.setResizable(false);
         container.pack();
-        while(GProperties.release == false){
-        	try {
+        while (GProperties.release == false) {
+            try {
                 Thread.sleep(10);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
         container.setVisible(true);
         // Set up elements colours
@@ -129,8 +129,6 @@ public class Game extends Canvas {
         gi.drawString(Utils.txtLoad, (500 - gi.getFontMetrics().stringWidth(Utils.txtLoad)) / 2, 248);
         properties.strategy.show();
         gi.dispose();
-
-
 
 
     }
@@ -383,18 +381,17 @@ public class Game extends Canvas {
         }
 
         if (goG == 1) {
-        	int openWebsite;
-            openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtHighscoreMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
+            int openWebsite;
+            openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtHighscoreMsg, Utils.txtWebsite, JOptionPane.YES_NO_OPTION);
 
             if (openWebsite == 0) {
-            try {
-            	 String url = "http://the-dreamteam.co.uk/highscores.php";
-                 java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-                 characterSelect();
-            }
-            catch (java.io.IOException e) {
-                System.out.println(e.getMessage());
-            }
+                try {
+                    String url = "http://the-dreamteam.co.uk/highscores.php";
+                    java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+                    characterSelect();
+                } catch (java.io.IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
 
@@ -746,14 +743,12 @@ public class Game extends Canvas {
     }
 
 
-
     public static void main(String argv[]) {
 
         // Ensure that database exists, if not, create it.
 
         File f = new File("./SSA.db");
-        if(!f.exists() && !f.isDirectory())
-        {
+        if (!f.exists() && !f.isDirectory()) {
             System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
             InputStream stream = me.dreamteam.tardis.Game.class.getResourceAsStream("/data/SSA.db");
             if (stream == null) {
@@ -781,13 +776,12 @@ public class Game extends Canvas {
         }
 
         new GUI().setVisible(true);
-    	 
-    	 Game g = new Game();
-         g.gameLoop();
-    	 
+
+        Game g = new Game();
+        g.gameLoop();
+
 
     }
-
 
 
 }

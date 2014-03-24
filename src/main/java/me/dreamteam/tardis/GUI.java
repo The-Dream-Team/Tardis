@@ -1,11 +1,7 @@
 package me.dreamteam.tardis;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 import javax.swing.*;
+import java.awt.*;
 
 
 public class GUI extends javax.swing.JFrame {
@@ -185,7 +181,7 @@ public class GUI extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         Canvas = new java.awt.Canvas();
         GamePanel = new javax.swing.JPanel();
-        
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(Utils.gameName + Utils.version);
         setMaximumSize(new java.awt.Dimension(500, 650));
@@ -315,10 +311,10 @@ public class GUI extends javax.swing.JFrame {
         txtpUsername.setMargin(new java.awt.Insets(8, 8, 8, 8));
         txtpUsername.getDocument().putProperty("filterNewlines", Boolean.TRUE);
         txtpUsername.addKeyListener(new java.awt.event.KeyAdapter() {
-           public void keyPressed(java.awt.event.KeyEvent evt) {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtpUsernameKeyPressed(evt);
             }
-         });
+        });
 
         jScrollPane1.setViewportView(txtpUsername);
 
@@ -331,13 +327,13 @@ public class GUI extends javax.swing.JFrame {
         });
 
         if (GProperties.achFalcon == false) {
-        btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
-        btnShip2.setText(Utils.txtLocked);
-        btnShip2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShip2ActionPerformed(evt);
-            }
-        });
+            btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
+            btnShip2.setText(Utils.txtLocked);
+            btnShip2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnShip2ActionPerformed(evt);
+                }
+            });
         } else {
             btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
             btnShip2.setText(Utils.ship2Name);
@@ -349,13 +345,13 @@ public class GUI extends javax.swing.JFrame {
         }
 
         if (GProperties.achMoth == false) {
-        btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
-        btnShip3.setText(Utils.txtLocked);
-        btnShip3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShip3ActionPerformed(evt);
-            }
-        });
+            btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
+            btnShip3.setText(Utils.txtLocked);
+            btnShip3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnShip3ActionPerformed(evt);
+                }
+            });
         } else {
             btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
             btnShip3.setText(Utils.ship3Name);
@@ -651,7 +647,7 @@ public class GUI extends javax.swing.JFrame {
         txtHTPTitle.setForeground(new java.awt.Color(255, 255, 255));
         txtHTPTitle.setText(Utils.txtHTPTitle);
         txtHTPTitle.setToolTipText("");
-        
+
         javax.swing.GroupLayout panelHTPLayout = new javax.swing.GroupLayout(panelHTP);
         panelHTP.setLayout(panelHTPLayout);
         panelHTPLayout.setHorizontalGroup(
@@ -757,19 +753,19 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnShip2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (GProperties.achFalcon == true) {
-        jTextPane1.setText(Utils.txtShip2Desc);
-        btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
-        btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            jTextPane1.setText(Utils.txtShip2Desc);
+            btnShip3.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            btnShip2.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
+            btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
 
-        // Colour
-        btnShip1.setForeground(new java.awt.Color(0, 0, 0));
-        btnShip2.setForeground(new java.awt.Color(255, 0, 1));
-        btnShip3.setForeground(new java.awt.Color(0, 0, 0));
+            // Colour
+            btnShip1.setForeground(new java.awt.Color(0, 0, 0));
+            btnShip2.setForeground(new java.awt.Color(255, 0, 1));
+            btnShip3.setForeground(new java.awt.Color(0, 0, 0));
 
-        GProperties.shipS = 1;
+            GProperties.shipS = 1;
         } else {
-            JOptionPane.showMessageDialog(null,Utils.txtShipLocked);
+            JOptionPane.showMessageDialog(null, Utils.txtShipLocked);
         }
     }
 
@@ -779,50 +775,50 @@ public class GUI extends javax.swing.JFrame {
         GProperties.username = txtpUsername.getText();
 
         if (GProperties.username == null || GProperties.username.length() == 0) {
-            JOptionPane.showMessageDialog(null,Utils.txtWarningUsername,Utils.txtWarning,JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, Utils.txtWarningUsername, Utils.txtWarning, JOptionPane.WARNING_MESSAGE);
         } else if (GProperties.username.length() < 3) {
-            JOptionPane.showMessageDialog(null,Utils.txtWarningUsernameChar,Utils.txtWarning,JOptionPane.WARNING_MESSAGE);
-            } else if (GProperties.shipS == null) {
-                JOptionPane.showMessageDialog(null,Utils.txtWarningShip,Utils.txtWarning,JOptionPane.WARNING_MESSAGE);
-                } else {
-                    dispose();
-                    GProperties.release = true;
-                 }
+            JOptionPane.showMessageDialog(null, Utils.txtWarningUsernameChar, Utils.txtWarning, JOptionPane.WARNING_MESSAGE);
+        } else if (GProperties.shipS == null) {
+            JOptionPane.showMessageDialog(null, Utils.txtWarningShip, Utils.txtWarning, JOptionPane.WARNING_MESSAGE);
+        } else {
+            dispose();
+            GProperties.release = true;
+        }
     }
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {
-        CardLayout cl = (CardLayout)(Master.getLayout());
+        CardLayout cl = (CardLayout) (Master.getLayout());
         cl.previous(Master);
     }
 
     private void btnShip3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (GProperties.achMoth == true) {
-        jTextPane1.setText(Utils.txtShip3Desc);
-        btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
-        btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
-        // Colour
-        btnShip1.setForeground(new java.awt.Color(0, 0, 0));
-        btnShip2.setForeground(new java.awt.Color(0, 0, 0));
-        btnShip3.setForeground(new java.awt.Color(255, 0, 1));
+            jTextPane1.setText(Utils.txtShip3Desc);
+            btnShip3.setFont(new java.awt.Font("Minecraftia", 1, 18)); // NOI18N
+            btnShip2.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            btnShip1.setFont(new java.awt.Font("Minecraftia", 0, 18)); // NOI18N
+            // Colour
+            btnShip1.setForeground(new java.awt.Color(0, 0, 0));
+            btnShip2.setForeground(new java.awt.Color(0, 0, 0));
+            btnShip3.setForeground(new java.awt.Color(255, 0, 1));
 
-        GProperties.shipS = 2;
+            GProperties.shipS = 2;
         } else {
-            JOptionPane.showMessageDialog(null,Utils.txtShipLocked);
+            JOptionPane.showMessageDialog(null, Utils.txtShipLocked);
         }
     }
 
     private void btnAchActionPerformed(java.awt.event.ActionEvent evt) {
-        CardLayout cl = (CardLayout)(Master.getLayout());
+        CardLayout cl = (CardLayout) (Master.getLayout());
         cl.next(Master);
     }
 
-     private void txtpUsernameKeyPressed(java.awt.event.KeyEvent evt) {
+    private void txtpUsernameKeyPressed(java.awt.event.KeyEvent evt) {
         txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("ENTER"),
                 "doNothing");
         txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),
                 "doNothing");
-       txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"),
+        txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"),
                 "doNothing");
         txtpUsername.getInputMap().put(KeyStroke.getKeyStroke("TAB"),
                 "doNothing");
@@ -835,26 +831,25 @@ public class GUI extends javax.swing.JFrame {
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {
 
         int openWebsite;
-        openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtWebsiteMsg, Utils.txtWebsite,JOptionPane.YES_NO_OPTION);
+        openWebsite = JOptionPane.showConfirmDialog(null, Utils.txtWebsiteMsg, Utils.txtWebsite, JOptionPane.YES_NO_OPTION);
 
         if (openWebsite == 0) {
-        try {
-            String url = Utils.urlWebsite;
-            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
-        }
-        catch (java.io.IOException e) {
-            System.out.println(e.getMessage());
-        }
+            try {
+                String url = Utils.urlWebsite;
+                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+            } catch (java.io.IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
     private void btnPlayGameActionPerformed(java.awt.event.ActionEvent evt) {
-        CardLayout cl = (CardLayout)(Master.getLayout());
+        CardLayout cl = (CardLayout) (Master.getLayout());
         cl.show(Master, "panelChar");
     }
 
     private void btnPrev1ActionPerformed(java.awt.event.ActionEvent evt) {
-        CardLayout cl = (CardLayout)(Master.getLayout());
+        CardLayout cl = (CardLayout) (Master.getLayout());
         cl.show(Master, "panelMain");
     }
 
