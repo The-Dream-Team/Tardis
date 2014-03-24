@@ -36,6 +36,31 @@ public class Database {
             }
         }
     }
+    
+    public void dbUpdateDistance() throws Exception {
+        String dbDistance = Integer.toString(GProperties.gameTime) + "0";
+        
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
+
+            System.out.println("DEBUG: [INFO] Opened database successfully");
+        
+        stmt = c.createStatement();
+        String sql = "UPDATE data set distance = " + dbDistance + ";";
+        stmt.executeUpdate(sql);
+        c.setAutoCommit(false);
+        c.commit();
+        stmt.close();
+        
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        
+    }
 
     // Initiate connection to the SQLite database and get unlocked achievements
     public void dbConnect() {
@@ -83,6 +108,52 @@ public class Database {
             System.exit(0);
         }
     }
+    
+    public void dbGetDistance() {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
+
+            System.out.println("DEBUG: [INFO] Opened data database successfully");
+
+            //Check Distance
+            
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT distance FROM data;");
+            while (rs.next()) {
+                int distance = rs.getInt("distance");
+                GProperties.achDistance = distance;
+                
+                if (GProperties.achDistance >= 1000){
+                	GProperties.ach1Distance = 100;
+                } else {
+                	GProperties.ach1Distance = GProperties.achDistance / 10;
+                }
+                
+                if (GProperties.achDistance >= 5000){
+                	GProperties.ach2Distance = 100;
+                } else if (GProperties.achDistance < 5000 && GProperties.achDistance > 1000) {
+                	GProperties.ach2Distance = GProperties.achDistance / 50;
+                }                
+            }
+               
+                
+                
+                
+            
+
+
+            rs.close();
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+    }
+    
 
     // Update achievements if the player has made the successful criteria
     public void dbUpdateAchievements() {
