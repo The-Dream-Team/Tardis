@@ -745,8 +745,17 @@ public class Game extends Canvas {
 
     public static void main(String argv[]) {
 
-        // Ensure that database exists, if not, create it.
 
+        InputStream mcFontS = Game.class.getResourceAsStream("/fonts/Minecraftia.ttf");
+        try {
+            Font McFont = Font.createFont(Font.TRUETYPE_FONT, mcFontS);
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Ensure that database exists, if not, create it.
         File f = new File("./SSA.db");
         if (!f.exists() && !f.isDirectory()) {
             System.out.println("DEBUG: [WARNING] Database does not exist, recreating it");
