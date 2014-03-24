@@ -145,12 +145,6 @@ public class Database {
                 }   
             }
                
-                
-                
-                
-            
-
-
             rs.close();
             stmt.close();
 
