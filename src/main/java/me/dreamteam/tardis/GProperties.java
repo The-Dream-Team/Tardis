@@ -97,7 +97,10 @@ public class GProperties {
 
     public static boolean achFalcon = false;
     public static boolean achMoth = false;
-
+    public static int achDistance = 0;
+    public static int ach1Distance = 0;
+    public static int ach2Distance = 0;
+    public static int ach3Distance = 0;
 
     public void propertiesFile() {
 
