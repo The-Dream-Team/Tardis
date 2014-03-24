@@ -547,14 +547,10 @@ public class GUI extends javax.swing.JFrame {
         txtAchDesc1.setText(Utils.txtAch1Desc);
 
         pbAch1.setToolTipText("");
-        if (GProperties.achFalcon) {
-            pbAch1.setValue(GProperties.ach1Distance);
-        }
+        pbAch1.setValue(GProperties.ach1Distance);
 
         pbAch2.setToolTipText("");
-        if (GProperties.achMoth) {
-            pbAch2.setValue(GProperties.ach2Distance);
-        }
+        pbAch2.setValue(GProperties.ach2Distance);
         
         pbAch3.setToolTipText("");
         pbAch3.setValue(GProperties.ach3Distance);
