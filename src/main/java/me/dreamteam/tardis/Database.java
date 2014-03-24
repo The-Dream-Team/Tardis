@@ -37,6 +37,7 @@ public class Database {
         }
     }
     
+    // Update distance table when the game is over
     public void dbUpdateDistance() throws Exception {
         String dbDistance = Integer.toString(GProperties.gameTime) + "0";
         
@@ -109,6 +110,7 @@ public class Database {
         }
     }
     
+    // Check distance ready to be inserted as progress bars
     public void dbGetDistance() {
         Connection c = null;
         Statement stmt = null;
