@@ -278,7 +278,7 @@ public class Game extends Canvas {
         properties.backgroundImages.add(properties.Background);
         properties.Background2 = new Background(this, "sprites/background.png", 0, -650);
         properties.backgroundImages.add(properties.Background2);
-        properties.Pack = new Pack(this, "sprites/crate.png", 5, 628);
+        properties.Pack = new Pack(this, "sprites/crate.png", 1, 625);
         properties.packList.add(properties.Pack);
         initPlayer();
 
@@ -580,11 +580,11 @@ public class Game extends Canvas {
                 if (properties.curWeapon == 1) {
                     g.setColor(Color.ORANGE);
                     g.setFont(new Font("Volter (Goldfish)", Font.BOLD, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 647);
+                    g.drawString(String.valueOf(properties.weapon), (75 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 644);
                 } else {
                     g.setColor(Color.WHITE);
                     g.setFont(new Font("Volter (Goldfish)", Font.PLAIN, Utils.weaponIFS));
-                    g.drawString(String.valueOf(properties.weapon), (85 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 647);
+                    g.drawString(String.valueOf(properties.weapon), (75 - g.getFontMetrics().stringWidth(String.valueOf(properties.weapon))) / 2, 644);
                 }
 
 
