@@ -20,9 +20,9 @@ public class Utils {
     static String ship1Name = "P3N-15";
     static String ship2Name = "FALCON";
     static String ship3Name = "CICADA";
-	
+
 	/*
-	 * gText Options
+     * gText Options
 	 */
 
     static int fontSize = 18;  // Global Font Size
@@ -138,7 +138,7 @@ public class Utils {
     static String txtWebsite = "Website";
     static String txtWebsiteMsg = "The website will be opened within your web browser. \nDo you wish to continue?";
     static String urlWebsite = "http://the-dreamteam.co.uk";
-    
+
     static String txtHighscoreMsg = "Highscore will be displayed on your web browser.";
 
     // Quit Game Dialog

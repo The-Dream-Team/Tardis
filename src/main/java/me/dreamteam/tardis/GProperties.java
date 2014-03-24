@@ -35,7 +35,7 @@ public class GProperties {
     public Image splashbg;
     public static int wake = 0;
     public static String username;
-	
+
 	/* Entities */
 
     public Entity Background;
@@ -87,7 +87,7 @@ public class GProperties {
     public long weaponLoopTime;
     public int curWeapon = 1;
     public boolean weaponPressed = false;
-	
+
 	/* Window Toolkit */
 
     public static int sX = 0;
