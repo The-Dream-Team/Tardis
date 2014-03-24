@@ -131,8 +131,8 @@ public class Utils {
     static String txtAch2 = "Voyager";
     static String txtAch2Desc = "Travel a distance of 5000m";
 
-    static String txtAch3 = "TBA";
-    static String txtAch3Desc = "TBA";
+    static String txtAch3 = "To Infinity & Beyond";
+    static String txtAch3Desc = "Travel a distance of 100,000m";
 
     // Website Dialog
     static String txtWebsite = "Website";
