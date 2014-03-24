@@ -2,6 +2,8 @@ package me.dreamteam.tardis;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class GUI extends javax.swing.JFrame {
@@ -181,6 +183,21 @@ public class GUI extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         Canvas = new java.awt.Canvas();
         GamePanel = new javax.swing.JPanel();
+
+        InputStream is = me.dreamteam.tardis.Game.class.getResourceAsStream("/fonts/Minecraftia.ttf");
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, is);
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        GraphicsEnvironment ge = GraphicsEnvironment
+                .getLocalGraphicsEnvironment();
+
+        ge.registerFont(font);
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(Utils.gameName + Utils.version);
