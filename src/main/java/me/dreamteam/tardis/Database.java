@@ -136,7 +136,13 @@ public class Database {
                 	GProperties.ach2Distance = 100;
                 } else if (GProperties.achDistance < 5000 && GProperties.achDistance > 1000) {
                 	GProperties.ach2Distance = GProperties.achDistance / 50;
-                }                
+                }   
+                
+                if (GProperties.achDistance >= 100000){
+                	GProperties.ach3Distance = 100;
+                } else if (GProperties.achDistance < 100000 && GProperties.achDistance > 5000) {
+                	GProperties.ach3Distance = GProperties.achDistance / 10000;
+                }   
             }
                
                 
