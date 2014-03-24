@@ -340,6 +340,12 @@ public class Game extends Canvas {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        try {
+            new Database().dbUpdateDistance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         try {
             new Database().dbUpdateAchievements();
