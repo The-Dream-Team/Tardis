@@ -743,14 +743,7 @@ public class Game extends Canvas {
     }
 
 
-    public static void main(String argv[]) throws IOException, FontFormatException {
-
-        InputStream is = me.dreamteam.tardis.Game.class.getResourceAsStream("/fonts/Minecraftia.ttf");
-        Font font = Font.createFont(Font.TRUETYPE_FONT, is);
-        GraphicsEnvironment ge = GraphicsEnvironment
-                .getLocalGraphicsEnvironment();
-
-        ge.registerFont(font);
+    public static void main(String argv[]) {
 
         // Ensure that database exists, if not, create it.
         File f = new File("./SSA.db");
