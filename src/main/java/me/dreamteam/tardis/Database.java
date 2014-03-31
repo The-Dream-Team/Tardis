@@ -38,8 +38,13 @@ public class Database {
     }
     
     public void dbUpdateDistance() throws Exception {
+
         String dbDistance = Integer.toString(GProperties.gameTime) + "0";
-        
+        int getDistance = Integer.parseInt(dbDistance);
+
+        int setDistance = GProperties.achDistance + getDistance;
+        System.out.println(setDistance);
+
         Connection c = null;
         Statement stmt = null;
         try {
@@ -47,14 +52,14 @@ public class Database {
             c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
 
             System.out.println("DEBUG: [INFO] Opened database successfully");
-        
+
         stmt = c.createStatement();
-        String sql = "UPDATE data set distance = " + dbDistance + ";";
+        String sql = "UPDATE data set distance = " + setDistance + ";";
         stmt.executeUpdate(sql);
         c.setAutoCommit(false);
         c.commit();
         stmt.close();
-        
+
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
