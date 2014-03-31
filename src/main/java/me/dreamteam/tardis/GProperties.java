@@ -102,29 +102,5 @@ public class GProperties {
     public static int ach2Distance = 0;
     public static int ach3Distance = 0;
 
-    public void propertiesFile() {
-
-        Properties prop = new Properties();
-
-        try {
-            prop.load(new FileInputStream("game.properties"));
-
-            String AchMoth = prop.getProperty("moth");
-            String AchFal = prop.getProperty("falcon");
-
-            prop.setProperty("moth", "true");
-
-            prop.store(new FileOutputStream("game.properties"), null);
-
-            if (debug) {
-                System.out.println("DEBUG: [INFO] Total plays: " + prop.getProperty("plays"));
-            }
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-    }
-
 
 }

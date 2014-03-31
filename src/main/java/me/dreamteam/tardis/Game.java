@@ -318,7 +318,6 @@ public class Game extends Canvas {
 
     public void characterSelect() {
 
-        database.dbConnect();
 
         ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
         ImageIcon ship2 = new ImageIcon(Utils.ship2URL);
@@ -333,7 +332,6 @@ public class Game extends Canvas {
         Sound.soundTheme1.stop();
         Sound.soundShoot.stop();
         Sound.soundGameOver.play();
-        new GProperties().propertiesFile();
 
         try {
             new Database().dbUpdateScore();
