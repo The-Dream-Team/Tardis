@@ -24,6 +24,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnShip1;
     private javax.swing.JButton btnShip2;
     private javax.swing.JButton btnShip3;
+    private javax.swing.JLabel htpImage;
     private javax.swing.JLabel imgShip1;
     private javax.swing.JLabel imgShip2;
     private javax.swing.JLabel imgShip3;
@@ -44,8 +45,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel labelLogoSmall3;
     private javax.swing.JPanel panelAch;
     private javax.swing.JPanel panelChar;
-    private javax.swing.JPanel panelHTP;
     private javax.swing.JPanel panelMain;
+    private javax.swing.JPanel panelHTP;
     private javax.swing.JProgressBar pbAch1;
     private javax.swing.JProgressBar pbAch2;
     private javax.swing.JProgressBar pbAch3;
@@ -132,9 +133,8 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
+
         Master = new javax.swing.JPanel();
-        GameFrame = new javax.swing.JDesktopPane();
-        panelGame = new javax.swing.JPanel();
         panelMain = new javax.swing.JPanel();
         btnPlayGame = new javax.swing.JButton();
         btnHTP = new javax.swing.JButton();
@@ -180,9 +180,10 @@ public class GUI extends javax.swing.JFrame {
         panelHTP = new javax.swing.JPanel();
         btnPrev1 = new javax.swing.JButton();
         labelLogoSmall3 = new javax.swing.JLabel();
-        txtHTPTitle = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        Canvas = new java.awt.Canvas();
+        htpImage = new javax.swing.JLabel();
+        panelGame = new javax.swing.JPanel();
+        GameFrame = new javax.swing.JDesktopPane();
         GamePanel = new javax.swing.JPanel();
 
         InputStream is = me.dreamteam.tardis.Game.class.getResourceAsStream("/fonts/Minecraftia.ttf");
@@ -643,6 +644,7 @@ public class GUI extends javax.swing.JFrame {
 
         Master.add(panelAch, "panelAch");
 
+
         panelHTP.setBackground(new java.awt.Color(0, 0, 0));
         panelHTP.setForeground(new java.awt.Color(255, 255, 255));
         panelHTP.setMaximumSize(new java.awt.Dimension(500, 650));
@@ -650,7 +652,7 @@ public class GUI extends javax.swing.JFrame {
         panelHTP.setName("panelHTP"); // NOI18N
 
         btnPrev1.setFont(new java.awt.Font("Minecraftia", 0, 14)); // NOI18N
-        btnPrev1.setText(Utils.btnPrev);
+        btnPrev1.setText("<< Return to Previous Menu");
         btnPrev1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrev1ActionPerformed(evt);
@@ -660,45 +662,47 @@ public class GUI extends javax.swing.JFrame {
         labelLogoSmall3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/logo-small.png"))); // NOI18N
         labelLogoSmall3.setText("jLabel3");
 
-        txtHTPTitle.setFont(new java.awt.Font("Minecraftia", 1, 24)); // NOI18N
-        txtHTPTitle.setForeground(new java.awt.Color(255, 255, 255));
-        txtHTPTitle.setText(Utils.txtHTPTitle);
-        txtHTPTitle.setToolTipText("");
+        htpImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/htp.png"))); // NOI18N
+        htpImage.setText("htpImage");
+        htpImage.setName("htpImage"); // NOI18N
 
         javax.swing.GroupLayout panelHTPLayout = new javax.swing.GroupLayout(panelHTP);
         panelHTP.setLayout(panelHTPLayout);
         panelHTPLayout.setHorizontalGroup(
-                panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelHTPLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHTPLayout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(labelLogoSmall3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(71, 71, 71))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHTPLayout.createSequentialGroup()
-                                                .addGroup(panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(btnPrev1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addContainerGap())))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHTPLayout.createSequentialGroup()
-                                .addContainerGap(54, Short.MAX_VALUE)
-                                .addComponent(txtHTPTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
+            panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHTPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHTPLayout.createSequentialGroup()
+                        .addGap(0, 67, Short.MAX_VALUE)
+                        .addComponent(labelLogoSmall3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHTPLayout.createSequentialGroup()
+                        .addComponent(jSeparator8)
+                        .addContainerGap())
+                    .addGroup(panelHTPLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(htpImage, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelHTPLayout.createSequentialGroup()
+                        .addComponent(btnPrev1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelHTPLayout.setVerticalGroup(
-                panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelHTPLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(labelLogoSmall3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtHTPTitle)
-                                .addGap(421, 421, 421)
-                                .addComponent(btnPrev1, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                                .addContainerGap())
+            panelHTPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHTPLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(labelLogoSmall3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(htpImage, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnPrev1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        htpImage.getAccessibleContext().setAccessibleName("htpImage");
 
         Master.add(panelHTP, "panelHTP");
 
