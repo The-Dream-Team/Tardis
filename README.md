@@ -9,7 +9,7 @@ Use Windows PowerShell and run the following commands
 * git fetch upstream
 * git merge upstream/master
 or 
-* ./update.ps1
+* ./update.ps1 / ./update
 
 Remember to take it in turns else there will be conflicts
 
