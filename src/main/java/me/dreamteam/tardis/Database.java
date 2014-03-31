@@ -43,7 +43,6 @@ public class Database {
         int getDistance = Integer.parseInt(dbDistance);
 
         int setDistance = GProperties.achDistance + getDistance;
-        System.out.println(setDistance);
 
         Connection c = null;
         Statement stmt = null;
@@ -67,53 +66,6 @@ public class Database {
         
     }
 
-    // Initiate connection to the SQLite database and get unlocked achievements
-    public void dbConnect() {
-        Connection c = null;
-        Statement stmt = null;
-        try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
-
-            System.out.println("DEBUG: [INFO] Opened database successfully");
-
-
-            //Check Achievements
-            stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM achievements;");
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String desc = rs.getString("desc");
-                int unlocked = rs.getInt("unlocked");
-
-                if (id == 1 && unlocked == 0) {
-                    GProperties.achFalcon = false;
-                }
-
-                if (id == 2 && unlocked == 0) {
-                    GProperties.achMoth = false;
-                }
-
-                if (id == 1 && unlocked == 1) {
-                    GProperties.achFalcon = true;
-                }
-
-                if (id == 2 && unlocked == 1) {
-                    GProperties.achMoth = true;
-                }
-            }
-
-
-            rs.close();
-            stmt.close();
-
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        }
-    }
-    
     public void dbGetDistance() {
         Connection c = null;
         Statement stmt = null;
@@ -122,6 +74,9 @@ public class Database {
             c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
 
             System.out.println("DEBUG: [INFO] Opened data database successfully");
+
+            GProperties.achFalcon = false;
+            GProperties.achMoth = false;
 
             //Check Distance
             
@@ -133,12 +88,14 @@ public class Database {
                 
                 if (GProperties.achDistance >= 1000){
                 	GProperties.ach1Distance = 100;
+                    GProperties.achFalcon = true;
                 } else {
                 	GProperties.ach1Distance = GProperties.achDistance / 10;
                 }
                 
                 if (GProperties.achDistance >= 5000){
                 	GProperties.ach2Distance = 100;
+                    GProperties.achMoth = true;
                 } else if (GProperties.achDistance < 5000 && GProperties.achDistance > 1000) {
                 	GProperties.ach2Distance = GProperties.achDistance / 50;
                 }   
@@ -149,12 +106,6 @@ public class Database {
                 	GProperties.ach3Distance = GProperties.achDistance / 10000;
                 }   
             }
-               
-                
-                
-                
-            
-
 
             rs.close();
             stmt.close();
@@ -174,18 +125,18 @@ public class Database {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
             c.setAutoCommit(false);
-            System.out.println("DEBUG: [INFO] Opened database successfully");
+            System.out.println("DEBUG: [INFO] (dbUpdateAchievements) Opened database successfully");
 
 
             //Check Achievements
-            if (GProperties.gameTime + 0 >= 150) {
+            if (GProperties.gameTime + 0 >= 1000) {
                 stmt = c.createStatement();
                 String sql = "UPDATE achievements set unlocked = 1 where id=1;";
                 stmt.executeUpdate(sql);
                 c.commit();
                 stmt.close();
             }
-            if (GProperties.gameTime + 0 >= 300) {
+            if (GProperties.gameTime + 0 >= 5000) {
                 stmt = c.createStatement();
                 String sql = "UPDATE achievements set unlocked = 1 where id=2;";
                 stmt.executeUpdate(sql);
@@ -216,8 +167,10 @@ public class Database {
             stmt = c.createStatement();
             String sql = "UPDATE achievements set unlocked = 0 where id=1; ";
             String sql2 = "UPDATE achievements set unlocked = 0 where id=2; ";
+            String sql3 = "UPDATE data set distance = 0;";
             stmt.executeUpdate(sql);
             stmt.executeUpdate(sql2);
+            stmt.executeUpdate(sql3);
             c.commit();
             stmt.close();
             System.out.println("DEBUG: [INFO] Successfully reset database and achievements");
