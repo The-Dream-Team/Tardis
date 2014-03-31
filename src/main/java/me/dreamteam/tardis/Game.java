@@ -2,6 +2,7 @@ package me.dreamteam.tardis;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -21,7 +22,7 @@ public class Game extends Canvas {
     GProperties properties = new GProperties();
     Sound sound;
     Database database = new Database();
-
+    double eEnemy = 0;
     public Game() {
         JFrame container = new JFrame(Utils.gameName + "- " + Utils.build + Utils.version);
 
@@ -168,7 +169,7 @@ public class Game extends Canvas {
         }
         if (properties.usedPack == false) {
             if (properties.gameLives < 3) {
-                int check = properties.rSpriteLoc.nextInt(10000);
+                int check = properties.rSpriteLoc.nextInt(1000);
                 int rPackLoc = properties.rSpriteLoc.nextInt(450);
                 if (check == 59) {
                     properties.Pack = new Pack(this, "sprites/astronaut.png", rPackLoc, -50);
@@ -203,8 +204,18 @@ public class Game extends Canvas {
                     } else {
                         FinalLoc = properties.spriteLoc2;
                     }
-                    Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50);
+                    if(properties.curSprite == 3){
+                    	eEnemy = 50;
+                    }else if(properties.curSprite == 2){
+                    	eEnemy = -50;
+                    }else if(properties.curSprite == 1){
+                    	eEnemy = +20;
+                    }else{
+                    	eEnemy = 0;
+                    }
+                    Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100+eEnemy)));
                     properties.entities.add(Enemies);
+                    eEnemy = 0;
                     properties.curSprite += 1;
                     if (properties.curSprite > 5)
                         properties.curSprite = 1;
@@ -218,7 +229,21 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        if (i == 0) {
+                            FinalLoc = properties.spriteLoc;
+                        } else {
+                            FinalLoc = properties.spriteLoc2;
+                        }
+                        if(properties.curSprite == 3){
+                        	eEnemy = 50;
+                        }else if(properties.curSprite == 2){
+                        	eEnemy = -50;
+                        }else if(properties.curSprite == 1){
+                        	eEnemy = +20;
+                        }else{
+                        	eEnemy = 0;
+                        }
+                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100+eEnemy)));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -232,7 +257,21 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100 * 0.45) - 30));
+                        if (i == 0) {
+                            FinalLoc = properties.spriteLoc;
+                        } else {
+                            FinalLoc = properties.spriteLoc2;
+                        }
+                        if(properties.curSprite == 3){
+                        	eEnemy = 50;
+                        }else if(properties.curSprite == 2){
+                        	eEnemy = -50;
+                        }else if(properties.curSprite == 1){
+                        	eEnemy = +20;
+                        }else{
+                        	eEnemy = 0;
+                        }
+                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100+eEnemy)));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -246,7 +285,21 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (150 + (115 * 0.45) - 30));
+                        if (i == 0) {
+                            FinalLoc = properties.spriteLoc;
+                        } else {
+                            FinalLoc = properties.spriteLoc2;
+                        }
+                        if(properties.curSprite == 3){
+                        	eEnemy = 50;
+                        }else if(properties.curSprite == 2){
+                        	eEnemy = -50;
+                        }else if(properties.curSprite == 1){
+                        	eEnemy = +20;
+                        }else{
+                        	eEnemy = 0;
+                        }
+                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100+eEnemy)));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
@@ -260,7 +313,21 @@ public class Game extends Canvas {
                         } else {
                             FinalLoc = properties.spriteLoc2;
                         }
-                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (115 + (100 * 0.45) - 30));
+                        if (i == 0) {
+                            FinalLoc = properties.spriteLoc;
+                        } else {
+                            FinalLoc = properties.spriteLoc2;
+                        }
+                        if(properties.curSprite == 3){
+                        	eEnemy = 50;
+                        }else if(properties.curSprite == 2){
+                        	eEnemy = -50;
+                        }else if(properties.curSprite == 1){
+                        	eEnemy = +20;
+                        }else{
+                        	eEnemy = 0;
+                        }
+                        Entity Enemies = new Enemy(this, "sprites/enemies/0" + properties.curSprite + ".png", FinalLoc, -50, (properties.tWait + (100+eEnemy)));
                         properties.entities.add(Enemies);
                         properties.curSprite += 1;
                         if (properties.curSprite > 5)
