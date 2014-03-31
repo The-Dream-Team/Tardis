@@ -318,13 +318,6 @@ public class Game extends Canvas {
 
     public void characterSelect() {
 
-        database.dbCheckAch();
-        try {
-            new Database().dbGetDistance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
 
         ImageIcon ship1 = new ImageIcon(Utils.ship1URL);
         ImageIcon ship2 = new ImageIcon(Utils.ship2URL);

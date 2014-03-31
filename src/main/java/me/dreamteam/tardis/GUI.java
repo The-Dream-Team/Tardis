@@ -68,12 +68,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         systemLF();
         UIManager.put("Button.focus", Color.white);
-        try {
-            new Database().dbCheckAch();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
+
         try {
             new Database().dbGetDistance();
         } catch (Exception e) {
