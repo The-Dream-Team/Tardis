@@ -68,14 +68,14 @@ public class Database {
     }
 
     // Initiate connection to the SQLite database and get unlocked achievements
-    public void dbConnect() {
+    public void dbCheckAch() {
         Connection c = null;
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
 
-            System.out.println("DEBUG: [INFO] Opened database successfully");
+            System.out.println("DEBUG: [INFO] (dbCheckAch) Opened database successfully");
 
 
             //Check Achievements
@@ -174,18 +174,18 @@ public class Database {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:SSA.db");
             c.setAutoCommit(false);
-            System.out.println("DEBUG: [INFO] Opened database successfully");
+            System.out.println("DEBUG: [INFO] (dbUpdateAchievements) Opened database successfully");
 
 
             //Check Achievements
-            if (GProperties.gameTime + 0 >= 150) {
+            if (GProperties.gameTime + 0 >= 1000) {
                 stmt = c.createStatement();
                 String sql = "UPDATE achievements set unlocked = 1 where id=1;";
                 stmt.executeUpdate(sql);
                 c.commit();
                 stmt.close();
             }
-            if (GProperties.gameTime + 0 >= 300) {
+            if (GProperties.gameTime + 0 >= 5000) {
                 stmt = c.createStatement();
                 String sql = "UPDATE achievements set unlocked = 1 where id=2;";
                 stmt.executeUpdate(sql);

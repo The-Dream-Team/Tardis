@@ -69,7 +69,7 @@ public class GUI extends javax.swing.JFrame {
         systemLF();
         UIManager.put("Button.focus", Color.white);
         try {
-            new Database().dbConnect();
+            new Database().dbCheckAch();
         } catch (Exception e) {
             e.printStackTrace();
         }
